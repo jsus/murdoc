@@ -1,0 +1,235 @@
+html, body {
+  min-height: 100%; }
+
+p, h1, h2, h3, ol, li, ol, ul, dt, dd, dl, body, html {
+  padding: 0;
+  margin: 0; }
+
+body {
+  width: 45%;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  background: #7ba32d;
+  font-family: Helvetica; }
+  body:after {
+    content: ".";
+    font-size: 0.01em;
+    line-height: 0.01em;
+    display: block;
+    clear: both; }
+
+body > * {
+  padding-left: 6%;
+  padding-right: 6%; }
+
+html {
+  background: #094201; }
+
+header {
+  background: rgba(255, 255, 255, 0.1);
+  padding-top: 1em;
+  display: block; }
+  header dl {
+    margin-top: 1.125em;
+    font-size: 0.75em; }
+    header dl dt {
+      width: 5em;
+      font-weight: bold; }
+
+p, dl, li {
+  color: #c4eeff;
+  font-weight: normal; }
+
+a {
+  color: #a41717; }
+
+p {
+  margin-top: 1.5em; }
+
+h1 {
+  font-size: 2em; }
+
+h2 {
+  font-size: 1em;
+  line-height: 2em; }
+
+h1, h2, h3 {
+  color: #a41717; }
+
+ol, li {
+  margin-left: 1em; }
+
+body > div.paragraph, body > h1, body > h2 {
+  clear: both; }
+
+header {
+  padding-bottom: 1em;
+  overflow: hidden; }
+
+pre {
+  margin-top: 0;
+}
+
+dl {
+  clear: left; }
+  dl dt, dl dd {
+    float: left; }
+  dl dt {
+    clear: left; }
+  dl dd {
+    margin-left: 1em; }
+
+figure {
+  display: block;
+  float: right;
+  margin-right: -112.5%;
+  width: 95%;
+  clear: right;
+  padding: 2.5em 5% 3em; }
+  figure > ol {
+    width: 7.5%;
+    text-align: right;
+    float: left;
+    font-size: 0.8em;
+    color: #7ba32d;
+    -webkit-border-radius: 0.2em;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    list-style: none;
+    margin-left: -11.25%; }
+    figure > ol li {
+      margin: 0; }
+  figure pre {
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(0, 0, 0, 0.3);
+      border-left: none;
+  }
+  figure > code, figure > ol {
+    font-size: 1em;
+    font-family: monospace; }
+  figure ~ figure {
+    padding-top: 1.5em; }
+
+body .hll {
+  background-color: #ffffcc; }
+body .c {
+  color: #408080;
+  font-style: italic; }
+body .err {
+  border: 1px solid red; }
+body .k {
+  color: #954121; }
+body .o {
+  color: #666666; }
+body .cm {
+  color: #408080;
+  font-style: italic; }
+body .cp {
+  color: #bc7a00; }
+body .c1, body .cs {
+  color: #408080;
+  font-style: italic; }
+body .gd {
+  color: #a00000; }
+body .ge {
+  font-style: italic; }
+body .gr {
+  color: red; }
+body .gh {
+  color: navy;
+  font-weight: bold; }
+body .gi {
+  color: #00a000; }
+body .go {
+  color: gray; }
+body .gp {
+  color: navy;
+  font-weight: bold; }
+body .gs {
+  font-weight: bold; }
+body .gu {
+  color: purple;
+  font-weight: bold; }
+body .gt {
+  color: #0040d0; }
+body .kc {
+  color: #954121; }
+body .kd, body .kn {
+  color: #954121;
+  font-weight: bold; }
+body .kp {
+  color: #954121; }
+body .kr {
+  color: #954121;
+  font-weight: bold; }
+body .kt {
+  color: #b00040; }
+body .m {
+  color: #666666; }
+body .s {
+  color: #219161; }
+body .na {
+  color: #7d9029; }
+body .nb {
+  color: #954121; }
+body .nc {
+  color: blue;
+  font-weight: bold; }
+body .no {
+  color: #880000; }
+body .nd {
+  color: #aa22ff; }
+body .ni {
+  color: #999999;
+  font-weight: bold; }
+body .ne {
+  color: #d2413a;
+  font-weight: bold; }
+body .nf {
+  color: blue; }
+body .nl {
+  color: #a0a000; }
+body .nn {
+  color: blue;
+  font-weight: bold; }
+body .nt {
+  color: #954121;
+  font-weight: bold; }
+body .nv {
+  color: #19469d; }
+body .ow {
+  color: #aa22ff;
+  font-weight: bold; }
+body .w {
+  color: #bbbbbb; }
+body .mf, body .mh, body .mi, body .mo {
+  color: #666666; }
+body .sb, body .sc {
+  color: #219161; }
+body .sd {
+  color: #219161;
+  font-style: italic; }
+body .s2 {
+  color: #219161; }
+body .se {
+  color: #bb6622;
+  font-weight: bold; }
+body .sh {
+  color: #219161; }
+body .si {
+  color: #bb6688;
+  font-weight: bold; }
+body .sx {
+  color: #954121; }
+body .sr {
+  color: #bb6688; }
+body .s1 {
+  color: #219161; }
+body .ss {
+  color: #19469d; }
+body .bp {
+  color: #954121; }
+body .vc, body .vg, body .vi {
+  color: #19469d; }
+body .il {
+  color: #666666; }
