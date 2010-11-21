@@ -11,7 +11,11 @@ describe Murdoc::Paragraph do
     end
 
     it "should optionally set source_type" do
-      described_class.new("", "", :ruby).source_type.should == "ruby"
+      described_class.new("", "", 0, :ruby).source_type.should == "ruby"
+    end
+
+    it "should optionally set starting line" do
+      described_class.new("", "", 666, :ruby).starting_line.should == 666
     end
   end
 end

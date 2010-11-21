@@ -28,7 +28,7 @@ module Murdoc
         
         unless p.source.empty?
           f.puts "<figure><ol>"
-          1.upto(p.source.split("\n").size) {|i| f.puts "<li>#{i}</li>"}
+          1.upto(p.source.split("\n").size) {|i| f.puts "<li>#{p.starting_line + i}</li>"}
           f.puts "</ol><code>" + p.formatted_source + "</code>"
           f.puts "</figure>"
         end

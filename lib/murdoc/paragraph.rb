@@ -8,10 +8,12 @@ module Murdoc
     attr_accessor :source
     attr_accessor :annotation
     attr_accessor :source_type
-    
-    def initialize(source, annotation, source_type = nil)
+    attr_accessor :starting_line
+
+    def initialize(source, annotation, starting_line = 0, source_type = nil)
       self.source = source
       self.annotation = annotation
+      self.starting_line = starting_line
       self.source_type = source_type
     end
 

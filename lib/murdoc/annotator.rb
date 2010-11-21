@@ -1,17 +1,25 @@
-#
 # Annotator class does all the main job: parses out comments
 # and returns annotated code
-#
 
 
 # Main module
 module Murdoc
   class Annotator
+    # Attribute accessor containing the resulting paragraphs
     attr_accessor :paragraphs
 
+
+    # +source+ string contains annotated source code
+    # +source_type+ is one of supported source types (currently [:ruby, :javascript]
     def initialize(source, source_type)
       self.source_type = source_type
       self.source      = source
+    end
+
+    # You may also initialize annotator from file, it will even try to detect the
+    # source type from extension.
+    def self.from_file(filename, source_type = nil)
+      self.new(File.read(filename), source_type || detect_source_type_from_filename(filename))
     end
 
     def source_type
@@ -22,17 +30,21 @@ module Murdoc
       @source_type = source_type.to_s
     end
 
+    # Big and hairy code parser
     def source=(src)
       @source = src
       @paragraphs = []
 
-      # lambda for checking source for comments
+      # Lambda for checking source for comments. Used for getting consequent non-comments
+      # into resulting stream
       is_comment = lambda do |line|
         result = false
+        # If source supports single line comments
         if comment_symbols[:single_line]
           result ||= line =~ /^\s*#{Regexp.escape(comment_symbols[:single_line])}/
         end
 
+        # If source supports multi-line comments
         if comment_symbols[:multiline]
           result ||= line =~ /^\s*#{Regexp.escape(comment_symbols[:multiline][:begin])}/
         end
@@ -66,26 +78,26 @@ module Murdoc
         end
 
         # getting source lines
+        starting_line = i
         source_lines = []
         while i < lines.size && !is_comment.call(lines[i])
           source_lines << lines[i]
           i += 1
         end
-
+        # post-processing: stripping comments and removing empty source strings
         source_lines.reject! {|l| l =~ /^\s*$/}
         comment_lines.map! {|l| l.strip }
         comment_lines.delete_at(0) if comment_lines.size > 0 && comment_lines[0].empty?
         comment_lines.delete_at(-1) if comment_lines.size > 0 && comment_lines[-1].empty?
-        @paragraphs << Paragraph.new(source_lines.join("\n"), comment_lines.join("\n"), source_type)
+
+        # writing a new paragraph
+        @paragraphs << Paragraph.new(source_lines.join("\n"), comment_lines.join("\n"), starting_line, source_type)
       end
     end
 
+    # Rest of the file quite less self-explanatory
     def source
       @source
-    end
-
-    def self.from_file(filename, source_type = nil)
-      self.new(File.read(filename), source_type || detect_source_type_from_filename(filename))
     end
 
   protected
