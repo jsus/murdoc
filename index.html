@@ -295,12 +295,16 @@ source type from extension.</p>
 <li>27</li>
 <li>28</li>
 <li>29</li>
+<li>30</li>
+<li>31</li>
 </ol><code><div class="highlight"><pre>    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">from_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">source_type</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
       <span class="nb">self</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">),</span> <span class="n">source_type</span> <span class="o">||</span> <span class="n">detect_source_type_from_filename</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
     <span class="k">end</span>
+
     <span class="k">def</span> <span class="nf">source_type</span>
       <span class="vi">@source_type</span>
     <span class="k">end</span>
+
     <span class="k">def</span> <span class="nf">source_type</span><span class="o">=</span><span class="p">(</span><span class="n">source_type</span><span class="p">)</span>
       <span class="vi">@source_type</span> <span class="o">=</span> <span class="n">source_type</span><span class="o">.</span><span class="n">to_s</span>
     <span class="k">end</span>
@@ -452,7 +456,7 @@ into resulting stream</p>
 <li>89</li>
 <li>90</li>
 <li>91</li>
-</ol><code><div class="highlight"><pre>        <span class="n">source_lines</span><span class="o">.</span><span class="n">reject!</span> <span class="p">{</span><span class="o">|</span><span class="n">l</span><span class="o">|</span> <span class="n">l</span> <span class="o">=~</span> <span class="sr">/^\s*$/</span><span class="p">}</span>
+</ol><code><div class="highlight"><pre>        <span class="n">source_lines</span><span class="o">.</span><span class="n">clear</span> <span class="k">if</span> <span class="n">source_lines</span><span class="o">.</span><span class="n">all?</span> <span class="p">{</span><span class="o">|</span><span class="n">l</span><span class="o">|</span> <span class="n">l</span> <span class="o">=~</span> <span class="sr">/^\s*$/</span><span class="p">}</span>
         <span class="n">comment_lines</span><span class="o">.</span><span class="n">map!</span> <span class="p">{</span><span class="o">|</span><span class="n">l</span><span class="o">|</span> <span class="n">l</span><span class="o">.</span><span class="n">strip</span> <span class="p">}</span>
         <span class="n">comment_lines</span><span class="o">.</span><span class="n">delete_at</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="n">comment_lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">comment_lines</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="n">empty?</span>
         <span class="n">comment_lines</span><span class="o">.</span><span class="n">delete_at</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">comment_lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">comment_lines</span><span class="o">[-</span><span class="mi">1</span><span class="o">].</span><span class="n">empty?</span>
@@ -485,9 +489,11 @@ into resulting stream</p>
 <li>105</li>
 <li>106</li>
 <li>107</li>
+<li>108</li>
 </ol><code><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">source</span>
       <span class="vi">@source</span>
     <span class="k">end</span>
+
   <span class="kp">protected</span>
     <span class="k">def</span> <span class="nf">comment_symbols</span>
       <span class="k">super</span> <span class="o">||</span> <span class="p">{}</span>
