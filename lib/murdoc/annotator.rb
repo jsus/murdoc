@@ -85,7 +85,7 @@ module Murdoc
           i += 1
         end
         # post-processing: stripping comments and removing empty source strings
-        source_lines.reject! {|l| l =~ /^\s*$/}
+        source_lines.clear if source_lines.all? {|l| l =~ /^\s*$/}
         comment_lines.map! {|l| l.strip }
         comment_lines.delete_at(0) if comment_lines.size > 0 && comment_lines[0].empty?
         comment_lines.delete_at(-1) if comment_lines.size > 0 && comment_lines[-1].empty?

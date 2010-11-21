@@ -91,6 +91,16 @@ describe Murdoc::Annotator do
       subject.source = "\n            =begin\n\n          =end yo"
       subject.source = "=begin YO =end\n\n\n\n asdasd asd"
     end
+
+    it "should remove totally empty source" do
+      subject.source = "# Comment\n\n\n\n"
+      subject.paragraphs[0].source.should be_empty
+    end
+
+    it "should remove semi-empty lines" do
+      subject.source = "def hi\n\nend"
+      subject.paragraphs[0].source.should == "def hi\n\nend"
+    end
   end
 
 

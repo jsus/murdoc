@@ -8,6 +8,11 @@ You may also want to see:
 * [docco.coffee](http://jashkenas.github.com/docco/)
 * [Rocco](http://rtomayko.github.com/rocco/)
 
+Example
+=======
+
+See example at [GH.pages](http://markiz.github.com/murdoc).
+
 License and authorship
 ======================
 
