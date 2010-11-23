@@ -17,5 +17,9 @@ describe Murdoc::Paragraph do
     it "should optionally set starting line" do
       described_class.new("", "", 666, :ruby).starting_line.should == 666
     end
+
+    it "should optionally set options" do
+      described_class.new("", "", 666, :ruby, {:foo => :bar}).options.should == {:foo => :bar}
+    end
   end
 end

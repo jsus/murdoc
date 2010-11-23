@@ -3,10 +3,14 @@ require "optparse"
 $: << "./lib/"
 require "murdoc"
 
-
+options = {}
 
 option_parser = OptionParser.new do |opts|
   opts.banner = "murdoc <input file> <output html>"  
+
+  opts.on("--[no-]syntax-highlight", "Highlight syntax using pygments") do |h|
+    options[:highlight_source] = h
+  end
 
   opts.on_tail("-h", "--help", "Show this message") do
     puts opts
@@ -20,5 +24,5 @@ option_parser.parse!
 if ARGV.size < 2
   puts option_parser
 else
-  Murdoc.generate_from_file(ARGV[0], ARGV[1])
+  Murdoc.generate_from_file(ARGV[0], ARGV[1], options)
 end

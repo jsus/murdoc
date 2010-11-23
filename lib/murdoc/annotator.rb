@@ -8,18 +8,31 @@ module Murdoc
     # Attribute accessor containing the resulting paragraphs
     attr_accessor :paragraphs
 
+    # Options
+    # Available options:
+    #   `:highlight_source` -- highlights source syntax using pygments (default: true)
+    attr_accessor :options
+
+    def self.default_options
+      {
+          :highlight_source => true
+      }
+    end
+
 
     # `source` string contains annotated source code
     # `source_type` is one of supported source types (currently `[:ruby, :javascript]`)
-    def initialize(source, source_type)
+    def initialize(source, source_type, options = {})
       self.source_type = source_type
       self.source      = source
+      self.options     = self.class.default_options.merge(options)
     end
+
 
     # You may also initialize annotator from file, it will even try to detect the
     # source type from extension.
-    def self.from_file(filename, source_type = nil)
-      self.new(File.read(filename), source_type || detect_source_type_from_filename(filename))
+    def self.from_file(filename, source_type = nil, options = {})
+      self.new(File.read(filename), source_type || detect_source_type_from_filename(filename), options)
     end
 
     def source_type

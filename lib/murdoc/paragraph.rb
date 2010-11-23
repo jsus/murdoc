@@ -9,12 +9,14 @@ module Murdoc
     attr_accessor :annotation
     attr_accessor :source_type
     attr_accessor :starting_line
+    attr_accessor :options
 
-    def initialize(source, annotation, starting_line = 0, source_type = nil)
+    def initialize(source, annotation, starting_line = 0, source_type = nil, options ={})
       self.source = source
       self.annotation = annotation
       self.starting_line = starting_line
       self.source_type = source_type
+      self.options = options
     end
 
     def source_type
@@ -31,7 +33,7 @@ module Murdoc
     end
 
     def formatted_source
-      @formatted_source ||= if pygments_installed?
+      @formatted_source ||= if pygments_installed? && options[:highlight_source]
         IO.popen("pygmentize -l #{source_type} -f html", "w+") do |pipe|
           pipe.puts source
           pipe.close_write

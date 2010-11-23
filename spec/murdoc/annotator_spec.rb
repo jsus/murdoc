@@ -11,6 +11,10 @@ describe Murdoc::Annotator do
       Murdoc::Annotator.new("# Hello", "ruby").source_type.should == "ruby"
       Murdoc::Annotator.new("# Hello", :ruby).source_type.should == "ruby"
     end
+
+    it "should set options from hash" do
+      Murdoc::Annotator.new("", "", :foo => :bar).options[:foo].should == :bar 
+    end
   end
 
   describe ".from_file" do
