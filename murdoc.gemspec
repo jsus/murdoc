@@ -36,6 +36,7 @@ Gem::Specification.new do |s|
     "lib/murdoc/paragraph.rb",
     "markup/stylesheet.css",
     "markup/template.haml",
+    "murdoc.gemspec",
     "spec/murdoc/annotator_spec.rb",
     "spec/murdoc/formatter_spec.rb",
     "spec/murdoc/paragraph_spec.rb",
