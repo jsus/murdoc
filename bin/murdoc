@@ -12,6 +12,14 @@ option_parser = OptionParser.new do |opts|
     options[:highlight_source] = h
   end
 
+  opts.on("-t", "--template [FILENAME]", "Use custom haml template for output") do |t|
+    options[:template] = t
+  end
+
+  opts.on("-s", "--stylesheet [FILENAME]", "Use custom css stylesheet for output") do |s|
+    options[:stylesheet] = s
+  end
+
   opts.on_tail("-h", "--help", "Show this message") do
     puts opts
     exit

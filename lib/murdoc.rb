@@ -11,11 +11,19 @@
 
 module Murdoc
   def self.generate_from_file(input, output, options = {})
+    options = default_options.merge(options)
     annotator = Annotator.from_file(input, nil, options)
-    markup_dir = File.dirname(__FILE__)+ "/../markup"
     File.open(output, "w+") do |f|
-      f.puts Formatter.new("#{markup_dir}/template.haml").render(:paragraphs => annotator.paragraphs, :stylesheet => File.read("#{markup_dir}/stylesheet.css"))
+      f.puts Formatter.new(options[:template]).render(:paragraphs => annotator.paragraphs, :stylesheet => File.read(options[:stylesheet]))
     end
+  end
+
+  def self.default_options
+    markup_dir = File.dirname(__FILE__)+ "/../markup"
+    @@options ||= {
+        :template =>   "#{markup_dir}/template.haml",
+        :stylesheet => "#{markup_dir}/stylesheet.css"
+    }
   end
 end
 
