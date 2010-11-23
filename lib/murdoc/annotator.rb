@@ -9,8 +9,8 @@ module Murdoc
     attr_accessor :paragraphs
 
 
-    # +source+ string contains annotated source code
-    # +source_type+ is one of supported source types (currently [:ruby, :javascript]
+    # `source` string contains annotated source code
+    # `source_type` is one of supported source types (currently `[:ruby, :javascript]`)
     def initialize(source, source_type)
       self.source_type = source_type
       self.source      = source
@@ -84,11 +84,15 @@ module Murdoc
           source_lines << lines[i]
           i += 1
         end
-        # post-processing: stripping comments and removing empty source strings
-        source_lines.clear if source_lines.all? {|l| l =~ /^\s*$/}
+        # post-processing: stripping comments and removing empty strings from beginnings and ends
+        while source_lines.size > 0 && source_lines[0] =~ /^\s*$/
+          starting_line += 1
+          source_lines.delete_at(0)
+        end
+        source_lines.delete_at(-1) while source_lines.size > 0 && source_lines[-1] =~ /^\s*$/
         comment_lines.map! {|l| l.strip }
-        comment_lines.delete_at(0) if comment_lines.size > 0 && comment_lines[0].empty?
-        comment_lines.delete_at(-1) if comment_lines.size > 0 && comment_lines[-1].empty?
+        comment_lines.delete_at(0) while comment_lines.size > 0 && comment_lines[0].empty?
+        comment_lines.delete_at(-1) while comment_lines.size > 0 && comment_lines[-1].empty?
 
         # writing a new paragraph
         @paragraphs << Paragraph.new(source_lines.join("\n"), comment_lines.join("\n"), starting_line, source_type)

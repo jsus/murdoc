@@ -32,10 +32,10 @@ module Murdoc
 
     def formatted_source
       @formatted_source ||= if pygments_installed?
-        Tempfile.open("ASD") do |tempfile|
-          tempfile.puts source
-          tempfile.flush
-          `pygmentize -l #{source_type} -f html #{tempfile.path}`
+        IO.popen("pygmentize -l #{source_type} -f html", "w+") do |pipe|
+          pipe.puts source
+          pipe.close_write
+          pipe.read
         end
       else
         "<pre>" + CGI.escapeHTML(source) + "</pre>"
