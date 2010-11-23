@@ -1,507 +1,433 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-    <head>
-        <title>Murdoc docs</title>
-<style>
-html, body {
-  min-height: 100%; }
-
-p, h1, h2, h3, ol, li, ol, ul, dt, dd, dl, body, html {
-  padding: 0;
-  margin: 0; }
-
-body {
-  width: 45%;
-  padding-left: 2.5%;
-  padding-right: 2.5%;
-  background: #7ba32d;
-  font-family: Helvetica; }
-  body:after {
-    content: ".";
-    font-size: 0.01em;
-    line-height: 0.01em;
-    display: block;
-    clear: both; }
-
-body > * {
-  padding-left: 6%;
-  padding-right: 6%; }
-
-html {
-  background: #094201; }
-
-header {
-  background: rgba(255, 255, 255, 0.1);
-  padding-top: 1em;
-  display: block; }
-  header dl {
-    margin-top: 1.125em;
-    font-size: 0.75em; }
-    header dl dt {
-      width: 5em;
-      font-weight: bold; }
-
-p, dl, li {
-  color: #c4eeff;
-  font-weight: normal; }
-
-a {
-  color: #a41717; }
-
-p {
-  margin-top: 1.5em; }
-
-h1 {
-  font-size: 2em; }
-
-h2 {
-  font-size: 1em;
-  line-height: 2em; }
-
-h1, h2, h3 {
-  color: #a41717; }
-
-ol, li {
-  margin-left: 1em; }
-
-body > div.paragraph, body > h1, body > h2 {
-  clear: both; }
-
-header {
-  padding-bottom: 1em;
-  overflow: hidden; }
-
-pre {
-  margin-top: 0;
-}
-
-dl {
-  clear: left; }
-  dl dt, dl dd {
-    float: left; }
-  dl dt {
-    clear: left; }
-  dl dd {
-    margin-left: 1em; }
-
-figure {
-  display: block;
-  float: right;
-  margin-right: -112.5%;
-  width: 95%;
-  clear: right;
-  padding: 2.5em 5% 3em; }
-  figure > ol {
-    width: 7.5%;
-    text-align: right;
-    float: left;
-    font-size: 0.8em;
-    color: #7ba32d;
-    -webkit-border-radius: 0.2em;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.3);
-    list-style: none;
-    margin-left: -11.25%; }
-    figure > ol li {
-      margin: 0; }
-  figure pre {
-      background: rgba(255, 255, 255, 0.5);
-      border: 1px solid rgba(0, 0, 0, 0.3);
-      border-left: none;
-  }
-  figure > code, figure > ol {
-    font-size: 1em;
-    font-family: monospace; }
-  figure ~ figure {
-    padding-top: 1.5em; }
-
-body .hll {
-  background-color: #ffffcc; }
-body .c {
-  color: #408080;
-  font-style: italic; }
-body .err {
-  border: 1px solid red; }
-body .k {
-  color: #954121; }
-body .o {
-  color: #666666; }
-body .cm {
-  color: #408080;
-  font-style: italic; }
-body .cp {
-  color: #bc7a00; }
-body .c1, body .cs {
-  color: #408080;
-  font-style: italic; }
-body .gd {
-  color: #a00000; }
-body .ge {
-  font-style: italic; }
-body .gr {
-  color: red; }
-body .gh {
-  color: navy;
-  font-weight: bold; }
-body .gi {
-  color: #00a000; }
-body .go {
-  color: gray; }
-body .gp {
-  color: navy;
-  font-weight: bold; }
-body .gs {
-  font-weight: bold; }
-body .gu {
-  color: purple;
-  font-weight: bold; }
-body .gt {
-  color: #0040d0; }
-body .kc {
-  color: #954121; }
-body .kd, body .kn {
-  color: #954121;
-  font-weight: bold; }
-body .kp {
-  color: #954121; }
-body .kr {
-  color: #954121;
-  font-weight: bold; }
-body .kt {
-  color: #b00040; }
-body .m {
-  color: #666666; }
-body .s {
-  color: #219161; }
-body .na {
-  color: #7d9029; }
-body .nb {
-  color: #954121; }
-body .nc {
-  color: blue;
-  font-weight: bold; }
-body .no {
-  color: #880000; }
-body .nd {
-  color: #aa22ff; }
-body .ni {
-  color: #999999;
-  font-weight: bold; }
-body .ne {
-  color: #d2413a;
-  font-weight: bold; }
-body .nf {
-  color: blue; }
-body .nl {
-  color: #a0a000; }
-body .nn {
-  color: blue;
-  font-weight: bold; }
-body .nt {
-  color: #954121;
-  font-weight: bold; }
-body .nv {
-  color: #19469d; }
-body .ow {
-  color: #aa22ff;
-  font-weight: bold; }
-body .w {
-  color: #bbbbbb; }
-body .mf, body .mh, body .mi, body .mo {
-  color: #666666; }
-body .sb, body .sc {
-  color: #219161; }
-body .sd {
-  color: #219161;
-  font-style: italic; }
-body .s2 {
-  color: #219161; }
-body .se {
-  color: #bb6622;
-  font-weight: bold; }
-body .sh {
-  color: #219161; }
-body .si {
-  color: #bb6688;
-  font-weight: bold; }
-body .sx {
-  color: #954121; }
-body .sr {
-  color: #bb6688; }
-body .s1 {
-  color: #219161; }
-body .ss {
-  color: #19469d; }
-body .bp {
-  color: #954121; }
-body .vc, body .vg, body .vi {
-  color: #19469d; }
-body .il {
-  color: #666666; }
-</style>
-</head>
-<body>
-<div class='paragraph'>
-<p>Annotator class does all the main job: parses out comments
-and returns annotated code</p>
-</div>
-<div class='paragraph'>
-<p>Main module</p>
-</div>
-<figure><ol>
-<li>6</li>
-<li>7</li>
-</ol><code><div class="highlight"><pre><span class="k">module</span> <span class="nn">Murdoc</span>
-  <span class="k">class</span> <span class="nc">Annotator</span>
-</pre></div>
-</code>
-</figure>
-<div class='paragraph'>
-<p>Attribute accessor containing the resulting paragraphs</p>
-</div>
-<figure><ol>
-<li>9</li>
-</ol><code><div class="highlight"><pre>    <span class="kp">attr_accessor</span> <span class="ss">:paragraphs</span>
-</pre></div>
-</code>
-</figure>
-<div class='paragraph'>
-<p>+source+ string contains annotated source code
-+source_type+ is one of supported source types (currently [:ruby, :javascript]</p>
-</div>
-<figure><ol>
-<li>14</li>
-<li>15</li>
-<li>16</li>
-<li>17</li>
-</ol><code><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">source_type</span><span class="p">)</span>
-      <span class="nb">self</span><span class="o">.</span><span class="n">source_type</span> <span class="o">=</span> <span class="n">source_type</span>
-      <span class="nb">self</span><span class="o">.</span><span class="n">source</span>      <span class="o">=</span> <span class="n">source</span>
-    <span class="k">end</span>
-</pre></div>
-</code>
-</figure>
-<div class='paragraph'>
-<p>You may also initialize annotator from file, it will even try to detect the
-source type from extension.</p>
-</div>
-<figure><ol>
-<li>21</li>
-<li>22</li>
-<li>23</li>
-<li>24</li>
-<li>25</li>
-<li>26</li>
-<li>27</li>
-<li>28</li>
-<li>29</li>
-<li>30</li>
-<li>31</li>
-</ol><code><div class="highlight"><pre>    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">from_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">source_type</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>
-      <span class="nb">self</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">),</span> <span class="n">source_type</span> <span class="o">||</span> <span class="n">detect_source_type_from_filename</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
-    <span class="k">end</span>
-
-    <span class="k">def</span> <span class="nf">source_type</span>
-      <span class="vi">@source_type</span>
-    <span class="k">end</span>
-
-    <span class="k">def</span> <span class="nf">source_type</span><span class="o">=</span><span class="p">(</span><span class="n">source_type</span><span class="p">)</span>
-      <span class="vi">@source_type</span> <span class="o">=</span> <span class="n">source_type</span><span class="o">.</span><span class="n">to_s</span>
-    <span class="k">end</span>
-</pre></div>
-</code>
-</figure>
-<div class='paragraph'>
-<p>Big and hairy code parser</p>
-</div>
-<figure><ol>
-<li>34</li>
-<li>35</li>
-<li>36</li>
-</ol><code><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">source</span><span class="o">=</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
-      <span class="vi">@source</span> <span class="o">=</span> <span class="n">src</span>
-      <span class="vi">@paragraphs</span> <span class="o">=</span> <span class="o">[]</span>
-</pre></div>
-</code>
-</figure>
-<div class='paragraph'>
-<p>Lambda for checking source for comments. Used for getting consequent non-comments
-into resulting stream</p>
-</div>
-<figure><ol>
-<li>40</li>
-<li>41</li>
-</ol><code><div class="highlight"><pre>      <span class="n">is_comment</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="k">do</span> <span class="o">|</span><span class="n">line</span><span class="o">|</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="kp">false</span>
-</pre></div>
-</code>
-</figure>
-<div class='paragraph'>
-<p>If source supports single line comments</p>
-</div>
-<figure><ol>
-<li>43</li>
-<li>44</li>
-<li>45</li>
-</ol><code><div class="highlight"><pre>        <span class="k">if</span> <span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:single_line</span><span class="o">]</span>
-          <span class="n">result</span> <span class="o">||=</span> <span class="n">line</span> <span class="o">=~</span> <span class="sr">/^\s*</span><span class="si">#{</span><span class="no">Regexp</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:single_line</span><span class="o">]</span><span class="p">)</span><span class="si">}</span><span class="sr">/</span>
-        <span class="k">end</span>
-</pre></div>
-</code>
-</figure>
-<div class='paragraph'>
-<p>If source supports multi-line comments</p>
-</div>
-<figure><ol>
-<li>48</li>
-<li>49</li>
-<li>50</li>
-<li>51</li>
-<li>52</li>
-</ol><code><div class="highlight"><pre>        <span class="k">if</span> <span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:multiline</span><span class="o">]</span>
-          <span class="n">result</span> <span class="o">||=</span> <span class="n">line</span> <span class="o">=~</span> <span class="sr">/^\s*</span><span class="si">#{</span><span class="no">Regexp</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:multiline</span><span class="o">][</span><span class="ss">:begin</span><span class="o">]</span><span class="p">)</span><span class="si">}</span><span class="sr">/</span>
-        <span class="k">end</span>
-        <span class="n">result</span>
-      <span class="k">end</span>
-</pre></div>
-</code>
-</figure>
-<div class='paragraph'>
-<p>splitting stuff into lines and setting cursor into initial position</p>
-</div>
-<figure><ol>
-<li>55</li>
-<li>56</li>
-<li>57</li>
-<li>58</li>
-</ol><code><div class="highlight"><pre>      <span class="n">lines</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-      <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-      <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">lines</span><span class="o">.</span><span class="n">size</span>
-        <span class="n">comment_lines</span> <span class="o">=</span> <span class="o">[]</span>
-</pre></div>
-</code>
-</figure>
-<div class='paragraph'>
-<p>get single line comments (removing optional first space after comment symbol)</p>
-</div>
-<figure><ol>
-<li>60</li>
-<li>61</li>
-<li>62</li>
-<li>63</li>
-<li>64</li>
-<li>65</li>
-</ol><code><div class="highlight"><pre>        <span class="k">if</span> <span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:single_line</span><span class="o">]</span>
-          <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&amp;&amp;</span> <span class="n">lines</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=~</span> <span class="sr">/^\s*</span><span class="si">#{</span><span class="no">Regexp</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:single_line</span><span class="o">]</span><span class="p">)</span><span class="si">}</span><span class="sr">\s?(.*)/</span>
-            <span class="n">comment_lines</span> <span class="o">&lt;&lt;</span> <span class="vg">$1</span>
-            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-          <span class="k">end</span>
-        <span class="k">end</span>
-</pre></div>
-</code>
-</figure>
-<div class='paragraph'>
-<p>getting multiline comments</p>
-</div>
-<figure><ol>
-<li>68</li>
-<li>69</li>
-<li>70</li>
-<li>71</li>
-<li>72</li>
-<li>73</li>
-<li>74</li>
-<li>75</li>
-<li>76</li>
-<li>77</li>
-<li>78</li>
-</ol><code><div class="highlight"><pre>        <span class="k">if</span> <span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:multiline</span><span class="o">]</span>
-          <span class="n">begin_symbol</span> <span class="o">=</span> <span class="no">Regexp</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:multiline</span><span class="o">][</span><span class="ss">:begin</span><span class="o">]</span><span class="p">)</span>
-          <span class="n">end_symbol</span> <span class="o">=</span> <span class="no">Regexp</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:multiline</span><span class="o">][</span><span class="ss">:end</span><span class="o">]</span><span class="p">)</span>
-          <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&amp;&amp;</span> <span class="n">lines</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=~</span> <span class="sr">/\s*</span><span class="si">#{</span><span class="n">begin_symbol</span><span class="si">}</span><span class="sr">/</span>
-            <span class="k">begin</span>
-              <span class="n">match</span> <span class="o">=</span> <span class="n">lines</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="n">match</span><span class="sr"> /\s*(</span><span class="si">#{</span><span class="n">begin_symbol</span><span class="si">}</span><span class="sr">)?\s?(.*?)(</span><span class="si">#{</span><span class="n">end_symbol</span><span class="si">}</span><span class="sr">|$)/</span>
-              <span class="n">comment_lines</span> <span class="o">&lt;&lt;</span> <span class="n">match</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
-              <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="k">end</span> <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="p">(</span><span class="n">lines</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span> <span class="o">=~</span> <span class="sr">/\s*</span><span class="si">#{</span><span class="n">end_symbol</span><span class="si">}</span><span class="sr">/</span><span class="p">)</span>
-          <span class="k">end</span>
-        <span class="k">end</span>
-</pre></div>
-</code>
-</figure>
-<div class='paragraph'>
-<p>getting source lines</p>
-</div>
-<figure><ol>
-<li>81</li>
-<li>82</li>
-<li>83</li>
-<li>84</li>
-<li>85</li>
-<li>86</li>
-</ol><code><div class="highlight"><pre>        <span class="n">starting_line</span> <span class="o">=</span> <span class="n">i</span>
-        <span class="n">source_lines</span> <span class="o">=</span> <span class="o">[]</span>
-        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">is_comment</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">lines</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span>
-          <span class="n">source_lines</span> <span class="o">&lt;&lt;</span> <span class="n">lines</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>
-          <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="k">end</span>
-</pre></div>
-</code>
-</figure>
-<div class='paragraph'>
-<p>post-processing: stripping comments and removing empty source strings</p>
-</div>
-<figure><ol>
-<li>88</li>
-<li>89</li>
-<li>90</li>
-<li>91</li>
-</ol><code><div class="highlight"><pre>        <span class="n">source_lines</span><span class="o">.</span><span class="n">clear</span> <span class="k">if</span> <span class="n">source_lines</span><span class="o">.</span><span class="n">all?</span> <span class="p">{</span><span class="o">|</span><span class="n">l</span><span class="o">|</span> <span class="n">l</span> <span class="o">=~</span> <span class="sr">/^\s*$/</span><span class="p">}</span>
-        <span class="n">comment_lines</span><span class="o">.</span><span class="n">map!</span> <span class="p">{</span><span class="o">|</span><span class="n">l</span><span class="o">|</span> <span class="n">l</span><span class="o">.</span><span class="n">strip</span> <span class="p">}</span>
-        <span class="n">comment_lines</span><span class="o">.</span><span class="n">delete_at</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="n">comment_lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">comment_lines</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="n">empty?</span>
-        <span class="n">comment_lines</span><span class="o">.</span><span class="n">delete_at</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">comment_lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">comment_lines</span><span class="o">[-</span><span class="mi">1</span><span class="o">].</span><span class="n">empty?</span>
-</pre></div>
-</code>
-</figure>
-<div class='paragraph'>
-<p>writing a new paragraph</p>
-</div>
-<figure><ol>
-<li>94</li>
-<li>95</li>
-<li>96</li>
-</ol><code><div class="highlight"><pre>        <span class="vi">@paragraphs</span> <span class="o">&lt;&lt;</span> <span class="no">Paragraph</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">source_lines</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">),</span> <span class="n">comment_lines</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">),</span> <span class="n">starting_line</span><span class="p">,</span> <span class="n">source_type</span><span class="p">)</span>
-      <span class="k">end</span>
-    <span class="k">end</span>
-</pre></div>
-</code>
-</figure>
-<div class='paragraph'>
-<p>Rest of the file quite less self-explanatory</p>
-</div>
-<figure><ol>
-<li>99</li>
-<li>100</li>
-<li>101</li>
-<li>102</li>
-<li>103</li>
-<li>104</li>
-<li>105</li>
-<li>106</li>
-<li>107</li>
-<li>108</li>
-</ol><code><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">source</span>
-      <span class="vi">@source</span>
-    <span class="k">end</span>
-
-  <span class="kp">protected</span>
-    <span class="k">def</span> <span class="nf">comment_symbols</span>
-      <span class="k">super</span> <span class="o">||</span> <span class="p">{}</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</pre></div>
-</code>
-</figure>
-</body>
+  <head>
+    <title>Murdoc</title>
+    <style>
+      html, body {
+        min-height: 100%; }
+      
+      p, h1, h2, h3, ol, li, ol, ul, dt, dd, dl, body, html {
+        padding: 0;
+        margin: 0; }
+      
+      body {
+        width: 45%;
+        padding-left: 2.5%;
+        padding-right: 2.5%;
+        background: #7ba32d;
+        font-family: Helvetica; }
+        body:after {
+          content: ".";
+          font-size: 0.01em;
+          line-height: 0.01em;
+          display: block;
+          clear: both; }
+      
+      body > * {
+        padding-left: 6%;
+        padding-right: 6%; }
+      
+      html {
+        background: #094201; }
+      
+      header {
+        background: rgba(255, 255, 255, 0.1);
+        padding-top: 1em;
+        display: block; }
+        header dl {
+          margin-top: 1.125em;
+          font-size: 0.75em; }
+          header dl dt {
+            width: 5em;
+            font-weight: bold; }
+      
+      p, dl, li {
+        color: #c4eeff;
+        font-weight: normal; }
+      
+      a {
+        color: #a41717; }
+      
+      p {
+        margin-top: 1.5em; }
+      
+      h1 {
+        font-size: 2em; }
+      
+      h2 {
+        font-size: 1em;
+        line-height: 2em; }
+      
+      h1, h2, h3 {
+        color: #a41717; }
+      
+      ol, li {
+        margin-left: 1em; }
+      
+      body > div.paragraph, body > h1, body > h2 {
+        clear: both; }
+      
+      header {
+        padding-bottom: 1em;
+        overflow: hidden; }
+      
+      pre {
+        margin-top: 0;
+      }
+      
+      dl {
+        clear: left; }
+        dl dt, dl dd {
+          float: left; }
+        dl dt {
+          clear: left; }
+        dl dd {
+          margin-left: 1em; }
+      
+      section {
+          clear: both;
+      }
+      
+      figure {
+        display: block;
+        float: right;
+        margin-right: -112.5%;
+        width: 95%;
+        clear: right;
+        padding: 2.5em 5% 3em; }
+        figure > ol {
+          width: 7.5%;
+          text-align: right;
+          float: left;
+          font-size: 0.8em;
+          color: #7ba32d;
+          -webkit-border-radius: 0.2em;
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(0, 0, 0, 0.3);
+          list-style: none;
+          margin-left: -11.25%; }
+          figure > ol li {
+            margin: 0; }
+        figure pre {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            border-left: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        figure > code, figure > ol {
+          font-size: 1em;
+          font-family: monospace; }
+        figure ~ figure {
+          padding-top: 1.5em; }
+      
+      body .hll {
+        background-color: #ffffcc; }
+      body .c {
+        color: #408080;
+        font-style: italic; }
+      body .err {
+        border: 1px solid red; }
+      body .k {
+        color: #954121; }
+      body .o {
+        color: #666666; }
+      body .cm {
+        color: #408080;
+        font-style: italic; }
+      body .cp {
+        color: #bc7a00; }
+      body .c1, body .cs {
+        color: #408080;
+        font-style: italic; }
+      body .gd {
+        color: #a00000; }
+      body .ge {
+        font-style: italic; }
+      body .gr {
+        color: red; }
+      body .gh {
+        color: navy;
+        font-weight: bold; }
+      body .gi {
+        color: #00a000; }
+      body .go {
+        color: gray; }
+      body .gp {
+        color: navy;
+        font-weight: bold; }
+      body .gs {
+        font-weight: bold; }
+      body .gu {
+        color: purple;
+        font-weight: bold; }
+      body .gt {
+        color: #0040d0; }
+      body .kc {
+        color: #954121; }
+      body .kd, body .kn {
+        color: #954121;
+        font-weight: bold; }
+      body .kp {
+        color: #954121; }
+      body .kr {
+        color: #954121;
+        font-weight: bold; }
+      body .kt {
+        color: #b00040; }
+      body .m {
+        color: #666666; }
+      body .s {
+        color: #219161; }
+      body .na {
+        color: #7d9029; }
+      body .nb {
+        color: #954121; }
+      body .nc {
+        color: blue;
+        font-weight: bold; }
+      body .no {
+        color: #880000; }
+      body .nd {
+        color: #aa22ff; }
+      body .ni {
+        color: #999999;
+        font-weight: bold; }
+      body .ne {
+        color: #d2413a;
+        font-weight: bold; }
+      body .nf {
+        color: blue; }
+      body .nl {
+        color: #a0a000; }
+      body .nn {
+        color: blue;
+        font-weight: bold; }
+      body .nt {
+        color: #954121;
+        font-weight: bold; }
+      body .nv {
+        color: #19469d; }
+      body .ow {
+        color: #aa22ff;
+        font-weight: bold; }
+      body .w {
+        color: #bbbbbb; }
+      body .mf, body .mh, body .mi, body .mo {
+        color: #666666; }
+      body .sb, body .sc {
+        color: #219161; }
+      body .sd {
+        color: #219161;
+        font-style: italic; }
+      body .s2 {
+        color: #219161; }
+      body .se {
+        color: #bb6622;
+        font-weight: bold; }
+      body .sh {
+        color: #219161; }
+      body .si {
+        color: #bb6688;
+        font-weight: bold; }
+      body .sx {
+        color: #954121; }
+      body .sr {
+        color: #bb6688; }
+      body .s1 {
+        color: #219161; }
+      body .ss {
+        color: #19469d; }
+      body .bp {
+        color: #954121; }
+      body .vc, body .vg, body .vi {
+        color: #19469d; }
+      body .il {
+        color: #666666; }
+    </style>
+  </head>
+  <body>
+    <section>
+      <p>Annotator class does all the main job: parses out comments
+      and returns annotated code</p>
+    </section>
+    <section><p>Main module</p></section>
+    <figure>
+      <ol>
+        <li>6</li>
+        <li>7</li>
+      </ol>
+      <code><div class="highlight"><pre><span class="k">module</span> <span class="nn">Murdoc</span>&#x000A;  <span class="k">class</span> <span class="nc">Annotator</span>&#x000A;</pre></div></code>
+    </figure>
+    <section><p>Attribute accessor containing the resulting paragraphs</p></section>
+    <figure>
+      <ol>
+        <li>9</li>
+      </ol>
+      <code><div class="highlight"><pre>    <span class="kp">attr_accessor</span> <span class="ss">:paragraphs</span>&#x000A;</pre></div></code>
+    </figure>
+    <section>
+      <p><code>source</code> string contains annotated source code
+      <code>source_type</code> is one of supported source types (currently <code>[:ruby, :javascript]</code>)</p>
+    </section>
+    <figure>
+      <ol>
+        <li>14</li>
+        <li>15</li>
+        <li>16</li>
+        <li>17</li>
+      </ol>
+      <code><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">source_type</span><span class="p">)</span>&#x000A;      <span class="nb">self</span><span class="o">.</span><span class="n">source_type</span> <span class="o">=</span> <span class="n">source_type</span>&#x000A;      <span class="nb">self</span><span class="o">.</span><span class="n">source</span>      <span class="o">=</span> <span class="n">source</span>&#x000A;    <span class="k">end</span>&#x000A;</pre></div></code>
+    </figure>
+    <section>
+      <p>You may also initialize annotator from file, it will even try to detect the
+      source type from extension.</p>
+    </section>
+    <figure>
+      <ol>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+      </ol>
+      <code><div class="highlight"><pre>    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">from_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">source_type</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">)</span>&#x000A;      <span class="nb">self</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">),</span> <span class="n">source_type</span> <span class="o">||</span> <span class="n">detect_source_type_from_filename</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>&#x000A;    <span class="k">end</span>&#x000A;&#x000A;    <span class="k">def</span> <span class="nf">source_type</span>&#x000A;      <span class="vi">@source_type</span>&#x000A;    <span class="k">end</span>&#x000A;&#x000A;    <span class="k">def</span> <span class="nf">source_type</span><span class="o">=</span><span class="p">(</span><span class="n">source_type</span><span class="p">)</span>&#x000A;      <span class="vi">@source_type</span> <span class="o">=</span> <span class="n">source_type</span><span class="o">.</span><span class="n">to_s</span>&#x000A;    <span class="k">end</span>&#x000A;</pre></div></code>
+    </figure>
+    <section><p>Big and hairy code parser</p></section>
+    <figure>
+      <ol>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+      </ol>
+      <code><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">source</span><span class="o">=</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>&#x000A;      <span class="vi">@source</span> <span class="o">=</span> <span class="n">src</span>&#x000A;      <span class="vi">@paragraphs</span> <span class="o">=</span> <span class="o">[]</span>&#x000A;</pre></div></code>
+    </figure>
+    <section>
+      <p>Lambda for checking source for comments. Used for getting consequent non-comments
+      into resulting stream</p>
+    </section>
+    <figure>
+      <ol>
+        <li>40</li>
+        <li>41</li>
+      </ol>
+      <code><div class="highlight"><pre>      <span class="n">is_comment</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="k">do</span> <span class="o">|</span><span class="n">line</span><span class="o">|</span>&#x000A;        <span class="n">result</span> <span class="o">=</span> <span class="kp">false</span>&#x000A;</pre></div></code>
+    </figure>
+    <section><p>If source supports single line comments</p></section>
+    <figure>
+      <ol>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+      </ol>
+      <code><div class="highlight"><pre>        <span class="k">if</span> <span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:single_line</span><span class="o">]</span>&#x000A;          <span class="n">result</span> <span class="o">||=</span> <span class="n">line</span> <span class="o">=~</span> <span class="sr">/^\s*</span><span class="si">#{</span><span class="no">Regexp</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:single_line</span><span class="o">]</span><span class="p">)</span><span class="si">}</span><span class="sr">/</span>&#x000A;        <span class="k">end</span>&#x000A;</pre></div></code>
+    </figure>
+    <section><p>If source supports multi-line comments</p></section>
+    <figure>
+      <ol>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+      </ol>
+      <code><div class="highlight"><pre>        <span class="k">if</span> <span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:multiline</span><span class="o">]</span>&#x000A;          <span class="n">result</span> <span class="o">||=</span> <span class="n">line</span> <span class="o">=~</span> <span class="sr">/^\s*</span><span class="si">#{</span><span class="no">Regexp</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:multiline</span><span class="o">][</span><span class="ss">:begin</span><span class="o">]</span><span class="p">)</span><span class="si">}</span><span class="sr">/</span>&#x000A;        <span class="k">end</span>&#x000A;        <span class="n">result</span>&#x000A;      <span class="k">end</span>&#x000A;</pre></div></code>
+    </figure>
+    <section><p>splitting stuff into lines and setting cursor into initial position</p></section>
+    <figure>
+      <ol>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+      </ol>
+      <code><div class="highlight"><pre>      <span class="n">lines</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>&#x000A;      <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>&#x000A;      <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">lines</span><span class="o">.</span><span class="n">size</span>&#x000A;        <span class="n">comment_lines</span> <span class="o">=</span> <span class="o">[]</span>&#x000A;</pre></div></code>
+    </figure>
+    <section><p>get single line comments (removing optional first space after comment symbol)</p></section>
+    <figure>
+      <ol>
+        <li>60</li>
+        <li>61</li>
+        <li>62</li>
+        <li>63</li>
+        <li>64</li>
+        <li>65</li>
+      </ol>
+      <code><div class="highlight"><pre>        <span class="k">if</span> <span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:single_line</span><span class="o">]</span>&#x000A;          <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&amp;&amp;</span> <span class="n">lines</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=~</span> <span class="sr">/^\s*</span><span class="si">#{</span><span class="no">Regexp</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:single_line</span><span class="o">]</span><span class="p">)</span><span class="si">}</span><span class="sr">\s?(.*)/</span>&#x000A;            <span class="n">comment_lines</span> <span class="o">&lt;&lt;</span> <span class="vg">$1</span>&#x000A;            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>&#x000A;          <span class="k">end</span>&#x000A;        <span class="k">end</span>&#x000A;</pre></div></code>
+    </figure>
+    <section><p>getting multiline comments</p></section>
+    <figure>
+      <ol>
+        <li>68</li>
+        <li>69</li>
+        <li>70</li>
+        <li>71</li>
+        <li>72</li>
+        <li>73</li>
+        <li>74</li>
+        <li>75</li>
+        <li>76</li>
+        <li>77</li>
+        <li>78</li>
+      </ol>
+      <code><div class="highlight"><pre>        <span class="k">if</span> <span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:multiline</span><span class="o">]</span>&#x000A;          <span class="n">begin_symbol</span> <span class="o">=</span> <span class="no">Regexp</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:multiline</span><span class="o">][</span><span class="ss">:begin</span><span class="o">]</span><span class="p">)</span>&#x000A;          <span class="n">end_symbol</span> <span class="o">=</span> <span class="no">Regexp</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:multiline</span><span class="o">][</span><span class="ss">:end</span><span class="o">]</span><span class="p">)</span>&#x000A;          <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&amp;&amp;</span> <span class="n">lines</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=~</span> <span class="sr">/\s*</span><span class="si">#{</span><span class="n">begin_symbol</span><span class="si">}</span><span class="sr">/</span>&#x000A;            <span class="k">begin</span>&#x000A;              <span class="n">match</span> <span class="o">=</span> <span class="n">lines</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="n">match</span><span class="sr"> /\s*(</span><span class="si">#{</span><span class="n">begin_symbol</span><span class="si">}</span><span class="sr">)?\s?(.*?)(</span><span class="si">#{</span><span class="n">end_symbol</span><span class="si">}</span><span class="sr">|$)/</span>&#x000A;              <span class="n">comment_lines</span> <span class="o">&lt;&lt;</span> <span class="n">match</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>&#x000A;              <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>&#x000A;            <span class="k">end</span> <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="p">(</span><span class="n">lines</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span> <span class="o">=~</span> <span class="sr">/\s*</span><span class="si">#{</span><span class="n">end_symbol</span><span class="si">}</span><span class="sr">/</span><span class="p">)</span>&#x000A;          <span class="k">end</span>&#x000A;        <span class="k">end</span>&#x000A;</pre></div></code>
+    </figure>
+    <section><p>getting source lines</p></section>
+    <figure>
+      <ol>
+        <li>81</li>
+        <li>82</li>
+        <li>83</li>
+        <li>84</li>
+        <li>85</li>
+        <li>86</li>
+      </ol>
+      <code><div class="highlight"><pre>        <span class="n">starting_line</span> <span class="o">=</span> <span class="n">i</span>&#x000A;        <span class="n">source_lines</span> <span class="o">=</span> <span class="o">[]</span>&#x000A;        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">is_comment</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="n">lines</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span>&#x000A;          <span class="n">source_lines</span> <span class="o">&lt;&lt;</span> <span class="n">lines</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>&#x000A;          <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>&#x000A;        <span class="k">end</span>&#x000A;</pre></div></code>
+    </figure>
+    <section><p>post-processing: stripping comments and removing empty strings from beginnings and ends</p></section>
+    <figure>
+      <ol>
+        <li>88</li>
+        <li>89</li>
+        <li>90</li>
+        <li>91</li>
+        <li>92</li>
+        <li>93</li>
+        <li>94</li>
+        <li>95</li>
+      </ol>
+      <code><div class="highlight"><pre>        <span class="k">while</span> <span class="n">source_lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">source_lines</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=~</span> <span class="sr">/^\s*$/</span>&#x000A;          <span class="n">starting_line</span> <span class="o">+=</span> <span class="mi">1</span>&#x000A;          <span class="n">source_lines</span><span class="o">.</span><span class="n">delete_at</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>&#x000A;        <span class="k">end</span>&#x000A;        <span class="n">source_lines</span><span class="o">.</span><span class="n">delete_at</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">while</span> <span class="n">source_lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">source_lines</span><span class="o">[-</span><span class="mi">1</span><span class="o">]</span> <span class="o">=~</span> <span class="sr">/^\s*$/</span>&#x000A;        <span class="n">comment_lines</span><span class="o">.</span><span class="n">map!</span> <span class="p">{</span><span class="o">|</span><span class="n">l</span><span class="o">|</span> <span class="n">l</span><span class="o">.</span><span class="n">strip</span> <span class="p">}</span>&#x000A;        <span class="n">comment_lines</span><span class="o">.</span><span class="n">delete_at</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">while</span> <span class="n">comment_lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">comment_lines</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="n">empty?</span>&#x000A;        <span class="n">comment_lines</span><span class="o">.</span><span class="n">delete_at</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">while</span> <span class="n">comment_lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">comment_lines</span><span class="o">[-</span><span class="mi">1</span><span class="o">].</span><span class="n">empty?</span>&#x000A;</pre></div></code>
+    </figure>
+    <section><p>writing a new paragraph</p></section>
+    <figure>
+      <ol>
+        <li>98</li>
+        <li>99</li>
+        <li>100</li>
+      </ol>
+      <code><div class="highlight"><pre>        <span class="vi">@paragraphs</span> <span class="o">&lt;&lt;</span> <span class="no">Paragraph</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">source_lines</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">),</span> <span class="n">comment_lines</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">),</span> <span class="n">starting_line</span><span class="p">,</span> <span class="n">source_type</span><span class="p">)</span>&#x000A;      <span class="k">end</span>&#x000A;    <span class="k">end</span>&#x000A;</pre></div></code>
+    </figure>
+    <section><p>Rest of the file quite less self-explanatory</p></section>
+    <figure>
+      <ol>
+        <li>103</li>
+        <li>104</li>
+        <li>105</li>
+        <li>106</li>
+        <li>107</li>
+        <li>108</li>
+        <li>109</li>
+        <li>110</li>
+        <li>111</li>
+        <li>112</li>
+      </ol>
+      <code><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">source</span>&#x000A;      <span class="vi">@source</span>&#x000A;    <span class="k">end</span>&#x000A;&#x000A;  <span class="kp">protected</span>&#x000A;    <span class="k">def</span> <span class="nf">comment_symbols</span>&#x000A;      <span class="k">super</span> <span class="o">||</span> <span class="p">{}</span>&#x000A;    <span class="k">end</span>&#x000A;  <span class="k">end</span>&#x000A;<span class="k">end</span>&#x000A;</pre></div></code>
+    </figure>
+  </body>
 </html>
