@@ -24,8 +24,8 @@ module Murdoc
     # `source_type` is one of supported source types (currently `[:ruby, :javascript]`)
     def initialize(source, source_type, options = {})
       self.source_type = source_type
-      self.source      = source
       self.options     = self.class.default_options.merge(options)
+      self.source      = source
     end
 
 
@@ -108,7 +108,7 @@ module Murdoc
         comment_lines.delete_at(-1) while comment_lines.size > 0 && comment_lines[-1].empty?
 
         # writing a new paragraph
-        @paragraphs << Paragraph.new(source_lines.join("\n"), comment_lines.join("\n"), starting_line, source_type)
+        @paragraphs << Paragraph.new(source_lines.join("\n"), comment_lines.join("\n"), starting_line, source_type, options)
       end
     end
 
