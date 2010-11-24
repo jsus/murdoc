@@ -34,7 +34,7 @@ module Murdoc
 
     def formatted_source
       @formatted_source ||= if pygments_installed? && options[:highlight_source]
-        IO.popen("pygmentize -l #{source_type} -f html", "w+") do |pipe|
+        IO.popen("pygmentize -l #{source_type} -O encoding=UTF8 -f html -O nowrap", "w+") do |pipe|
           pipe.puts source
           pipe.close_write
           pipe.read
