@@ -13,6 +13,8 @@ Example
 
 See example at [GH.pages](http://markiz.github.com/murdoc).
 
+Bonus: [example](http://markiz.github.com/murdoc/docs) of integration with [jsus](http://github.com/markiz/jsus).
+
 License and authorship
 ======================
 
