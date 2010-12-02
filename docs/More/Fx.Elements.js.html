@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Fx.Elements.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Core/Fx.CSS</li>
+        <li>MooTools.More</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Fx.Elements</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Fx.Elements.js</h1>
+      <p>Effect to change any number of CSS properties of any number of Elements.</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license</dd>
+        <dt>Authors:</dt>
+        <dd>Valerio Proietti</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+        <li>61</li>
+        <li>62</li>
+        <li>63</li>
+        <li>64</li>
+        <li>65</li>
+      </ol>
+      <code><span class="nx">Fx</span><span class="p">.</span><span class="nx">Elements</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;&#x000A;	<span class="nx">Extends</span><span class="o">:</span> <span class="nx">Fx</span><span class="p">.</span><span class="nx">CSS</span><span class="p">,</span>&#x000A;&#x000A;	<span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">elements</span><span class="p">,</span> <span class="nx">options</span><span class="p">){</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">elements</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">subject</span> <span class="o">=</span> <span class="nx">$$</span><span class="p">(</span><span class="nx">elements</span><span class="p">);</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">compute</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">from</span><span class="p">,</span> <span class="nx">to</span><span class="p">,</span> <span class="nx">delta</span><span class="p">){</span>&#x000A;		<span class="kd">var</span> <span class="nx">now</span> <span class="o">=</span> <span class="p">{};</span>&#x000A;		<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">from</span><span class="p">){</span>&#x000A;			<span class="kd">var</span> <span class="nx">iFrom</span> <span class="o">=</span> <span class="nx">from</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">iTo</span> <span class="o">=</span> <span class="nx">to</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">iNow</span> <span class="o">=</span> <span class="nx">now</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{};</span>&#x000A;			<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">p</span> <span class="k">in</span> <span class="nx">iFrom</span><span class="p">)</span> <span class="nx">iNow</span><span class="p">[</span><span class="nx">p</span><span class="p">]</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nx">iFrom</span><span class="p">[</span><span class="nx">p</span><span class="p">],</span> <span class="nx">iTo</span><span class="p">[</span><span class="nx">p</span><span class="p">],</span> <span class="nx">delta</span><span class="p">);</span>&#x000A;		<span class="p">}</span>&#x000A;		<span class="k">return</span> <span class="nx">now</span><span class="p">;</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">set</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">now</span><span class="p">){</span>&#x000A;		<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">now</span><span class="p">){</span>&#x000A;			<span class="kd">var</span> <span class="nx">iNow</span> <span class="o">=</span> <span class="nx">now</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>&#x000A;			<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">p</span> <span class="k">in</span> <span class="nx">iNow</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">elements</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">p</span><span class="p">,</span> <span class="nx">iNow</span><span class="p">[</span><span class="nx">p</span><span class="p">],</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">unit</span><span class="p">);</span>&#x000A;		<span class="p">}</span>&#x000A;		<span class="k">return</span> <span class="k">this</span><span class="p">;</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">start</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">){</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">check</span><span class="p">(</span><span class="nx">obj</span><span class="p">))</span> <span class="k">return</span> <span class="k">this</span><span class="p">;</span>&#x000A;		<span class="kd">var</span> <span class="nx">from</span> <span class="o">=</span> <span class="p">{},</span> <span class="nx">to</span> <span class="o">=</span> <span class="p">{};</span>&#x000A;		<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">obj</span><span class="p">){</span>&#x000A;			<span class="kd">var</span> <span class="nx">iProps</span> <span class="o">=</span> <span class="nx">obj</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">iFrom</span> <span class="o">=</span> <span class="nx">from</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span> <span class="nx">iTo</span> <span class="o">=</span> <span class="nx">to</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{};</span>&#x000A;			<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">p</span> <span class="k">in</span> <span class="nx">iProps</span><span class="p">){</span>&#x000A;				<span class="kd">var</span> <span class="nx">parsed</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">elements</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">p</span><span class="p">,</span> <span class="nx">iProps</span><span class="p">[</span><span class="nx">p</span><span class="p">]);</span>&#x000A;				<span class="nx">iFrom</span><span class="p">[</span><span class="nx">p</span><span class="p">]</span> <span class="o">=</span> <span class="nx">parsed</span><span class="p">.</span><span class="nx">from</span><span class="p">;</span>&#x000A;				<span class="nx">iTo</span><span class="p">[</span><span class="nx">p</span><span class="p">]</span> <span class="o">=</span> <span class="nx">parsed</span><span class="p">.</span><span class="nx">to</span><span class="p">;</span>&#x000A;			<span class="p">}</span>&#x000A;		<span class="p">}</span>&#x000A;		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nx">from</span><span class="p">,</span> <span class="nx">to</span><span class="p">);</span>&#x000A;	<span class="p">}</span>&#x000A;&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

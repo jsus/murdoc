@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Date.French.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Locale</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Date.French</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Date.French.js</h1>
+      <p>Date messages for French.</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license</dd>
+        <dt>Authors:</dt>
+        <dd>Nicolas Sorosac, Antoine Abt</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+      </ol>
+      <code><span class="nx">Locale</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;fr-FR&#39;</span><span class="p">,</span> <span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="p">{</span>&#x000A;&#x000A;	<span class="nx">months</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Janvier&#39;</span><span class="p">,</span> <span class="s1">&#39;F&amp;eacute;vrier&#39;</span><span class="p">,</span> <span class="s1">&#39;Mars&#39;</span><span class="p">,</span> <span class="s1">&#39;Avril&#39;</span><span class="p">,</span> <span class="s1">&#39;Mai&#39;</span><span class="p">,</span> <span class="s1">&#39;Juin&#39;</span><span class="p">,</span> <span class="s1">&#39;Juillet&#39;</span><span class="p">,</span> <span class="s1">&#39;Ao&amp;ucirc;t&#39;</span><span class="p">,</span> <span class="s1">&#39;Septembre&#39;</span><span class="p">,</span> <span class="s1">&#39;Octobre&#39;</span><span class="p">,</span> <span class="s1">&#39;Novembre&#39;</span><span class="p">,</span> <span class="s1">&#39;D&amp;eacute;cembre&#39;</span><span class="p">],</span>&#x000A;	<span class="nx">days</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Dimanche&#39;</span><span class="p">,</span> <span class="s1">&#39;Lundi&#39;</span><span class="p">,</span> <span class="s1">&#39;Mardi&#39;</span><span class="p">,</span> <span class="s1">&#39;Mercredi&#39;</span><span class="p">,</span> <span class="s1">&#39;Jeudi&#39;</span><span class="p">,</span> <span class="s1">&#39;Vendredi&#39;</span><span class="p">,</span> <span class="s1">&#39;Samedi&#39;</span><span class="p">],</span></code>
+    </figure>
+    <section>
+      <p>Culture&rsquo;s date order: DD/MM/YYYY</p>
+    </section>
+    <figure>
+      <ol>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+      </ol>
+      <code><span class="nx">dateOrder</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">],</span>&#x000A;	<span class="nx">shortDate</span><span class="o">:</span> <span class="s1">&#39;%d/%m/%Y&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">shortTime</span><span class="o">:</span> <span class="s1">&#39;%H:%M&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">AM</span><span class="o">:</span> <span class="s1">&#39;AM&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">PM</span><span class="o">:</span> <span class="s1">&#39;PM&#39;</span><span class="p">,</span></code>
+    </figure>
+    <section>
+      <p>Date.Extras</p>
+    </section>
+    <figure>
+      <ol>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+        <li>61</li>
+        <li>62</li>
+        <li>63</li>
+        <li>64</li>
+        <li>65</li>
+        <li>66</li>
+        <li>67</li>
+        <li>68</li>
+        <li>69</li>
+        <li>70</li>
+      </ol>
+      <code><span class="nx">ordinal</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">dayOfMonth</span><span class="p">){</span>&#x000A;		<span class="k">return</span> <span class="p">(</span><span class="nx">dayOfMonth</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;&#39;</span> <span class="o">:</span> <span class="s1">&#39;er&#39;</span><span class="p">;</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">lessThanMinuteAgo</span><span class="o">:</span> <span class="s2">&quot;il y a moins d&#39;une minute&quot;</span><span class="p">,</span>&#x000A;	<span class="nx">minuteAgo</span><span class="o">:</span> <span class="s1">&#39;il y a une minute&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">minutesAgo</span><span class="o">:</span> <span class="s1">&#39;il y a {delta} minutes&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">hourAgo</span><span class="o">:</span> <span class="s1">&#39;il y a une heure&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">hoursAgo</span><span class="o">:</span> <span class="s1">&#39;il y a {delta} heures&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">dayAgo</span><span class="o">:</span> <span class="s1">&#39;il y a un jour&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">daysAgo</span><span class="o">:</span> <span class="s1">&#39;il y a {delta} jours&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">weekAgo</span><span class="o">:</span> <span class="s1">&#39;il y a une semaine&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">weeksAgo</span><span class="o">:</span> <span class="s1">&#39;il y a {delta} semaines&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">monthAgo</span><span class="o">:</span> <span class="s1">&#39;il y a 1 mois&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">monthsAgo</span><span class="o">:</span> <span class="s1">&#39;il y a {delta} mois&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">yearthAgo</span><span class="o">:</span> <span class="s1">&#39;il y a 1 an&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">yearsAgo</span><span class="o">:</span> <span class="s1">&#39;il y a {delta} ans&#39;</span><span class="p">,</span>&#x000A;&#x000A;	<span class="nx">lessThanMinuteUntil</span><span class="o">:</span> <span class="s2">&quot;dans moins d&#39;une minute&quot;</span><span class="p">,</span>&#x000A;	<span class="nx">minuteUntil</span><span class="o">:</span> <span class="s1">&#39;dans une minute&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">minutesUntil</span><span class="o">:</span> <span class="s1">&#39;dans {delta} minutes&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">hourUntil</span><span class="o">:</span> <span class="s1">&#39;dans une heure&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">hoursUntil</span><span class="o">:</span> <span class="s1">&#39;dans {delta} heures&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">dayUntil</span><span class="o">:</span> <span class="s1">&#39;dans un jour&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">daysUntil</span><span class="o">:</span> <span class="s1">&#39;dans {delta} jours&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">weekUntil</span><span class="o">:</span> <span class="s1">&#39;dans 1 semaine&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">weeksUntil</span><span class="o">:</span> <span class="s1">&#39;dans {delta} semaines&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">monthUntil</span><span class="o">:</span> <span class="s1">&#39;dans 1 mois&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">monthsUntil</span><span class="o">:</span> <span class="s1">&#39;dans {delta} mois&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">yearUntil</span><span class="o">:</span> <span class="s1">&#39;dans 1 an&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">yearsUntil</span><span class="o">:</span> <span class="s1">&#39;dans {delta} ans&#39;</span>&#x000A;&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

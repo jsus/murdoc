@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Layer.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>ART.Shape</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>ART.Layer</li>
+        <li>ART.Layer.Shaped</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Layer.js</h1>
+      <p>Adds a piece of SVG that can be drawn with widget styles</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license.</dd>
+        <dt>Authors:</dt>
+        <dd>Yaroslaff Fedin</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+      </ol>
+      <code><span class="nx">ART</span><span class="p">.</span><span class="nx">Layer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;  <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">shape</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">base</span> <span class="o">=</span> <span class="nx">shape</span><span class="p">;</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">produce</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">delta</span><span class="p">)</span> <span class="nx">delta</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">delta</span> <span class="o">=</span> <span class="nx">delta</span><span class="p">;</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">shape</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">base</span><span class="p">.</span><span class="nx">produce</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">shape</span><span class="p">);</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">});</span>&#x000A;&#x000A;<span class="nx">ART</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">Shaped</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;  <span class="nx">Extends</span><span class="o">:</span> <span class="nx">ART</span><span class="p">.</span><span class="nx">Layer</span><span class="p">,</span>&#x000A;  &#x000A;  <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">shape</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ART</span><span class="p">.</span><span class="nx">Shape</span><span class="p">;</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">});</span>&#x000A;&#x000A;<span class="nx">ART</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">implement</span><span class="p">({</span>&#x000A;  <span class="nx">inject</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">injected</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">shape</span><span class="p">)</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">shape</span><span class="p">.</span><span class="nx">inject</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">shape</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">eject</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">delete</span> <span class="k">this</span><span class="p">.</span><span class="nx">injected</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">shape</span><span class="p">)</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">shape</span><span class="p">.</span><span class="nx">eject</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">shape</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">});</span>&#x000A;&#x000A;<span class="p">[</span><span class="s1">&#39;translate&#39;</span><span class="p">,</span> <span class="s1">&#39;fill&#39;</span><span class="p">,</span> <span class="s1">&#39;stroke&#39;</span><span class="p">].</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">method</span><span class="p">)</span> <span class="p">{</span>&#x000A;  <span class="nx">ART</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">implement</span><span class="p">(</span><span class="nx">method</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">shape</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>&#x000A;    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">shape</span><span class="p">[</span><span class="nx">method</span><span class="p">].</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">shape</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;  <span class="p">})</span>&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

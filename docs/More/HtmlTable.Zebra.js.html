@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for HtmlTable.Zebra.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>HtmlTable</li>
+        <li>Class.refactor</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>HtmlTable.Zebra</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>HtmlTable.Zebra.js</h1>
+      <p>Builds a stripy table with methods to add rows.</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license</dd>
+        <dt>Authors:</dt>
+        <dd>Harald Kirschner, Aaron Newton</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+      </ol>
+      <code><span class="nx">HtmlTable</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">refactor</span><span class="p">(</span><span class="nx">HtmlTable</span><span class="p">,</span> <span class="p">{</span>&#x000A;&#x000A;	<span class="nx">options</span><span class="o">:</span> <span class="p">{</span>&#x000A;		<span class="nx">classZebra</span><span class="o">:</span> <span class="s1">&#39;table-tr-odd&#39;</span><span class="p">,</span>&#x000A;		<span class="nx">zebra</span><span class="o">:</span> <span class="kc">true</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">previous</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">occluded</span><span class="p">)</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">occluded</span><span class="p">;</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">zebra</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">updateZebras</span><span class="p">();</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">updateZebras</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;		<span class="nb">Array</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">rows</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">zebra</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">zebra</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">row</span><span class="p">,</span> <span class="nx">i</span><span class="p">){</span>&#x000A;		<span class="k">return</span> <span class="nx">row</span><span class="p">[((</span><span class="nx">i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;remove&#39;</span> <span class="o">:</span> <span class="s1">&#39;add&#39;</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;Class&#39;</span><span class="p">](</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">classZebra</span><span class="p">);</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">push</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;		<span class="kd">var</span> <span class="nx">pushed</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">previous</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">zebra</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">updateZebras</span><span class="p">();</span>&#x000A;		<span class="k">return</span> <span class="nx">pushed</span><span class="p">;</span>&#x000A;	<span class="p">}</span>&#x000A;&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Observer.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Core/Options</li>
+        <li>Core/Events</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Observer</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Observer.js</h1>
+      <p>A class that tracks updates in input periodically and fires onChange event</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license.</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+        <li>61</li>
+        <li>62</li>
+        <li>63</li>
+        <li>64</li>
+        <li>65</li>
+        <li>66</li>
+        <li>67</li>
+        <li>68</li>
+        <li>69</li>
+        <li>70</li>
+        <li>71</li>
+        <li>72</li>
+        <li>73</li>
+        <li>74</li>
+      </ol>
+      <code><span class="nx">Observer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;&#x000A;	<span class="nx">Implements</span><span class="o">:</span> <span class="p">[</span><span class="nx">Options</span><span class="p">,</span> <span class="nx">Events</span><span class="p">],</span>&#x000A;&#x000A;	<span class="nx">options</span><span class="o">:</span> <span class="p">{</span>&#x000A;		<span class="nx">periodical</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>&#x000A;		<span class="nx">delay</span><span class="o">:</span> <span class="mi">1000</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">el</span><span class="p">,</span> <span class="nx">onFired</span><span class="p">,</span> <span class="nx">options</span><span class="p">){</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">element</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">el</span><span class="p">)</span> <span class="o">||</span> <span class="nx">$$</span><span class="p">(</span><span class="nx">el</span><span class="p">);</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="s1">&#39;onFired&#39;</span><span class="p">,</span> <span class="nx">onFired</span><span class="p">);</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">setOptions</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">bound</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">changed</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">resume</span><span class="p">();</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">changed</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;		<span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">);</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="nx">$equals</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span> <span class="nx">value</span><span class="p">))</span> <span class="k">return</span><span class="p">;</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">timeout</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">onFired</span><span class="p">.</span><span class="nx">delay</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">delay</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">setValue</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="nx">value</span><span class="p">);</span>&#x000A;		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">onFired</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">fireEvent</span><span class="p">(</span><span class="s1">&#39;onFired&#39;</span><span class="p">,</span> <span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">value</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">]);</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">clear</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;		<span class="nx">$clear</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">timeout</span> <span class="o">||</span> <span class="kc">null</span><span class="p">);</span>&#x000A;		<span class="k">return</span> <span class="k">this</span><span class="p">;</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">pause</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">timer</span><span class="p">)</span> <span class="nx">$clear</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">timer</span><span class="p">);</span>&#x000A;		<span class="k">else</span> <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">removeEvent</span><span class="p">(</span><span class="s1">&#39;keyup&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">bound</span><span class="p">);</span>&#x000A;		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">clear</span><span class="p">();</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">resume</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">);</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">periodical</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">timer</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">changed</span><span class="p">.</span><span class="nx">periodical</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">periodical</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>&#x000A;		<span class="k">else</span> <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="s1">&#39;keyup&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">bound</span><span class="p">);</span>&#x000A;		<span class="k">return</span> <span class="k">this</span><span class="p">;</span>&#x000A;	<span class="p">}</span>&#x000A;&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

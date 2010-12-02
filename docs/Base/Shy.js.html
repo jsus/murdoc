@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Shy.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Widget.Base</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Widget.Trait.Shy</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Shy.js</h1>
+      <p>A trait to make widget take no space at all in layout</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license.</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>19</li>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+      </ol>
+      <code><span class="nx">Widget</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">Shy</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;  <span class="nx">attach</span><span class="o">:</span> <span class="nx">Macro</span><span class="p">.</span><span class="nx">onion</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">onDOMInject</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">size</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">(</span><span class="s1">&#39;margin-&#39;</span> <span class="o">+</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">getStyle</span><span class="p">(</span><span class="s1">&#39;float&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;right&#39;</span> <span class="o">?</span> <span class="s1">&#39;left&#39;</span> <span class="o">:</span> <span class="s1">&#39;right&#39;</span><span class="p">),</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">scrollWidth</span><span class="p">)</span></code>
+    </figure>
+    <section>
+      <p>this.element.setStyle(&lsquo;margin-top&rsquo;, &ndash; size.height)</p>
+    </section>
+    <figure>
+      <ol>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+      </ol>
+      <code><span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>&#x000A;  <span class="p">})</span>&#x000A;<span class="p">});</span>&#x000A;&#x000A;<span class="nx">Widget</span><span class="p">.</span><span class="nx">Attributes</span><span class="p">.</span><span class="nx">Ignore</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;shy&#39;</span><span class="p">);</span></code>
+    </figure>
+  </body>
+</html>

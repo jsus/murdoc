@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Widget.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Widget.Base</li>
+        <li>Ext/Class.Mutators.Includes</li>
+        <li>Ext/Class.Mutators.States</li>
+        <li>Widget.Module.Attributes</li>
+        <li>Widget.Module.Events</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Widget</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Widget.js</h1>
+      <p>Base widgets with all modules included</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license.</dd>
+      </dl>
+    </header>
+    <section>
+      <p>Base widget class.</p>
+    </section>
+    <figure>
+      <ol>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+      </ol>
+      <code><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">Old</span><span class="p">)</span> <span class="p">{</span>&#x000A;&#x000A;<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">Old</span><span class="p">.</span><span class="nx">modules</span><span class="p">)</span> <span class="p">{</span>&#x000A;  <span class="nx">Old</span><span class="p">.</span><span class="nx">modules</span> <span class="o">=</span> <span class="p">[]</span>&#x000A;  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">name</span> <span class="k">in</span> <span class="nx">Old</span><span class="p">.</span><span class="nx">Module</span><span class="p">)</span> <span class="nx">Old</span><span class="p">.</span><span class="nx">modules</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">Old</span><span class="p">.</span><span class="nx">Module</span><span class="p">[</span><span class="nx">name</span><span class="p">]);</span>&#x000A;<span class="p">}</span>&#x000A;&#x000A;<span class="nx">Widget</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;    &#x000A;  <span class="nx">States</span><span class="o">:</span> <span class="p">{</span></code>
+    </figure>
+    <section>
+      <p>name          enabler     disabler      state change</p>
+    </section>
+    <figure>
+      <ol>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+      </ol>
+      <code><span class="s1">&#39;hidden&#39;</span><span class="o">:</span>   <span class="p">[</span> <span class="s1">&#39;hide&#39;</span><span class="p">,</span>     <span class="s1">&#39;show&#39;</span>               <span class="p">],</span>&#x000A;    <span class="s1">&#39;active&#39;</span><span class="o">:</span>   <span class="p">[</span> <span class="s1">&#39;activate&#39;</span><span class="p">,</span> <span class="s1">&#39;deactivate&#39;</span>         <span class="p">],</span>&#x000A;    <span class="s1">&#39;focused&#39;</span><span class="o">:</span>  <span class="p">[</span> <span class="s1">&#39;focus&#39;</span><span class="p">,</span>    <span class="s1">&#39;blur&#39;</span>               <span class="p">],</span>&#x000A;    <span class="s1">&#39;disabled&#39;</span><span class="o">:</span> <span class="p">[</span> <span class="s1">&#39;disable&#39;</span><span class="p">,</span>  <span class="s1">&#39;enable&#39;</span>             <span class="p">],</span>&#x000A;    <span class="s1">&#39;built&#39;</span><span class="o">:</span>    <span class="p">[</span> <span class="s1">&#39;build&#39;</span><span class="p">,</span>    <span class="s1">&#39;destroy&#39;</span><span class="p">,</span>     <span class="kc">false</span> <span class="p">],</span>&#x000A;    <span class="s1">&#39;attached&#39;</span><span class="o">:</span> <span class="p">[</span> <span class="s1">&#39;attach&#39;</span><span class="p">,</span>   <span class="s1">&#39;detach&#39;</span><span class="p">,</span>      <span class="kc">false</span> <span class="p">]</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">Includes</span><span class="o">:</span> <span class="p">[</span><span class="nx">Old</span><span class="p">.</span><span class="nx">Base</span><span class="p">].</span><span class="nx">concat</span><span class="p">(</span><span class="nx">Old</span><span class="p">.</span><span class="nx">modules</span><span class="p">),</span>&#x000A;  &#x000A;  <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">options</span><span class="p">){</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">element</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">disabled</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">fireEvent</span><span class="p">(</span><span class="s1">&#39;enable&#39;</span><span class="p">);</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">build</span><span class="p">();</span></code>
+    </figure>
+    <section>
+      <p>this.log(&lsquo;Init&rsquo;, this)</p>
+    </section>
+    <figure>
+      <ol>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+        <li>61</li>
+        <li>62</li>
+        <li>63</li>
+      </ol>
+      <code><span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">build</span><span class="o">:</span> <span class="nx">Macro</span><span class="p">.</span><span class="nx">onion</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">attach</span><span class="p">();</span>&#x000A;  <span class="p">})</span>&#x000A;<span class="p">});</span>&#x000A;&#x000A;<span class="p">[</span><span class="s1">&#39;States&#39;</span><span class="p">,</span> <span class="s1">&#39;Events&#39;</span><span class="p">,</span> <span class="s1">&#39;Attributes&#39;</span><span class="p">,</span> <span class="s1">&#39;Styles&#39;</span><span class="p">,</span> <span class="s1">&#39;Module&#39;</span><span class="p">,</span> <span class="s1">&#39;Trait&#39;</span><span class="p">,</span> <span class="s1">&#39;modules&#39;</span><span class="p">].</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">property</span><span class="p">)</span> <span class="p">{</span> &#x000A;  <span class="nx">Widget</span><span class="p">[</span><span class="nx">property</span><span class="p">]</span> <span class="o">=</span> <span class="nx">Old</span><span class="p">[</span><span class="nx">property</span><span class="p">]</span>&#x000A;<span class="p">});</span>&#x000A;<span class="nx">Widget</span><span class="p">.</span><span class="nx">Base</span> <span class="o">=</span> <span class="nx">Old</span><span class="p">.</span><span class="nx">Base</span><span class="p">;</span>&#x000A;&#x000A;<span class="p">})(</span><span class="nx">Widget</span><span class="p">);</span></code>
+    </figure>
+  </body>
+</html>

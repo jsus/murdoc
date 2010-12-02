@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Form.Validator.German.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Locale</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Form.Validator.German</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Form.Validator.German.js</h1>
+      <p>Form Validator messages for German.</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license</dd>
+        <dt>Authors:</dt>
+        <dd>Frank Rossi, Ulrich Petri, Fabian Beiner</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+      </ol>
+      <code><span class="nx">Locale</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;de-DE&#39;</span><span class="p">,</span> <span class="s1">&#39;FormValidator&#39;</span><span class="p">,</span> <span class="p">{</span>&#x000A;&#x000A;	<span class="nx">required</span><span class="o">:</span> <span class="s1">&#39;Dieses Eingabefeld muss ausgef&amp;uuml;llt werden.&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">minLength</span><span class="o">:</span> <span class="s1">&#39;Geben Sie bitte mindestens {minLength} Zeichen ein (Sie haben nur {length} Zeichen eingegeben).&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">maxLength</span><span class="o">:</span> <span class="s1">&#39;Geben Sie bitte nicht mehr als {maxLength} Zeichen ein (Sie haben {length} Zeichen eingegeben).&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">integer</span><span class="o">:</span> <span class="s1">&#39;Geben Sie in diesem Eingabefeld bitte eine ganze Zahl ein. Dezimalzahlen (z.B. &amp;quot;1.25&amp;quot;) sind nicht erlaubt.&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">numeric</span><span class="o">:</span> <span class="s1">&#39;Geben Sie in diesem Eingabefeld bitte nur Zahlenwerte (z.B. &amp;quot;1&amp;quot;, &amp;quot;1.1&amp;quot;, &amp;quot;-1&amp;quot; oder &amp;quot;-1.1&amp;quot;) ein.&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">digits</span><span class="o">:</span> <span class="s1">&#39;Geben Sie in diesem Eingabefeld bitte nur Zahlen und Satzzeichen ein (z.B. eine Telefonnummer mit Bindestrichen und Punkten ist erlaubt).&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">alpha</span><span class="o">:</span> <span class="s1">&#39;Geben Sie in diesem Eingabefeld bitte nur Buchstaben (a-z) ein. Leerzeichen und andere Zeichen sind nicht erlaubt.&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">alphanum</span><span class="o">:</span> <span class="s1">&#39;Geben Sie in diesem Eingabefeld bitte nur Buchstaben (a-z) und Zahlen (0-9) ein. Leerzeichen oder andere Zeichen sind nicht erlaubt.&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">dateSuchAs</span><span class="o">:</span> <span class="s1">&#39;Geben Sie bitte ein g&amp;uuml;ltiges Datum ein (z.B. &amp;quot;{date}&amp;quot;).&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">dateInFormatMDY</span><span class="o">:</span> <span class="s1">&#39;Geben Sie bitte ein g&amp;uuml;ltiges Datum im Format TT.MM.JJJJ ein (z.B. &amp;quot;31.12.1999&amp;quot;).&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;Geben Sie bitte eine g&amp;uuml;ltige E-Mail-Adresse ein (z.B. &amp;quot;max@mustermann.de&amp;quot;).&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;Geben Sie bitte eine g&amp;uuml;ltige URL ein (z.B. &amp;quot;http://www.google.de&amp;quot;).&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">currencyDollar</span><span class="o">:</span> <span class="s1">&#39;Geben Sie bitte einen g&amp;uuml;ltigen Betrag in EURO ein (z.B. 100.00&amp;#8364;).&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">oneRequired</span><span class="o">:</span> <span class="s1">&#39;Bitte f&amp;uuml;llen Sie mindestens ein Eingabefeld aus.&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">errorPrefix</span><span class="o">:</span> <span class="s1">&#39;Fehler: &#39;</span><span class="p">,</span>&#x000A;	<span class="nx">warningPrefix</span><span class="o">:</span> <span class="s1">&#39;Warnung: &#39;</span><span class="p">,</span></code>
+    </figure>
+    <section>
+      <p>Form.Validator.Extras</p>
+    </section>
+    <figure>
+      <ol>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+      </ol>
+      <code><span class="nx">noSpace</span><span class="o">:</span> <span class="s1">&#39;Es darf kein Leerzeichen in diesem Eingabefeld sein.&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">reqChkByNode</span><span class="o">:</span> <span class="s1">&#39;Es wurden keine Elemente gew&amp;auml;hlt.&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">requiredChk</span><span class="o">:</span> <span class="s1">&#39;Dieses Feld muss ausgef&amp;uuml;llt werden.&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">reqChkByName</span><span class="o">:</span> <span class="s1">&#39;Bitte w&amp;auml;hlen Sie ein {label}.&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">match</span><span class="o">:</span> <span class="s1">&#39;Dieses Eingabefeld muss mit dem {matchName} Eingabefeld &amp;uuml;bereinstimmen.&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">startDate</span><span class="o">:</span> <span class="s1">&#39;Das Anfangsdatum&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">endDate</span><span class="o">:</span> <span class="s1">&#39;Das Enddatum&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">currendDate</span><span class="o">:</span> <span class="s1">&#39;Das aktuelle Datum&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">afterDate</span><span class="o">:</span> <span class="s1">&#39;Das Datum sollte zur gleichen Zeit oder sp&amp;auml;ter sein als {label}.&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">beforeDate</span><span class="o">:</span> <span class="s1">&#39;Das Datum sollte zur gleichen Zeit oder fr&amp;uuml;her sein als {label}.&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">startMonth</span><span class="o">:</span> <span class="s1">&#39;W&amp;auml;hlen Sie bitte einen Anfangsmonat&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">sameMonth</span><span class="o">:</span> <span class="s1">&#39;Diese zwei Datumsangaben m&amp;uuml;ssen im selben Monat sein - Sie m&amp;uuml;ssen eines von beiden ver&amp;auml;ndern.&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">creditcard</span><span class="o">:</span> <span class="s1">&#39;Die eingegebene Kreditkartennummer ist ung&amp;uuml;ltig. Bitte &amp;uuml;berpr&amp;uuml;fen Sie diese und versuchen Sie es erneut. {length} Zahlen eingegeben.&#39;</span>&#x000A;&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Slider.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Drag.Limits</li>
+        <li>More/Slider</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Slider.prototype.update</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Slider.js</h1>
+      <p>Methods to update slider without reinitializing the thing</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license.</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+      </ol>
+      <code><span class="nx">Slider</span><span class="p">.</span><span class="nx">implement</span><span class="p">({</span>&#x000A;  <span class="nx">update</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;		<span class="kd">var</span> <span class="nx">offset</span> <span class="o">=</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">mode</span> <span class="o">==</span> <span class="s1">&#39;vertical&#39;</span><span class="p">)</span> <span class="o">?</span>  <span class="s1">&#39;offsetHeight&#39;</span> <span class="o">:</span> <span class="s1">&#39;offsetWidth&#39;</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">half</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">knob</span><span class="p">[</span><span class="nx">offset</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span> &#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">full</span> <span class="o">=</span>  <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">[</span><span class="nx">offset</span><span class="p">]</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">knob</span><span class="p">[</span><span class="nx">offset</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">offset</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span></code>
+    </figure>
+    <section>
+      <p>this.setRange(this.options.range);</p>
+    </section>
+    <figure>
+      <ol>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+      </ol>
+      <code><span class="k">this</span><span class="p">.</span><span class="nx">knob</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">property</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">toPosition</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">step</span><span class="p">));</span>&#x000A;		<span class="kd">var</span> <span class="nx">X</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">axis</span><span class="p">.</span><span class="nx">capitalize</span><span class="p">();</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">drag</span><span class="p">[</span><span class="s1">&#39;setMin&#39;</span> <span class="o">+</span> <span class="nx">X</span><span class="p">](</span><span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">offset</span><span class="p">)</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">drag</span><span class="p">[</span><span class="s1">&#39;setMax&#39;</span> <span class="o">+</span> <span class="nx">X</span><span class="p">](</span><span class="k">this</span><span class="p">.</span><span class="nx">full</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">offset</span><span class="p">)</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">})</span></code>
+    </figure>
+  </body>
+</html>

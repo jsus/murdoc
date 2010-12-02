@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Provides</h2>
+      <ul>
+        <li>Slick.Parser</li>
+      </ul>
+    </figure>
+    <header>
+      <p>Standalone CSS3 Selector parser</p>
+      <dl>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+        <li>14</li>
+        <li>15</li>
+        <li>16</li>
+        <li>17</li>
+        <li>18</li>
+        <li>19</li>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+        <li>61</li>
+        <li>62</li>
+        <li>63</li>
+        <li>64</li>
+        <li>65</li>
+      </ol>
+      <code><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>&#x000A;&#x000A;<span class="kd">var</span> <span class="nx">parsed</span><span class="p">,</span>&#x000A;	<span class="nx">separatorIndex</span><span class="p">,</span>&#x000A;	<span class="nx">combinatorIndex</span><span class="p">,</span>&#x000A;	<span class="nx">reversed</span><span class="p">,</span>&#x000A;	<span class="nx">cache</span> <span class="o">=</span> <span class="p">{},</span>&#x000A;	<span class="nx">reverseCache</span> <span class="o">=</span> <span class="p">{},</span>&#x000A;	<span class="nx">reUnescape</span> <span class="o">=</span> <span class="sr">/\\/g</span><span class="p">;</span>&#x000A;&#x000A;<span class="kd">var</span> <span class="nx">parse</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">expression</span><span class="p">,</span> <span class="nx">isReversed</span><span class="p">){</span>&#x000A;	<span class="k">if</span> <span class="p">(</span><span class="nx">expression</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>&#x000A;	<span class="k">if</span> <span class="p">(</span><span class="nx">expression</span><span class="p">.</span><span class="nx">Slick</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span> <span class="k">return</span> <span class="nx">expression</span><span class="p">;</span>&#x000A;	<span class="nx">expression</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;&#39;</span> <span class="o">+</span> <span class="nx">expression</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^\s+|\s+$/g</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>&#x000A;	<span class="nx">reversed</span> <span class="o">=</span> <span class="o">!!</span><span class="nx">isReversed</span><span class="p">;</span>&#x000A;	<span class="kd">var</span> <span class="nx">currentCache</span> <span class="o">=</span> <span class="p">(</span><span class="nx">reversed</span><span class="p">)</span> <span class="o">?</span> <span class="nx">reverseCache</span> <span class="o">:</span> <span class="nx">cache</span><span class="p">;</span>&#x000A;	<span class="k">if</span> <span class="p">(</span><span class="nx">currentCache</span><span class="p">[</span><span class="nx">expression</span><span class="p">])</span> <span class="k">return</span> <span class="nx">currentCache</span><span class="p">[</span><span class="nx">expression</span><span class="p">];</span>&#x000A;	<span class="nx">parsed</span> <span class="o">=</span> <span class="p">{</span><span class="nx">Slick</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">expressions</span><span class="o">:</span> <span class="p">[],</span> <span class="nx">raw</span><span class="o">:</span> <span class="nx">expression</span><span class="p">,</span> <span class="nx">reverse</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;		<span class="k">return</span> <span class="nx">parse</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">raw</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>&#x000A;	<span class="p">}};</span>&#x000A;	<span class="nx">separatorIndex</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>&#x000A;	<span class="k">while</span> <span class="p">(</span><span class="nx">expression</span> <span class="o">!=</span> <span class="p">(</span><span class="nx">expression</span> <span class="o">=</span> <span class="nx">expression</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">regexp</span><span class="p">,</span> <span class="nx">parser</span><span class="p">)));</span>&#x000A;	<span class="nx">parsed</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="nx">parsed</span><span class="p">.</span><span class="nx">expressions</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>&#x000A;	<span class="k">return</span> <span class="nx">currentCache</span><span class="p">[</span><span class="nx">expression</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nx">reversed</span><span class="p">)</span> <span class="o">?</span> <span class="nx">reverse</span><span class="p">(</span><span class="nx">parsed</span><span class="p">)</span> <span class="o">:</span> <span class="nx">parsed</span><span class="p">;</span>&#x000A;<span class="p">};</span>&#x000A;&#x000A;<span class="kd">var</span> <span class="nx">reverseCombinator</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">combinator</span><span class="p">){</span>&#x000A;	<span class="k">if</span> <span class="p">(</span><span class="nx">combinator</span> <span class="o">===</span> <span class="s1">&#39;!&#39;</span><span class="p">)</span> <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="p">;</span>&#x000A;	<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">combinator</span> <span class="o">===</span> <span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="k">return</span> <span class="s1">&#39;!&#39;</span><span class="p">;</span>&#x000A;	<span class="k">else</span> <span class="k">if</span> <span class="p">((</span><span class="sr">/^!/</span><span class="p">).</span><span class="nx">test</span><span class="p">(</span><span class="nx">combinator</span><span class="p">))</span> <span class="k">return</span> <span class="nx">combinator</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^!/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>&#x000A;	<span class="k">else</span> <span class="k">return</span> <span class="s1">&#39;!&#39;</span> <span class="o">+</span> <span class="nx">combinator</span><span class="p">;</span>&#x000A;<span class="p">};</span>&#x000A;&#x000A;<span class="kd">var</span> <span class="nx">reverse</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">expression</span><span class="p">){</span>&#x000A;	<span class="kd">var</span> <span class="nx">expressions</span> <span class="o">=</span> <span class="nx">expression</span><span class="p">.</span><span class="nx">expressions</span><span class="p">;</span>&#x000A;	<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">expressions</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>&#x000A;		<span class="kd">var</span> <span class="nx">exp</span> <span class="o">=</span> <span class="nx">expressions</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>&#x000A;		<span class="kd">var</span> <span class="nx">last</span> <span class="o">=</span> <span class="p">{</span><span class="nx">parts</span><span class="o">:</span> <span class="p">[],</span> <span class="nx">tag</span><span class="o">:</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="nx">combinator</span><span class="o">:</span> <span class="nx">reverseCombinator</span><span class="p">(</span><span class="nx">exp</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">combinator</span><span class="p">)};</span>&#x000A;&#x000A;		<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="nx">exp</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">j</span><span class="o">++</span><span class="p">){</span>&#x000A;			<span class="kd">var</span> <span class="nx">cexp</span> <span class="o">=</span> <span class="nx">exp</span><span class="p">[</span><span class="nx">j</span><span class="p">];</span>&#x000A;			<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">cexp</span><span class="p">.</span><span class="nx">reverseCombinator</span><span class="p">)</span> <span class="nx">cexp</span><span class="p">.</span><span class="nx">reverseCombinator</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="p">;</span>&#x000A;			<span class="nx">cexp</span><span class="p">.</span><span class="nx">combinator</span> <span class="o">=</span> <span class="nx">cexp</span><span class="p">.</span><span class="nx">reverseCombinator</span><span class="p">;</span>&#x000A;			<span class="k">delete</span> <span class="nx">cexp</span><span class="p">.</span><span class="nx">reverseCombinator</span><span class="p">;</span>&#x000A;		<span class="p">}</span>&#x000A;&#x000A;		<span class="nx">exp</span><span class="p">.</span><span class="nx">reverse</span><span class="p">().</span><span class="nx">push</span><span class="p">(</span><span class="nx">last</span><span class="p">);</span>&#x000A;	<span class="p">}</span>&#x000A;	<span class="k">return</span> <span class="nx">expression</span><span class="p">;</span>&#x000A;<span class="p">};</span>&#x000A;&#x000A;<span class="kd">var</span> <span class="nx">escapeRegExp</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">string</span><span class="p">){</span><span class="c1">// Credit: XRegExp 0.6.1 (c) 2007-2008 Steven Levithan &lt;http://stevenlevithan.com/regex/xregexp/&gt; MIT License</span>&#x000A;	<span class="k">return</span> <span class="nx">string</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/[-[\]{}()*+?.\\^$|,#\s]/g</span><span class="p">,</span> <span class="s2">&quot;\\$&amp;&quot;</span><span class="p">);</span>&#x000A;<span class="p">};</span>&#x000A;&#x000A;<span class="kd">var</span> <span class="nx">regexp</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span></code>
+    </figure>
+    <section>
+      <h1>!/usr/bin/env ruby</h1>
+      
+      <p>puts &ldquo;\t\t&rdquo; + DATA.read.gsub(/(\?x)|\s+#.<em>$|\s+|\$|\n/,&lsquo;&rsquo;)
+      <strong>END</strong>
+      &ldquo;(?x)<sup>(?:\</sup>
+      \s</em> ( , ) \s<em>               # Separator          \n\
+      | \s</em> ( <combinator>+ ) \s<em>   # Combinator         \n\
+      |      ( \s+ )                 # CombinatorChildren \n\
+      |      ( <unicode>+ | \</em> )     # Tag                \n\
+      | \#  ( <unicode>+       )     # ID                 \n\
+      | \.  ( <unicode>+       )     # ClassName          \n\
+      |                               # Attribute          \n\
+      \[  \
+      \s<em> (<unicode1>+)  (?:  \
+      \s</em> ([<em><sup>$!~|]?=)</sup>  (?:  \
+      \s</em> (?:\
+      ([\&rdquo;&lsquo;]?)(.<em>?)\9 \
+      )\
+      )  \
+      )?  \s</em>  \
+      \](?!\]) \n\
+      |   :+ ( <unicode>+ )(?:\
+      \( (?:\
+      (?:([\&ldquo;&rsquo;])([<sup>\12]*)\12)|((?:\([<sup>)]+\)|[<sup>()]*)+)\</sup></sup></sup>
+      ) \)\
+      )?\
+      )&rdquo;</p>
+    </section>
+    <figure>
+      <ol>
+        <li>94</li>
+        <li>95</li>
+        <li>96</li>
+        <li>97</li>
+        <li>98</li>
+        <li>99</li>
+        <li>100</li>
+        <li>101</li>
+        <li>102</li>
+        <li>103</li>
+        <li>104</li>
+        <li>105</li>
+        <li>106</li>
+        <li>107</li>
+        <li>108</li>
+        <li>109</li>
+        <li>110</li>
+        <li>111</li>
+        <li>112</li>
+        <li>113</li>
+        <li>114</li>
+        <li>115</li>
+        <li>116</li>
+        <li>117</li>
+        <li>118</li>
+        <li>119</li>
+        <li>120</li>
+        <li>121</li>
+        <li>122</li>
+        <li>123</li>
+        <li>124</li>
+        <li>125</li>
+        <li>126</li>
+        <li>127</li>
+        <li>128</li>
+        <li>129</li>
+        <li>130</li>
+        <li>131</li>
+        <li>132</li>
+        <li>133</li>
+        <li>134</li>
+        <li>135</li>
+        <li>136</li>
+        <li>137</li>
+        <li>138</li>
+        <li>139</li>
+        <li>140</li>
+        <li>141</li>
+        <li>142</li>
+        <li>143</li>
+        <li>144</li>
+        <li>145</li>
+        <li>146</li>
+        <li>147</li>
+        <li>148</li>
+        <li>149</li>
+        <li>150</li>
+        <li>151</li>
+        <li>152</li>
+        <li>153</li>
+        <li>154</li>
+        <li>155</li>
+        <li>156</li>
+        <li>157</li>
+        <li>158</li>
+        <li>159</li>
+        <li>160</li>
+        <li>161</li>
+        <li>162</li>
+        <li>163</li>
+        <li>164</li>
+        <li>165</li>
+        <li>166</li>
+        <li>167</li>
+        <li>168</li>
+        <li>169</li>
+        <li>170</li>
+        <li>171</li>
+        <li>172</li>
+        <li>173</li>
+        <li>174</li>
+        <li>175</li>
+        <li>176</li>
+        <li>177</li>
+        <li>178</li>
+        <li>179</li>
+        <li>180</li>
+        <li>181</li>
+        <li>182</li>
+        <li>183</li>
+        <li>184</li>
+        <li>185</li>
+        <li>186</li>
+        <li>187</li>
+        <li>188</li>
+        <li>189</li>
+        <li>190</li>
+        <li>191</li>
+        <li>192</li>
+        <li>193</li>
+        <li>194</li>
+        <li>195</li>
+        <li>196</li>
+        <li>197</li>
+        <li>198</li>
+        <li>199</li>
+        <li>200</li>
+        <li>201</li>
+        <li>202</li>
+        <li>203</li>
+        <li>204</li>
+        <li>205</li>
+        <li>206</li>
+        <li>207</li>
+        <li>208</li>
+      </ol>
+      <code><span class="s2">&quot;^(?:\\s*(,)\\s*|\\s*(&lt;combinator&gt;+)\\s*|(\\s+)|(&lt;unicode&gt;+|\\*)|\\#(&lt;unicode&gt;+)|\\.(&lt;unicode&gt;+)|\\[\\s*(&lt;unicode1&gt;+)(?:\\s*([*^$!~|]?=)(?:\\s*(?:([\&quot;&#39;]?)(.*?)\\9)))?\\s*\\](?!\\])|:+(&lt;unicode&gt;+)(?:\\((?:(?:([\&quot;&#39;])([^\\12]*)\\12)|((?:\\([^)]+\\)|[^()]*)+))\\))?)&quot;</span>&#x000A;	<span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&lt;combinator&gt;/</span><span class="p">,</span> <span class="s1">&#39;[&#39;</span> <span class="o">+</span> <span class="nx">escapeRegExp</span><span class="p">(</span><span class="s2">&quot;&gt;+~`!@$%^&amp;={}\\;&lt;/&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="p">)</span>&#x000A;	<span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&lt;unicode&gt;/g</span><span class="p">,</span> <span class="s1">&#39;(?:[\\w\\u00a1-\\uFFFF-]|\\\\[^\\s0-9a-f])&#39;</span><span class="p">)</span>&#x000A;	<span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&lt;unicode1&gt;/g</span><span class="p">,</span> <span class="s1">&#39;(?:[:\\w\\u00a1-\\uFFFF-]|\\\\[^\\s0-9a-f])&#39;</span><span class="p">)</span>&#x000A;<span class="p">);</span>&#x000A;&#x000A;<span class="kd">function</span> <span class="nx">parser</span><span class="p">(</span>&#x000A;	<span class="nx">rawMatch</span><span class="p">,</span>&#x000A;&#x000A;	<span class="nx">separator</span><span class="p">,</span>&#x000A;	<span class="nx">combinator</span><span class="p">,</span>&#x000A;	<span class="nx">combinatorChildren</span><span class="p">,</span>&#x000A;&#x000A;	<span class="nx">tagName</span><span class="p">,</span>&#x000A;	<span class="nx">id</span><span class="p">,</span>&#x000A;	<span class="nx">className</span><span class="p">,</span>&#x000A;&#x000A;	<span class="nx">attributeKey</span><span class="p">,</span>&#x000A;	<span class="nx">attributeOperator</span><span class="p">,</span>&#x000A;	<span class="nx">attributeQuote</span><span class="p">,</span>&#x000A;	<span class="nx">attributeValue</span><span class="p">,</span>&#x000A;&#x000A;	<span class="nx">pseudoClass</span><span class="p">,</span>&#x000A;	<span class="nx">pseudoQuote</span><span class="p">,</span>&#x000A;	<span class="nx">pseudoClassQuotedValue</span><span class="p">,</span>&#x000A;	<span class="nx">pseudoClassValue</span>&#x000A;<span class="p">){</span>&#x000A;	<span class="k">if</span> <span class="p">(</span><span class="nx">separator</span> <span class="o">||</span> <span class="nx">separatorIndex</span> <span class="o">===</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>&#x000A;		<span class="nx">parsed</span><span class="p">.</span><span class="nx">expressions</span><span class="p">[</span><span class="o">++</span><span class="nx">separatorIndex</span><span class="p">]</span> <span class="o">=</span> <span class="p">[];</span>&#x000A;		<span class="nx">combinatorIndex</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="nx">separator</span><span class="p">)</span> <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>&#x000A;	<span class="p">}</span>&#x000A;&#x000A;	<span class="k">if</span> <span class="p">(</span><span class="nx">combinator</span> <span class="o">||</span> <span class="nx">combinatorChildren</span> <span class="o">||</span> <span class="nx">combinatorIndex</span> <span class="o">===</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>&#x000A;		<span class="nx">combinator</span> <span class="o">=</span> <span class="nx">combinator</span> <span class="o">||</span> <span class="s1">&#39; &#39;</span><span class="p">;</span>&#x000A;		<span class="kd">var</span> <span class="nx">currentSeparator</span> <span class="o">=</span> <span class="nx">parsed</span><span class="p">.</span><span class="nx">expressions</span><span class="p">[</span><span class="nx">separatorIndex</span><span class="p">];</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="nx">reversed</span> <span class="o">&amp;&amp;</span> <span class="nx">currentSeparator</span><span class="p">[</span><span class="nx">combinatorIndex</span><span class="p">])</span>&#x000A;			<span class="nx">currentSeparator</span><span class="p">[</span><span class="nx">combinatorIndex</span><span class="p">].</span><span class="nx">reverseCombinator</span> <span class="o">=</span> <span class="nx">reverseCombinator</span><span class="p">(</span><span class="nx">combinator</span><span class="p">);</span>&#x000A;		<span class="nx">currentSeparator</span><span class="p">[</span><span class="o">++</span><span class="nx">combinatorIndex</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">combinator</span><span class="o">:</span> <span class="nx">combinator</span><span class="p">,</span> <span class="nx">tag</span><span class="o">:</span> <span class="s1">&#39;*&#39;</span><span class="p">};</span>&#x000A;	<span class="p">}</span>&#x000A;&#x000A;	<span class="kd">var</span> <span class="nx">currentParsed</span> <span class="o">=</span> <span class="nx">parsed</span><span class="p">.</span><span class="nx">expressions</span><span class="p">[</span><span class="nx">separatorIndex</span><span class="p">][</span><span class="nx">combinatorIndex</span><span class="p">];</span>&#x000A;&#x000A;	<span class="k">if</span> <span class="p">(</span><span class="nx">tagName</span><span class="p">){</span>&#x000A;		<span class="nx">currentParsed</span><span class="p">.</span><span class="nx">tag</span> <span class="o">=</span> <span class="nx">tagName</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">reUnescape</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>&#x000A;&#x000A;	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">id</span><span class="p">){</span>&#x000A;		<span class="nx">currentParsed</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="nx">id</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">reUnescape</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>&#x000A;&#x000A;	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">className</span><span class="p">){</span>&#x000A;		<span class="nx">className</span> <span class="o">=</span> <span class="nx">className</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">reUnescape</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>&#x000A;&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">currentParsed</span><span class="p">.</span><span class="nx">classList</span><span class="p">)</span> <span class="nx">currentParsed</span><span class="p">.</span><span class="nx">classList</span> <span class="o">=</span> <span class="p">[];</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">currentParsed</span><span class="p">.</span><span class="nx">classes</span><span class="p">)</span> <span class="nx">currentParsed</span><span class="p">.</span><span class="nx">classes</span> <span class="o">=</span> <span class="p">[];</span>&#x000A;		<span class="nx">currentParsed</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">className</span><span class="p">);</span>&#x000A;		<span class="nx">currentParsed</span><span class="p">.</span><span class="nx">classes</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>&#x000A;			<span class="nx">value</span><span class="o">:</span> <span class="nx">className</span><span class="p">,</span>&#x000A;			<span class="nx">regexp</span><span class="o">:</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="s1">&#39;(^|\\s)&#39;</span> <span class="o">+</span> <span class="nx">escapeRegExp</span><span class="p">(</span><span class="nx">className</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;(\\s|$)&#39;</span><span class="p">)</span>&#x000A;		<span class="p">});</span>&#x000A;&#x000A;	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">pseudoClass</span><span class="p">){</span>&#x000A;		<span class="nx">pseudoClassValue</span> <span class="o">=</span> <span class="nx">pseudoClassValue</span> <span class="o">||</span> <span class="nx">pseudoClassQuotedValue</span><span class="p">;</span>&#x000A;		<span class="nx">pseudoClassValue</span> <span class="o">=</span> <span class="nx">pseudoClassValue</span> <span class="o">?</span> <span class="nx">pseudoClassValue</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">reUnescape</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">:</span> <span class="kc">null</span><span class="p">;</span>&#x000A;&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">currentParsed</span><span class="p">.</span><span class="nx">pseudos</span><span class="p">)</span> <span class="nx">currentParsed</span><span class="p">.</span><span class="nx">pseudos</span> <span class="o">=</span> <span class="p">[];</span>&#x000A;		<span class="nx">currentParsed</span><span class="p">.</span><span class="nx">pseudos</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>&#x000A;			<span class="nx">key</span><span class="o">:</span> <span class="nx">pseudoClass</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">reUnescape</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">),</span>&#x000A;			<span class="nx">value</span><span class="o">:</span> <span class="nx">pseudoClassValue</span>&#x000A;		<span class="p">});</span>&#x000A;&#x000A;	<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">attributeKey</span><span class="p">){</span>&#x000A;		<span class="nx">attributeKey</span> <span class="o">=</span> <span class="nx">attributeKey</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">reUnescape</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>&#x000A;		<span class="nx">attributeValue</span> <span class="o">=</span> <span class="p">(</span><span class="nx">attributeValue</span> <span class="o">||</span> <span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="nx">reUnescape</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>&#x000A;&#x000A;		<span class="kd">var</span> <span class="nx">test</span><span class="p">,</span> <span class="nx">regexp</span><span class="p">;</span>&#x000A;&#x000A;		<span class="k">switch</span> <span class="p">(</span><span class="nx">attributeOperator</span><span class="p">){</span>&#x000A;			<span class="k">case</span> <span class="s1">&#39;^=&#39;</span> <span class="o">:</span> <span class="nx">regexp</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span>       <span class="s1">&#39;^&#39;</span><span class="o">+</span> <span class="nx">escapeRegExp</span><span class="p">(</span><span class="nx">attributeValue</span><span class="p">)</span>            <span class="p">);</span> <span class="k">break</span><span class="p">;</span>&#x000A;			<span class="k">case</span> <span class="s1">&#39;$=&#39;</span> <span class="o">:</span> <span class="nx">regexp</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span>            <span class="nx">escapeRegExp</span><span class="p">(</span><span class="nx">attributeValue</span><span class="p">)</span> <span class="o">+</span><span class="s1">&#39;$&#39;</span>       <span class="p">);</span> <span class="k">break</span><span class="p">;</span>&#x000A;			<span class="k">case</span> <span class="s1">&#39;~=&#39;</span> <span class="o">:</span> <span class="nx">regexp</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span> <span class="s1">&#39;(^|\\s)&#39;</span><span class="o">+</span> <span class="nx">escapeRegExp</span><span class="p">(</span><span class="nx">attributeValue</span><span class="p">)</span> <span class="o">+</span><span class="s1">&#39;(\\s|$)&#39;</span> <span class="p">);</span> <span class="k">break</span><span class="p">;</span>&#x000A;			<span class="k">case</span> <span class="s1">&#39;|=&#39;</span> <span class="o">:</span> <span class="nx">regexp</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span>       <span class="s1">&#39;^&#39;</span><span class="o">+</span> <span class="nx">escapeRegExp</span><span class="p">(</span><span class="nx">attributeValue</span><span class="p">)</span> <span class="o">+</span><span class="s1">&#39;(-|$)&#39;</span>   <span class="p">);</span> <span class="k">break</span><span class="p">;</span>&#x000A;			<span class="k">case</span>  <span class="s1">&#39;=&#39;</span> <span class="o">:</span> <span class="nx">test</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">){</span>&#x000A;				<span class="k">return</span> <span class="nx">attributeValue</span> <span class="o">==</span> <span class="nx">value</span><span class="p">;</span>&#x000A;			<span class="p">};</span> <span class="k">break</span><span class="p">;</span>&#x000A;			<span class="k">case</span> <span class="s1">&#39;*=&#39;</span> <span class="o">:</span> <span class="nx">test</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">){</span>&#x000A;				<span class="k">return</span> <span class="nx">value</span> <span class="o">&amp;&amp;</span> <span class="nx">value</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">attributeValue</span><span class="p">)</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>&#x000A;			<span class="p">};</span> <span class="k">break</span><span class="p">;</span>&#x000A;			<span class="k">case</span> <span class="s1">&#39;!=&#39;</span> <span class="o">:</span> <span class="nx">test</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">){</span>&#x000A;				<span class="k">return</span> <span class="nx">attributeValue</span> <span class="o">!=</span> <span class="nx">value</span><span class="p">;</span>&#x000A;			<span class="p">};</span> <span class="k">break</span><span class="p">;</span>&#x000A;			<span class="k">default</span>   <span class="o">:</span> <span class="nx">test</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">){</span>&#x000A;				<span class="k">return</span> <span class="o">!!</span><span class="nx">value</span><span class="p">;</span>&#x000A;			<span class="p">};</span>&#x000A;		<span class="p">}</span>&#x000A;&#x000A;		<span class="k">if</span> <span class="p">((</span><span class="sr">/^[*$^]=$/</span><span class="p">).</span><span class="nx">test</span><span class="p">(</span><span class="nx">attributeOperator</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">attributeValue</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="nx">test</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;			<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;		<span class="p">};</span>&#x000A;&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">test</span><span class="p">)</span> <span class="nx">test</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">){</span>&#x000A;			<span class="k">return</span> <span class="nx">value</span> <span class="o">&amp;&amp;</span> <span class="nx">regexp</span><span class="p">.</span><span class="nx">test</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>&#x000A;		<span class="p">};</span>&#x000A;&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">currentParsed</span><span class="p">.</span><span class="nx">attributes</span><span class="p">)</span> <span class="nx">currentParsed</span><span class="p">.</span><span class="nx">attributes</span> <span class="o">=</span> <span class="p">[];</span>&#x000A;		<span class="nx">currentParsed</span><span class="p">.</span><span class="nx">attributes</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>&#x000A;			<span class="nx">key</span><span class="o">:</span> <span class="nx">attributeKey</span><span class="p">,</span>&#x000A;			<span class="nx">operator</span><span class="o">:</span> <span class="nx">attributeOperator</span><span class="p">,</span>&#x000A;			<span class="nx">value</span><span class="o">:</span> <span class="nx">attributeValue</span><span class="p">,</span>&#x000A;			<span class="nx">test</span><span class="o">:</span> <span class="nx">test</span>&#x000A;		<span class="p">});</span>&#x000A;&#x000A;	<span class="p">}</span>&#x000A;&#x000A;	<span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>&#x000A;<span class="p">};</span></code>
+    </figure>
+    <section>
+      <p>Slick NS</p>
+    </section>
+    <figure>
+      <ol>
+        <li>212</li>
+        <li>213</li>
+        <li>214</li>
+        <li>215</li>
+        <li>216</li>
+        <li>217</li>
+        <li>218</li>
+        <li>219</li>
+        <li>220</li>
+        <li>221</li>
+        <li>222</li>
+      </ol>
+      <code><span class="kd">var</span> <span class="nx">Slick</span> <span class="o">=</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">Slick</span> <span class="o">||</span> <span class="p">{});</span>&#x000A;&#x000A;<span class="nx">Slick</span><span class="p">.</span><span class="nx">parse</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">expression</span><span class="p">){</span>&#x000A;	<span class="k">return</span> <span class="nx">parse</span><span class="p">(</span><span class="nx">expression</span><span class="p">);</span>&#x000A;<span class="p">};</span>&#x000A;&#x000A;<span class="nx">Slick</span><span class="p">.</span><span class="nx">escapeRegExp</span> <span class="o">=</span> <span class="nx">escapeRegExp</span><span class="p">;</span>&#x000A;&#x000A;<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">Slick</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">Slick</span> <span class="o">=</span> <span class="nx">Slick</span><span class="p">;</span>&#x000A;&#x000A;<span class="p">}).</span><span class="nx">apply</span><span class="p">(</span><span class="cm">/*&lt;CommonJS&gt;*/</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">exports</span> <span class="o">!=</span> <span class="s1">&#39;undefined&#39;</span><span class="p">)</span> <span class="o">?</span> <span class="nx">exports</span> <span class="o">:</span> <span class="cm">/*&lt;/CommonJS&gt;*/</span><span class="k">this</span><span class="p">);</span></code>
+    </figure>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Toolbar.Menu.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>ART.Widget.Menu.Toolbar</li>
+        <li>ART.Widget.Trait.Menu.Stateful</li>
+        <li>Base/Widget.Trait.List</li>
+        <li>Base/Widget.Trait.Item.Stateful</li>
+        <li>Base/Widget.Trait.Accessibility</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>ART.Widget.Menu.Toolbar.Menu</li>
+        <li>ART.Widget.Menu.Toolbar.Menu.Label</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Toolbar.Menu.js</h1>
+      <p>Dropdown menu in a toolbar</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license.</dd>
+        <dt>Authors:</dt>
+        <dd>Yaroslaff Fedin</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+        <li>61</li>
+        <li>62</li>
+        <li>63</li>
+        <li>64</li>
+        <li>65</li>
+        <li>66</li>
+        <li>67</li>
+        <li>68</li>
+        <li>69</li>
+        <li>70</li>
+        <li>71</li>
+        <li>72</li>
+        <li>73</li>
+        <li>74</li>
+        <li>75</li>
+      </ol>
+      <code><span class="nx">ART</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">Menu</span><span class="p">.</span><span class="nx">Toolbar</span><span class="p">.</span><span class="nx">Menu</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;  <span class="nx">Includes</span><span class="o">:</span> <span class="p">[</span>&#x000A;    <span class="nx">ART</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">Button</span><span class="p">,</span>&#x000A;    <span class="nx">ART</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">Menu</span><span class="p">.</span><span class="nx">Stateful</span><span class="p">,</span>&#x000A;    <span class="nx">Widget</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">List</span><span class="p">,</span> <span class="c1">//Look ma, list and item at once!</span>&#x000A;    <span class="nx">Widget</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">Item</span><span class="p">.</span><span class="nx">Stateful</span><span class="p">,</span>&#x000A;    <span class="nx">Widget</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">Accessibility</span>&#x000A;  <span class="p">],</span>&#x000A;  &#x000A;  <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>&#x000A;    <span class="nx">element</span><span class="o">:</span> <span class="p">{</span>&#x000A;      <span class="nx">mousedown</span><span class="o">:</span> <span class="s1">&#39;select&#39;</span>&#x000A;    <span class="p">},</span>&#x000A;    <span class="nx">parent</span><span class="o">:</span> <span class="p">{</span>&#x000A;      <span class="nx">blur</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;detachEvents&#39;</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">],</span>&#x000A;      <span class="nx">focus</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;attachEvents&#39;</span><span class="p">,</span> <span class="s1">&#39;target&#39;</span><span class="p">]</span>&#x000A;    <span class="p">},</span>&#x000A;    <span class="nx">target</span><span class="o">:</span> <span class="p">{</span>&#x000A;      <span class="nx">element</span><span class="o">:</span> <span class="p">{</span>&#x000A;        <span class="nx">mousemove</span><span class="o">:</span> <span class="s1">&#39;select&#39;</span>&#x000A;      <span class="p">}</span>&#x000A;    <span class="p">},</span>&#x000A;    <span class="nx">self</span><span class="o">:</span> <span class="p">{</span>&#x000A;      <span class="nx">inject</span><span class="o">:</span> <span class="s1">&#39;setList&#39;</span><span class="p">,</span>&#x000A;      <span class="nx">expand</span><span class="o">:</span> <span class="s1">&#39;unselectItem&#39;</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>&#x000A;    <span class="nx">menu</span><span class="o">:</span> <span class="p">{</span>&#x000A;      <span class="nx">position</span><span class="o">:</span> <span class="s1">&#39;bottom&#39;</span>&#x000A;    <span class="p">},</span>&#x000A;    <span class="nx">layout</span><span class="o">:</span> <span class="p">{</span>&#x000A;      <span class="nx">item</span><span class="o">:</span> <span class="s1">&#39;select-option&#39;</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">render</span><span class="o">:</span> <span class="nx">Macro</span><span class="p">.</span><span class="nx">onion</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">attributes</span><span class="p">.</span><span class="nx">label</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">setContent</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">attributes</span><span class="p">.</span><span class="nx">label</span><span class="p">)</span>&#x000A;  <span class="p">}),</span>&#x000A;  &#x000A;  <span class="nx">processValue</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">return</span> <span class="nx">item</span><span class="p">.</span><span class="nx">value</span><span class="p">;</span>&#x000A;  <span class="p">}</span>&#x000A;  &#x000A;<span class="p">});</span>&#x000A;&#x000A;<span class="nx">Widget</span><span class="p">.</span><span class="nx">Events</span><span class="p">.</span><span class="nx">Ignore</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;target&#39;</span><span class="p">);</span>&#x000A;&#x000A;<span class="nx">ART</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">Menu</span><span class="p">.</span><span class="nx">Toolbar</span><span class="p">.</span><span class="nx">Menu</span><span class="p">.</span><span class="nx">Label</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;  <span class="nx">Extends</span><span class="o">:</span> <span class="nx">ART</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">Button</span>&#x000A;<span class="p">})</span></code>
+    </figure>
+  </body>
+</html>

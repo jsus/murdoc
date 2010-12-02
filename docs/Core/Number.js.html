@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Type</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Number</li>
+      </ul>
+    </figure>
+    <header>
+      <p>Contains Number Prototypes like limit, round, times, and ceil.</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license.</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>18</li>
+        <li>19</li>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+      </ol>
+      <code><span class="nb">Number</span><span class="p">.</span><span class="nx">implement</span><span class="p">({</span>&#x000A;&#x000A;	<span class="nx">limit</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">min</span><span class="p">,</span> <span class="nx">max</span><span class="p">){</span>&#x000A;		<span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">max</span><span class="p">,</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">min</span><span class="p">,</span> <span class="k">this</span><span class="p">));</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">round</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">precision</span><span class="p">){</span>&#x000A;		<span class="nx">precision</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">pow</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="nx">precision</span> <span class="o">||</span> <span class="mi">0</span><span class="p">).</span><span class="nx">toFixed</span><span class="p">(</span><span class="nx">precision</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="o">-</span><span class="nx">precision</span> <span class="o">:</span> <span class="mi">0</span><span class="p">);</span>&#x000A;		<span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="k">this</span> <span class="o">*</span> <span class="nx">precision</span><span class="p">)</span> <span class="o">/</span> <span class="nx">precision</span><span class="p">;</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">times</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">bind</span><span class="p">){</span>&#x000A;		<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="nx">fn</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">bind</span><span class="p">,</span> <span class="nx">i</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">toFloat</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;		<span class="k">return</span> <span class="nb">parseFloat</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">toInt</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">base</span><span class="p">){</span>&#x000A;		<span class="k">return</span> <span class="nb">parseInt</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">base</span> <span class="o">||</span> <span class="mi">10</span><span class="p">);</span>&#x000A;	<span class="p">}</span>&#x000A;&#x000A;<span class="p">});</span>&#x000A;&#x000A;<span class="nb">Number</span><span class="p">.</span><span class="nx">alias</span><span class="p">(</span><span class="s1">&#39;each&#39;</span><span class="p">,</span> <span class="s1">&#39;times&#39;</span><span class="p">);</span>&#x000A;&#x000A;<span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">math</span><span class="p">){</span>&#x000A;	<span class="kd">var</span> <span class="nx">methods</span> <span class="o">=</span> <span class="p">{};</span>&#x000A;	<span class="nx">math</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">){</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">Number</span><span class="p">[</span><span class="nx">name</span><span class="p">])</span> <span class="nx">methods</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;			<span class="k">return</span> <span class="nb">Math</span><span class="p">[</span><span class="nx">name</span><span class="p">].</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="p">[</span><span class="k">this</span><span class="p">].</span><span class="nx">concat</span><span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">from</span><span class="p">(</span><span class="nx">arguments</span><span class="p">)));</span>&#x000A;		<span class="p">};</span>&#x000A;	<span class="p">});</span>&#x000A;	<span class="nb">Number</span><span class="p">.</span><span class="nx">implement</span><span class="p">(</span><span class="nx">methods</span><span class="p">);</span>&#x000A;<span class="p">})([</span><span class="s1">&#39;abs&#39;</span><span class="p">,</span> <span class="s1">&#39;acos&#39;</span><span class="p">,</span> <span class="s1">&#39;asin&#39;</span><span class="p">,</span> <span class="s1">&#39;atan&#39;</span><span class="p">,</span> <span class="s1">&#39;atan2&#39;</span><span class="p">,</span> <span class="s1">&#39;ceil&#39;</span><span class="p">,</span> <span class="s1">&#39;cos&#39;</span><span class="p">,</span> <span class="s1">&#39;exp&#39;</span><span class="p">,</span> <span class="s1">&#39;floor&#39;</span><span class="p">,</span> <span class="s1">&#39;log&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;pow&#39;</span><span class="p">,</span> <span class="s1">&#39;sin&#39;</span><span class="p">,</span> <span class="s1">&#39;sqrt&#39;</span><span class="p">,</span> <span class="s1">&#39;tan&#39;</span><span class="p">]);</span></code>
+    </figure>
+  </body>
+</html>

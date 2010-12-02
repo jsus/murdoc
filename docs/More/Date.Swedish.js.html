@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Date.Swedish.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Locale</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Date.Swedish</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Date.Swedish.js</h1>
+      <p>Date messages for Swedish.</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license</dd>
+        <dt>Authors:</dt>
+        <dd>Martin Lundgren</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+      </ol>
+      <code><span class="nx">Locale</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;sv-SE&#39;</span><span class="p">,</span> <span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="p">{</span>&#x000A;&#x000A;	<span class="nx">months</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;januari&#39;</span><span class="p">,</span> <span class="s1">&#39;februari&#39;</span><span class="p">,</span> <span class="s1">&#39;mars&#39;</span><span class="p">,</span> <span class="s1">&#39;april&#39;</span><span class="p">,</span> <span class="s1">&#39;maj&#39;</span><span class="p">,</span> <span class="s1">&#39;juni&#39;</span><span class="p">,</span> <span class="s1">&#39;juli&#39;</span><span class="p">,</span> <span class="s1">&#39;augusti&#39;</span><span class="p">,</span> <span class="s1">&#39;september&#39;</span><span class="p">,</span> <span class="s1">&#39;oktober&#39;</span><span class="p">,</span> <span class="s1">&#39;november&#39;</span><span class="p">,</span> <span class="s1">&#39;december&#39;</span><span class="p">],</span>&#x000A;	<span class="nx">days</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;söndag&#39;</span><span class="p">,</span> <span class="s1">&#39;måndag&#39;</span><span class="p">,</span> <span class="s1">&#39;tisdag&#39;</span><span class="p">,</span> <span class="s1">&#39;onsdag&#39;</span><span class="p">,</span> <span class="s1">&#39;torsdag&#39;</span><span class="p">,</span> <span class="s1">&#39;fredag&#39;</span><span class="p">,</span> <span class="s1">&#39;lördag&#39;</span><span class="p">],</span></code>
+    </figure>
+    <section>
+      <p>Culture&rsquo;s date order: YYYY-MM-DD</p>
+    </section>
+    <figure>
+      <ol>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+      </ol>
+      <code><span class="nx">dateOrder</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">],</span>&#x000A;	<span class="nx">shortDate</span><span class="o">:</span> <span class="s1">&#39;%Y-%m-%d&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">shortTime</span><span class="o">:</span> <span class="s1">&#39;%H:%M&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">AM</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">PM</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span></code>
+    </figure>
+    <section>
+      <p>Date.Extras</p>
+    </section>
+    <figure>
+      <ol>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+      </ol>
+      <code><span class="nx">ordinal</span><span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>&#x000A;&#x000A;	<span class="nx">lessThanMinuteAgo</span><span class="o">:</span> <span class="s1">&#39;mindre än en minut sedan&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">minuteAgo</span><span class="o">:</span> <span class="s1">&#39;ungefär en minut sedan&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">minutesAgo</span><span class="o">:</span> <span class="s1">&#39;{delta} minuter sedan&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">hourAgo</span><span class="o">:</span> <span class="s1">&#39;ungefär en timme sedan&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">hoursAgo</span><span class="o">:</span> <span class="s1">&#39;ungefär {delta} timmar sedan&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">dayAgo</span><span class="o">:</span> <span class="s1">&#39;1 dag sedan&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">daysAgo</span><span class="o">:</span> <span class="s1">&#39;{delta} dagar sedan&#39;</span><span class="p">,</span>&#x000A;&#x000A;	<span class="nx">lessThanMinuteUntil</span><span class="o">:</span> <span class="s1">&#39;mindre än en minut sedan&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">minuteUntil</span><span class="o">:</span> <span class="s1">&#39;ungefär en minut sedan&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">minutesUntil</span><span class="o">:</span> <span class="s1">&#39;{delta} minuter sedan&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">hourUntil</span><span class="o">:</span> <span class="s1">&#39;ungefär en timme sedan&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">hoursUntil</span><span class="o">:</span> <span class="s1">&#39;ungefär {delta} timmar sedan&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">dayUntil</span><span class="o">:</span> <span class="s1">&#39;1 dag sedan&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">daysUntil</span><span class="o">:</span> <span class="s1">&#39;{delta} dagar sedan&#39;</span>&#x000A;&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

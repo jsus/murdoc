@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Date.Slovenian.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Locale</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Date.Slovenian</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Date.Slovenian.js</h1>
+      <p>Date messages for Slovenian.</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license</dd>
+        <dt>Authors:</dt>
+        <dd>Radovan Lozej</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+      </ol>
+      <code><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>&#x000A;&#x000A;<span class="kd">var</span> <span class="nx">pluralize</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">one</span><span class="p">,</span> <span class="nx">two</span><span class="p">,</span> <span class="nx">three</span><span class="p">,</span> <span class="nx">other</span><span class="p">){</span>&#x000A;	<span class="k">return</span> <span class="p">(</span><span class="nx">n</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nx">n</span> <span class="o">&lt;=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">?</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span> <span class="o">:</span> <span class="nx">other</span><span class="p">;</span>&#x000A;<span class="p">};</span>&#x000A;&#x000A;<span class="nx">Locale</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;si-SI&#39;</span><span class="p">,</span> <span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="p">{</span>&#x000A;&#x000A;	<span class="nx">months</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;januar&#39;</span><span class="p">,</span> <span class="s1">&#39;februar&#39;</span><span class="p">,</span> <span class="s1">&#39;marec&#39;</span><span class="p">,</span> <span class="s1">&#39;april&#39;</span><span class="p">,</span> <span class="s1">&#39;maj&#39;</span><span class="p">,</span> <span class="s1">&#39;junij&#39;</span><span class="p">,</span> <span class="s1">&#39;julij&#39;</span><span class="p">,</span> <span class="s1">&#39;avgust&#39;</span><span class="p">,</span> <span class="s1">&#39;september&#39;</span><span class="p">,</span> <span class="s1">&#39;oktober&#39;</span><span class="p">,</span> <span class="s1">&#39;november&#39;</span><span class="p">,</span> <span class="s1">&#39;december&#39;</span><span class="p">],</span>&#x000A;	<span class="nx">days</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;nedelja&#39;</span><span class="p">,</span> <span class="s1">&#39;ponedeljek&#39;</span><span class="p">,</span> <span class="s1">&#39;torek&#39;</span><span class="p">,</span> <span class="s1">&#39;sreda&#39;</span><span class="p">,</span> <span class="s1">&#39;četrtek&#39;</span><span class="p">,</span> <span class="s1">&#39;petek&#39;</span><span class="p">,</span> <span class="s1">&#39;sobota&#39;</span><span class="p">],</span></code>
+    </figure>
+    <section>
+      <p>Culture&rsquo;s date order: DD.MM.YYYY</p>
+    </section>
+    <figure>
+      <ol>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+      </ol>
+      <code><span class="nx">dateOrder</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">],</span>&#x000A;	<span class="nx">shortDate</span><span class="o">:</span> <span class="s1">&#39;%d.%m.%Y&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">shortTime</span><span class="o">:</span> <span class="s1">&#39;%H.%M&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">AM</span><span class="o">:</span> <span class="s1">&#39;AM&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">PM</span><span class="o">:</span> <span class="s1">&#39;PM&#39;</span><span class="p">,</span></code>
+    </figure>
+    <section>
+      <p>Date.Extras</p>
+    </section>
+    <figure>
+      <ol>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+        <li>61</li>
+        <li>62</li>
+        <li>63</li>
+        <li>64</li>
+        <li>65</li>
+        <li>66</li>
+        <li>67</li>
+        <li>68</li>
+        <li>69</li>
+        <li>70</li>
+        <li>71</li>
+        <li>72</li>
+        <li>73</li>
+        <li>74</li>
+        <li>75</li>
+      </ol>
+      <code><span class="nx">ordinal</span><span class="o">:</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span>&#x000A;&#x000A;	<span class="nx">lessThanMinuteAgo</span><span class="o">:</span> <span class="s1">&#39;manj kot minuto nazaj&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">minuteAgo</span><span class="o">:</span> <span class="s1">&#39;minuto nazaj&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">minutesAgo</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">){</span> <span class="k">return</span> <span class="s1">&#39;{delta} &#39;</span> <span class="o">+</span> <span class="nx">pluralize</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="s1">&#39;minuto&#39;</span><span class="p">,</span> <span class="s1">&#39;minuti&#39;</span><span class="p">,</span> <span class="s1">&#39;minute&#39;</span><span class="p">,</span> <span class="s1">&#39;minut&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; nazaj&#39;</span><span class="p">;</span> <span class="p">},</span>&#x000A;	<span class="nx">hourAgo</span><span class="o">:</span> <span class="s1">&#39;uro nazaj&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">hoursAgo</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">){</span> <span class="k">return</span> <span class="s1">&#39;{delta} &#39;</span> <span class="o">+</span> <span class="nx">pluralize</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="s1">&#39;uro&#39;</span><span class="p">,</span> <span class="s1">&#39;uri&#39;</span><span class="p">,</span> <span class="s1">&#39;ure&#39;</span><span class="p">,</span> <span class="s1">&#39;ur&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; nazaj&#39;</span><span class="p">;</span> <span class="p">},</span>&#x000A;	<span class="nx">dayAgo</span><span class="o">:</span> <span class="s1">&#39;dan nazaj&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">daysAgo</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">){</span> <span class="k">return</span> <span class="s1">&#39;{delta} &#39;</span> <span class="o">+</span> <span class="nx">pluralize</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="s1">&#39;dan&#39;</span><span class="p">,</span> <span class="s1">&#39;dneva&#39;</span><span class="p">,</span> <span class="s1">&#39;dni&#39;</span><span class="p">,</span> <span class="s1">&#39;dni&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; nazaj&#39;</span><span class="p">;</span> <span class="p">},</span>&#x000A;	<span class="nx">weekAgo</span><span class="o">:</span> <span class="s1">&#39;teden nazaj&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">weeksAgo</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">){</span> <span class="k">return</span> <span class="s1">&#39;{delta} &#39;</span> <span class="o">+</span> <span class="nx">pluralize</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="s1">&#39;teden&#39;</span><span class="p">,</span> <span class="s1">&#39;tedna&#39;</span><span class="p">,</span> <span class="s1">&#39;tedne&#39;</span><span class="p">,</span> <span class="s1">&#39;tednov&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; nazaj&#39;</span><span class="p">;</span> <span class="p">},</span>&#x000A;	<span class="nx">monthAgo</span><span class="o">:</span> <span class="s1">&#39;mesec nazaj&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">monthsAgo</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">){</span> <span class="k">return</span> <span class="s1">&#39;{delta} &#39;</span> <span class="o">+</span> <span class="nx">pluralize</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="s1">&#39;mesec&#39;</span><span class="p">,</span> <span class="s1">&#39;meseca&#39;</span><span class="p">,</span> <span class="s1">&#39;mesece&#39;</span><span class="p">,</span> <span class="s1">&#39;mesecov&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; nazaj&#39;</span><span class="p">;</span> <span class="p">},</span>&#x000A;	<span class="nx">yearthAgo</span><span class="o">:</span> <span class="s1">&#39;leto nazaj&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">yearsAgo</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">){</span> <span class="k">return</span> <span class="s1">&#39;{delta} &#39;</span> <span class="o">+</span> <span class="nx">pluralize</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="s1">&#39;leto&#39;</span><span class="p">,</span> <span class="s1">&#39;leti&#39;</span><span class="p">,</span> <span class="s1">&#39;leta&#39;</span><span class="p">,</span> <span class="s1">&#39;let&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; nazaj&#39;</span><span class="p">;</span> <span class="p">},</span>&#x000A;&#x000A;	<span class="nx">lessThanMinuteUntil</span><span class="o">:</span> <span class="s1">&#39;še manj kot minuto&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">minuteUntil</span><span class="o">:</span> <span class="s1">&#39;še minuta&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">minutesUntil</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">){</span> <span class="k">return</span> <span class="s1">&#39;še {delta} &#39;</span> <span class="o">+</span> <span class="nx">pluralize</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="s1">&#39;minuta&#39;</span><span class="p">,</span> <span class="s1">&#39;minuti&#39;</span><span class="p">,</span> <span class="s1">&#39;minute&#39;</span><span class="p">,</span> <span class="s1">&#39;minut&#39;</span><span class="p">);</span> <span class="p">},</span>&#x000A;	<span class="nx">hourUntil</span><span class="o">:</span> <span class="s1">&#39;še ura&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">hoursUntil</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">){</span> <span class="k">return</span> <span class="s1">&#39;še {delta} &#39;</span> <span class="o">+</span> <span class="nx">pluralize</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="s1">&#39;ura&#39;</span><span class="p">,</span> <span class="s1">&#39;uri&#39;</span><span class="p">,</span> <span class="s1">&#39;ure&#39;</span><span class="p">,</span> <span class="s1">&#39;ur&#39;</span><span class="p">);</span> <span class="p">},</span>&#x000A;	<span class="nx">dayUntil</span><span class="o">:</span> <span class="s1">&#39;še dan&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">daysUntil</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">){</span> <span class="k">return</span> <span class="s1">&#39;še {delta} &#39;</span> <span class="o">+</span> <span class="nx">pluralize</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="s1">&#39;dan&#39;</span><span class="p">,</span> <span class="s1">&#39;dneva&#39;</span><span class="p">,</span> <span class="s1">&#39;dnevi&#39;</span><span class="p">,</span> <span class="s1">&#39;dni&#39;</span><span class="p">);</span> <span class="p">},</span>&#x000A;	<span class="nx">weekUntil</span><span class="o">:</span> <span class="s1">&#39;še tedn&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">weeksUntil</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">){</span> <span class="k">return</span> <span class="s1">&#39;še {delta} &#39;</span> <span class="o">+</span> <span class="nx">pluralize</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="s1">&#39;teden&#39;</span><span class="p">,</span> <span class="s1">&#39;tedna&#39;</span><span class="p">,</span> <span class="s1">&#39;tedni&#39;</span><span class="p">,</span> <span class="s1">&#39;tednov&#39;</span><span class="p">);</span> <span class="p">},</span>&#x000A;	<span class="nx">monthUntil</span><span class="o">:</span> <span class="s1">&#39;še mesec&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">monthsUntil</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">){</span> <span class="k">return</span> <span class="s1">&#39;še {delta} &#39;</span> <span class="o">+</span> <span class="nx">pluralize</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="s1">&#39;mesec&#39;</span><span class="p">,</span> <span class="s1">&#39;meseca&#39;</span><span class="p">,</span> <span class="s1">&#39;meseci&#39;</span><span class="p">,</span> <span class="s1">&#39;mesecov&#39;</span><span class="p">);</span> <span class="p">},</span>&#x000A;	<span class="nx">yearUntil</span><span class="o">:</span> <span class="s1">&#39;še leto&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">yearsUntil</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">delta</span><span class="p">){</span> <span class="k">return</span> <span class="s1">&#39;še {delta} &#39;</span> <span class="o">+</span> <span class="nx">pluralize</span><span class="p">(</span><span class="nx">delta</span><span class="p">,</span> <span class="s1">&#39;leto&#39;</span><span class="p">,</span> <span class="s1">&#39;leti&#39;</span><span class="p">,</span> <span class="s1">&#39;leta&#39;</span><span class="p">,</span> <span class="s1">&#39;let&#39;</span><span class="p">);</span> <span class="p">}</span>&#x000A;&#x000A;<span class="p">});</span>&#x000A;&#x000A;<span class="p">})();</span></code>
+    </figure>
+  </body>
+</html>

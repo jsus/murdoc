@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Request</li>
+        <li>JSON</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Request.JSON</li>
+      </ul>
+    </figure>
+    <header>
+      <p>Extends the basic Request Class with additional methods for sending and receiving JSON data.</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license.</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>18</li>
+        <li>19</li>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+      </ol>
+      <code><span class="nx">Request</span><span class="p">.</span><span class="nx">JSON</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;&#x000A;	<span class="nx">Extends</span><span class="o">:</span> <span class="nx">Request</span><span class="p">,</span>&#x000A;&#x000A;	<span class="nx">options</span><span class="o">:</span> <span class="p">{</span>&#x000A;		<span class="nx">secure</span><span class="o">:</span> <span class="kc">true</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">options</span><span class="p">){</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>&#x000A;		<span class="nb">Object</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">headers</span><span class="p">,</span> <span class="p">{</span>&#x000A;			<span class="s1">&#39;Accept&#39;</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>&#x000A;			<span class="s1">&#39;X-Request&#39;</span><span class="o">:</span> <span class="s1">&#39;JSON&#39;</span>&#x000A;		<span class="p">});</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">success</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">text</span><span class="p">){</span>&#x000A;		<span class="kd">var</span> <span class="nx">secure</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">secure</span><span class="p">;</span>&#x000A;		<span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">json</span> <span class="o">=</span> <span class="nb">Function</span><span class="p">.</span><span class="nx">attempt</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>&#x000A;			<span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">decode</span><span class="p">(</span><span class="nx">text</span><span class="p">,</span> <span class="nx">secure</span><span class="p">);</span>&#x000A;		<span class="p">});</span>&#x000A;&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="nx">json</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">onFailure</span><span class="p">();</span>&#x000A;		<span class="k">else</span> <span class="k">this</span><span class="p">.</span><span class="nx">onSuccess</span><span class="p">(</span><span class="nx">json</span><span class="p">,</span> <span class="nx">text</span><span class="p">);</span>&#x000A;	<span class="p">}</span>&#x000A;&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

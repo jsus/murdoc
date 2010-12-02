@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Element.Shortcuts.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Core/Element.Style</li>
+        <li>MooTools.More</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Element.Shortcuts</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Element.Shortcuts.js</h1>
+      <p>Extends the Element native object to include some shortcut methods.</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license</dd>
+        <dt>Authors:</dt>
+        <dd>Aaron Newton</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+      </ol>
+      <code><span class="nx">Element</span><span class="p">.</span><span class="nx">implement</span><span class="p">({</span>&#x000A;&#x000A;	<span class="nx">isDisplayed</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">!=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">isVisible</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;		<span class="kd">var</span> <span class="nx">w</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">offsetWidth</span><span class="p">,</span>&#x000A;			<span class="nx">h</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">offsetHeight</span><span class="p">;</span>&#x000A;		<span class="k">return</span> <span class="p">(</span><span class="nx">w</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">h</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">?</span> <span class="kc">false</span> <span class="o">:</span> <span class="p">(</span><span class="nx">w</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="nx">h</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">?</span> <span class="kc">true</span> <span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">display</span> <span class="o">!=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">toggle</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;		<span class="k">return</span> <span class="k">this</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">isDisplayed</span><span class="p">()</span> <span class="o">?</span> <span class="s1">&#39;hide&#39;</span> <span class="o">:</span> <span class="s1">&#39;show&#39;</span><span class="p">]();</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">hide</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;		<span class="kd">var</span> <span class="nx">d</span><span class="p">;</span>&#x000A;		<span class="k">try</span> <span class="p">{</span></code>
+    </figure>
+    <section>
+      <p>IE fails here if the element is not in the dom</p>
+    </section>
+    <figure>
+      <ol>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+        <li>61</li>
+        <li>62</li>
+        <li>63</li>
+        <li>64</li>
+        <li>65</li>
+        <li>66</li>
+        <li>67</li>
+        <li>68</li>
+        <li>69</li>
+      </ol>
+      <code><span class="nx">d</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getStyle</span><span class="p">(</span><span class="s1">&#39;display&#39;</span><span class="p">);</span>&#x000A;		<span class="p">}</span> <span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">){}</span>&#x000A;		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">(</span><span class="s1">&#39;element:_originalDisplay&#39;</span><span class="p">,</span> <span class="nx">d</span> <span class="o">||</span> <span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">setStyle</span><span class="p">(</span><span class="s1">&#39;display&#39;</span><span class="p">,</span> <span class="s1">&#39;none&#39;</span><span class="p">);</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">show</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">display</span><span class="p">){</span>&#x000A;		<span class="nx">display</span> <span class="o">=</span> <span class="nx">display</span> <span class="o">||</span> <span class="k">this</span><span class="p">.</span><span class="nx">retrieve</span><span class="p">(</span><span class="s1">&#39;element:_originalDisplay&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="s1">&#39;block&#39;</span><span class="p">;</span>&#x000A;		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">(</span><span class="s1">&#39;display&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">display</span> <span class="o">==</span> <span class="s1">&#39;none&#39;</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;block&#39;</span> <span class="o">:</span> <span class="nx">display</span><span class="p">);</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">swapClass</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">remove</span><span class="p">,</span> <span class="nx">add</span><span class="p">){</span>&#x000A;		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="nx">remove</span><span class="p">).</span><span class="nx">addClass</span><span class="p">(</span><span class="nx">add</span><span class="p">);</span>&#x000A;	<span class="p">}</span>&#x000A;<span class="p">});</span>&#x000A;&#x000A;<span class="nx">Document</span><span class="p">.</span><span class="nx">implement</span><span class="p">({</span>&#x000A;	<span class="nx">clearSelection</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">selection</span> <span class="o">&amp;&amp;</span> <span class="nb">document</span><span class="p">.</span><span class="nx">selection</span><span class="p">.</span><span class="nx">empty</span><span class="p">)</span> <span class="p">{</span>&#x000A;			<span class="nb">document</span><span class="p">.</span><span class="nx">selection</span><span class="p">.</span><span class="nx">empty</span><span class="p">();</span>&#x000A;		<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">getSelection</span><span class="p">)</span> <span class="p">{</span>&#x000A;			<span class="kd">var</span> <span class="nx">selection</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">getSelection</span><span class="p">();</span>&#x000A;			<span class="k">if</span> <span class="p">(</span><span class="nx">selection</span> <span class="o">&amp;&amp;</span> <span class="nx">selection</span><span class="p">.</span><span class="nx">removeAllRanges</span><span class="p">)</span> <span class="nx">selection</span><span class="p">.</span><span class="nx">removeAllRanges</span><span class="p">();</span>&#x000A;		<span class="p">}</span>&#x000A;	<span class="p">}</span>&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

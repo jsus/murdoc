@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Core/MooTools</li>
+        <li>Core/Array</li>
+        <li>Core/Function</li>
+        <li>Core/Number</li>
+        <li>Core/String</li>
+        <li>Core/Class</li>
+        <li>Core/Events</li>
+        <li>Core/Element</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Touch</li>
+      </ul>
+    </figure>
+    <header>
+      <p>Class to aid the retrieval of the cursor movements</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-Style License (http://mootools.net/license.txt)</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>15</li>
+        <li>16</li>
+        <li>17</li>
+        <li>18</li>
+        <li>19</li>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+      </ol>
+      <code><span class="kd">var</span> <span class="nx">Touch</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;	&#x000A;	<span class="nx">Implements</span><span class="o">:</span> <span class="nx">Events</span><span class="p">,</span>&#x000A;	&#x000A;	<span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">){</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">id</span><span class="p">(</span><span class="nx">element</span><span class="p">);</span>&#x000A;		&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">bound</span> <span class="o">=</span> <span class="p">{</span>&#x000A;			<span class="nx">start</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">start</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">),</span>&#x000A;			<span class="nx">move</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">move</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">),</span>&#x000A;			<span class="nx">end</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">end</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>&#x000A;		<span class="p">};</span>&#x000A;		&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="nx">Browser</span><span class="p">.</span><span class="nx">Platform</span><span class="p">.</span><span class="nx">ipod</span><span class="p">){</span>&#x000A;			<span class="k">this</span><span class="p">.</span><span class="nx">context</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">;</span>&#x000A;			<span class="k">this</span><span class="p">.</span><span class="nx">startEvent</span> <span class="o">=</span> <span class="s1">&#39;touchstart&#39;</span><span class="p">;</span>&#x000A;			<span class="k">this</span><span class="p">.</span><span class="nx">endEvent</span> <span class="o">=</span> <span class="s1">&#39;touchend&#39;</span><span class="p">;</span>&#x000A;			<span class="k">this</span><span class="p">.</span><span class="nx">moveEvent</span> <span class="o">=</span> <span class="s1">&#39;touchmove&#39;</span><span class="p">;</span>&#x000A;		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>&#x000A;			<span class="k">this</span><span class="p">.</span><span class="nx">context</span> <span class="o">=</span> <span class="nb">document</span><span class="p">;</span>&#x000A;			<span class="k">this</span><span class="p">.</span><span class="nx">startEvent</span> <span class="o">=</span> <span class="s1">&#39;mousedown&#39;</span><span class="p">;</span>&#x000A;			<span class="k">this</span><span class="p">.</span><span class="nx">endEvent</span> <span class="o">=</span> <span class="s1">&#39;mouseup&#39;</span><span class="p">;</span>&#x000A;			<span class="k">this</span><span class="p">.</span><span class="nx">moveEvent</span> <span class="o">=</span> <span class="s1">&#39;mousemove&#39;</span><span class="p">;</span>&#x000A;		<span class="p">}</span>&#x000A;		&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">attach</span><span class="p">();</span>&#x000A;	<span class="p">},</span></code>
+    </figure>
+    <section>
+      <p>public methods</p>
+    </section>
+    <figure>
+      <ol>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+      </ol>
+      <code><span class="nx">attach</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">startEvent</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">bound</span><span class="p">.</span><span class="nx">start</span><span class="p">);</span>&#x000A;	<span class="p">},</span>&#x000A;	&#x000A;	<span class="nx">detach</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">removeListener</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">startEvent</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">bound</span><span class="p">.</span><span class="nx">start</span><span class="p">);</span>&#x000A;	<span class="p">},</span></code>
+    </figure>
+    <section>
+      <p>protected methods</p>
+    </section>
+    <figure>
+      <ol>
+        <li>55</li>
+        <li>56</li>
+      </ol>
+      <code><span class="nx">start</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span></code>
+    </figure>
+    <section>
+      <p>this prevents the copy-paste dialog to show up when dragging. it only affects mobile safari.</p>
+    </section>
+    <figure>
+      <ol>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+        <li>61</li>
+        <li>62</li>
+        <li>63</li>
+        <li>64</li>
+        <li>65</li>
+        <li>66</li>
+        <li>67</li>
+        <li>68</li>
+        <li>69</li>
+        <li>70</li>
+        <li>71</li>
+        <li>72</li>
+        <li>73</li>
+        <li>74</li>
+        <li>75</li>
+        <li>76</li>
+        <li>77</li>
+        <li>78</li>
+        <li>79</li>
+        <li>80</li>
+        <li>81</li>
+        <li>82</li>
+        <li>83</li>
+        <li>84</li>
+        <li>85</li>
+        <li>86</li>
+        <li>87</li>
+      </ol>
+      <code><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">WebkitUserSelect</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>&#x000A;		&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">hasDragged</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>&#x000A;		&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">moveEvent</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">bound</span><span class="p">.</span><span class="nx">move</span><span class="p">);</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">addListener</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">endEvent</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">bound</span><span class="p">.</span><span class="nx">end</span><span class="p">);</span>&#x000A;		&#x000A;		<span class="kd">var</span> <span class="nx">page</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getPage</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>&#x000A;			&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">startX</span> <span class="o">=</span> <span class="nx">page</span><span class="p">.</span><span class="nx">pageX</span><span class="p">;</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">startY</span> <span class="o">=</span> <span class="nx">page</span><span class="p">.</span><span class="nx">pageY</span><span class="p">;</span>&#x000A;		&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">fireEvent</span><span class="p">(</span><span class="s1">&#39;start&#39;</span><span class="p">);</span>&#x000A;	<span class="p">},</span>&#x000A;	&#x000A;	<span class="nx">move</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>&#x000A;		&#x000A;		<span class="kd">var</span> <span class="nx">page</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getPage</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>&#x000A;		&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">deltaX</span> <span class="o">=</span> <span class="nx">page</span><span class="p">.</span><span class="nx">pageX</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">startX</span><span class="p">;</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">deltaY</span> <span class="o">=</span> <span class="nx">page</span><span class="p">.</span><span class="nx">pageY</span> <span class="o">-</span> <span class="k">this</span><span class="p">.</span><span class="nx">startY</span><span class="p">;</span>&#x000A;		&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">hasDragged</span> <span class="o">=</span> <span class="o">!</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">deltaX</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">deltaY</span> <span class="o">===</span> <span class="mi">0</span><span class="p">);</span>&#x000A;		&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">hasDragged</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">fireEvent</span><span class="p">(</span><span class="s1">&#39;move&#39;</span><span class="p">,</span> <span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">deltaX</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">deltaY</span><span class="p">]);</span>&#x000A;	<span class="p">},</span>&#x000A;	&#x000A;	<span class="nx">end</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span></code>
+    </figure>
+    <section>
+      <p>we re-enable the copy-paste dialog on drag end</p>
+    </section>
+    <figure>
+      <ol>
+        <li>89</li>
+        <li>90</li>
+        <li>91</li>
+        <li>92</li>
+        <li>93</li>
+        <li>94</li>
+        <li>95</li>
+        <li>96</li>
+        <li>97</li>
+        <li>98</li>
+        <li>99</li>
+        <li>100</li>
+        <li>101</li>
+        <li>102</li>
+      </ol>
+      <code><span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">WebkitUserSelect</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>&#x000A;		&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">removeListener</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">moveEvent</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">bound</span><span class="p">.</span><span class="nx">move</span><span class="p">);</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">context</span><span class="p">.</span><span class="nx">removeListener</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">endEvent</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">bound</span><span class="p">.</span><span class="nx">end</span><span class="p">);</span>&#x000A;&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">fireEvent</span><span class="p">((</span><span class="k">this</span><span class="p">.</span><span class="nx">hasDragged</span><span class="p">)</span> <span class="o">?</span> <span class="s1">&#39;end&#39;</span> <span class="o">:</span> <span class="s1">&#39;cancel&#39;</span><span class="p">);</span>&#x000A;	<span class="p">},</span>&#x000A;	&#x000A;	<span class="nx">preventDefault</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">)</span> <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>&#x000A;		<span class="k">else</span> <span class="nx">event</span><span class="p">.</span><span class="nx">returnValue</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>&#x000A;	<span class="p">},</span>&#x000A;	&#x000A;	<span class="nx">getPage</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span></code>
+    </figure>
+    <section>
+      <p>when on mobile safari, the coordinates information is inside the targetTouches object</p>
+    </section>
+    <figure>
+      <ol>
+        <li>104</li>
+        <li>105</li>
+        <li>106</li>
+        <li>107</li>
+        <li>108</li>
+        <li>109</li>
+        <li>110</li>
+        <li>111</li>
+        <li>112</li>
+      </ol>
+      <code><span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">targetTouches</span><span class="p">)</span> <span class="nx">event</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">targetTouches</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">pageX</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">pageY</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="k">return</span> <span class="p">{</span><span class="nx">pageX</span><span class="o">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">pageX</span><span class="p">,</span> <span class="nx">pageY</span><span class="o">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">pageY</span><span class="p">};</span>&#x000A;		<span class="kd">var</span> <span class="nx">element</span> <span class="o">=</span> <span class="p">(</span><span class="o">!</span><span class="nb">document</span><span class="p">.</span><span class="nx">compatMode</span> <span class="o">||</span> <span class="nb">document</span><span class="p">.</span><span class="nx">compatMode</span> <span class="o">==</span> <span class="s1">&#39;CSS1Compat&#39;</span><span class="p">)</span> <span class="o">?</span> <span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span> <span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>&#x000A;		<span class="k">return</span> <span class="p">{</span><span class="nx">pageX</span><span class="o">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientX</span> <span class="o">+</span> <span class="nx">element</span><span class="p">.</span><span class="nx">scrollLeft</span><span class="p">,</span> <span class="nx">pageY</span><span class="o">:</span> <span class="nx">event</span><span class="p">.</span><span class="nx">clientY</span> <span class="o">+</span> <span class="nx">element</span><span class="p">.</span><span class="nx">scrollTop</span><span class="p">};</span>&#x000A;	<span class="p">}</span>&#x000A;	&#x000A;<span class="p">});</span>&#x000A;&#x000A;<span class="nx">Touch</span><span class="p">.</span><span class="nx">build</span> <span class="o">=</span> <span class="s2">&quot;%build%&quot;</span><span class="p">;</span></code>
+    </figure>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Array</li>
+        <li>String</li>
+        <li>Number</li>
+        <li>Function</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>JSON</li>
+      </ul>
+    </figure>
+    <header>
+      <p>JSON encoder and decoder.</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license.</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>20</li>
+      </ol>
+      <code><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">JSON</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">JSON</span> <span class="o">=</span> <span class="p">{};</span></code>
+    </figure>
+    <section>
+      <p>&lt;1.2compat></p>
+    </section>
+    <figure>
+      <ol>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+      </ol>
+      <code><span class="nx">JSON</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Hash</span><span class="p">({</span>&#x000A;	<span class="nx">stringify</span><span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">,</span>&#x000A;	<span class="nx">parse</span><span class="o">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span>&#x000A;<span class="p">});</span></code>
+    </figure>
+    <section>
+      <p>&lt;/1.2compat></p>
+    </section>
+    <figure>
+      <ol>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+        <li>61</li>
+        <li>62</li>
+        <li>63</li>
+        <li>64</li>
+      </ol>
+      <code><span class="nb">Object</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="nx">JSON</span><span class="p">,</span> <span class="p">{</span>&#x000A;&#x000A;	<span class="nx">$specialChars</span><span class="o">:</span> <span class="p">{</span><span class="s1">&#39;\b&#39;</span><span class="o">:</span> <span class="s1">&#39;\\b&#39;</span><span class="p">,</span> <span class="s1">&#39;\t&#39;</span><span class="o">:</span> <span class="s1">&#39;\\t&#39;</span><span class="p">,</span> <span class="s1">&#39;\n&#39;</span><span class="o">:</span> <span class="s1">&#39;\\n&#39;</span><span class="p">,</span> <span class="s1">&#39;\f&#39;</span><span class="o">:</span> <span class="s1">&#39;\\f&#39;</span><span class="p">,</span> <span class="s1">&#39;\r&#39;</span><span class="o">:</span> <span class="s1">&#39;\\r&#39;</span><span class="p">,</span> <span class="s1">&#39;&quot;&#39;</span> <span class="o">:</span> <span class="s1">&#39;\\&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;\\&#39;</span><span class="o">:</span> <span class="s1">&#39;\\\\&#39;</span><span class="p">},</span>&#x000A;&#x000A;	<span class="nx">$replaceChars</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">chr</span><span class="p">){</span>&#x000A;		<span class="k">return</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">$specialChars</span><span class="p">[</span><span class="nx">chr</span><span class="p">]</span> <span class="o">||</span> <span class="s1">&#39;\\u00&#39;</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">chr</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">()</span> <span class="o">/</span> <span class="mi">16</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="nx">chr</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">()</span> <span class="o">%</span> <span class="mi">16</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">encode</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">){</span>&#x000A;		<span class="k">switch</span> <span class="p">(</span><span class="nx">typeOf</span><span class="p">(</span><span class="nx">obj</span><span class="p">)){</span>&#x000A;			<span class="k">case</span> <span class="s1">&#39;string&#39;</span><span class="o">:</span>&#x000A;				<span class="k">return</span> <span class="s1">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/[\x00-\x1f\\&quot;]/g</span><span class="p">,</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">$replaceChars</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">;</span>&#x000A;			<span class="k">case</span> <span class="s1">&#39;array&#39;</span><span class="o">:</span>&#x000A;				<span class="k">return</span> <span class="s1">&#39;[&#39;</span> <span class="o">+</span> <span class="nb">String</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">encode</span><span class="p">).</span><span class="nx">clean</span><span class="p">())</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="p">;</span>&#x000A;			<span class="k">case</span> <span class="s1">&#39;object&#39;</span><span class="o">:</span> <span class="k">case</span> <span class="s1">&#39;hash&#39;</span><span class="o">:</span>&#x000A;				<span class="kd">var</span> <span class="nx">string</span> <span class="o">=</span> <span class="p">[];</span>&#x000A;				<span class="nb">Object</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">obj</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">key</span><span class="p">){</span>&#x000A;					<span class="kd">var</span> <span class="nx">json</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>&#x000A;					<span class="k">if</span> <span class="p">(</span><span class="nx">json</span><span class="p">)</span> <span class="nx">string</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span> <span class="o">+</span> <span class="nx">json</span><span class="p">);</span>&#x000A;				<span class="p">});</span>&#x000A;				<span class="k">return</span> <span class="s1">&#39;{&#39;</span> <span class="o">+</span> <span class="nx">string</span> <span class="o">+</span> <span class="s1">&#39;}&#39;</span><span class="p">;</span>&#x000A;			<span class="k">case</span> <span class="s1">&#39;number&#39;</span><span class="o">:</span> <span class="k">case</span> <span class="s1">&#39;boolean&#39;</span><span class="o">:</span> <span class="k">return</span> <span class="nb">String</span><span class="p">(</span><span class="nx">obj</span><span class="p">);</span>&#x000A;			<span class="k">case</span> <span class="s1">&#39;null&#39;</span><span class="o">:</span> <span class="k">return</span> <span class="s1">&#39;null&#39;</span><span class="p">;</span>&#x000A;		<span class="p">}</span>&#x000A;		<span class="k">return</span> <span class="kc">null</span><span class="p">;</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">decode</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">string</span><span class="p">,</span> <span class="nx">secure</span><span class="p">){</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="nx">typeOf</span><span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="o">!=</span> <span class="s1">&#39;string&#39;</span> <span class="o">||</span> <span class="o">!</span><span class="nx">string</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="nx">secure</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="p">(</span><span class="sr">/^[,:{}\[\]0-9.\-+Eaeflnr-u \n\r\t]*$/</span><span class="p">).</span><span class="nx">test</span><span class="p">(</span><span class="nx">string</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\\./g</span><span class="p">,</span> <span class="s1">&#39;@&#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/&quot;[^&quot;\\\n\r]*&quot;/g</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)))</span> <span class="k">return</span> <span class="kc">null</span><span class="p">;</span>&#x000A;		<span class="k">return</span> <span class="nb">eval</span><span class="p">(</span><span class="s1">&#39;(&#39;</span> <span class="o">+</span> <span class="nx">string</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">);</span>&#x000A;	<span class="p">}</span>&#x000A;&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Options</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Cookie</li>
+      </ul>
+    </figure>
+    <header>
+      <p>Class for creating, reading, and deleting browser Cookies.</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license.</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+        <li>61</li>
+        <li>62</li>
+        <li>63</li>
+        <li>64</li>
+        <li>65</li>
+        <li>66</li>
+        <li>67</li>
+        <li>68</li>
+        <li>69</li>
+        <li>70</li>
+        <li>71</li>
+        <li>72</li>
+        <li>73</li>
+        <li>74</li>
+        <li>75</li>
+      </ol>
+      <code><span class="kd">var</span> <span class="nx">Cookie</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;&#x000A;	<span class="nx">Implements</span><span class="o">:</span> <span class="nx">Options</span><span class="p">,</span>&#x000A;&#x000A;	<span class="nx">options</span><span class="o">:</span> <span class="p">{</span>&#x000A;		<span class="nx">path</span><span class="o">:</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span>&#x000A;		<span class="nx">domain</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>&#x000A;		<span class="nx">duration</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>&#x000A;		<span class="nx">secure</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>&#x000A;		<span class="nb">document</span><span class="o">:</span> <span class="nb">document</span><span class="p">,</span>&#x000A;		<span class="nx">encode</span><span class="o">:</span> <span class="kc">true</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">options</span><span class="p">){</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">key</span> <span class="o">=</span> <span class="nx">key</span><span class="p">;</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">setOptions</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">write</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">){</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">encode</span><span class="p">)</span> <span class="nx">value</span> <span class="o">=</span> <span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">domain</span><span class="p">)</span> <span class="nx">value</span> <span class="o">+=</span> <span class="s1">&#39;; domain=&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">domain</span><span class="p">;</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">path</span><span class="p">)</span> <span class="nx">value</span> <span class="o">+=</span> <span class="s1">&#39;; path=&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">path</span><span class="p">;</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">duration</span><span class="p">){</span>&#x000A;			<span class="kd">var</span> <span class="nx">date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>&#x000A;			<span class="nx">date</span><span class="p">.</span><span class="nx">setTime</span><span class="p">(</span><span class="nx">date</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">duration</span> <span class="o">*</span> <span class="mi">24</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">);</span>&#x000A;			<span class="nx">value</span> <span class="o">+=</span> <span class="s1">&#39;; expires=&#39;</span> <span class="o">+</span> <span class="nx">date</span><span class="p">.</span><span class="nx">toGMTString</span><span class="p">();</span>&#x000A;		<span class="p">}</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">secure</span><span class="p">)</span> <span class="nx">value</span> <span class="o">+=</span> <span class="s1">&#39;; secure&#39;</span><span class="p">;</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">key</span> <span class="o">+</span> <span class="s1">&#39;=&#39;</span> <span class="o">+</span> <span class="nx">value</span><span class="p">;</span>&#x000A;		<span class="k">return</span> <span class="k">this</span><span class="p">;</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">read</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;		<span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">cookie</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="s1">&#39;(?:^|;)\\s*&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">key</span><span class="p">.</span><span class="nx">escapeRegExp</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39;=([^;]*)&#39;</span><span class="p">);</span>&#x000A;		<span class="k">return</span> <span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="o">?</span> <span class="nb">decodeURIComponent</span><span class="p">(</span><span class="nx">value</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">:</span> <span class="kc">null</span><span class="p">;</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">dispose</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;		<span class="k">new</span> <span class="nx">Cookie</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">key</span><span class="p">,</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">merge</span><span class="p">({},</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">,</span> <span class="p">{</span><span class="nx">duration</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">})).</span><span class="nx">write</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">);</span>&#x000A;		<span class="k">return</span> <span class="k">this</span><span class="p">;</span>&#x000A;	<span class="p">}</span>&#x000A;&#x000A;<span class="p">});</span>&#x000A;&#x000A;<span class="nx">Cookie</span><span class="p">.</span><span class="nx">write</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">options</span><span class="p">){</span>&#x000A;	<span class="k">return</span> <span class="k">new</span> <span class="nx">Cookie</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">options</span><span class="p">).</span><span class="nx">write</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>&#x000A;<span class="p">};</span>&#x000A;&#x000A;<span class="nx">Cookie</span><span class="p">.</span><span class="nx">read</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">){</span>&#x000A;	<span class="k">return</span> <span class="k">new</span> <span class="nx">Cookie</span><span class="p">(</span><span class="nx">key</span><span class="p">).</span><span class="nx">read</span><span class="p">();</span>&#x000A;<span class="p">};</span>&#x000A;&#x000A;<span class="nx">Cookie</span><span class="p">.</span><span class="nx">dispose</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">options</span><span class="p">){</span>&#x000A;	<span class="k">return</span> <span class="k">new</span> <span class="nx">Cookie</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span> <span class="nx">options</span><span class="p">).</span><span class="nx">dispose</span><span class="p">();</span>&#x000A;<span class="p">};</span></code>
+    </figure>
+  </body>
+</html>

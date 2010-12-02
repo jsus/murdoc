@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Date.Czech.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Locale</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Date.Czech</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Date.Czech.js</h1>
+      <p>Date messages for Czech.</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license</dd>
+        <dt>Authors:</dt>
+        <dd>Jan Černý chemiX</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+      </ol>
+      <code><span class="nx">Locale</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;cs-CZ&#39;</span><span class="p">,</span> <span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="p">{</span>&#x000A;&#x000A;	<span class="nx">months</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Leden&#39;</span><span class="p">,</span> <span class="s1">&#39;Únor&#39;</span><span class="p">,</span> <span class="s1">&#39;Březen&#39;</span><span class="p">,</span> <span class="s1">&#39;Duben&#39;</span><span class="p">,</span> <span class="s1">&#39;Květen&#39;</span><span class="p">,</span> <span class="s1">&#39;Červen&#39;</span><span class="p">,</span> <span class="s1">&#39;Červenec&#39;</span><span class="p">,</span> <span class="s1">&#39;Srpen&#39;</span><span class="p">,</span> <span class="s1">&#39;Září&#39;</span><span class="p">,</span> <span class="s1">&#39;Říjen&#39;</span><span class="p">,</span> <span class="s1">&#39;Listopad&#39;</span><span class="p">,</span> <span class="s1">&#39;Prosinec&#39;</span><span class="p">],</span>&#x000A;	<span class="nx">days</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Neděle&#39;</span><span class="p">,</span> <span class="s1">&#39;Pondělí&#39;</span><span class="p">,</span> <span class="s1">&#39;Úterý&#39;</span><span class="p">,</span> <span class="s1">&#39;Středa&#39;</span><span class="p">,</span> <span class="s1">&#39;Čtvrtek&#39;</span><span class="p">,</span> <span class="s1">&#39;Pátek&#39;</span><span class="p">,</span> <span class="s1">&#39;Sobota&#39;</span><span class="p">],</span></code>
+    </figure>
+    <section>
+      <p>Culture&rsquo;s date order: DD/MM/YYYY</p>
+    </section>
+    <figure>
+      <ol>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+      </ol>
+      <code><span class="nx">dateOrder</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">],</span>&#x000A;	<span class="nx">shortDate</span><span class="o">:</span> <span class="s1">&#39;%d/%m/%Y&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">shortTime</span><span class="o">:</span> <span class="s1">&#39;%H:%M&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">AM</span><span class="o">:</span> <span class="s1">&#39;dop.&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">PM</span><span class="o">:</span> <span class="s1">&#39;odp.&#39;</span><span class="p">,</span></code>
+    </figure>
+    <section>
+      <p>Date.Extras</p>
+    </section>
+    <figure>
+      <ol>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+        <li>61</li>
+      </ol>
+      <code><span class="nx">ordinal</span><span class="o">:</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span>&#x000A;&#x000A;	<span class="nx">lessThanMinuteAgo</span><span class="o">:</span> <span class="s1">&#39;méně než minutou&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">minuteAgo</span><span class="o">:</span> <span class="s1">&#39;přibližně před minutou&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">minutesAgo</span><span class="o">:</span> <span class="s1">&#39;před {delta} minutami&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">hourAgo</span><span class="o">:</span> <span class="s1">&#39;přibližně před hodinou&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">hoursAgo</span><span class="o">:</span> <span class="s1">&#39;před {delta} hodinami&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">dayAgo</span><span class="o">:</span> <span class="s1">&#39;před dnem&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">daysAgo</span><span class="o">:</span> <span class="s1">&#39;před {delta} dni&#39;</span><span class="p">,</span>&#x000A;&#x000A;	<span class="nx">lessThanMinuteUntil</span><span class="o">:</span> <span class="s1">&#39;před méně než minutou&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">minuteUntil</span><span class="o">:</span> <span class="s1">&#39;asi před minutou&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">minutesUntil</span><span class="o">:</span> <span class="s1">&#39; asi před {delta} minutami&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">hourUntil</span><span class="o">:</span> <span class="s1">&#39;asi před hodinou&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">hoursUntil</span><span class="o">:</span> <span class="s1">&#39;před {delta} hodinami&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">dayUntil</span><span class="o">:</span> <span class="s1">&#39;před dnem&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">daysUntil</span><span class="o">:</span> <span class="s1">&#39;před {delta} dni&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">weekUntil</span><span class="o">:</span> <span class="s1">&#39;před týdnem&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">weeksUntil</span><span class="o">:</span> <span class="s1">&#39;před {delta} týdny&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">monthUntil</span><span class="o">:</span> <span class="s1">&#39;před měsícem&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">monthsUntil</span><span class="o">:</span> <span class="s1">&#39;před {delta} měsíci&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">yearUntil</span><span class="o">:</span> <span class="s1">&#39;před rokem&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">yearsUntil</span><span class="o">:</span> <span class="s1">&#39;před {delta} lety&#39;</span>&#x000A;&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

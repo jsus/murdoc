@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Fx.Move.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Core/Fx.Morph</li>
+        <li>Element.Position</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Fx.Move</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Fx.Move.js</h1>
+      <p>Defines Fx.Move, a class that works with Element.Position.js to transition an element from one location to another.</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license</dd>
+        <dt>Authors:</dt>
+        <dd>Aaron Newton</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+        <li>61</li>
+        <li>62</li>
+        <li>63</li>
+        <li>64</li>
+        <li>65</li>
+        <li>66</li>
+        <li>67</li>
+        <li>68</li>
+        <li>69</li>
+        <li>70</li>
+        <li>71</li>
+        <li>72</li>
+        <li>73</li>
+        <li>74</li>
+        <li>75</li>
+        <li>76</li>
+        <li>77</li>
+        <li>78</li>
+        <li>79</li>
+      </ol>
+      <code><span class="nx">Fx</span><span class="p">.</span><span class="nx">Move</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;&#x000A;	<span class="nx">Extends</span><span class="o">:</span> <span class="nx">Fx</span><span class="p">.</span><span class="nx">Morph</span><span class="p">,</span>&#x000A;&#x000A;	<span class="nx">options</span><span class="o">:</span> <span class="p">{</span>&#x000A;		<span class="nx">relativeTo</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span>&#x000A;		<span class="nx">position</span><span class="o">:</span> <span class="s1">&#39;center&#39;</span><span class="p">,</span>&#x000A;		<span class="nx">edge</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>&#x000A;		<span class="nx">offset</span><span class="o">:</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">0</span><span class="p">}</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">start</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">destination</span><span class="p">){</span>&#x000A;		<span class="kd">var</span> <span class="nx">topLeft</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">getStyles</span><span class="p">(</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">);</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="nx">topLeft</span><span class="p">.</span><span class="nx">top</span> <span class="o">==</span> <span class="s1">&#39;auto&#39;</span> <span class="o">||</span> <span class="nx">topLeft</span><span class="p">.</span><span class="nx">left</span> <span class="o">==</span> <span class="s1">&#39;auto&#39;</span><span class="p">)</span> <span class="p">{</span>&#x000A;			<span class="kd">var</span> <span class="nx">op</span><span class="p">;</span>&#x000A;			<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">Browser</span><span class="p">.</span><span class="nx">ie</span><span class="p">){</span>&#x000A;				<span class="kd">var</span> <span class="nx">parent</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">getParent</span><span class="p">();</span>&#x000A;				<span class="nx">op</span> <span class="o">=</span> <span class="p">(</span><span class="nx">parent</span><span class="p">.</span><span class="nx">getComputedStyle</span><span class="p">(</span><span class="s1">&#39;position&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="s1">&#39;static&#39;</span> <span class="o">?</span> <span class="nx">parent</span> <span class="o">:</span> <span class="nx">parent</span><span class="p">.</span><span class="nx">getOffsetParent</span><span class="p">());</span>&#x000A;			<span class="p">}</span>&#x000A;			<span class="kd">var</span> <span class="nx">current</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">getPosition</span><span class="p">(</span><span class="nx">op</span><span class="p">);</span>&#x000A;			<span class="kd">var</span> <span class="nx">margin</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">getStyles</span><span class="p">(</span><span class="s1">&#39;margin-top&#39;</span><span class="p">,</span> <span class="s1">&#39;margin-left&#39;</span><span class="p">);</span>&#x000A;			<span class="k">if</span> <span class="p">(</span><span class="nx">topLeft</span><span class="p">.</span><span class="nx">top</span> <span class="o">==</span> <span class="s1">&#39;auto&#39;</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">(</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="nx">current</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">margin</span><span class="p">[</span><span class="s1">&#39;margin-top&#39;</span><span class="p">].</span><span class="nx">toInt</span><span class="p">());</span>&#x000A;			<span class="k">if</span> <span class="p">(</span><span class="nx">topLeft</span><span class="p">.</span><span class="nx">left</span> <span class="o">==</span> <span class="s1">&#39;auto&#39;</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="nx">current</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">margin</span><span class="p">[</span><span class="s1">&#39;margin-left&#39;</span><span class="p">].</span><span class="nx">toInt</span><span class="p">());</span>&#x000A;		<span class="p">}</span>&#x000A;		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">position</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">merge</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">,</span> <span class="nx">destination</span><span class="p">,</span> <span class="p">{</span><span class="nx">returnPos</span><span class="o">:</span> <span class="kc">true</span><span class="p">})));</span>&#x000A;	<span class="p">}</span>&#x000A;&#x000A;<span class="p">});</span>&#x000A;&#x000A;<span class="nx">Element</span><span class="p">.</span><span class="nx">Properties</span><span class="p">.</span><span class="nx">move</span> <span class="o">=</span> <span class="p">{</span>&#x000A;&#x000A;	<span class="nx">set</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">options</span><span class="p">){</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;move&#39;</span><span class="p">).</span><span class="nx">cancel</span><span class="p">().</span><span class="nx">setOptions</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>&#x000A;		<span class="k">return</span> <span class="k">this</span><span class="p">;</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">get</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;		<span class="kd">var</span> <span class="nx">move</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">retrieve</span><span class="p">(</span><span class="s1">&#39;move&#39;</span><span class="p">);</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">move</span><span class="p">){</span>&#x000A;			<span class="nx">move</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Fx</span><span class="p">.</span><span class="nx">Move</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="p">{</span><span class="nx">link</span><span class="o">:</span> <span class="s1">&#39;cancel&#39;</span><span class="p">});</span>&#x000A;			<span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">(</span><span class="s1">&#39;move&#39;</span><span class="p">,</span> <span class="nx">move</span><span class="p">);</span>&#x000A;		<span class="p">}</span>&#x000A;		<span class="k">return</span> <span class="nx">move</span><span class="p">;</span>&#x000A;	<span class="p">}</span>&#x000A;&#x000A;<span class="p">};</span>&#x000A;&#x000A;<span class="nx">Element</span><span class="p">.</span><span class="nx">implement</span><span class="p">({</span>&#x000A;&#x000A;	<span class="nx">move</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">options</span><span class="p">){</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;move&#39;</span><span class="p">).</span><span class="nx">start</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>&#x000A;		<span class="k">return</span> <span class="k">this</span><span class="p">;</span>&#x000A;	<span class="p">}</span>&#x000A;&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

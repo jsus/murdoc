@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for URI.Relative.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Class.refactor</li>
+        <li>URI</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>URI.Relative</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>URI.Relative.js</h1>
+      <p>Extends the URI class to add methods for computing relative and absolute urls.</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license</dd>
+        <dt>Authors:</dt>
+        <dd>Sebastian Markbåge</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+      </ol>
+      <code><span class="nx">URI</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">refactor</span><span class="p">(</span><span class="nx">URI</span><span class="p">,</span> <span class="p">{</span>&#x000A;&#x000A;	<span class="nx">combine</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">bits</span><span class="p">,</span> <span class="nx">base</span><span class="p">){</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">base</span> <span class="o">||</span> <span class="nx">bits</span><span class="p">.</span><span class="nx">scheme</span> <span class="o">!=</span> <span class="nx">base</span><span class="p">.</span><span class="nx">scheme</span> <span class="o">||</span> <span class="nx">bits</span><span class="p">.</span><span class="nx">host</span> <span class="o">!=</span> <span class="nx">base</span><span class="p">.</span><span class="nx">host</span> <span class="o">||</span> <span class="nx">bits</span><span class="p">.</span><span class="nx">port</span> <span class="o">!=</span> <span class="nx">base</span><span class="p">.</span><span class="nx">port</span><span class="p">)</span>&#x000A;			<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">previous</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;		<span class="kd">var</span> <span class="nx">end</span> <span class="o">=</span> <span class="nx">bits</span><span class="p">.</span><span class="nx">file</span> <span class="o">+</span> <span class="p">(</span><span class="nx">bits</span><span class="p">.</span><span class="nx">query</span> <span class="o">?</span> <span class="s1">&#39;?&#39;</span> <span class="o">+</span> <span class="nx">bits</span><span class="p">.</span><span class="nx">query</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="nx">bits</span><span class="p">.</span><span class="nx">fragment</span> <span class="o">?</span> <span class="s1">&#39;#&#39;</span> <span class="o">+</span> <span class="nx">bits</span><span class="p">.</span><span class="nx">fragment</span> <span class="o">:</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>&#x000A;&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">base</span><span class="p">.</span><span class="nx">directory</span><span class="p">)</span> <span class="k">return</span> <span class="p">(</span><span class="nx">bits</span><span class="p">.</span><span class="nx">directory</span> <span class="o">||</span> <span class="p">(</span><span class="nx">bits</span><span class="p">.</span><span class="nx">file</span> <span class="o">?</span> <span class="s1">&#39;&#39;</span> <span class="o">:</span> <span class="s1">&#39;./&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="nx">end</span><span class="p">;</span>&#x000A;&#x000A;		<span class="kd">var</span> <span class="nx">baseDir</span> <span class="o">=</span> <span class="nx">base</span><span class="p">.</span><span class="nx">directory</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">),</span>&#x000A;			<span class="nx">relDir</span> <span class="o">=</span> <span class="nx">bits</span><span class="p">.</span><span class="nx">directory</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">),</span>&#x000A;			<span class="nx">path</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>&#x000A;			<span class="nx">offset</span><span class="p">;</span>&#x000A;&#x000A;		<span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>&#x000A;		<span class="k">for</span> <span class="p">(</span><span class="nx">offset</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">offset</span> <span class="o">&lt;</span> <span class="nx">baseDir</span><span class="p">.</span><span class="nx">length</span> <span class="o">&amp;&amp;</span> <span class="nx">offset</span> <span class="o">&lt;</span> <span class="nx">relDir</span><span class="p">.</span><span class="nx">length</span> <span class="o">&amp;&amp;</span> <span class="nx">baseDir</span><span class="p">[</span><span class="nx">offset</span><span class="p">]</span> <span class="o">==</span> <span class="nx">relDir</span><span class="p">[</span><span class="nx">offset</span><span class="p">];</span> <span class="nx">offset</span><span class="o">++</span><span class="p">);</span>&#x000A;		<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">baseDir</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="nx">offset</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="nx">path</span> <span class="o">+=</span> <span class="s1">&#39;../&#39;</span><span class="p">;</span>&#x000A;		<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="nx">offset</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">relDir</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="nx">path</span> <span class="o">+=</span> <span class="nx">relDir</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="p">;</span>&#x000A;&#x000A;		<span class="k">return</span> <span class="p">(</span><span class="nx">path</span> <span class="o">||</span> <span class="p">(</span><span class="nx">bits</span><span class="p">.</span><span class="nx">file</span> <span class="o">?</span> <span class="s1">&#39;&#39;</span> <span class="o">:</span> <span class="s1">&#39;./&#39;</span><span class="p">))</span> <span class="o">+</span> <span class="nx">end</span><span class="p">;</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">toAbsolute</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">base</span><span class="p">){</span>&#x000A;		<span class="nx">base</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">URI</span><span class="p">(</span><span class="nx">base</span><span class="p">);</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="nx">base</span><span class="p">)</span> <span class="nx">base</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;directory&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>&#x000A;		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">toRelative</span><span class="p">(</span><span class="nx">base</span><span class="p">);</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">toRelative</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">base</span><span class="p">){</span>&#x000A;		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="k">new</span> <span class="nx">URI</span><span class="p">(</span><span class="nx">base</span><span class="p">));</span>&#x000A;	<span class="p">}</span>&#x000A;&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

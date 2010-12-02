@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Fx.SmoothScroll.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Core/Slick.Finder</li>
+        <li>Fx.Scroll</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Fx.SmoothScroll</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Fx.SmoothScroll.js</h1>
+      <p>Class for creating a smooth scrolling effect to all internal links on the page.</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license</dd>
+        <dt>Authors:</dt>
+        <dd>Valerio Proietti</dd>
+      </dl>
+    </header>
+    <section>
+      <p>&lt;1.2compat></p>
+    </section>
+    <figure>
+      <ol>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+        <li>61</li>
+        <li>62</li>
+      </ol>
+      <code><span class="nx">Extends</span><span class="o">:</span> <span class="nx">Fx</span><span class="p">.</span><span class="nx">Scroll</span><span class="p">,</span>&#x000A;&#x000A;	<span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="nx">context</span><span class="p">){</span>&#x000A;		<span class="nx">context</span> <span class="o">=</span> <span class="nx">context</span> <span class="o">||</span> <span class="nb">document</span><span class="p">;</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">doc</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">getDocument</span><span class="p">();</span>&#x000A;		<span class="kd">var</span> <span class="nx">win</span> <span class="o">=</span> <span class="nx">context</span><span class="p">.</span><span class="nx">getWindow</span><span class="p">();</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">doc</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">links</span> <span class="o">=</span> <span class="nx">$$</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">links</span> <span class="o">||</span> <span class="k">this</span><span class="p">.</span><span class="nx">doc</span><span class="p">.</span><span class="nx">links</span><span class="p">);</span>&#x000A;		<span class="kd">var</span> <span class="nx">location</span> <span class="o">=</span> <span class="nx">win</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^[^#]*/</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;#&#39;</span><span class="p">;</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">links</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">link</span><span class="p">){</span>&#x000A;			<span class="k">if</span> <span class="p">(</span><span class="nx">link</span><span class="p">.</span><span class="nx">href</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">location</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>&#x000A;			<span class="kd">var</span> <span class="nx">anchor</span> <span class="o">=</span> <span class="nx">link</span><span class="p">.</span><span class="nx">href</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="nx">location</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>&#x000A;			<span class="k">if</span> <span class="p">(</span><span class="nx">anchor</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">useLink</span><span class="p">(</span><span class="nx">link</span><span class="p">,</span> <span class="nx">anchor</span><span class="p">);</span>&#x000A;		<span class="p">},</span> <span class="k">this</span><span class="p">);</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="nx">Browser</span><span class="p">.</span><span class="nx">safari</span> <span class="o">&amp;&amp;</span> <span class="nx">Browser</span><span class="p">.</span><span class="nx">version</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)){</span>&#x000A;			<span class="k">this</span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="s1">&#39;complete&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;				<span class="nx">win</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">hash</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">anchor</span><span class="p">;</span>&#x000A;			<span class="p">},</span> <span class="kc">true</span><span class="p">);</span>&#x000A;		<span class="p">}</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">useLink</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">link</span><span class="p">,</span> <span class="nx">anchor</span><span class="p">){</span>&#x000A;		<span class="kd">var</span> <span class="nx">el</span><span class="p">;</span>&#x000A;		<span class="nx">link</span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>&#x000A;			<span class="k">if</span> <span class="p">(</span><span class="nx">el</span> <span class="o">!==</span> <span class="kc">false</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">el</span><span class="p">)</span> <span class="nx">el</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">id</span><span class="p">(</span><span class="nx">anchor</span><span class="p">)</span> <span class="o">||</span> <span class="k">this</span><span class="p">.</span><span class="nx">doc</span><span class="p">.</span><span class="nx">getElement</span><span class="p">(</span><span class="s1">&#39;a[name=&#39;</span> <span class="o">+</span> <span class="nx">anchor</span> <span class="o">+</span> <span class="s1">&#39;]&#39;</span><span class="p">);</span>&#x000A;			<span class="k">if</span> <span class="p">(</span><span class="nx">el</span><span class="p">){</span>&#x000A;				<span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>&#x000A;				<span class="k">this</span><span class="p">.</span><span class="nx">anchor</span> <span class="o">=</span> <span class="nx">anchor</span><span class="p">;</span>&#x000A;				<span class="k">this</span><span class="p">.</span><span class="nx">toElement</span><span class="p">(</span><span class="nx">el</span><span class="p">).</span><span class="nx">chain</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>&#x000A;					<span class="k">this</span><span class="p">.</span><span class="nx">fireEvent</span><span class="p">(</span><span class="s1">&#39;scrolledTo&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">link</span><span class="p">,</span> <span class="nx">el</span><span class="p">]);</span>&#x000A;				<span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>&#x000A;				<span class="nx">link</span><span class="p">.</span><span class="nx">blur</span><span class="p">();</span>&#x000A;			<span class="p">}</span>&#x000A;		<span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">));</span>&#x000A;	<span class="p">}</span>&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

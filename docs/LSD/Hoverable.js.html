@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Hoverable.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>ART.Widget.Base</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>ART.Widget.Trait.Hoverable</li>
+        <li>ART.Widget.Trait.Hoverable.State</li>
+        <li>ART.Widget.Trait.Hoverable.Stateful</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Hoverable.js</h1>
+      <p>For the times you need to know if mouse is over or not</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license.</dd>
+        <dt>Authors:</dt>
+        <dd>Yaroslaff Fedin</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+      </ol>
+      <code><span class="nx">ART</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">Hoverable</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;  <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>&#x000A;    <span class="nx">enabled</span><span class="o">:</span> <span class="p">{</span>&#x000A;      <span class="nx">element</span><span class="o">:</span> <span class="p">{</span>&#x000A;        <span class="nx">mouseenter</span><span class="o">:</span> <span class="s1">&#39;mouseenter&#39;</span><span class="p">,</span>&#x000A;        <span class="nx">mouseleave</span><span class="o">:</span> <span class="s1">&#39;mouseleave&#39;</span>&#x000A;      <span class="p">}</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">});</span>&#x000A;&#x000A;<span class="nx">Widget</span><span class="p">.</span><span class="nx">Events</span><span class="p">.</span><span class="nx">Ignore</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;hover&#39;</span><span class="p">);</span> &#x000A;&#x000A;<span class="nx">ART</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">Hoverable</span><span class="p">.</span><span class="nx">State</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">Stateful</span><span class="p">({</span>&#x000A;  <span class="s1">&#39;hover&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;mouseenter&#39;</span><span class="p">,</span> <span class="s1">&#39;mouseleave&#39;</span><span class="p">]</span>&#x000A;<span class="p">});</span>&#x000A;<span class="nx">ART</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">Hoverable</span><span class="p">.</span><span class="nx">Stateful</span> <span class="o">=</span> <span class="p">[</span>&#x000A;  <span class="nx">ART</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">Hoverable</span><span class="p">.</span><span class="nx">State</span><span class="p">,</span>&#x000A;  <span class="nx">ART</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">Hoverable</span>&#x000A;<span class="p">]</span>&#x000A;<span class="nx">Widget</span><span class="p">.</span><span class="nx">Attributes</span><span class="p">.</span><span class="nx">Ignore</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;hoverable&#39;</span><span class="p">);</span></code>
+    </figure>
+  </body>
+</html>

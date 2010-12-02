@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Number.Dutch.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Locale</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Number.Dutch</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Number.Dutch.js</h1>
+      <p>Number messages for Dutch.</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license</dd>
+        <dt>Authors:</dt>
+        <dd>Arian Stolwijk</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+      </ol>
+      <code><span class="nx">Locale</span><span class="p">.</span><span class="nx">define</span><span class="p">(</span><span class="s1">&#39;nl-NL&#39;</span><span class="p">,</span> <span class="s1">&#39;Number&#39;</span><span class="p">,</span> <span class="p">{</span>&#x000A;	&#x000A;	<span class="nx">decimal</span><span class="o">:</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">group</span><span class="o">:</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span></code>
+    </figure>
+    <section>
+      <p>decimals: 0,
+      precision: 0,</p>
+    </section>
+    <section>
+      <p>Negative/Currency/percentage will mixin Number</p>
+    </section>
+    <figure>
+      <ol>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+      </ol>
+      <code><span class="nx">negative</span><span class="o">:</span> <span class="p">{</span>&#x000A;		<span class="nx">prefix</span><span class="o">:</span> <span class="s1">&#39;-&#39;</span>&#x000A;	<span class="p">},</span>&#x000A;	&#x000A;	<span class="nx">currency</span><span class="o">:</span> <span class="p">{</span>&#x000A;		<span class="nx">decimals</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>&#x000A;		<span class="nx">prefix</span><span class="o">:</span> <span class="s1">&#39;€ &#39;</span>	&#x000A;	<span class="p">},</span>&#x000A;	&#x000A;	<span class="nx">percentage</span><span class="o">:</span> <span class="p">{</span>&#x000A;		<span class="nx">decimals</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>&#x000A;		<span class="nx">suffix</span><span class="o">:</span> <span class="s1">&#39;%&#39;</span>		&#x000A;	<span class="p">}</span>&#x000A;&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

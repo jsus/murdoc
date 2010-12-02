@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Stroke.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>ART.Layer</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>ART.Layer.Stroke</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Stroke.js</h1>
+      <p>Fills shape with color and strokes with a stroke</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license.</dd>
+        <dt>Authors:</dt>
+        <dd>Yaroslaff Fedin</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+      </ol>
+      <code><span class="nx">ART</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">Stroke</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;  <span class="nx">Extends</span><span class="o">:</span> <span class="nx">ART</span><span class="p">.</span><span class="nx">Layer</span><span class="p">,</span>&#x000A;  &#x000A;  <span class="nx">properties</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;strokeColor&#39;</span><span class="p">,</span> <span class="s1">&#39;strokeWidth&#39;</span><span class="p">,</span> <span class="s1">&#39;strokeCap&#39;</span><span class="p">,</span> <span class="s1">&#39;strokeDash&#39;</span><span class="p">,</span> <span class="s1">&#39;fillColor&#39;</span><span class="p">],</span>&#x000A;  &#x000A;  <span class="nx">paint</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">strokeColor</span><span class="p">,</span> <span class="nx">stroke</span><span class="p">,</span> <span class="nx">cap</span><span class="p">,</span> <span class="nx">dash</span><span class="p">,</span> <span class="nx">color</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">color</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="o">!</span><span class="nx">stroke</span> <span class="o">||</span> <span class="o">!</span><span class="nx">strokeColor</span><span class="p">))</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">stroke</span><span class="p">)</span> <span class="nx">stroke</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">produce</span><span class="p">(</span><span class="nx">stroke</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">shape</span><span class="p">.</span><span class="nx">stroke</span><span class="p">(</span><span class="nx">strokeColor</span><span class="p">,</span> <span class="nx">stroke</span><span class="p">,</span> <span class="nx">cap</span><span class="p">);</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">shape</span><span class="p">.</span><span class="nx">fill</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">shape</span><span class="p">,</span> <span class="nx">color</span> <span class="o">?</span> <span class="nx">$splat</span><span class="p">(</span><span class="nx">color</span><span class="p">)</span> <span class="o">:</span> <span class="kc">null</span><span class="p">);</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">shape</span><span class="p">.</span><span class="nx">dash</span><span class="p">(</span><span class="nx">dash</span><span class="p">);</span>&#x000A;    <span class="k">return</span> <span class="p">{</span>&#x000A;      <span class="nx">translate</span><span class="o">:</span> <span class="p">{</span>&#x000A;        <span class="nx">x</span><span class="o">:</span> <span class="nx">stroke</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> &#x000A;        <span class="nx">y</span><span class="o">:</span> <span class="nx">stroke</span> <span class="o">/</span> <span class="mi">2</span>&#x000A;      <span class="p">},</span>&#x000A;      <span class="nx">outside</span><span class="o">:</span> <span class="p">{</span>&#x000A;        <span class="nx">x</span><span class="o">:</span> <span class="nx">stroke</span><span class="p">,</span>&#x000A;        <span class="nx">y</span><span class="o">:</span> <span class="nx">stroke</span>&#x000A;      <span class="p">},</span>&#x000A;      <span class="nx">inside</span><span class="o">:</span> <span class="p">{</span>&#x000A;        <span class="nx">x</span><span class="o">:</span> <span class="nx">stroke</span><span class="p">,</span>&#x000A;        <span class="nx">y</span><span class="o">:</span> <span class="nx">stroke</span>&#x000A;      <span class="p">}</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

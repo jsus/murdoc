@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Request.Periodical.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Core/Request</li>
+        <li>MooTools.More</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Request.Periodical</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Request.Periodical.js</h1>
+      <p>Requests the same URL to pull data from a server but increases the intervals if no data is returned to reduce the load</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license</dd>
+        <dt>Authors:</dt>
+        <dd>Christoph Pojer</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+      </ol>
+      <code><span class="nx">Request</span><span class="p">.</span><span class="nx">implement</span><span class="p">({</span>&#x000A;&#x000A;	<span class="nx">options</span><span class="o">:</span> <span class="p">{</span>&#x000A;		<span class="nx">initialDelay</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span>&#x000A;		<span class="nx">delay</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span>&#x000A;		<span class="nx">limit</span><span class="o">:</span> <span class="mi">60000</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">startTimer</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">){</span>&#x000A;		<span class="kd">var</span> <span class="nx">fn</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;			<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">running</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">send</span><span class="p">({</span><span class="nx">data</span><span class="o">:</span> <span class="nx">data</span><span class="p">});</span>&#x000A;		<span class="p">};</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">lastDelay</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">initialDelay</span><span class="p">;</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">timer</span> <span class="o">=</span> <span class="nx">fn</span><span class="p">.</span><span class="nx">delay</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">lastDelay</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>&#x000A;		<span class="k">this</span><span class="p">.</span><span class="nx">completeCheck</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">response</span><span class="p">){</span>&#x000A;			<span class="nx">clearTimeout</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">timer</span><span class="p">);</span>&#x000A;			<span class="k">this</span><span class="p">.</span><span class="nx">lastDelay</span> <span class="o">=</span> <span class="p">(</span><span class="nx">response</span><span class="p">)</span> <span class="o">?</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">delay</span> <span class="o">:</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">lastDelay</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">delay</span><span class="p">).</span><span class="nx">min</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">limit</span><span class="p">);</span>&#x000A;			<span class="k">this</span><span class="p">.</span><span class="nx">timer</span> <span class="o">=</span> <span class="nx">fn</span><span class="p">.</span><span class="nx">delay</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">lastDelay</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>&#x000A;		<span class="p">};</span>&#x000A;		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="s1">&#39;complete&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">completeCheck</span><span class="p">);</span>&#x000A;	<span class="p">},</span>&#x000A;&#x000A;	<span class="nx">stopTimer</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;		<span class="nx">clearTimeout</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">timer</span><span class="p">);</span>&#x000A;		<span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">removeEvent</span><span class="p">(</span><span class="s1">&#39;complete&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">completeCheck</span><span class="p">);</span>&#x000A;	<span class="p">}</span>&#x000A;&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

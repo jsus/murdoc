@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Layers.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>ART.Widget.Base</li>
+        <li>ART.Layer</li>
+        <li>ART.Shape</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>ART.Widget.Trait.Layers</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Layers.js</h1>
+      <p>Make widget use layers for all the SVG</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license.</dd>
+        <dt>Authors:</dt>
+        <dd>Yaroslaff Fedin</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+      </ol>
+      <code><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;&#x000A;<span class="kd">var</span> <span class="nx">empty</span> <span class="o">=</span> <span class="p">{</span><span class="nx">translate</span><span class="o">:</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">0</span><span class="p">},</span> <span class="nx">outside</span><span class="o">:</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">0</span><span class="p">},</span> <span class="nx">inside</span><span class="o">:</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">0</span><span class="p">}};</span>&#x000A;&#x000A;<span class="nx">ART</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">Layers</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;&#x000A;  <span class="nx">layers</span><span class="o">:</span> <span class="p">{},</span>&#x000A;&#x000A;  <span class="nx">build</span><span class="o">:</span> <span class="nx">Macro</span><span class="p">.</span><span class="nx">onion</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">layered</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">name</span> <span class="k">in</span> <span class="k">this</span><span class="p">.</span><span class="nx">layered</span><span class="p">)</span> <span class="p">{</span>&#x000A;        <span class="k">this</span><span class="p">.</span><span class="nx">layers</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">buildLayer</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">layered</span><span class="p">[</span><span class="nx">name</span><span class="p">].</span><span class="nx">concat</span><span class="p">([</span><span class="nx">name</span><span class="p">]));</span>&#x000A;      <span class="p">}</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">}),</span>&#x000A;  &#x000A;  <span class="nx">update</span><span class="o">:</span> <span class="nx">Macro</span><span class="p">.</span><span class="nx">onion</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">outside</span> <span class="o">=</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">0</span><span class="p">};</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">inside</span> <span class="o">=</span> <span class="p">{</span><span class="nx">x</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">y</span><span class="o">:</span> <span class="mi">0</span><span class="p">};</span>&#x000A;  <span class="p">}),</span>&#x000A;  &#x000A;  <span class="nx">getLayer</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    &#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">buildLayer</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">link</span><span class="p">(</span><span class="nx">$splat</span><span class="p">(</span><span class="nx">arguments</span><span class="p">),</span> <span class="p">{</span>&#x000A;      <span class="nx">layer</span><span class="o">:</span> <span class="nb">String</span><span class="p">.</span><span class="nx">type</span><span class="p">,</span>&#x000A;      <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span><span class="p">.</span><span class="nx">type</span><span class="p">,</span>&#x000A;      <span class="nx">klass</span><span class="o">:</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">type</span><span class="p">,</span>&#x000A;      <span class="nx">draw</span><span class="o">:</span> <span class="nb">Function</span><span class="p">.</span><span class="nx">type</span><span class="p">,</span>&#x000A;      <span class="nx">options</span><span class="o">:</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">type</span><span class="p">,</span> &#x000A;      <span class="nx">properties</span><span class="o">:</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">type</span>&#x000A;    <span class="p">});</span>&#x000A;    <span class="kd">var</span> <span class="nx">shape</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getShape</span><span class="p">();</span></code>
+    </figure>
+    <section>
+      <p>if (!args.klass) {
+      var base = ART.Layer;
+      var bits = args.layer.split(&lsquo;&ndash;&rsquo;);
+      while (bits.length > 0) base = base[bits.shift().camelCase().capitalize()];
+      args.klass = base;
+      }
+      var instance = new args.klass(shape); //combine shape &amp; layer classes</p>
+    </section>
+    <figure>
+      <ol>
+        <li>69</li>
+        <li>70</li>
+        <li>71</li>
+        <li>72</li>
+        <li>73</li>
+        <li>74</li>
+        <li>75</li>
+        <li>76</li>
+        <li>77</li>
+        <li>78</li>
+        <li>79</li>
+        <li>80</li>
+        <li>81</li>
+        <li>82</li>
+        <li>83</li>
+        <li>84</li>
+        <li>85</li>
+        <li>86</li>
+        <li>87</li>
+        <li>88</li>
+        <li>89</li>
+        <li>90</li>
+        <li>91</li>
+        <li>92</li>
+        <li>93</li>
+        <li>94</li>
+        <li>95</li>
+        <li>96</li>
+        <li>97</li>
+        <li>98</li>
+        <li>99</li>
+        <li>100</li>
+        <li>101</li>
+        <li>102</li>
+        <li>103</li>
+        <li>104</li>
+        <li>105</li>
+        <li>106</li>
+      </ol>
+      <code><span class="kd">var</span> <span class="nx">type</span> <span class="o">=</span> <span class="p">(</span><span class="nx">args</span><span class="p">.</span><span class="nx">klass</span> <span class="o">||</span> <span class="nx">ART</span><span class="p">.</span><span class="nx">Layer</span><span class="p">[</span><span class="nx">args</span><span class="p">.</span><span class="nx">layer</span><span class="p">.</span><span class="nx">camelCase</span><span class="p">().</span><span class="nx">capitalize</span><span class="p">()]);</span>&#x000A;    <span class="kd">var</span> <span class="nx">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">type</span><span class="p">(</span><span class="nx">shape</span><span class="p">);</span> <span class="c1">//combine shape &amp; layer classes</span>&#x000A;    &#x000A;    <span class="kd">var</span> <span class="nx">properties</span> <span class="o">=</span> <span class="p">(</span><span class="nx">instance</span><span class="p">.</span><span class="nx">properties</span> <span class="o">||</span> <span class="p">[]).</span><span class="nx">concat</span><span class="p">(</span><span class="nx">args</span><span class="p">.</span><span class="nx">properties</span> <span class="o">||</span> <span class="p">[])</span>&#x000A;    &#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="s1">&#39;redraw&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;      <span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">value</span> <span class="o">||</span> <span class="nx">empty</span><span class="p">;</span>&#x000A;      <span class="kd">var</span> <span class="nx">styles</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getChangedStyles</span><span class="p">(</span><span class="nx">args</span><span class="p">.</span><span class="nx">name</span> <span class="o">||</span> <span class="nx">args</span><span class="p">.</span><span class="nx">layer</span><span class="p">,</span> <span class="nx">properties</span><span class="p">)</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="nx">styles</span><span class="p">)</span> <span class="p">{</span>&#x000A;        <span class="nx">instance</span><span class="p">.</span><span class="nx">padding</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">inside</span><span class="p">;</span>&#x000A;        <span class="nx">value</span> <span class="o">=</span> <span class="p">(</span><span class="nx">args</span><span class="p">.</span><span class="nx">draw</span> <span class="o">||</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">paint</span><span class="p">).</span><span class="nx">apply</span><span class="p">(</span><span class="nx">instance</span><span class="p">,</span> <span class="nx">Hash</span><span class="p">.</span><span class="nx">getValues</span><span class="p">(</span><span class="nx">styles</span><span class="p">))</span>&#x000A;        <span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span> <span class="p">{</span>&#x000A;          <span class="nx">value</span> <span class="o">=</span> <span class="nx">empty</span><span class="p">;</span>&#x000A;          <span class="k">if</span> <span class="p">(</span><span class="nx">instance</span><span class="p">.</span><span class="nx">injected</span><span class="p">)</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">eject</span><span class="p">();</span>&#x000A;        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>  &#x000A;          <span class="nx">value</span> <span class="o">=</span> <span class="nx">$merge</span><span class="p">(</span><span class="nx">empty</span><span class="p">,</span> <span class="nx">value</span><span class="p">);</span>&#x000A;          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">instance</span><span class="p">.</span><span class="nx">injected</span><span class="p">)</span> <span class="p">{</span>&#x000A;            <span class="kd">var</span> <span class="nx">found</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>&#x000A;            <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">name</span> <span class="k">in</span> <span class="k">this</span><span class="p">.</span><span class="nx">layers</span><span class="p">)</span> <span class="p">{</span>&#x000A;              <span class="kd">var</span> <span class="nx">layer</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">layers</span><span class="p">[</span><span class="nx">name</span><span class="p">];</span>&#x000A;              <span class="k">if</span> <span class="p">(</span><span class="nx">layer</span> <span class="o">==</span> <span class="nx">instance</span><span class="p">)</span> <span class="nx">found</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>&#x000A;              <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">found</span> <span class="o">||</span> <span class="nx">layer</span> <span class="o">==</span> <span class="nx">instance</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>&#x000A;              <span class="k">if</span> <span class="p">(</span><span class="nx">layer</span><span class="p">.</span><span class="nx">injected</span> <span class="o">&amp;&amp;</span> <span class="nx">layer</span><span class="p">.</span><span class="nx">shape</span><span class="p">)</span> <span class="p">{</span>&#x000A;                <span class="nx">instance</span><span class="p">.</span><span class="nx">inject</span><span class="p">(</span><span class="nx">layer</span><span class="p">.</span><span class="nx">shape</span><span class="p">,</span> <span class="s1">&#39;before&#39;</span><span class="p">);</span>&#x000A;                <span class="k">break</span><span class="p">;</span>&#x000A;              <span class="p">}</span>&#x000A;            <span class="p">}</span>  &#x000A;            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">instance</span><span class="p">.</span><span class="nx">injected</span><span class="p">)</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">inject</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">paint</span><span class="p">);</span>&#x000A;          <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>&#x000A;            <span class="k">if</span> <span class="p">(</span><span class="nx">instance</span><span class="p">.</span><span class="nx">update</span><span class="p">)</span> <span class="nx">instance</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">paint</span><span class="p">)</span>&#x000A;          <span class="p">}</span>  &#x000A;        <span class="p">}</span>  &#x000A;        <span class="nx">instance</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">value</span><span class="p">;</span>&#x000A;      <span class="p">}</span>&#x000A;      &#x000A;      <span class="nx">instance</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="nx">value</span><span class="p">.</span><span class="nx">translate</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">outside</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">value</span><span class="p">.</span><span class="nx">translate</span><span class="p">.</span><span class="nx">y</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">outside</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>&#x000A;      <span class="k">this</span><span class="p">.</span><span class="nx">outside</span><span class="p">.</span><span class="nx">x</span> <span class="o">+=</span> <span class="nx">value</span><span class="p">.</span><span class="nx">outside</span><span class="p">.</span><span class="nx">x</span><span class="p">;</span>&#x000A;      <span class="k">this</span><span class="p">.</span><span class="nx">outside</span><span class="p">.</span><span class="nx">y</span> <span class="o">+=</span> <span class="nx">value</span><span class="p">.</span><span class="nx">outside</span><span class="p">.</span><span class="nx">y</span><span class="p">;</span></code>
+    </figure>
+    <section>
+      <p>this.inside.x += value.inside.x;
+      this.inside.y += value.inside.y;</p>
+    </section>
+    <figure>
+      <ol>
+        <li>109</li>
+        <li>110</li>
+        <li>111</li>
+        <li>112</li>
+        <li>113</li>
+        <li>114</li>
+      </ol>
+      <code><span class="p">});</span>&#x000A;    <span class="k">return</span> <span class="nx">instance</span><span class="p">;</span>  &#x000A;  <span class="p">}</span>&#x000A;<span class="p">});</span>&#x000A;&#x000A;<span class="p">})();</span></code>
+    </figure>
+  </body>
+</html>

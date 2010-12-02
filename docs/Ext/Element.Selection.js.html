@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Element.Selection.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Core/Element</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Element.disableSelection</li>
+        <li>Element.enableSelection</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Element.Selection.js</h1>
+      <p>Methods to toggle selectability on element</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license.</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>19</li>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+      </ol>
+      <code><span class="nx">Element</span><span class="p">.</span><span class="nx">implement</span><span class="p">({</span>&#x000A;  <span class="nx">disableSelection</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="nx">Browser</span><span class="p">.</span><span class="nx">Engine</span><span class="p">.</span><span class="nx">trident</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">retrieve</span><span class="p">(</span><span class="s1">&#39;events:selectstart&#39;</span><span class="p">))</span> <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">(</span><span class="s1">&#39;events:selectstart&#39;</span><span class="p">,</span> <span class="nx">$lambda</span><span class="p">(</span><span class="kc">false</span><span class="p">));</span>&#x000A;      <span class="k">this</span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="s1">&#39;selectstart&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">retrieve</span><span class="p">(</span><span class="s1">&#39;events:selectstart&#39;</span><span class="p">));</span>&#x000A;    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">Browser</span><span class="p">.</span><span class="nx">Engine</span><span class="p">.</span><span class="nx">webkit</span><span class="p">){</span>&#x000A;      <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">WebkitUserSelect</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span><span class="p">;</span>&#x000A;    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>&#x000A;      <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">MozUserSelect</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span><span class="p">;</span>&#x000A;    <span class="p">}</span>&#x000A;    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">enableSelection</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="nx">Browser</span><span class="p">.</span><span class="nx">Engine</span><span class="p">.</span><span class="nx">trident</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="k">this</span><span class="p">.</span><span class="nx">removeEvent</span><span class="p">(</span><span class="s1">&#39;selectstart&#39;</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">retrieve</span><span class="p">(</span><span class="s1">&#39;events:selectstart&#39;</span><span class="p">));</span>&#x000A;    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">Browser</span><span class="p">.</span><span class="nx">Engine</span><span class="p">.</span><span class="nx">webkit</span><span class="p">){</span>&#x000A;      <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">WebkitUserSelect</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>&#x000A;    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>&#x000A;      <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">MozUserSelect</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>&#x000A;    <span class="p">}</span>&#x000A;    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

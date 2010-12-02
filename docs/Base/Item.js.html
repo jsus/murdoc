@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Item.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Widget.Base</li>
+        <li>Class.Stateful</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Widget.Trait.Item</li>
+        <li>Widget.Trait.Item.State</li>
+        <li>Widget.Trait.Item.Stateful</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Item.js</h1>
+      <p>Easy way to have a list of children (to select from) or something like that.</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license.</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+      </ol>
+      <code><span class="nx">Widget</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">Item</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;  &#x000A;  <span class="nx">select</span><span class="o">:</span> <span class="nx">Macro</span><span class="p">.</span><span class="nx">onion</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">listWidget</span><span class="p">.</span><span class="nx">selectItem</span><span class="p">(</span><span class="k">this</span><span class="p">)</span>&#x000A;  <span class="p">}),</span>&#x000A;  &#x000A;  <span class="nx">setList</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">widget</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">listWidget</span> <span class="o">=</span> <span class="nx">widget</span><span class="p">;</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">})</span>&#x000A;&#x000A;<span class="nx">Widget</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">Item</span><span class="p">.</span><span class="nx">State</span> <span class="o">=</span> <span class="nx">Class</span><span class="p">.</span><span class="nx">Stateful</span><span class="p">({</span>&#x000A;  <span class="nx">selected</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;select&#39;</span><span class="p">,</span> <span class="s1">&#39;unselect&#39;</span><span class="p">]</span>&#x000A;<span class="p">});</span>&#x000A;<span class="nx">Widget</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">Item</span><span class="p">.</span><span class="nx">Stateful</span> <span class="o">=</span> <span class="p">[</span>&#x000A;  <span class="nx">Widget</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">Item</span><span class="p">.</span><span class="nx">State</span><span class="p">,</span>&#x000A;  <span class="nx">Widget</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">Item</span>&#x000A;<span class="p">]</span></code>
+    </figure>
+  </body>
+</html>
