@@ -1,15 +1,16 @@
 html, body {
-  min-height: 100%; }
+  min-height: 100%;
+  line-height: 1.5; }
 
-p, h1, h2, h3, ol, li, ol, ul, dt, dd, dl, body, html {
+p, h1, h2, h3, ol, li, ul, dt, dd, dl, body, html {
   padding: 0;
   margin: 0; }
 
 body {
-  width: 45%;
+  width: 40%;
   padding-left: 2.5%;
   padding-right: 2.5%;
-  background: #7ba32d;
+  background: #BFA730;
   font-family: Helvetica; }
   body:after {
     content: ".";
@@ -18,30 +19,43 @@ body {
     display: block;
     clear: both; }
 
+figure#relations h2 ~ h2 {
+  margin-top: 1.5em; }
+
 body > * {
   padding-left: 6%;
   padding-right: 6%; }
 
 html {
-  background: #094201; }
+  background: #FFD300; }
 
 header {
   background: rgba(255, 255, 255, 0.1);
-  padding-top: 1em;
   display: block; }
   header dl {
-    margin-top: 1.125em;
-    font-size: 0.75em; }
+    margin-top: 2em;
+    font-size: 0.75em;
+    line-height: 2em;
+    overflow: hidden; }
     header dl dt {
       width: 5em;
       font-weight: bold; }
 
+section, руфвук {
+  float: left;
+  clear: both;
+  width: 88%; }
+
 p, dl, li {
-  color: #c4eeff;
+  color: #665504;
   font-weight: normal; }
 
 a {
-  color: #a41717; }
+  color: #BF7330; }
+  a:hover {
+    color: #FF7800; }
+  a:visited {
+    color: #A64E00; }
 
 p {
   margin-top: 1.5em; }
@@ -50,25 +64,20 @@ h1 {
   font-size: 2em; }
 
 h2 {
-  font-size: 1em;
-  line-height: 2em; }
+  font-size: 1em; }
 
 h1, h2, h3 {
-  color: #a41717; }
+  color: #A41717; }
 
 ol, li {
   margin-left: 1em; }
 
-body > div.paragraph, body > h1, body > h2 {
-  clear: both; }
+body > p, body > h1, body > h2 {
+  clear: left; }
 
 header {
   padding-bottom: 1em;
   overflow: hidden; }
-
-pre {
-  margin-top: 0;
-}
 
 dl {
   clear: left; }
@@ -79,42 +88,33 @@ dl {
   dl dd {
     margin-left: 1em; }
 
-section {
-    clear: both;
-}
-
 figure {
   display: block;
   float: right;
-  margin-right: -112.5%;
-  width: 95%;
+  margin-right: -140%;
+  width: 122.75%;
   clear: right;
-  padding: 2.5em 5% 3em; }
+  padding: 1.5em 5% 3em; }
   figure > ol {
+    text-shadow: 0 1px 0 #FFDE40;
+    -moz-text-shadow: 0 1px 0 #FFDE40;
+    -webkit-text-shadow: 0 1px 0 #FFDE40;
     width: 7.5%;
     text-align: right;
     float: left;
     font-size: 0.8em;
-    color: #7ba32d;
     -webkit-border-radius: 0.2em;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(166, 137, 0, 0.1);
     border: 1px solid rgba(0, 0, 0, 0.3);
     list-style: none;
-    margin-left: -11.25%; }
+    margin-left: -9.25%; }
     figure > ol li {
       margin: 0; }
-  figure pre {
-      background: rgba(255, 255, 255, 0.5);
-      border: 1px solid rgba(0, 0, 0, 0.3);
-      border-left: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
-  }
   figure > code, figure > ol {
     font-size: 1em;
     font-family: monospace; }
-  figure ~ figure {
-    padding-top: 1.5em; }
+  figure > code {
+    white-space: pre; }
 
 body .hll {
   background-color: #ffffcc; }
@@ -122,7 +122,7 @@ body .c {
   color: #408080;
   font-style: italic; }
 body .err {
-  border: 1px solid red; }
+  border: 1px solid #FF0000; }
 body .k {
   color: #954121; }
 body .o {
@@ -131,33 +131,33 @@ body .cm {
   color: #408080;
   font-style: italic; }
 body .cp {
-  color: #bc7a00; }
+  color: #BC7A00; }
 body .c1, body .cs {
   color: #408080;
   font-style: italic; }
 body .gd {
-  color: #a00000; }
+  color: #A00000; }
 body .ge {
   font-style: italic; }
 body .gr {
-  color: red; }
+  color: #FF0000; }
 body .gh {
-  color: navy;
+  color: #000080;
   font-weight: bold; }
 body .gi {
-  color: #00a000; }
+  color: #00A000; }
 body .go {
-  color: gray; }
+  color: #808080; }
 body .gp {
-  color: navy;
+  color: #000080;
   font-weight: bold; }
 body .gs {
   font-weight: bold; }
 body .gu {
-  color: purple;
+  color: #800080;
   font-weight: bold; }
 body .gt {
-  color: #0040d0; }
+  color: #0040D0; }
 body .kc {
   color: #954121; }
 body .kd, body .kn {
@@ -169,42 +169,42 @@ body .kr {
   color: #954121;
   font-weight: bold; }
 body .kt {
-  color: #b00040; }
+  color: #B00040; }
 body .m {
   color: #666666; }
 body .s {
   color: #219161; }
 body .na {
-  color: #7d9029; }
+  color: #7D9029; }
 body .nb {
   color: #954121; }
 body .nc {
-  color: blue;
+  color: #0000FF;
   font-weight: bold; }
 body .no {
   color: #880000; }
 body .nd {
-  color: #aa22ff; }
+  color: #AA22FF; }
 body .ni {
   color: #999999;
   font-weight: bold; }
 body .ne {
-  color: #d2413a;
+  color: #D2413A;
   font-weight: bold; }
 body .nf {
-  color: blue; }
+  color: #0000FF; }
 body .nl {
-  color: #a0a000; }
+  color: #A0A000; }
 body .nn {
-  color: blue;
+  color: #0000FF;
   font-weight: bold; }
 body .nt {
   color: #954121;
   font-weight: bold; }
 body .nv {
-  color: #19469d; }
+  color: #19469D; }
 body .ow {
-  color: #aa22ff;
+  color: #AA22FF;
   font-weight: bold; }
 body .w {
   color: #bbbbbb; }
@@ -218,24 +218,24 @@ body .sd {
 body .s2 {
   color: #219161; }
 body .se {
-  color: #bb6622;
+  color: #BB6622;
   font-weight: bold; }
 body .sh {
   color: #219161; }
 body .si {
-  color: #bb6688;
+  color: #BB6688;
   font-weight: bold; }
 body .sx {
   color: #954121; }
 body .sr {
-  color: #bb6688; }
+  color: #BB6688; }
 body .s1 {
   color: #219161; }
 body .ss {
-  color: #19469d; }
+  color: #19469D; }
 body .bp {
   color: #954121; }
 body .vc, body .vg, body .vi {
-  color: #19469d; }
+  color: #19469D; }
 body .il {
   color: #666666; }

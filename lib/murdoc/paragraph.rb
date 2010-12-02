@@ -40,7 +40,7 @@ module Murdoc
           pipe.read
         end
       else
-        "<pre>" + CGI.escapeHTML(source) + "</pre>"
+        CGI.escapeHTML(source)
       end
     end
 
