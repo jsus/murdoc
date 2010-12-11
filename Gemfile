@@ -2,7 +2,6 @@ source "http://rubygems.org"
 
 gem "rdiscount", "~> 1.6.5"
 gem "haml", "~> 3.0.0"
-gem "sass", "~> 3.1.0"
 
 group :development do
   gem "jeweler"
