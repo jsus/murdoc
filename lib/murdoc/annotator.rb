@@ -69,9 +69,9 @@ module Murdoc
       i = 0
       while i < lines.size
         comment_lines = []
-        # get single line comments (removing optional first space after comment symbol)
+        # get single line comments
         if comment_symbols[:single_line]
-          while i < lines.size && lines[i] =~ /^\s*#{Regexp.escape(comment_symbols[:single_line])}\s?(.*)/
+          while i < lines.size && lines[i] =~ /^\s*#{Regexp.escape(comment_symbols[:single_line])}(.*)/
             comment_lines << $1
             i += 1
           end
@@ -103,7 +103,7 @@ module Murdoc
           source_lines.delete_at(0)
         end
         source_lines.delete_at(-1) while source_lines.size > 0 && source_lines[-1] =~ /^\s*$/
-        comment_lines.map! {|l| l.sub(/^\s[^\s]/, '').rstrip }
+        comment_lines.map! {|l| l.sub(/^\s([^\s])/, '\\1').rstrip }
         comment_lines.delete_at(0) while comment_lines.size > 0 && comment_lines[0].empty?
         comment_lines.delete_at(-1) while comment_lines.size > 0 && comment_lines[-1].empty?
 

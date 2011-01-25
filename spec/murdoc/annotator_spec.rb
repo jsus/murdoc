@@ -60,6 +60,12 @@ describe Murdoc::Annotator do
         subject.should have_exactly(1).paragraphs
         subject.paragraphs[0].annotation.should == "Hello"
       end
+
+      it "should not remove more than one space" do
+        subject.source = "#    Hello"
+        subject.should have_exactly(1).paragraphs
+        subject.paragraphs[0].annotation.should == "    Hello"
+      end      
     end
 
     context "for source with multi-line comments" do
