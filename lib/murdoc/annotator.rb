@@ -103,7 +103,7 @@ module Murdoc
           source_lines.delete_at(0)
         end
         source_lines.delete_at(-1) while source_lines.size > 0 && source_lines[-1] =~ /^\s*$/
-        comment_lines.map! {|l| l.strip }
+        comment_lines.map! {|l| l.sub(/^\s[^\s]/, '').rstrip }
         comment_lines.delete_at(0) while comment_lines.size > 0 && comment_lines[0].empty?
         comment_lines.delete_at(-1) while comment_lines.size > 0 && comment_lines[-1].empty?
 
