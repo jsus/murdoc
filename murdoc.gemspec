@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{murdoc}
-  s.version = "0.1.6"
+  s.version = "0.1.7"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Mark Abramov"]
-  s.date = %q{2011-01-25}
+  s.date = %q{2011-01-27}
   s.default_executable = %q{murdoc}
   s.description = %q{Annotated documentation generator, see README.md for details}
   s.email = %q{markizko@gmail.com}
