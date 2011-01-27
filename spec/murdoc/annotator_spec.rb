@@ -78,6 +78,14 @@ describe Murdoc::Annotator do
         subject.paragraphs[1].source.should =~ /\A\s*def yo\s*puts 'rap'\s*end\s*\Z/m
         subject.paragraphs[1].annotation.should =~ /\ABlock two\Z/m
       end
+      
+      it "should not hang upon non-closed comments" do
+        source = "=begin\n"
+        lambda {
+          subject = described_class.new(source, :ruby)
+          subject.source = source
+        }.should_not raise_error
+      end
     end
 
     context "for comment without code" do
@@ -86,6 +94,15 @@ describe Murdoc::Annotator do
         subject.should have_exactly(2).paragraphs
         subject.paragraphs[0].source.should == ""
         subject.paragraphs[0].annotation.should == "Header"
+      end
+    end
+    
+    context "for commented code" do
+      let(:source) { "# :code:\n# def hello\n# end\n\n\# Comment\ndef hi\nend" }
+      it "should not create paragraphs" do
+        subject.should have_exactly(1).paragraphs
+        subject.paragraphs[0].source.should == "def hi\nend"
+        subject.paragraphs[0].annotation.should == "Comment"
       end
     end
 

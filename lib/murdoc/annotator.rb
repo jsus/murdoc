@@ -47,25 +47,9 @@ module Murdoc
     def source=(src)
       @source = src
       @paragraphs = []
-
-      # Lambda for checking source for comments. Used for getting consequent non-comments
-      # into resulting stream
-      is_comment = lambda do |line|
-        result = false
-        # If source supports single line comments
-        if comment_symbols[:single_line]
-          result ||= line =~ /^\s*#{Regexp.escape(comment_symbols[:single_line])}/
-        end
-
-        # If source supports multi-line comments
-        if comment_symbols[:multiline]
-          result ||= line =~ /^\s*#{Regexp.escape(comment_symbols[:multiline][:begin])}/
-        end
-        result
-      end
+      lines = src.split("\n")
 
       # splitting stuff into lines and setting cursor into initial position
-      lines = src.split("\n")
       i = 0
       while i < lines.size
         comment_lines = []
@@ -93,22 +77,19 @@ module Murdoc
         # getting source lines
         starting_line = i
         source_lines = []
-        while i < lines.size && !is_comment.call(lines[i])
+        while i < lines.size && !is_comment(lines[i])
           source_lines << lines[i]
           i += 1
         end
-        # post-processing: stripping comments and removing empty strings from beginnings and ends
-        while source_lines.size > 0 && source_lines[0] =~ /^\s*$/
-          starting_line += 1
-          source_lines.delete_at(0)
-        end
-        source_lines.delete_at(-1) while source_lines.size > 0 && source_lines[-1] =~ /^\s*$/
-        comment_lines.map! {|l| l.sub(/^\s([^\s])/, '\\1').rstrip }
-        comment_lines.delete_at(0) while comment_lines.size > 0 && comment_lines[0].empty?
-        comment_lines.delete_at(-1) while comment_lines.size > 0 && comment_lines[-1].empty?
 
-        # writing a new paragraph
-        @paragraphs << Paragraph.new(source_lines.join("\n"), comment_lines.join("\n"), starting_line, source_type, options)
+        # post-processing: stripping comments and removing empty strings from beginnings and ends
+        starting_line += postprocess_source(source_lines)
+        postprocess_comments(comment_lines)
+        
+        # writing a new paragraph unless we have a case of commented out code
+        unless comment_lines[0] =~ /^:code:$/
+          @paragraphs << Paragraph.new(source_lines.join("\n"), comment_lines.join("\n"), starting_line, source_type, options)
+        end
       end
     end
 
@@ -116,10 +97,52 @@ module Murdoc
     def source
       @source
     end
-
+    
   protected
     def comment_symbols
       super || {}
+    end
+
+    # Method for checking source for comments. Used for getting consequent non-comments
+    # into resulting stream
+    def is_comment(line)
+      result = false
+      # If source supports single line comments
+      if comment_symbols[:single_line]
+        result ||= line =~ /^\s*#{Regexp.escape(comment_symbols[:single_line])}/
+      end
+
+      # If source supports multi-line comments
+      if comment_symbols[:multiline]
+        result ||= line =~ /^\s*#{Regexp.escape(comment_symbols[:multiline][:begin])}/
+      end
+      result
+    end
+
+    #
+    # Removes trailing spaces from comments, also removes first space from comments,
+    # but only if there's only one space there (not to mess with markdown)
+    #
+    def postprocess_comments(comment_lines)
+      comment_lines.map! {|l| l.sub(/^\s([^\s])/, '\\1').rstrip }
+      comment_lines.delete_at(0) while comment_lines.size > 0 && comment_lines[0].empty?
+      comment_lines.delete_at(-1) while comment_lines.size > 0 && comment_lines[-1].empty?
+    end
+
+    
+    # Removes blank lines from beginning and end of source lines
+    # returns starting offset for source (number of lines deleted from beginning)
+    def postprocess_source(source_lines)
+      starting_offset = 0
+      while source_lines.size > 0 && source_lines[0] =~ /^\s*$/
+        starting_offset += 1
+        source_lines.delete_at(0)
+      end
+      
+      while source_lines.size > 0 && source_lines[-1] =~ /^\s*$/
+        source_lines.delete_at(-1) 
+      end
+      starting_offset
     end
   end
 end
