@@ -12,4 +12,4 @@
           %ol
             - 1.upto(p.source.split("\n").size) do |i|
               %li= i + p.starting_line
-          %code<= p.formatted_source
+          %code<~ p.formatted_source

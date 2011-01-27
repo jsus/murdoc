@@ -84,11 +84,13 @@ module Murdoc
 
         # post-processing: stripping comments and removing empty strings from beginnings and ends
         starting_line += postprocess_source(source_lines)
-        postprocess_comments(comment_lines)
+        postprocess_comments(comment_lines)        
+        # clear comment lines if that's commented out code
+        comment_lines.clear if comment_lines[0] =~ /^:code:$/
         
-        # writing a new paragraph unless we have a case of commented out code
-        unless comment_lines[0] =~ /^:code:$/
-          @paragraphs << Paragraph.new(source_lines.join("\n"), comment_lines.join("\n"), starting_line, source_type, options)
+        # if we have comments or source
+        if comment_lines.size > 0 || source_lines.size > 0
+          @paragraphs << Paragraph.new(source_lines.join("\n"), comment_lines.join("\n"), starting_line, source_type, options)          
         end
       end
     end

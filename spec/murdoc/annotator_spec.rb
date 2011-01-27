@@ -83,7 +83,6 @@ describe Murdoc::Annotator do
         source = "=begin\n"
         lambda {
           subject = described_class.new(source, :ruby)
-          subject.source = source
         }.should_not raise_error
       end
     end
@@ -103,6 +102,14 @@ describe Murdoc::Annotator do
         subject.should have_exactly(1).paragraphs
         subject.paragraphs[0].source.should == "def hi\nend"
         subject.paragraphs[0].annotation.should == "Comment"
+      end
+      
+      it "should not swallow wrong code" do
+        source = "# :code:\n# def hi\n# end\n\ndef hallo\nend"
+        subject = described_class.new(source, :ruby)
+        subject.should have_exactly(1).paragraphs
+        subject.paragraphs[0].annotation.to_s.should == ""
+        subject.paragraphs[0].source.should == "def hallo\nend"
       end
     end
 
