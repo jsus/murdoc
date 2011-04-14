@@ -19,8 +19,6 @@ Jeweler::Tasks.new do |gem|
   gem.description = "Annotated documentation generator, see README.md for details"
   gem.email = "markizko@gmail.com"
   gem.authors = ["Mark Abramov"]
-  gem.add_runtime_dependency "haml", "~> 3.0.0"
-  gem.add_runtime_dependency "rdiscount", "~> 1.6.5"
 end
 Jeweler::RubygemsDotOrgTasks.new
 
