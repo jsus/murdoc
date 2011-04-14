@@ -1,5 +1,9 @@
 require "rubygems"
-require "rdiscount"
+begin
+  require "rdiscount"
+rescue LoadError
+  require "kramdown"
+end
 require "cgi"
 require "tempfile"
 
@@ -29,7 +33,11 @@ module Murdoc
 
 
     def formatted_annotation
-      Markdown.new(annotation, :smart).to_html
+      if defined?(Markdown)
+        Markdown.new(annotation, :smart).to_html
+      else
+        Kramdown.new(annotation, :input => :markdown).to_html
+      end
     end
 
     def formatted_source

@@ -8,6 +8,12 @@ You may also want to see:
 * [docco.coffee](http://jashkenas.github.com/docco/)
 * [Rocco](http://rtomayko.github.com/rocco/)
 
+Dependencies
+============
+
+* Haml
+* Either RDiscount (for MRI rubies) or Kramdown (for non-mri rubies)
+
 Example
 =======
 

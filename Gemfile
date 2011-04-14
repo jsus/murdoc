@@ -1,9 +1,10 @@
 source "http://rubygems.org"
 
-gem "rdiscount", "~> 1.6.5"
+gem "kramdown"
 gem "haml", "~> 3.0.0"
 
 group :development do
+  gem "rdiscount", "~> 1.6.5", :platform => :mri
   gem "jeweler"
-  gem "rspec", "~> 2.4.0"  
+  gem "rspec", "~> 2.4.0"
 end
