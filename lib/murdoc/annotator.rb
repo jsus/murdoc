@@ -51,6 +51,7 @@ module Murdoc
 
       # splitting stuff into lines and setting cursor into initial position
       i = 0
+      source_lines_counter = 0
       while i < lines.size
         comment_lines = []
         # get single line comments
@@ -75,11 +76,16 @@ module Murdoc
         end
 
         # getting source lines
-        starting_line = i
-        starting_line -= comment_lines.size if options[:do_not_count_comment_lines]
         source_lines = []
+        starting_line = if options[:do_not_count_comment_lines]
+          source_lines_counter
+        else
+          i
+        end
+
         while i < lines.size && !is_comment(lines[i])
           source_lines << lines[i]
+          source_lines_counter += 1
           i += 1
         end
 
