@@ -19,6 +19,7 @@ Jeweler::Tasks.new do |gem|
   gem.description = "Annotated documentation generator, see README.md for details"
   gem.email = "markizko@gmail.com"
   gem.authors = ["Mark Abramov"]
+  gem.executables = ["murdoc", "murdoc-strip-comments"]
 end
 Jeweler::RubygemsDotOrgTasks.new
 
