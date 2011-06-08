@@ -4,9 +4,14 @@ $: << "./lib/"
 require "murdoc"
 
 options = {}
+source_type = nil
 
 option_parser = OptionParser.new do |opts|
   opts.banner = "murdoc-strip-comments <input file>"
+
+  opts.on("-t", "--type TYPE", "Source type (html, ruby, javascript)") do |st|
+    source_type = st
+  end
 
   opts.on_tail("-h", "--help", "Show this message") do
     puts opts
@@ -17,11 +22,7 @@ end
 
 option_parser.parse!
 
-if ARGV.size < 1
-  puts option_parser
-else
-  annotator = Murdoc::Annotator.from_file(ARGV[0], nil, {})
-  annotator.paragraphs.each do |paragraph|
-    puts paragraph.source
-  end
+annotator = Murdoc::Annotator.from_file(ARGV[0] || "/dev/stdin", source_type, {})
+annotator.paragraphs.each do |paragraph|
+  puts paragraph.source
 end
