@@ -7,7 +7,7 @@ options = {}
 source_type = nil
 
 option_parser = OptionParser.new do |opts|
-  opts.banner = "murdoc-strip-comments <input file>"
+  opts.banner = "murdoc-strip-comments [input file]\n\nWhen no input file is provided, murdoc-strip-comments uses standard input stream."
 
   opts.on("-t", "--type TYPE", "Source type (html, ruby, javascript)") do |st|
     source_type = st
