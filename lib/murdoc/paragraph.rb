@@ -36,7 +36,7 @@ module Murdoc
       if defined?(Markdown)
         Markdown.new(annotation, :smart).to_html
       else
-        Kramdown.new(annotation, :input => :markdown).to_html
+        Kramdown::Document.new(annotation, :input => :markdown).to_html
       end
     end
 
