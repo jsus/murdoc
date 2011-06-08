@@ -6,7 +6,7 @@ require "murdoc"
 options = {}
 
 option_parser = OptionParser.new do |opts|
-  opts.banner = "murdoc <input file> <output html>"  
+  opts.banner = "murdoc <input file> <output html>"
 
   opts.on("--[no-]syntax-highlight", "Highlight syntax using pygments") do |h|
     options[:highlight_source] = h
@@ -18,6 +18,10 @@ option_parser = OptionParser.new do |opts|
 
   opts.on("-s", "--stylesheet [FILENAME]", "Use custom css stylesheet for output") do |s|
     options[:stylesheet] = s
+  end
+
+  opts.on("--do-not-count-comment-lines") do |dncl|
+    options[:do_not_count_comment_lines] = dncl
   end
 
   opts.on_tail("-h", "--help", "Show this message") do
