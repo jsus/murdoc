@@ -18,12 +18,30 @@ module Murdoc
     end
   end
 
+  def self.generate_from_multiple_files(input_files, output, options = {})
+    options = default_options_for_multiple_files.merge(options)
+    annotators = input_files.map {|fn| Annotator.from_file(fn, nil, options) }
+    File.open(output, "w+") do |f|
+      f.puts Formatter.new(options[:template]).render(:annotators => annotators, :filenames => input_files, :stylesheet => File.read(options[:stylesheet]))
+    end
+  end
+
   def self.default_options
-    markup_dir = File.dirname(__FILE__)+ "/../markup"
     @@options ||= {
         :template =>   "#{markup_dir}/template.haml",
         :stylesheet => "#{markup_dir}/stylesheet.css"
     }
+  end
+
+  def self.default_options_for_multiple_files
+    @@options ||= {
+        :template =>   "#{markup_dir}/template_multifile.haml",
+        :stylesheet => "#{markup_dir}/stylesheet.css"
+    }
+  end
+
+  def self.markup_dir
+    File.expand_path("../..", __FILE__)+ "/markup"
   end
 end
 

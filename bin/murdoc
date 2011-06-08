@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require "optparse"
-$: << "./lib/"
+$: << File.expand_path("../../lib/", __FILE__)
 require "murdoc"
 
 options = {}
@@ -36,5 +36,9 @@ option_parser.parse!
 if ARGV.size < 2
   puts option_parser
 else
-  Murdoc.generate_from_file(ARGV[0], ARGV[1], options)
+  if ARGV.size == 2
+    Murdoc.generate_from_file(ARGV[0], ARGV[1], options)
+  else
+    Murdoc.generate_from_multiple_files(ARGV[0..-2], ARGV[-1], options)
+  end
 end

@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %title Murdoc
+    %style=stylesheet
+  %body
+    - annotators.each_with_index do |annotator, i|
+      %h2 #{filenames[i]}
+      - annotator.paragraphs.each do |p|
+        - unless p.annotation.empty?
+          %section= p.formatted_annotation
+        - unless p.source.empty?
+          %figure
+            %ol
+              - 1.upto(p.source.split("\n").size) do |i|
+                %li= i + p.starting_line
+            <code>#{p.formatted_source.gsub("\n", '&#x000A;')}</code>
