@@ -14,7 +14,8 @@ module Murdoc
     options = default_options.merge(options)
     annotator = Annotator.from_file(input, nil, options)
     File.open(output, "w+") do |f|
-      f.puts Formatter.new(options[:template]).render(:paragraphs => annotator.paragraphs, :stylesheet => File.read(options[:stylesheet]))
+      f.puts Formatter.new(options[:template]).render(:paragraphs => annotator.paragraphs,
+                                                      :stylesheet => File.read(options[:stylesheet]))
     end
   end
 
@@ -22,7 +23,9 @@ module Murdoc
     options = default_options_for_multiple_files.merge(options)
     annotators = input_files.map {|fn| Annotator.from_file(fn, nil, options) }
     File.open(output, "w+") do |f|
-      f.puts Formatter.new(options[:template]).render(:annotators => annotators, :filenames => input_files, :stylesheet => File.read(options[:stylesheet]))
+      f.puts Formatter.new(options[:template]).render(:annotators => annotators,
+                                                      :filenames => input_files,
+                                                      :stylesheet => File.read(options[:stylesheet]))
     end
   end
 

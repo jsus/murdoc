@@ -32,7 +32,9 @@ module Murdoc
     # You may also initialize annotator from file, it will even try to detect the
     # source type from extension.
     def self.from_file(filename, source_type = nil, options = {})
-      self.new(File.read(filename), source_type || detect_source_type_from_filename(filename), options)
+      self.new(File.read(filename),
+               source_type || detect_source_type_from_filename(filename),
+               options)
     end
 
     def source_type
@@ -97,7 +99,11 @@ module Murdoc
 
         # if we have comments or source
         if comment_lines.size > 0 || source_lines.size > 0
-          @paragraphs << Paragraph.new(source_lines.join("\n"), comment_lines.join("\n"), starting_line, source_type, options)
+          @paragraphs << Paragraph.new(source_lines.join("\n"),
+                                       comment_lines.join("\n"),
+                                       starting_line,
+                                       source_type,
+                                       options)
         end
       end
     end
