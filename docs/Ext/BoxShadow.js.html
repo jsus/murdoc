@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for BoxShadow.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Core/Element</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Element.Properties.boxShadow</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>BoxShadow.js</h1>
+      <p>Set box shadow in an accessible way</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>Public domain (http://unlicense.org).</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>18</li>
+        <li>19</li>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+        <li>61</li>
+        <li>62</li>
+      </ol>
+      <code><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;  <span class="k">if</span> <span class="p">(</span><span class="nx">Browser</span><span class="p">.</span><span class="nx">safari</span><span class="p">)</span>            <span class="kd">var</span> <span class="nx">property</span> <span class="o">=</span> <span class="s1">&#39;webkitBoxShadow&#39;</span><span class="p">;</span>&#x000A;  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">Browser</span><span class="p">.</span><span class="nx">firefox</span><span class="p">)</span>      <span class="kd">var</span> <span class="nx">property</span> <span class="o">=</span> <span class="s1">&#39;MozBoxShadow&#39;</span>&#x000A;  <span class="k">else</span>                           <span class="kd">var</span> <span class="nx">property</span> <span class="o">=</span> <span class="s1">&#39;boxShadow&#39;</span><span class="p">;</span>&#x000A;  <span class="k">if</span> <span class="p">(</span><span class="nx">property</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="kd">var</span> <span class="nx">dummy</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">);</span>&#x000A;    <span class="kd">var</span> <span class="nx">cc</span> <span class="o">=</span> <span class="nx">property</span><span class="p">.</span><span class="nx">hyphenate</span><span class="p">();</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="nx">cc</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="nx">cc</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="nx">cc</span><span class="p">;</span>&#x000A;    <span class="nx">dummy</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">cssText</span> <span class="o">=</span> <span class="nx">cc</span> <span class="o">+</span> <span class="s1">&#39;: 1px 1px 1px #ccc&#39;</span>&#x000A;    <span class="nx">Browser</span><span class="p">.</span><span class="nx">Features</span><span class="p">.</span><span class="nx">boxShadow</span> <span class="o">=</span> <span class="o">!!</span><span class="nx">dummy</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="nx">property</span><span class="p">];</span>&#x000A;    <span class="k">delete</span> <span class="nx">dummy</span><span class="p">;</span>&#x000A;  <span class="p">}</span>  &#x000A;  <span class="nx">Element</span><span class="p">.</span><span class="nx">Properties</span><span class="p">.</span><span class="nx">boxShadow</span> <span class="o">=</span> <span class="p">{</span>&#x000A;    <span class="nx">set</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">property</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>&#x000A;      <span class="k">switch</span> <span class="p">(</span><span class="nx">$type</span><span class="p">(</span><span class="nx">value</span><span class="p">))</span> <span class="p">{</span>&#x000A;        <span class="k">case</span> <span class="s2">&quot;number&quot;</span><span class="o">:</span> &#x000A;          <span class="nx">value</span> <span class="o">=</span> <span class="p">{</span><span class="nx">blur</span><span class="o">:</span> <span class="nx">value</span><span class="p">};</span>&#x000A;          <span class="k">break</span><span class="p">;</span>&#x000A;        <span class="k">case</span> <span class="s2">&quot;array&quot;</span><span class="o">:</span>&#x000A;          <span class="nx">value</span> <span class="o">=</span> <span class="p">{</span>&#x000A;            <span class="nx">color</span><span class="o">:</span> <span class="nx">value</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>&#x000A;            <span class="nx">blur</span><span class="o">:</span> <span class="nx">value</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>&#x000A;            <span class="nx">x</span><span class="o">:</span> <span class="nx">value</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>&#x000A;            <span class="nx">y</span><span class="o">:</span> <span class="nx">value</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>&#x000A;          <span class="p">}</span>&#x000A;          <span class="k">break</span><span class="p">;</span>&#x000A;        <span class="k">case</span> <span class="s2">&quot;boolean&quot;</span><span class="o">:</span>&#x000A;          <span class="k">if</span> <span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="nx">value</span> <span class="o">=</span> <span class="p">{</span><span class="nx">blur</span><span class="o">:</span> <span class="mi">10</span><span class="p">};</span>&#x000A;          <span class="k">else</span> <span class="nx">value</span> <span class="o">=</span> <span class="kc">false</span>&#x000A;        <span class="k">case</span> <span class="s2">&quot;object&quot;</span><span class="o">:</span>&#x000A;         <span class="k">if</span> <span class="p">(</span><span class="nx">value</span><span class="p">.</span><span class="nx">isColor</span><span class="p">)</span> <span class="nx">value</span> <span class="o">=</span> <span class="p">{</span><span class="nx">color</span><span class="o">:</span> <span class="nx">value</span><span class="p">}</span>&#x000A;      <span class="p">}</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>&#x000A;        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">retrieve</span><span class="p">(</span><span class="s1">&#39;shadow:value&#39;</span><span class="p">))</span> <span class="k">return</span><span class="p">;</span>&#x000A;        <span class="k">this</span><span class="p">.</span><span class="nx">eliminate</span><span class="p">(</span><span class="s1">&#39;shadow:value&#39;</span><span class="p">);</span>&#x000A;        <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="nx">property</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>&#x000A;        <span class="k">return</span><span class="p">;</span>&#x000A;      <span class="p">}</span>&#x000A;      <span class="k">this</span><span class="p">.</span><span class="nx">store</span><span class="p">(</span><span class="s1">&#39;shadow:value&#39;</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span>&#x000A;      <span class="kd">var</span> <span class="nx">color</span> <span class="o">=</span> <span class="nx">value</span><span class="p">.</span><span class="nx">color</span> <span class="o">?</span> <span class="nx">value</span><span class="p">.</span><span class="nx">color</span><span class="p">.</span><span class="nx">toString</span><span class="p">()</span> <span class="o">:</span> <span class="s1">&#39;transparent&#39;</span>&#x000A;      <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="nx">property</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nx">value</span><span class="p">.</span><span class="nx">x</span> <span class="o">||</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;px &#39;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">value</span><span class="p">.</span><span class="nx">y</span> <span class="o">||</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;px &#39;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">value</span><span class="p">.</span><span class="nx">blur</span> <span class="o">||</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;px &#39;</span> <span class="o">+</span> <span class="nx">color</span><span class="p">;</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">})();</span></code>
+    </figure>
+  </body>
+</html>

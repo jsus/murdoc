@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Check.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>LSD.Action</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>LSD.Action.Check</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Check.js</h1>
+      <p>Changes the state of a widget</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>Public domain (http://unlicense.org).</dd>
+        <dt>Authors:</dt>
+        <dd>Yaroslaff Fedin</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+      </ol>
+      <code><span class="nx">LSD</span><span class="p">.</span><span class="nx">Action</span><span class="p">.</span><span class="nx">Check</span> <span class="o">=</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Action</span><span class="p">.</span><span class="nx">build</span><span class="p">({</span>&#x000A;  <span class="nx">enable</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">target</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">target</span> <span class="o">||</span> <span class="nx">target</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="nx">caller</span> <span class="o">||</span> <span class="nx">target</span><span class="p">.</span><span class="nx">element</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="nx">caller</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">target</span><span class="p">.</span><span class="nx">checked</span><span class="p">)</span> <span class="p">(</span><span class="nx">target</span><span class="p">.</span><span class="nx">check</span> <span class="o">||</span> <span class="nx">target</span><span class="p">.</span><span class="nx">click</span><span class="p">).</span><span class="nx">apply</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">disable</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">target</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">target</span> <span class="o">||</span> <span class="nx">target</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="nx">caller</span> <span class="o">||</span> <span class="nx">target</span><span class="p">.</span><span class="nx">element</span> <span class="o">==</span> <span class="k">this</span><span class="p">.</span><span class="nx">caller</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="nx">target</span><span class="p">.</span><span class="nx">checked</span><span class="p">)</span> <span class="p">(</span><span class="nx">target</span><span class="p">.</span><span class="nx">uncheck</span> <span class="o">||</span> <span class="nx">target</span><span class="p">.</span><span class="nx">click</span><span class="p">).</span><span class="nx">apply</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="mi">1</span><span class="p">));</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">getState</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="nx">name</span><span class="p">,</span> <span class="nx">state</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">return</span> <span class="p">(</span><span class="nx">state</span> <span class="o">!==</span> <span class="kc">true</span> <span class="o">&amp;&amp;</span> <span class="nx">state</span> <span class="o">!==</span> <span class="kc">false</span><span class="p">)</span> <span class="o">?</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">caller</span><span class="p">.</span><span class="nx">checked</span> <span class="o">:</span> <span class="nx">state</span><span class="p">;</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Base.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+    </figure>
+    <header>
+      <h1>Base.js</h1>
+      <p>Speedy function that checks equality of objects (doing some nasty type assumption)</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>Public domain (http://unlicense.org).</dd>
+        <dt>Authors:</dt>
+        <dd>Yaroslaff Fedin</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>19</li>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+      </ol>
+      <code><span class="nb">Object</span><span class="p">.</span><span class="nx">equals</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">one</span><span class="p">,</span> <span class="nx">another</span><span class="p">)</span> <span class="p">{</span>&#x000A;  <span class="k">if</span> <span class="p">(</span><span class="nx">one</span> <span class="o">==</span> <span class="nx">another</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>&#x000A;  <span class="k">if</span> <span class="p">((</span><span class="o">!</span><span class="nx">one</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="o">!</span><span class="nx">another</span><span class="p">))</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;  <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">one</span> <span class="o">==</span> <span class="s1">&#39;undefined&#39;</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;  &#x000A;  <span class="k">if</span> <span class="p">((</span><span class="nx">one</span> <span class="k">instanceof</span> <span class="nb">Array</span><span class="p">)</span> <span class="o">||</span> <span class="nx">one</span><span class="p">.</span><span class="nx">callee</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">one</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="nx">j</span> <span class="o">!=</span> <span class="nx">another</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">j</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">Object</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">one</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">another</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>&#x000A;  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">one</span> <span class="k">instanceof</span> <span class="nx">Color</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">return</span> <span class="p">(</span><span class="nx">one</span><span class="p">.</span><span class="nx">red</span> <span class="o">==</span> <span class="nx">another</span><span class="p">.</span><span class="nx">red</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">one</span><span class="p">.</span><span class="nx">green</span> <span class="o">==</span> <span class="nx">another</span><span class="p">.</span><span class="nx">green</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">one</span><span class="p">.</span><span class="nx">blue</span> <span class="o">==</span> <span class="nx">another</span><span class="p">.</span><span class="nx">blue</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">one</span><span class="p">.</span><span class="nx">alpha</span> <span class="o">==</span> <span class="nx">another</span><span class="p">.</span><span class="nx">alpha</span><span class="p">)</span>&#x000A;  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">one</span> <span class="o">==</span> <span class="s1">&#39;object&#39;</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="nx">one</span><span class="p">.</span><span class="nx">equals</span><span class="p">)</span> <span class="k">return</span> <span class="nx">one</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">another</span><span class="p">)</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">one</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">Object</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">one</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">another</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>&#x000A;  <span class="p">}</span>&#x000A;  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;<span class="p">};</span></code>
+    </figure>
+  </body>
+</html>

@@ -8,40 +8,38 @@
     <figure id='relations'>
       <h2>Requires</h2>
       <ul>
-        <li>ART.Widget.Input</li>
-        <li>ART.Widget.Paint</li>
-        <li>Base/Widget.Trait.Touchable</li>
-        <li>Base/Widget.Trait.Focus</li>
-        <li>Base/Widget.Trait.Accessibility</li>
+        <li>LSD.Command</li>
       </ul>
       <h2>Provides</h2>
       <ul>
-        <li>ART.Widget.Input.Radio</li>
+        <li>LSD.Command.Radio</li>
       </ul>
     </figure>
     <header>
       <h1>Radio.js</h1>
-      <p>A radio button, set of connected widgets that steal checkedness from each other</p>
+      <p>A command that is linked with others by name (one of many)</p>
       <dl>
         <dt>License:</dt>
-        <dd>MIT-style license.</dd>
+        <dd>Public domain (http://unlicense.org).</dd>
         <dt>Authors:</dt>
         <dd>Yaroslaff Fedin</dd>
       </dl>
     </header>
+    <section>
+      <p>Radio groupping is a way to links commands together to allow
+      only one in the group be active at the moment of time.</p>
+      
+      <p>Activation (<em>check</em>ing) of the commands deactivates all
+      other commands in a radiogroup.</p>
+      
+      <p>Examples:
+      &ndash; Tabs on top of a content window
+      &ndash; List of currently open documents in a context menu that
+      shows which of them is the one you edit now and an
+      ability to switch between documents</p>
+    </section>
     <figure>
       <ol>
-        <li>25</li>
-        <li>26</li>
-        <li>27</li>
-        <li>28</li>
-        <li>29</li>
-        <li>30</li>
-        <li>31</li>
-        <li>32</li>
-        <li>33</li>
-        <li>34</li>
-        <li>35</li>
         <li>36</li>
         <li>37</li>
         <li>38</li>
@@ -72,8 +70,10 @@
         <li>63</li>
         <li>64</li>
         <li>65</li>
+        <li>66</li>
+        <li>67</li>
       </ol>
-      <code><span class="nx">ART</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">Input</span><span class="p">.</span><span class="nx">Radio</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;  <span class="nx">Includes</span><span class="o">:</span> <span class="p">[</span>&#x000A;    <span class="nx">ART</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">Paint</span><span class="p">,</span>&#x000A;    <span class="nx">Widget</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">Touchable</span><span class="p">.</span><span class="nx">Stateful</span><span class="p">,</span>&#x000A;    <span class="nx">Widget</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">Focus</span><span class="p">.</span><span class="nx">Stateful</span><span class="p">,</span>&#x000A;    <span class="nx">Widget</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">Accessibility</span>&#x000A;  <span class="p">],</span>&#x000A;  &#x000A;  <span class="nx">States</span><span class="o">:</span> <span class="p">{</span>&#x000A;    <span class="s1">&#39;checked&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;check&#39;</span><span class="p">,</span> <span class="s1">&#39;uncheck&#39;</span><span class="p">]</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;input&#39;</span><span class="p">,</span>&#x000A;  &#x000A;  <span class="nx">shortcuts</span><span class="o">:</span> <span class="p">{</span>&#x000A;    <span class="nx">space</span><span class="o">:</span> <span class="s1">&#39;check&#39;</span>&#x000A;  <span class="p">},</span>&#x000A;&#x000A;  <span class="nx">layered</span><span class="o">:</span> <span class="p">{</span>&#x000A;    <span class="nx">shadow</span><span class="o">:</span>  <span class="p">[</span><span class="s1">&#39;shadow&#39;</span><span class="p">],</span>&#x000A;    <span class="nx">stroke</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;stroke&#39;</span><span class="p">],</span>&#x000A;    <span class="nx">background</span><span class="o">:</span>  <span class="p">[</span><span class="s1">&#39;fill&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;backgroundColor&#39;</span><span class="p">]],</span>&#x000A;    <span class="nx">reflection</span><span class="o">:</span>  <span class="p">[</span><span class="s1">&#39;fill&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;reflectionColor&#39;</span><span class="p">]],</span>&#x000A;    <span class="nx">glyph</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;glyph&#39;</span><span class="p">]</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">check</span><span class="o">:</span> <span class="nx">Macro</span><span class="p">.</span><span class="nx">onion</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">getGroup</span><span class="p">().</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="nx">element</span> <span class="o">!=</span> <span class="k">this</span> <span class="o">&amp;&amp;</span> <span class="nx">element</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">&#39;type&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;radio&#39;</span><span class="p">)</span> <span class="nx">element</span><span class="p">.</span><span class="nx">uncheck</span><span class="p">();</span>&#x000A;    <span class="p">},</span> <span class="k">this</span><span class="p">)</span>&#x000A;  <span class="p">}),</span>&#x000A;  &#x000A;  <span class="nx">getGroup</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">attributes</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="o">?</span> <span class="k">this</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">getElements</span><span class="p">(</span><span class="s1">&#39;[name=&quot;&#39;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">attributes</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;&quot;]&#39;</span><span class="p">)</span> <span class="o">:</span> <span class="p">[]</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">retain</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">check</span><span class="p">();</span>&#x000A;    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">});</span></code>
+      <code><span class="nx">LSD</span><span class="p">.</span><span class="nx">Command</span><span class="p">.</span><span class="nx">Radio</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;  <span class="nx">Extends</span><span class="o">:</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Command</span><span class="p">,</span>&#x000A;  &#x000A;  <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>&#x000A;    <span class="nx">radiogroup</span><span class="o">:</span> <span class="kc">false</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;    <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">radiogroup</span> <span class="o">||</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="kd">var</span> <span class="nx">groups</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">radiogroups</span><span class="p">;</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">groups</span><span class="p">)</span> <span class="nx">groups</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">radiogroups</span> <span class="o">=</span> <span class="p">{};</span>&#x000A;      <span class="kd">var</span> <span class="nx">group</span> <span class="o">=</span> <span class="nx">groups</span><span class="p">[</span><span class="nx">name</span><span class="p">];</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">group</span><span class="p">)</span> <span class="nx">group</span> <span class="o">=</span> <span class="nx">groups</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[];</span>&#x000A;      <span class="nx">group</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>&#x000A;      <span class="k">this</span><span class="p">.</span><span class="nx">group</span> <span class="o">=</span> <span class="nx">group</span><span class="p">;</span>&#x000A;    <span class="p">}</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="s1">&#39;check&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;      <span class="nx">group</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">command</span><span class="p">)</span> <span class="p">{</span>&#x000A;        <span class="k">if</span> <span class="p">(</span><span class="nx">command</span> <span class="o">!=</span> <span class="k">this</span><span class="p">)</span> <span class="nx">command</span><span class="p">.</span><span class="nx">uncheck</span><span class="p">()</span>&#x000A;      <span class="p">},</span> <span class="k">this</span><span class="p">);</span>&#x000A;    <span class="p">}.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">))</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">click</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">check</span><span class="p">();</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">});</span>&#x000A;&#x000A;<span class="nx">LSD</span><span class="p">.</span><span class="nx">Command</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">addState</span><span class="p">(</span><span class="s1">&#39;checked&#39;</span><span class="p">);</span></code>
     </figure>
   </body>
 </html>

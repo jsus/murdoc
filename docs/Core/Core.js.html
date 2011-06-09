@@ -13,6 +13,7 @@
         <li>Type</li>
         <li>typeOf</li>
         <li>instanceOf</li>
+        <li>Native</li>
       </ul>
     </figure>
     <header>
@@ -33,7 +34,7 @@
         <li>28</li>
         <li>29</li>
       </ol>
-      <code><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>&#x000A;&#x000A;<span class="k">this</span><span class="p">.</span><span class="nx">MooTools</span> <span class="o">=</span> <span class="p">{</span>&#x000A;	<span class="nx">version</span><span class="o">:</span> <span class="s1">&#39;1.3dev&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">build</span><span class="o">:</span> <span class="s1">&#39;%build%&#39;</span>&#x000A;<span class="p">};</span></code>
+      <code><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>&#x000A;&#x000A;<span class="k">this</span><span class="p">.</span><span class="nx">MooTools</span> <span class="o">=</span> <span class="p">{</span>&#x000A;	<span class="nx">version</span><span class="o">:</span> <span class="s1">&#39;1.3.1dev&#39;</span><span class="p">,</span>&#x000A;	<span class="nx">build</span><span class="o">:</span> <span class="s1">&#39;%build%&#39;</span>&#x000A;<span class="p">};</span></code>
     </figure>
     <section>
       <p>typeOf, instanceOf</p>
@@ -470,7 +471,7 @@
         <li>391</li>
         <li>392</li>
       </ol>
-      <code><span class="kd">var</span> <span class="nx">UID</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>&#x000A;&#x000A;<span class="nb">String</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s1">&#39;generateUID&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;	<span class="k">return</span> <span class="p">(</span><span class="nx">UID</span><span class="o">++</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">36</span><span class="p">);</span>&#x000A;<span class="p">});</span></code>
+      <code><span class="kd">var</span> <span class="nx">UID</span> <span class="o">=</span> <span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">();</span>&#x000A;&#x000A;<span class="nb">String</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="s1">&#39;uniqueID&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;	<span class="k">return</span> <span class="p">(</span><span class="nx">UID</span><span class="o">++</span><span class="p">).</span><span class="nx">toString</span><span class="p">(</span><span class="mi">36</span><span class="p">);</span>&#x000A;<span class="p">});</span></code>
     </figure>
     <section>
       <p>&lt;1.2compat></p>

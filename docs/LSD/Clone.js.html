@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Clone.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>LSD.Action</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>LSD.Action.Clone</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Clone.js</h1>
+      <p>Clones an element and inserts it back to parent again</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>Public domain (http://unlicense.org).</dd>
+        <dt>Authors:</dt>
+        <dd>Yaroslaff Fedin</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+      </ol>
+      <code><span class="nx">LSD</span><span class="p">.</span><span class="nx">Action</span><span class="p">.</span><span class="nx">Clone</span> <span class="o">=</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Action</span><span class="p">.</span><span class="nx">build</span><span class="p">({</span>&#x000A;  <span class="nx">enable</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">target</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="nx">target</span><span class="p">.</span><span class="nx">localName</span><span class="p">)</span> <span class="kd">var</span> <span class="nx">widget</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;widget&#39;</span><span class="p">),</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">target</span><span class="p">,</span> <span class="nx">parent</span> <span class="o">=</span> <span class="nx">widget</span><span class="p">;</span>&#x000A;    <span class="k">else</span> <span class="kd">var</span> <span class="nx">widget</span> <span class="o">=</span> <span class="nx">target</span><span class="p">,</span> <span class="nx">element</span> <span class="o">=</span> <span class="nx">widget</span><span class="p">.</span><span class="nx">element</span><span class="p">,</span> <span class="nx">parent</span> <span class="o">=</span> <span class="nx">widget</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">;</span>&#x000A;    <span class="kd">var</span> <span class="nx">clone</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">layout</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">parent</span><span class="p">,</span> <span class="s1">&#39;clone&#39;</span><span class="p">);</span>&#x000A;    <span class="p">(</span><span class="nx">clone</span><span class="p">.</span><span class="nx">toElement</span> <span class="o">?</span> <span class="nx">clone</span><span class="p">.</span><span class="nx">toElement</span><span class="p">()</span> <span class="o">:</span> <span class="nx">clone</span><span class="p">).</span><span class="nx">inject</span><span class="p">(</span><span class="nx">target</span><span class="p">,</span> <span class="s1">&#39;after&#39;</span><span class="p">);</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

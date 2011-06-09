@@ -8,22 +8,27 @@
     <figure id='relations'>
       <h2>Requires</h2>
       <ul>
-        <li>ART.Widget.Base</li>
-        <li>Base/Widget.Base</li>
-        <li>Base/Widget</li>
-        <li>Base/Widget.Module.Attributes</li>
-        <li>Base/Widget.Module.Events</li>
-        <li>ART.Widget.Module.Container</li>
-        <li>ART.Widget.Module.DOM</li>
-        <li>ART.Widget.Module.Expression</li>
-        <li>ART.Widget.Module.Layout</li>
-        <li>ART.Widget.Module.LayoutEvents</li>
-        <li>ART.Widget.Module.Position</li>
-        <li>ART.Widget.Module.Styles</li>
+        <li>LSD.Node</li>
+        <li>LSD.Type</li>
+        <li>LSD.Module.Layout</li>
+        <li>LSD.Module.Styles</li>
+        <li>LSD.Module.Attributes</li>
+        <li>LSD.Module.Events</li>
+        <li>LSD.Module.DOM</li>
+        <li>LSD.Module.Expectations</li>
+        <li>LSD.Module.Container</li>
+        <li>LSD.Module.Actions</li>
+        <li>LSD.Module.Command</li>
+        <li>LSD.Module.Render</li>
+        <li>LSD.Module.Target</li>
+        <li>LSD.Trait.Shape</li>
+        <li>LSD.Trait.Dimensions</li>
+        <li>LSD.Trait.Layers</li>
       </ul>
       <h2>Provides</h2>
       <ul>
-        <li>ART.Widget</li>
+        <li>LSD.Widget</li>
+        <li>LSD.Widget.create</li>
       </ul>
     </figure>
     <header>
@@ -31,49 +36,38 @@
       <p>Base widget with all modules included</p>
       <dl>
         <dt>License:</dt>
-        <dd>MIT-style license.</dd>
+        <dd>Public domain (http://unlicense.org).</dd>
         <dt>Authors:</dt>
         <dd>Yaroslaff Fedin</dd>
       </dl>
     </header>
-    <figure>
-      <ol>
-        <li>32</li>
-      </ol>
-      <code><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">Old</span><span class="p">)</span> <span class="p">{</span></code>
-    </figure>
     <section>
-      <p>you can specify ART.Widget.modules as an array of classes to disable autoloading</p>
+      <p>LSD.Widget autoloads all of the modules that are defined in Old.Module namespace
+      unless LSD.modules array is provided.</p>
+      
+      <p>So if a new module needs to be included into the base class, then it only needs
+      to be <em>require</em>d.</p>
     </section>
     <figure>
       <ol>
-        <li>34</li>
-        <li>35</li>
-        <li>36</li>
-        <li>37</li>
-        <li>38</li>
-        <li>39</li>
-        <li>40</li>
-        <li>41</li>
-        <li>42</li>
-        <li>43</li>
-        <li>44</li>
-        <li>45</li>
         <li>46</li>
         <li>47</li>
         <li>48</li>
         <li>49</li>
-        <li>50</li>
-        <li>51</li>
-        <li>52</li>
-        <li>53</li>
-        <li>54</li>
-        <li>55</li>
-        <li>56</li>
-        <li>57</li>
-        <li>58</li>
-        <li>59</li>
-        <li>60</li>
+      </ol>
+      <code><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">LSD</span><span class="p">.</span><span class="nx">modules</span><span class="p">)</span> <span class="p">{</span>&#x000A;  <span class="nx">LSD</span><span class="p">.</span><span class="nx">modules</span> <span class="o">=</span> <span class="p">[]</span>&#x000A;  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">name</span> <span class="k">in</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">)</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">modules</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">[</span><span class="nx">name</span><span class="p">]);</span>&#x000A;<span class="p">}</span></code>
+    </figure>
+    <section>
+      <p>Pre-generate CSS grammar for layers.</p>
+      
+      <p>It is not required for rendering process itself, because
+      this action is taken automatically when the first
+      widget gets rendered. Declaring layer css styles upfront
+      lets us use it in other parts of the framework
+      (e.g. in stylesheets to validate styles)</p>
+    </section>
+    <figure>
+      <ol>
         <li>61</li>
         <li>62</li>
         <li>63</li>
@@ -96,10 +90,27 @@
         <li>80</li>
         <li>81</li>
         <li>82</li>
-        <li>83</li>
-        <li>84</li>
       </ol>
-      <code><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">Old</span><span class="p">.</span><span class="nx">modules</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="nx">Old</span><span class="p">.</span><span class="nx">modules</span> <span class="o">=</span> <span class="p">[]</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">name</span> <span class="k">in</span> <span class="nx">Old</span><span class="p">.</span><span class="nx">Module</span><span class="p">)</span> <span class="nx">Old</span><span class="p">.</span><span class="nx">modules</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">Old</span><span class="p">.</span><span class="nx">Module</span><span class="p">[</span><span class="nx">name</span><span class="p">]);</span>&#x000A;  <span class="p">}</span>&#x000A;&#x000A;  <span class="nx">ART</span><span class="p">.</span><span class="nx">Widget</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;&#x000A;    <span class="nx">States</span><span class="o">:</span> <span class="p">{</span>&#x000A;      <span class="s1">&#39;hidden&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;hide&#39;</span><span class="p">,</span> <span class="s1">&#39;show&#39;</span><span class="p">],</span>&#x000A;      <span class="s1">&#39;disabled&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;disable&#39;</span><span class="p">,</span> <span class="s1">&#39;enable&#39;</span><span class="p">],</span>&#x000A;      <span class="s1">&#39;built&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;build&#39;</span><span class="p">,</span> <span class="s1">&#39;destroy&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">],</span>&#x000A;      <span class="s1">&#39;attached&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;attach&#39;</span><span class="p">,</span> <span class="s1">&#39;detach&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">],</span>&#x000A;      <span class="s1">&#39;dirty&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;update&#39;</span><span class="p">,</span> <span class="s1">&#39;render&#39;</span><span class="p">,</span> <span class="kc">false</span><span class="p">]</span>&#x000A;    <span class="p">},</span>&#x000A;    &#x000A;    <span class="nx">Includes</span><span class="o">:</span> <span class="p">[</span><span class="nx">Old</span><span class="p">.</span><span class="nx">Base</span><span class="p">,</span> <span class="nx">Widget</span><span class="p">.</span><span class="nx">modules</span><span class="p">,</span> <span class="nx">Old</span><span class="p">.</span><span class="nx">modules</span><span class="p">].</span><span class="nx">flatten</span><span class="p">(),</span>&#x000A;    &#x000A;    <span class="nx">ns</span><span class="o">:</span> <span class="s1">&#39;art&#39;</span><span class="p">,</span>&#x000A;    <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;widget&#39;</span><span class="p">,</span>&#x000A;    &#x000A;    <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>&#x000A;      <span class="nx">classes</span><span class="o">:</span> <span class="p">[],</span>&#x000A;      <span class="nx">element</span><span class="o">:</span> <span class="p">{</span>&#x000A;        <span class="nx">tag</span><span class="o">:</span> <span class="s1">&#39;div&#39;</span>&#x000A;      <span class="p">}</span>&#x000A;    <span class="p">},</span>&#x000A;    &#x000A;&#x000A;    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="k">this</span><span class="p">.</span><span class="nx">setOptions</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>&#x000A;      &#x000A;      <span class="k">this</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>&#x000A;      <span class="k">this</span><span class="p">.</span><span class="nx">offset</span> <span class="o">=</span> <span class="p">{</span>&#x000A;        <span class="nx">paint</span><span class="o">:</span> <span class="p">{},</span>&#x000A;        <span class="nx">inside</span><span class="o">:</span> <span class="p">{},</span>&#x000A;        <span class="nx">padding</span><span class="o">:</span> <span class="p">{},</span>&#x000A;        <span class="nx">margin</span><span class="o">:</span> <span class="p">{}</span>&#x000A;      <span class="p">}</span>&#x000A;      <span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">layout</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">setLayout</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">layout</span><span class="p">);</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">});</span>&#x000A;    &#x000A;  <span class="p">[</span><span class="s1">&#39;Ignore&#39;</span><span class="p">,</span> <span class="s1">&#39;Module&#39;</span><span class="p">,</span> <span class="s1">&#39;Trait&#39;</span><span class="p">,</span> <span class="s1">&#39;modules&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="s1">&#39;count&#39;</span><span class="p">].</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">property</span><span class="p">)</span> <span class="p">{</span> &#x000A;    <span class="nx">ART</span><span class="p">.</span><span class="nx">Widget</span><span class="p">[</span><span class="nx">property</span><span class="p">]</span> <span class="o">=</span> <span class="nx">Old</span><span class="p">[</span><span class="nx">property</span><span class="p">]</span>&#x000A;  <span class="p">});</span>&#x000A;  <span class="nx">ART</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">Base</span> <span class="o">=</span> <span class="nx">Old</span><span class="p">.</span><span class="nx">Base</span><span class="p">;</span>&#x000A;  &#x000A;  <span class="nx">Widget</span><span class="p">.</span><span class="nx">States</span><span class="p">.</span><span class="nx">Ignore</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="s1">&#39;dirty&#39;</span><span class="p">);</span>&#x000A;&#x000A;<span class="p">})(</span><span class="nx">ART</span><span class="p">.</span><span class="nx">Widget</span><span class="p">);</span></code>
+      <code><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">layer</span> <span class="k">in</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Layers</span><span class="p">)</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">layer</span><span class="p">,</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Layers</span><span class="p">[</span><span class="nx">layer</span><span class="p">]);</span>&#x000A;&#x000A;<span class="nx">LSD</span><span class="p">.</span><span class="nx">Widget</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;  &#x000A;  <span class="nx">Includes</span><span class="o">:</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">LSD</span><span class="p">.</span><span class="nx">Node</span><span class="p">,</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Base</span><span class="p">,</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">modules</span><span class="p">,</span> <span class="p">[</span>&#x000A;    <span class="nx">LSD</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">Shape</span><span class="p">,</span>&#x000A;    <span class="nx">LSD</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">Dimensions</span><span class="p">,</span>&#x000A;    <span class="nx">LSD</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">Layers</span>&#x000A;  <span class="p">]),</span>&#x000A;  &#x000A;  <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>&#x000A;    <span class="nx">writable</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>&#x000A;    <span class="nx">layers</span><span class="o">:</span> <span class="kc">true</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">options</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">dirty</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">writable</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">attributes</span><span class="p">.</span><span class="nx">tabindex</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">focusable</span> <span class="o">!==</span> <span class="kc">false</span><span class="p">))</span> <span class="k">this</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;tabindex&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">addPseudo</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">writable</span> <span class="o">?</span> <span class="s1">&#39;read-write&#39;</span> <span class="o">:</span> <span class="s1">&#39;read-only&#39;</span><span class="p">);</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">layers</span> <span class="o">===</span> <span class="kc">true</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">layers</span> <span class="o">=</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Layers</span><span class="p">;</span>&#x000A;  <span class="p">},</span></code>
+    </figure>
+    <section>
+      <p>Wrapper is where content nodes get appended.
+      Defaults to this.element, but can be redefined
+      in other Modules or Traits (as seen in Container
+      module)</p>
+    </section>
+    <figure>
+      <ol>
+        <li>91</li>
+        <li>92</li>
+        <li>93</li>
+        <li>94</li>
+        <li>95</li>
+        <li>96</li>
+        <li>97</li>
+        <li>98</li>
+      </ol>
+      <code><span class="nx">getWrapper</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">toElement</span><span class="p">();</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">});</span>&#x000A;&#x000A;<span class="nx">LSD</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">addStates</span><span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">,</span> <span class="s1">&#39;hidden&#39;</span><span class="p">,</span> <span class="s1">&#39;built&#39;</span><span class="p">,</span> <span class="s1">&#39;attached&#39;</span><span class="p">,</span> <span class="s1">&#39;dirty&#39;</span><span class="p">);</span>&#x000A;&#x000A;<span class="k">new</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Type</span><span class="p">(</span><span class="s1">&#39;Widget&#39;</span><span class="p">);</span></code>
     </figure>
   </body>
 </html>

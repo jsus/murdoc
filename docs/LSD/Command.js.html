@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Command.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>LSD.Module.Expectations</li>
+        <li>LSD.Command.Command</li>
+        <li>LSD.Command.Radio</li>
+        <li>LSD.Command.Checkbox</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>LSD.Module.Command</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Command.js</h1>
+      <p>A command getter that watches attributes to redefine command</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>Public domain (http://unlicense.org).</dd>
+        <dt>Authors:</dt>
+        <dd>Yaroslaff Fedin</dd>
+      </dl>
+    </header>
+    <section>
+      <p>Usually a widget that does something interactive defines command
+      automatically.</p>
+      
+      <p>The default type is &lsquo;command&rsquo;, but there are possible values of
+      &lsquo;radio&rsquo; and &lsquo;checkbox&rsquo;.</p>
+      
+      <p>Type type can be changed via <em>options.command.type</em>
+      (equals to &lsquo;command-type&rsquo; attribute).</p>
+      
+      <p>You can specify a command id in <em>command</em> attribute
+      to link a widget to already initialized command.</p>
+    </section>
+    <figure>
+      <ol>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+        <li>61</li>
+        <li>62</li>
+        <li>63</li>
+        <li>64</li>
+        <li>65</li>
+        <li>66</li>
+        <li>67</li>
+        <li>68</li>
+        <li>69</li>
+        <li>70</li>
+        <li>71</li>
+        <li>72</li>
+        <li>73</li>
+        <li>74</li>
+        <li>75</li>
+        <li>76</li>
+        <li>77</li>
+        <li>78</li>
+        <li>79</li>
+        <li>80</li>
+        <li>81</li>
+        <li>82</li>
+        <li>83</li>
+      </ol>
+      <code><span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Command</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;  <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>&#x000A;    <span class="nx">command</span><span class="o">:</span> <span class="p">{},</span>&#x000A;    <span class="nx">expectations</span><span class="o">:</span> <span class="p">{</span>&#x000A;      <span class="s1">&#39;[radiogroup]&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;getCommand&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">],</span>&#x000A;      <span class="s1">&#39;[command]&#39;</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;getCommand&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">],</span>&#x000A;    <span class="p">},</span>&#x000A;    <span class="nx">chain</span><span class="o">:</span> <span class="p">{</span>&#x000A;      <span class="nx">commandaction</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;        <span class="kd">var</span> <span class="nx">action</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getCommandAction</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;        <span class="k">if</span> <span class="p">(</span><span class="nx">action</span><span class="p">)</span> <span class="k">return</span> <span class="p">{</span><span class="nx">name</span><span class="o">:</span> <span class="nx">action</span><span class="p">,</span> <span class="nx">priority</span><span class="o">:</span> <span class="mi">10</span><span class="p">}</span>&#x000A;      <span class="p">}</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">},</span>&#x000A;&#x000A;  <span class="nx">getCommand</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">force</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">force</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">command</span><span class="p">)</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">command</span><span class="p">;</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">attributes</span><span class="p">.</span><span class="nx">command</span> <span class="o">||</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">commands</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">command</span> <span class="o">||</span> <span class="p">{};</span>&#x000A;      <span class="kd">var</span> <span class="nx">type</span> <span class="o">=</span> <span class="nx">options</span><span class="p">.</span><span class="nx">type</span> <span class="o">||</span> <span class="s1">&#39;command&#39;</span><span class="p">,</span> <span class="nx">command</span><span class="p">;</span>&#x000A;      <span class="nx">options</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">append</span><span class="p">({</span><span class="nx">id</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">id</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">attributes</span><span class="p">.</span><span class="nx">name</span><span class="p">},</span> <span class="nx">options</span><span class="p">);</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">attributes</span><span class="p">.</span><span class="nx">radiogroup</span><span class="p">)</span> <span class="p">{</span>&#x000A;        <span class="nx">options</span><span class="p">.</span><span class="nx">radiogroup</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">attributes</span><span class="p">.</span><span class="nx">radiogroup</span><span class="p">;</span>&#x000A;        <span class="nx">type</span> <span class="o">=</span> <span class="s1">&#39;radio&#39;</span>&#x000A;      <span class="p">};</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">command</span><span class="p">)</span> <span class="nx">command</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Command</span><span class="p">[</span><span class="nx">type</span><span class="p">.</span><span class="nx">capitalize</span><span class="p">()](</span><span class="k">this</span><span class="p">.</span><span class="nb">document</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>&#x000A;    <span class="p">}</span> <span class="k">else</span> <span class="nx">command</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nb">document</span><span class="p">.</span><span class="nx">commands</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">attributes</span><span class="p">.</span><span class="nx">command</span><span class="p">];</span>&#x000A;    <span class="nx">command</span><span class="p">.</span><span class="nx">attach</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="nx">force</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">command</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">command</span><span class="p">.</span><span class="nx">detach</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>&#x000A;    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">command</span> <span class="o">=</span> <span class="nx">command</span><span class="p">;</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">click</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">fireEvent</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">clearChain</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;    <span class="kd">var</span> <span class="nx">command</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">getCommand</span><span class="p">();</span>&#x000A;    <span class="nx">command</span><span class="p">.</span><span class="nx">click</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">command</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">callChain</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">getCommandAction</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">attributes</span><span class="p">.</span><span class="nx">commandaction</span><span class="p">;</span>&#x000A;  <span class="p">}</span>&#x000A;  &#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

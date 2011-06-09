@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for BorderRadius.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Core/Element</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Element.Properties.borderRadius</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>BorderRadius.js</h1>
+      <p>Set border radius for all the browsers</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>Public domain (http://unlicense.org).</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+      </ol>
+      <code><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;  <span class="k">if</span> <span class="p">(</span><span class="nx">Browser</span><span class="p">.</span><span class="nx">safari</span> <span class="o">||</span> <span class="nx">Browser</span><span class="p">.</span><span class="nx">chrome</span><span class="p">)</span> &#x000A;    <span class="kd">var</span> <span class="nx">properties</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;webkitBorderTopLeftRadius&#39;</span><span class="p">,</span> <span class="s1">&#39;webkitBorderTopRightRadius&#39;</span><span class="p">,</span> <span class="s1">&#39;webkitBorderBottomRightRadius&#39;</span><span class="p">,</span> <span class="s1">&#39;webkitBorderBottomLeftRadius&#39;</span><span class="p">];</span>&#x000A;  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">Browser</span><span class="p">.</span><span class="nx">firefox</span><span class="p">)</span>&#x000A;    <span class="kd">var</span> <span class="nx">properties</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;MozBorderRadiusTopleft&#39;</span><span class="p">,</span> <span class="s1">&#39;MozBorderRadiusTopright&#39;</span><span class="p">,</span> <span class="s1">&#39;MozBorderRadiusBottomright&#39;</span><span class="p">,</span> <span class="s1">&#39;MozBorderRadiusBottomleft&#39;</span><span class="p">]</span>&#x000A;  <span class="k">else</span>&#x000A;    <span class="kd">var</span> <span class="nx">properties</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;borderRadiusTopLeft&#39;</span><span class="p">,</span> <span class="s1">&#39;borderRadiusTopRight&#39;</span><span class="p">,</span> <span class="s1">&#39;borderRadiusBottomRight&#39;</span><span class="p">,</span> <span class="s1">&#39;borderRadiusBottomLeft&#39;</span><span class="p">]</span>&#x000A;  &#x000A;  <span class="nx">Element</span><span class="p">.</span><span class="nx">Properties</span><span class="p">.</span><span class="nx">borderRadius</span> <span class="o">=</span> <span class="p">{</span>&#x000A;&#x000A;  	<span class="nx">set</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">radius</span><span class="p">){</span>&#x000A;	    <span class="k">if</span> <span class="p">(</span><span class="nx">radius</span><span class="p">.</span><span class="nx">each</span><span class="p">)</span> <span class="nx">radius</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">,</span> <span class="nx">i</span><span class="p">)</span> <span class="p">{</span>&#x000A;	      <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="nx">properties</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">value</span> <span class="o">+</span> <span class="s1">&#39;px&#39;</span><span class="p">;</span>&#x000A;	    <span class="p">},</span> <span class="k">this</span><span class="p">);</span>&#x000A;  	<span class="p">},</span>&#x000A;&#x000A;  	<span class="nx">get</span><span class="o">:</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;	  &#x000A;    <span class="p">}</span>&#x000A;&#x000A;  <span class="p">};</span>&#x000A;&#x000A;<span class="p">})();</span></code>
+    </figure>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Core/Browser</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Browser.Mobile</li>
+      </ul>
+    </figure>
+    <header>
+      <p>Provides useful information about the browser environment</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license.</dd>
+        <dt>Authors:</dt>
+        <dd>Christoph Pojer (@cpojer)</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+      </ol>
+      <code><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>&#x000A;&#x000A;<span class="nx">Browser</span><span class="p">.</span><span class="nx">Device</span> <span class="o">=</span> <span class="p">{</span>&#x000A;	<span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;other&#39;</span>&#x000A;<span class="p">};</span>&#x000A;&#x000A;<span class="k">if</span> <span class="p">(</span><span class="nx">Browser</span><span class="p">.</span><span class="nx">Platform</span><span class="p">.</span><span class="nx">ios</span><span class="p">){</span>&#x000A;	<span class="kd">var</span> <span class="nx">device</span> <span class="o">=</span> <span class="nx">navigator</span><span class="p">.</span><span class="nx">userAgent</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">match</span><span class="p">(</span><span class="sr">/(ip(ad|od|hone))/</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>&#x000A;	&#x000A;	<span class="nx">Browser</span><span class="p">.</span><span class="nx">Device</span><span class="p">[</span><span class="nx">device</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>&#x000A;	<span class="nx">Browser</span><span class="p">.</span><span class="nx">Device</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">device</span><span class="p">;</span>&#x000A;<span class="p">}</span>&#x000A;&#x000A;<span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">devicePixelRatio</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>&#x000A;	<span class="nx">Browser</span><span class="p">.</span><span class="nx">hasHighResolution</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>&#x000A;&#x000A;<span class="nx">Browser</span><span class="p">.</span><span class="nx">isMobile</span> <span class="o">=</span> <span class="o">!</span><span class="p">[</span><span class="s1">&#39;mac&#39;</span><span class="p">,</span> <span class="s1">&#39;linux&#39;</span><span class="p">,</span> <span class="s1">&#39;win&#39;</span><span class="p">].</span><span class="nx">contains</span><span class="p">(</span><span class="nx">Browser</span><span class="p">.</span><span class="nx">Platform</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>&#x000A;&#x000A;<span class="p">})();</span></code>
+    </figure>
+  </body>
+</html>

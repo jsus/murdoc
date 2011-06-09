@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Core/Element.Event</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Element.defineCustomEvent</li>
+      </ul>
+    </figure>
+    <header>
+      <p>Allows to create custom events based on other custom events.</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT-style license.</dd>
+        <dt>Authors:</dt>
+        <dd>Christoph Pojer (@cpojer)</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+        <li>61</li>
+        <li>62</li>
+        <li>63</li>
+        <li>64</li>
+        <li>65</li>
+        <li>66</li>
+        <li>67</li>
+        <li>68</li>
+        <li>69</li>
+        <li>70</li>
+        <li>71</li>
+        <li>72</li>
+        <li>73</li>
+        <li>74</li>
+        <li>75</li>
+        <li>76</li>
+        <li>77</li>
+        <li>78</li>
+        <li>79</li>
+        <li>80</li>
+        <li>81</li>
+        <li>82</li>
+        <li>83</li>
+        <li>84</li>
+        <li>85</li>
+        <li>86</li>
+        <li>87</li>
+        <li>88</li>
+        <li>89</li>
+        <li>90</li>
+        <li>91</li>
+      </ol>
+      <code><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>&#x000A;&#x000A;<span class="p">[</span><span class="nx">Element</span><span class="p">,</span> <span class="nx">Window</span><span class="p">,</span> <span class="nx">Document</span><span class="p">].</span><span class="nx">invoke</span><span class="p">(</span><span class="s1">&#39;implement&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">hasEvent</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>&#x000A;	<span class="kd">var</span> <span class="nx">events</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">retrieve</span><span class="p">(</span><span class="s1">&#39;events&#39;</span><span class="p">),</span>&#x000A;		<span class="nx">list</span> <span class="o">=</span> <span class="p">(</span><span class="nx">events</span> <span class="o">&amp;&amp;</span> <span class="nx">events</span><span class="p">[</span><span class="nx">event</span><span class="p">])</span> <span class="o">?</span> <span class="nx">events</span><span class="p">[</span><span class="nx">event</span><span class="p">].</span><span class="nx">values</span> <span class="o">:</span> <span class="kc">null</span><span class="p">;</span>&#x000A;	<span class="k">if</span> <span class="p">(</span><span class="nx">list</span><span class="p">){</span>&#x000A;		<span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">list</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">--</span><span class="p">;)</span> <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="k">in</span> <span class="nx">list</span><span class="p">){</span>&#x000A;			<span class="k">return</span> <span class="kc">true</span><span class="p">;</span>&#x000A;		<span class="p">}</span>&#x000A;	<span class="p">}</span>&#x000A;	<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;<span class="p">}});</span>&#x000A;&#x000A;<span class="kd">var</span> <span class="nx">wrap</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">custom</span><span class="p">,</span> <span class="nx">method</span><span class="p">,</span> <span class="nx">extended</span><span class="p">,</span> <span class="nx">name</span><span class="p">){</span>&#x000A;	<span class="nx">method</span> <span class="o">=</span> <span class="nx">custom</span><span class="p">[</span><span class="nx">method</span><span class="p">];</span>&#x000A;	<span class="nx">extended</span> <span class="o">=</span> <span class="nx">custom</span><span class="p">[</span><span class="nx">extended</span><span class="p">];</span>&#x000A;&#x000A;	<span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">customName</span><span class="p">){</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">customName</span><span class="p">)</span> <span class="nx">customName</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>&#x000A;&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="nx">extended</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">hasEvent</span><span class="p">(</span><span class="nx">customName</span><span class="p">))</span> <span class="nx">extended</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">fn</span><span class="p">,</span> <span class="nx">customName</span><span class="p">);</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="nx">method</span><span class="p">)</span> <span class="nx">method</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">fn</span><span class="p">,</span> <span class="nx">customName</span><span class="p">);</span>&#x000A;	<span class="p">};</span>&#x000A;<span class="p">};</span>&#x000A;&#x000A;<span class="kd">var</span> <span class="nx">inherit</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">custom</span><span class="p">,</span> <span class="nx">base</span><span class="p">,</span> <span class="nx">method</span><span class="p">,</span> <span class="nx">name</span><span class="p">){</span>&#x000A;	<span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="nx">customName</span><span class="p">){</span>&#x000A;		<span class="nx">base</span><span class="p">[</span><span class="nx">method</span><span class="p">].</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">fn</span><span class="p">,</span> <span class="nx">customName</span> <span class="o">||</span> <span class="nx">name</span><span class="p">);</span>&#x000A;		<span class="nx">custom</span><span class="p">[</span><span class="nx">method</span><span class="p">].</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">fn</span><span class="p">,</span> <span class="nx">customName</span> <span class="o">||</span> <span class="nx">name</span><span class="p">);</span>&#x000A;	<span class="p">};</span>&#x000A;<span class="p">};</span>&#x000A;&#x000A;<span class="kd">var</span> <span class="nx">events</span> <span class="o">=</span> <span class="nx">Element</span><span class="p">.</span><span class="nx">Events</span><span class="p">;</span>&#x000A;&#x000A;<span class="nx">Element</span><span class="p">.</span><span class="nx">defineCustomEvent</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">custom</span><span class="p">){</span>&#x000A;&#x000A;	<span class="kd">var</span> <span class="nx">base</span> <span class="o">=</span> <span class="nx">events</span><span class="p">[</span><span class="nx">custom</span><span class="p">.</span><span class="nx">base</span><span class="p">];</span>&#x000A;&#x000A;	<span class="nx">custom</span><span class="p">.</span><span class="nx">onAdd</span> <span class="o">=</span> <span class="nx">wrap</span><span class="p">(</span><span class="nx">custom</span><span class="p">,</span> <span class="s1">&#39;onAdd&#39;</span><span class="p">,</span> <span class="s1">&#39;onSetup&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>&#x000A;	<span class="nx">custom</span><span class="p">.</span><span class="nx">onRemove</span> <span class="o">=</span> <span class="nx">wrap</span><span class="p">(</span><span class="nx">custom</span><span class="p">,</span> <span class="s1">&#39;onRemove&#39;</span><span class="p">,</span> <span class="s1">&#39;onTeardown&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>&#x000A;&#x000A;	<span class="nx">events</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">base</span> <span class="o">?</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">append</span><span class="p">({},</span> <span class="nx">custom</span><span class="p">,</span> <span class="p">{</span>&#x000A;&#x000A;		<span class="nx">base</span><span class="o">:</span> <span class="nx">base</span><span class="p">.</span><span class="nx">base</span><span class="p">,</span>&#x000A;&#x000A;		<span class="nx">condition</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>&#x000A;			<span class="k">return</span> <span class="p">(</span><span class="o">!</span><span class="nx">base</span><span class="p">.</span><span class="nx">condition</span> <span class="o">||</span> <span class="nx">base</span><span class="p">.</span><span class="nx">condition</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">event</span><span class="p">))</span> <span class="o">&amp;&amp;</span>&#x000A;				<span class="p">(</span><span class="o">!</span><span class="nx">custom</span><span class="p">.</span><span class="nx">condition</span> <span class="o">||</span> <span class="nx">custom</span><span class="p">.</span><span class="nx">condition</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">event</span><span class="p">));</span>&#x000A;		<span class="p">},</span>&#x000A;&#x000A;		<span class="nx">onAdd</span><span class="o">:</span> <span class="nx">inherit</span><span class="p">(</span><span class="nx">custom</span><span class="p">,</span> <span class="nx">base</span><span class="p">,</span> <span class="s1">&#39;onAdd&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="p">),</span>&#x000A;		<span class="nx">onRemove</span><span class="o">:</span> <span class="nx">inherit</span><span class="p">(</span><span class="nx">custom</span><span class="p">,</span> <span class="nx">base</span><span class="p">,</span> <span class="s1">&#39;onRemove&#39;</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span>&#x000A;&#x000A;	<span class="p">})</span> <span class="o">:</span> <span class="nx">custom</span><span class="p">;</span>&#x000A;&#x000A;	<span class="k">return</span> <span class="k">this</span><span class="p">;</span>&#x000A;&#x000A;<span class="p">};</span>&#x000A;&#x000A;<span class="kd">var</span> <span class="nx">loop</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">){</span>&#x000A;	<span class="kd">var</span> <span class="nx">method</span> <span class="o">=</span> <span class="s1">&#39;on&#39;</span> <span class="o">+</span> <span class="nx">name</span><span class="p">.</span><span class="nx">capitalize</span><span class="p">();</span>&#x000A;	<span class="nx">Element</span><span class="p">[</span><span class="nx">name</span> <span class="o">+</span> <span class="s1">&#39;CustomEvents&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span>&#x000A;		<span class="nb">Object</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nx">events</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">name</span><span class="p">){</span>&#x000A;			<span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">[</span><span class="nx">method</span><span class="p">])</span> <span class="nx">event</span><span class="p">[</span><span class="nx">method</span><span class="p">].</span><span class="nx">call</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>&#x000A;		<span class="p">});</span>&#x000A;	<span class="p">};</span>&#x000A;	<span class="k">return</span> <span class="nx">loop</span><span class="p">;</span>&#x000A;<span class="p">};</span>&#x000A;&#x000A;<span class="nx">loop</span><span class="p">(</span><span class="s1">&#39;enable&#39;</span><span class="p">)(</span><span class="s1">&#39;disable&#39;</span><span class="p">);</span>&#x000A;&#x000A;<span class="p">})();</span></code>
+    </figure>
+  </body>
+</html>

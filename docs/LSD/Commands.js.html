@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Commands.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>LSD.Document</li>
+        <li>LSD.Node.Link</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>LSD.Document.Commands</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Commands.js</h1>
+      <p>Document catches the clicks and creates pseudo-widgets on demand</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>Public domain (http://unlicense.org).</dd>
+        <dt>Authors:</dt>
+        <dd>Yaroslaff Fedin</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+      </ol>
+      <code><span class="nx">LSD</span><span class="p">.</span><span class="nx">Document</span><span class="p">.</span><span class="nx">Commands</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;  <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>&#x000A;    <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>&#x000A;      <span class="nx">element</span><span class="o">:</span> <span class="p">{</span>&#x000A;        <span class="s1">&#39;click&#39;</span><span class="o">:</span> <span class="s1">&#39;onClick&#39;</span>&#x000A;      <span class="p">}</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">},</span></code>
+    </figure>
+    <section>
+      <p>Single relay click listener is put upon document.
+      It spy for all clicks and elements finds out if
+      any links were clicked. If the link is not widget,
+      the listener creates a lightweight link class instance and
+      calls click on it to trigger commands and interactions.</p>
+      
+      <p>This way there&rsquo;s no need to preinitialize all link handlers,
+      and only instantiate class when the link was actually clicked.</p>
+    </section>
+    <figure>
+      <ol>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+      </ol>
+      <code><span class="nx">onClick</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="kd">var</span> <span class="nx">link</span> <span class="o">=</span> <span class="p">(</span><span class="nx">LSD</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">.</span><span class="nx">tagName</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span> <span class="o">?</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span> <span class="o">:</span> <span class="nx">Slick</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">,</span> <span class="s1">&#39;! a&#39;</span><span class="p">);</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">link</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="nx">link</span><span class="p">.</span><span class="nx">retrieve</span><span class="p">(</span><span class="s1">&#39;widget&#39;</span><span class="p">))</span> <span class="k">return</span><span class="p">;</span>&#x000A;    <span class="kd">var</span> <span class="nx">node</span> <span class="o">=</span> <span class="nx">link</span><span class="p">.</span><span class="nx">retrieve</span><span class="p">(</span><span class="s1">&#39;node&#39;</span><span class="p">)</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">node</span><span class="p">)</span> <span class="nx">link</span><span class="p">.</span><span class="nx">store</span><span class="p">(</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="nx">node</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Node</span><span class="p">.</span><span class="nx">Link</span><span class="p">(</span><span class="nx">link</span><span class="p">));</span>&#x000A;    <span class="nx">node</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="nx">event</span><span class="p">);</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

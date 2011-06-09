@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Provides</h2>
+      <ul>
+        <li>combineRegExp</li>
+      </ul>
+    </figure>
+    <header>
+      <p>A few super-handy tools for messing around with RegExp</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT</dd>
+        <dt>Authors:</dt>
+        <dd>Thomas Aylott</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>14</li>
+        <li>15</li>
+        <li>16</li>
+        <li>17</li>
+        <li>18</li>
+        <li>19</li>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+      </ol>
+      <code><span class="p">;(</span><span class="kd">function</span><span class="p">(</span><span class="nx">exports</span><span class="p">){</span>&#x000A;&#x000A;<span class="nx">exports</span><span class="p">.</span><span class="nx">combineRegExp</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">regex</span><span class="p">,</span> <span class="nx">group</span><span class="p">){</span>&#x000A;	<span class="k">if</span> <span class="p">(</span><span class="nx">regex</span><span class="p">.</span><span class="nx">source</span><span class="p">)</span> <span class="nx">regex</span> <span class="o">=</span> <span class="p">[</span><span class="nx">regex</span><span class="p">]</span>&#x000A;	&#x000A;	<span class="kd">var</span> <span class="nx">names</span> <span class="o">=</span> <span class="p">[],</span> <span class="nx">i</span><span class="p">,</span> <span class="nx">source</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="nx">this_source</span>&#x000A;	&#x000A;	<span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">regex</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">){</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">regex</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="k">continue</span>&#x000A;		<span class="nx">this_source</span> <span class="o">=</span> <span class="nx">regex</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">source</span> <span class="o">||</span> <span class="s1">&#39;&#39;</span><span class="o">+</span><span class="nx">regex</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="nx">this_source</span> <span class="o">==</span> <span class="s1">&#39;|&#39;</span><span class="p">)</span> <span class="nx">source</span> <span class="o">+=</span> <span class="s1">&#39;|&#39;</span>&#x000A;		<span class="k">else</span> <span class="p">{</span>&#x000A;			<span class="nx">source</span> <span class="o">+=</span> <span class="p">(</span><span class="nx">group</span><span class="o">?</span><span class="s1">&#39;(&#39;</span><span class="o">:</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="nx">this_source</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\s/g</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="nx">group</span><span class="o">?</span><span class="s1">&#39;)&#39;</span><span class="o">:</span><span class="s1">&#39;&#39;</span><span class="p">)</span>&#x000A;			<span class="k">if</span> <span class="p">(</span><span class="nx">group</span><span class="p">)</span> <span class="nx">names</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">group</span><span class="p">)</span>&#x000A;		<span class="p">}</span>&#x000A;		<span class="k">if</span> <span class="p">(</span><span class="nx">regex</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">names</span><span class="p">)</span>	<span class="nx">names</span> <span class="o">=</span> <span class="nx">names</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">regex</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">names</span><span class="p">)</span>&#x000A;	<span class="p">}</span>&#x000A;	<span class="k">try</span> <span class="p">{</span>&#x000A;		<span class="nx">regex</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="nx">source</span><span class="p">,</span><span class="s1">&#39;gm&#39;</span><span class="p">)</span>&#x000A;	<span class="p">}</span>&#x000A;	<span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">){</span>&#x000A;		<span class="k">throw</span> <span class="k">new</span> <span class="nx">SyntaxError</span><span class="p">(</span><span class="s1">&#39;Invalid Syntax: &#39;</span> <span class="o">+</span> <span class="nx">source</span> <span class="o">+</span><span class="s1">&#39;; &#39;</span><span class="o">+</span> <span class="nx">e</span><span class="p">)</span>&#x000A;	<span class="p">}</span></code>
+    </figure>
+    <section>
+      <p>[key] → 1</p>
+    </section>
+    <figure>
+      <ol>
+        <li>37</li>
+      </ol>
+      <code><span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">names</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="nx">names</span><span class="p">[</span><span class="nx">names</span><span class="p">[</span><span class="nx">i</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">i</span> <span class="o">+</span> <span class="mi">1</span></code>
+    </figure>
+    <section>
+      <p>[1] → key</p>
+    </section>
+    <figure>
+      <ol>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+      </ol>
+      <code><span class="nx">regex</span><span class="p">.</span><span class="nx">names</span> <span class="o">=</span> <span class="nx">names</span>&#x000A;	<span class="k">return</span> <span class="nx">regex</span>&#x000A;<span class="p">}</span>&#x000A;&#x000A;<span class="p">}(</span><span class="k">typeof</span> <span class="nx">exports</span> <span class="o">!=</span> <span class="s1">&#39;undefined&#39;</span> <span class="o">?</span> <span class="nx">exports</span> <span class="o">:</span> <span class="k">this</span><span class="p">))</span></code>
+    </figure>
+  </body>
+</html>

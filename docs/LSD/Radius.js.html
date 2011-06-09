@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Radius.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>LSD.Layer</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>LSD.Layer.Radius</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Radius.js</h1>
+      <p>Rounds shapes corners</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>Public domain (http://unlicense.org).</dd>
+        <dt>Authors:</dt>
+        <dd>Yaroslaff Fedin</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+      </ol>
+      <code><span class="nx">LSD</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">Radius</span> <span class="o">=</span> <span class="p">{</span>&#x000A;  <span class="nx">properties</span><span class="o">:</span> <span class="p">{</span>&#x000A;    <span class="nx">radius</span><span class="o">:</span>      <span class="p">[[</span><span class="s1">&#39;topLeft&#39;</span><span class="p">,</span> <span class="s1">&#39;bottomLeft&#39;</span><span class="p">,</span> <span class="s1">&#39;topRight&#39;</span><span class="p">,</span> <span class="s1">&#39;bottomRight&#39;</span><span class="p">],</span> <span class="s1">&#39;collection&#39;</span><span class="p">],</span>&#x000A;    <span class="nx">topLeft</span><span class="o">:</span>     <span class="p">[</span><span class="s1">&#39;percentage&#39;</span><span class="p">,</span> <span class="s1">&#39;length&#39;</span><span class="p">],</span>&#x000A;    <span class="nx">bottomLeft</span><span class="o">:</span>  <span class="p">[</span><span class="s1">&#39;percentage&#39;</span><span class="p">,</span> <span class="s1">&#39;length&#39;</span><span class="p">],</span>&#x000A;    <span class="nx">topRight</span><span class="o">:</span>    <span class="p">[</span><span class="s1">&#39;percentage&#39;</span><span class="p">,</span> <span class="s1">&#39;length&#39;</span><span class="p">],</span>&#x000A;    <span class="nx">bottomRight</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;percentage&#39;</span><span class="p">,</span> <span class="s1">&#39;length&#39;</span><span class="p">],</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">paint</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">return</span> <span class="p">{</span>&#x000A;      <span class="nx">radius</span><span class="o">:</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">splice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">,</span> <span class="mi">0</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">r</span> <span class="o">||</span> <span class="mi">0</span><span class="p">})</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">}</span>&#x000A;&#x000A;&#x000A;&#x000A;<span class="nx">LSD</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">prepare</span><span class="p">(</span><span class="s1">&#39;corner&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;radius&#39;</span><span class="p">],</span> <span class="kc">false</span><span class="p">);</span></code>
+    </figure>
+  </body>
+</html>

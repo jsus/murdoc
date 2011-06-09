@@ -8,21 +8,20 @@
     <figure id='relations'>
       <h2>Requires</h2>
       <ul>
-        <li>ART.Widget.Paint</li>
+        <li>LSD.Trait</li>
+        <li>LSD.Mixin.Request</li>
       </ul>
       <h2>Provides</h2>
       <ul>
-        <li>ART.Widget.Form</li>
+        <li>LSD.Trait.Form</li>
       </ul>
     </figure>
     <header>
       <h1>Form.js</h1>
-      <p>A form widgets. Intended to be submitted.</p>
+      <p>Act as a form to submit data</p>
       <dl>
         <dt>License:</dt>
-        <dd>MIT-style license.</dd>
-        <dt>Authors:</dt>
-        <dd>Yaroslaff Fedin</dd>
+        <dd>Public domain (http://unlicense.org).</dd>
       </dl>
     </header>
     <figure>
@@ -40,8 +39,20 @@
         <li>31</li>
         <li>32</li>
         <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
       </ol>
-      <code><span class="nx">ART</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">Form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;  <span class="nx">Extends</span><span class="o">:</span> <span class="nx">ART</span><span class="p">.</span><span class="nx">Widget</span><span class="p">.</span><span class="nx">Paint</span><span class="p">,</span>&#x000A;  &#x000A;  <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;form&#39;</span><span class="p">,</span>&#x000A;&#x000A;  <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>&#x000A;    <span class="nx">element</span><span class="o">:</span> <span class="p">{</span>&#x000A;      <span class="nx">tag</span><span class="o">:</span> <span class="s1">&#39;form&#39;</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">layered</span><span class="o">:</span> <span class="p">{}</span>&#x000A;<span class="p">});</span></code>
+      <code><span class="nx">LSD</span><span class="p">.</span><span class="nx">Trait</span><span class="p">.</span><span class="nx">Form</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;  &#x000A;  <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>&#x000A;    <span class="nx">pseudos</span><span class="o">:</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">fast</span><span class="p">(</span><span class="s1">&#39;submittable&#39;</span><span class="p">)</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">addEvents</span><span class="p">({</span>&#x000A;      <span class="nx">nodeInserted</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span> <span class="p">{</span>&#x000A;        <span class="k">if</span> <span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">pseudos</span><span class="p">[</span><span class="s1">&#39;read-write&#39;</span><span class="p">]</span> <span class="o">||</span> <span class="nx">node</span><span class="p">.</span><span class="nx">pseudos</span><span class="p">[</span><span class="s1">&#39;form-associated&#39;</span><span class="p">])</span> <span class="nx">node</span><span class="p">.</span><span class="nx">form</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>&#x000A;      <span class="p">}</span>&#x000A;    <span class="p">});</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;    &#x000A;    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">getAttribute</span><span class="p">(</span><span class="s1">&#39;action&#39;</span><span class="p">))</span> <span class="k">this</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;action&#39;</span><span class="p">,</span> <span class="nx">location</span><span class="p">.</span><span class="nx">pathname</span><span class="p">);</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">submit</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">fireEvent</span><span class="p">(</span><span class="s1">&#39;submit&#39;</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="nx">event</span> <span class="o">&amp;&amp;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="s1">&#39;submit&#39;</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>&#x000A;      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">callChain</span><span class="p">();</span>&#x000A;    <span class="p">}</span> <span class="k">else</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">send</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">});</span></code>
     </figure>
   </body>
 </html>

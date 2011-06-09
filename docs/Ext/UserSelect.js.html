@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for UserSelect.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>Core/Element</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>Element.Properties.userSelect</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>UserSelect.js</h1>
+      <p>Disable user selection cross-browserly by setting userSelect property</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>Public domain (http://unlicense.org).</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>19</li>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+      </ol>
+      <code><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;  <span class="k">if</span> <span class="p">(</span><span class="nx">Browser</span><span class="p">.</span><span class="nx">chrome</span> <span class="o">||</span> <span class="nx">Browser</span><span class="p">.</span><span class="nx">safari</span><span class="p">)</span>&#x000A;    <span class="kd">var</span> <span class="nx">property</span> <span class="o">=</span> <span class="nx">Browser</span><span class="p">.</span><span class="nx">version</span> <span class="o">==</span> <span class="mi">525</span> <span class="o">?</span> <span class="s1">&#39;WebkitUserSelect&#39;</span> <span class="o">:</span> <span class="s1">&#39;KhtmlUserSelect&#39;</span><span class="p">;</span>&#x000A;  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">Browser</span><span class="p">.</span><span class="nx">firefox</span><span class="p">)</span>&#x000A;    <span class="kd">var</span> <span class="nx">property</span> <span class="o">=</span> <span class="s1">&#39;MozUserSelect&#39;</span>&#x000A;  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">Browser</span><span class="p">.</span><span class="nx">ie</span><span class="p">)</span>&#x000A;    <span class="kd">var</span> <span class="nx">property</span> <span class="o">=</span> <span class="s1">&#39;UserSelect&#39;</span><span class="p">;</span>&#x000A;    &#x000A;  <span class="nx">Element</span><span class="p">.</span><span class="nx">Properties</span><span class="p">.</span><span class="nx">userSelect</span> <span class="o">=</span> <span class="p">{</span>&#x000A;    <span class="nx">set</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">property</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">unselectable</span> <span class="o">=</span> <span class="nx">value</span> <span class="o">?</span> <span class="s1">&#39;on&#39;</span> <span class="o">:</span> <span class="s1">&#39;off&#39;</span>&#x000A;      <span class="k">else</span> <span class="k">this</span><span class="p">.</span><span class="nx">style</span><span class="p">[</span><span class="nx">property</span><span class="p">]</span> <span class="o">=</span> <span class="nx">value</span> <span class="o">?</span> <span class="s1">&#39;inherit&#39;</span> <span class="o">:</span> <span class="s1">&#39;none&#39;</span><span class="p">;</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">})();</span></code>
+    </figure>
+  </body>
+</html>

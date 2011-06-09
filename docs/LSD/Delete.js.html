@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Delete.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>LSD.Action</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>LSD.Action.Delete</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Delete.js</h1>
+      <p>Deletes a widget or element</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>Public domain (http://unlicense.org).</dd>
+        <dt>Authors:</dt>
+        <dd>Yaroslaff Fedin</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+      </ol>
+      <code><span class="nx">LSD</span><span class="p">.</span><span class="nx">Action</span><span class="p">.</span><span class="nx">Delete</span> <span class="o">=</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Action</span><span class="p">.</span><span class="nx">build</span><span class="p">({</span>&#x000A;  <span class="nx">enable</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">target</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="nx">target</span><span class="p">.</span><span class="nx">localName</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="kd">var</span> <span class="nx">widget</span> <span class="o">=</span> <span class="nx">target</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;widget&#39;</span><span class="p">);</span>&#x000A;      <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">walk</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">target</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span> <span class="p">{</span>&#x000A;        <span class="nx">widget</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="s1">&#39;nodeRemoved&#39;</span><span class="p">,</span> <span class="nx">node</span><span class="p">);</span>&#x000A;      <span class="p">})</span>&#x000A;    <span class="p">}</span>&#x000A;    <span class="nx">target</span><span class="p">.</span><span class="nx">dispose</span><span class="p">();</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="nx">target</span><span class="p">.</span><span class="nx">getModel</span><span class="p">)</span> <span class="k">return</span> <span class="nx">target</span><span class="p">.</span><span class="nx">getModel</span><span class="p">()[</span><span class="s1">&#39;delete&#39;</span><span class="p">]()</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">walk</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">element</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">node</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">firstChild</span><span class="p">;</span> <span class="nx">node</span><span class="p">;</span> <span class="nx">node</span> <span class="o">=</span> <span class="nx">node</span><span class="p">.</span><span class="nx">nextSibling</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="nx">node</span><span class="p">.</span><span class="nx">nodeType</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>&#x000A;      <span class="kd">var</span> <span class="nx">widget</span> <span class="o">=</span> <span class="nx">node</span><span class="p">.</span><span class="nx">uid</span> <span class="o">&amp;&amp;</span> <span class="nx">node</span><span class="p">.</span><span class="nx">retrieve</span><span class="p">(</span><span class="s1">&#39;widget&#39;</span><span class="p">);</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="nx">widget</span><span class="p">)</span> <span class="nx">widget</span><span class="p">.</span><span class="nx">walk</span><span class="p">(</span><span class="nx">callback</span><span class="p">);</span>&#x000A;      <span class="k">else</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">walk</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">node</span><span class="p">,</span> <span class="nx">callback</span><span class="p">)</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

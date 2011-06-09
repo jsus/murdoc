@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for InnerShadow.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>LSD.Layer.Shadow</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>LSD.Layer.Shadow.Inset</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>InnerShadow.js</h1>
+      <p>Drops inner shadow</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>Public domain (http://unlicense.org).</dd>
+        <dt>Authors:</dt>
+        <dd>Yaroslaff Fedin</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>22</li>
+      </ol>
+      <code><span class="nx">LSD</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">InnerShadow</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span></code>
+    </figure>
+    <section>
+      <p>Extends: LSD.Layer.Shadow,</p>
+    </section>
+    <figure>
+      <ol>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+        <li>61</li>
+        <li>62</li>
+        <li>63</li>
+        <li>64</li>
+        <li>65</li>
+        <li>66</li>
+        <li>67</li>
+        <li>68</li>
+        <li>69</li>
+        <li>70</li>
+        <li>71</li>
+        <li>72</li>
+        <li>73</li>
+        <li>74</li>
+        <li>75</li>
+        <li>76</li>
+        <li>77</li>
+        <li>78</li>
+        <li>79</li>
+        <li>80</li>
+        <li>81</li>
+        <li>82</li>
+        <li>83</li>
+        <li>84</li>
+        <li>85</li>
+        <li>86</li>
+        <li>87</li>
+        <li>88</li>
+        <li>89</li>
+        <li>90</li>
+        <li>91</li>
+        <li>92</li>
+        <li>93</li>
+        <li>94</li>
+        <li>95</li>
+        <li>96</li>
+        <li>97</li>
+        <li>98</li>
+        <li>99</li>
+        <li>100</li>
+      </ol>
+      <code><span class="nx">properties</span><span class="o">:</span> <span class="p">{</span>&#x000A;    <span class="nx">required</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;innerShadowColor&#39;</span><span class="p">],</span>&#x000A;    <span class="nx">numerical</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;innerShadowBlur&#39;</span><span class="p">,</span> <span class="s1">&#39;innerShadowOffsetX&#39;</span><span class="p">,</span> <span class="s1">&#39;innerShadowOffsetY&#39;</span><span class="p">]</span>&#x000A;  <span class="p">},</span>&#x000A;&#x000A;  <span class="nx">paint</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">color</span><span class="p">,</span> <span class="nx">blur</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="kd">var</span> <span class="nx">fill</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Color</span><span class="p">(</span><span class="nx">color</span><span class="p">);</span>&#x000A;    <span class="nx">fill</span><span class="p">.</span><span class="nx">base</span> <span class="o">=</span> <span class="nx">fill</span><span class="p">.</span><span class="nx">alpha</span><span class="p">;</span>&#x000A;    <span class="kd">var</span> <span class="nx">transition</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">p</span><span class="p">){</span>&#x000A;      <span class="k">return</span> <span class="mi">1</span> <span class="o">-</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sin</span><span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="nx">p</span><span class="p">)</span> <span class="o">*</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">/</span> <span class="mi">2</span><span class="p">);</span>&#x000A;    <span class="p">};</span>&#x000A;    <span class="kd">var</span> <span class="nx">offset</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">x</span><span class="p">),</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">abs</span><span class="p">(</span><span class="nx">y</span><span class="p">));</span>&#x000A;    <span class="nx">blur</span> <span class="o">+=</span> <span class="nx">offset</span><span class="p">;</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">blur</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="nx">blur</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>&#x000A;        <span class="nx">fill</span><span class="p">.</span><span class="nx">alpha</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">fill</span><span class="p">.</span><span class="nx">base</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>&#x000A;      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>&#x000A;        <span class="nx">fill</span><span class="p">.</span><span class="nx">alpha</span> <span class="o">=</span> <span class="nx">fill</span><span class="p">.</span><span class="nx">base</span> <span class="o">*</span> <span class="nx">transition</span><span class="p">((</span><span class="nx">blur</span> <span class="o">-</span> <span class="nx">i</span><span class="p">)</span> <span class="o">/</span> <span class="nx">blur</span><span class="p">)</span>&#x000A;      <span class="p">}</span>&#x000A;      <span class="kd">var</span> <span class="nx">layer</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">layers</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">layer</span><span class="p">)</span> <span class="nx">layer</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">layers</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">InnerShadow</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">getInstance</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>&#x000A;      <span class="nx">layer</span><span class="p">.</span><span class="nx">layer</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>&#x000A;      <span class="nx">layer</span><span class="p">.</span><span class="nx">base</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">base</span><span class="p">;</span>&#x000A;      <span class="nx">layer</span><span class="p">.</span><span class="nx">blur</span> <span class="o">=</span> <span class="nx">blur</span>&#x000A;      <span class="nx">layer</span><span class="p">.</span><span class="nx">dy</span> <span class="o">=</span> <span class="nx">y</span> <span class="o">-</span> <span class="nx">x</span>&#x000A;      <span class="nx">layer</span><span class="p">.</span><span class="nx">y</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">layer</span><span class="p">.</span><span class="nx">dy</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="nx">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>&#x000A;      <span class="nx">layer</span><span class="p">.</span><span class="nx">dx</span> <span class="o">=</span> <span class="nx">x</span> <span class="o">-</span> <span class="nx">y</span><span class="p">;</span>&#x000A;      <span class="nx">layer</span><span class="p">.</span><span class="nx">x</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">layer</span><span class="p">.</span><span class="nx">dx</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="nx">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>&#x000A;      <span class="nx">layer</span><span class="p">.</span><span class="nx">produce</span><span class="p">([</span>&#x000A;        <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(((</span><span class="nx">layer</span><span class="p">.</span><span class="nx">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">?</span> <span class="p">((</span><span class="nx">layer</span><span class="p">.</span><span class="nx">dx</span> <span class="o">-</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="o">-</span> <span class="nx">layer</span><span class="p">.</span><span class="nx">x</span>  <span class="o">-</span> <span class="mf">0.25</span> <span class="o">:</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>&#x000A;        <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(((</span><span class="nx">layer</span><span class="p">.</span><span class="nx">y</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">?</span> <span class="p">(</span><span class="nx">layer</span><span class="p">.</span><span class="nx">dy</span> <span class="o">+</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="o">?</span> <span class="mi">1</span> <span class="o">:</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="o">-</span> <span class="nx">layer</span><span class="p">.</span><span class="nx">y</span>  <span class="o">-</span> <span class="mf">0.25</span><span class="o">:</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>&#x000A;      <span class="p">]);</span>&#x000A;      <span class="nx">layer</span><span class="p">.</span><span class="nx">stroke</span><span class="p">(</span><span class="nx">fill</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>&#x000A;    <span class="p">}</span>&#x000A;    <span class="kd">var</span> <span class="nx">length</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">layers</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nx">blur</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">layers</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">InnerShadow</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">release</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">layers</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">layers</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">blur</span><span class="p">,</span> <span class="nx">length</span><span class="p">);</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">translate</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">j</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">layers</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">j</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="kd">var</span> <span class="nx">layer</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">layers</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="nx">layer</span><span class="p">)</span> <span class="nx">layer</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">layer</span><span class="p">.</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span> <span class="o">+</span> <span class="nx">layer</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">eject</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">j</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">layers</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">j</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="kd">var</span> <span class="nx">layer</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">layers</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">layer</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>&#x000A;      <span class="nx">LSD</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">InnerShadow</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">release</span><span class="p">(</span><span class="nx">layer</span><span class="p">)</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="nx">layer</span><span class="p">.</span><span class="nx">shape</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">)</span> <span class="nx">layer</span><span class="p">.</span><span class="nx">shape</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">layer</span><span class="p">.</span><span class="nx">shape</span><span class="p">.</span><span class="nx">element</span><span class="p">);</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">},</span>&#x000A;&#x000A;  <span class="nx">inject</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">node</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">update</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">update</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">j</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">layers</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">j</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">layers</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span> <span class="k">this</span><span class="p">.</span><span class="nx">layers</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">inject</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">layers</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">});</span>&#x000A;<span class="nx">LSD</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">InnerShadow</span><span class="p">.</span><span class="nx">Layer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;  <span class="nx">Extends</span><span class="o">:</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Layer</span>&#x000A;<span class="p">});</span>&#x000A;<span class="nx">LSD</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">InnerShadow</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">stack</span> <span class="o">=</span> <span class="p">[];</span>&#x000A;<span class="nx">LSD</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">InnerShadow</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">getInstance</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;  <span class="k">return</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">InnerShadow</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">stack</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span> <span class="o">||</span> <span class="p">(</span><span class="k">new</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">InnerShadow</span><span class="p">.</span><span class="nx">Layer</span><span class="p">);</span>&#x000A;<span class="p">}</span>&#x000A;<span class="nx">LSD</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">InnerShadow</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">release</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">layer</span><span class="p">)</span> <span class="p">{</span>&#x000A;  <span class="nx">layer</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">removeChild</span><span class="p">(</span><span class="nx">layer</span><span class="p">.</span><span class="nx">element</span><span class="p">);</span>&#x000A;  <span class="nx">LSD</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">InnerShadow</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">stack</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">layer</span><span class="p">);</span>&#x000A;<span class="p">};</span></code>
+    </figure>
+  </body>
+</html>

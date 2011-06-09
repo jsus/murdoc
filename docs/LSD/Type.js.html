@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Type.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>LSD</li>
+        <li>More/Object.Extras</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>LSD.Type</li>
+        <li>LSD.Module</li>
+        <li>LSD.Trait</li>
+        <li>LSD.Mixin</li>
+        <li>LSD.Element</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Type.js</h1>
+      <p>A base class for all class pools</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>Public domain (http://unlicense.org).</dd>
+        <dt>Authors:</dt>
+        <dd>Yaroslaff Fedin</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+        <li>61</li>
+        <li>62</li>
+        <li>63</li>
+      </ol>
+      <code><span class="nx">LSD</span><span class="p">.</span><span class="nx">Type</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">namespace</span><span class="p">)</span> <span class="p">{</span>&#x000A;  <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>&#x000A;  <span class="k">this</span><span class="p">.</span><span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>&#x000A;  <span class="k">this</span><span class="p">.</span><span class="nx">namespace</span> <span class="o">=</span> <span class="nx">namespace</span> <span class="o">||</span> <span class="s1">&#39;LSD&#39;</span><span class="p">;</span>&#x000A;  <span class="kd">var</span> <span class="nx">holder</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">getFromPath</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">namespace</span><span class="p">);</span>&#x000A;  <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">storage</span> <span class="o">=</span> <span class="nx">holder</span><span class="p">[</span><span class="nx">name</span><span class="p">])</span> <span class="p">{</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">key</span> <span class="k">in</span> <span class="k">this</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">storage</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="k">this</span><span class="p">[</span><span class="nx">key</span><span class="p">].</span><span class="nx">call</span><span class="p">)</span> <span class="o">?</span> <span class="k">this</span><span class="p">[</span><span class="nx">key</span><span class="p">].</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">)</span> <span class="o">:</span> <span class="k">this</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>&#x000A;  <span class="p">}</span>&#x000A;  <span class="k">else</span> <span class="k">this</span><span class="p">.</span><span class="nx">storage</span> <span class="o">=</span> <span class="p">(</span><span class="nx">holder</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="k">this</span><span class="p">);</span>&#x000A;  <span class="k">this</span><span class="p">.</span><span class="nx">pool</span> <span class="o">=</span> <span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">storage</span><span class="p">];</span>&#x000A;  <span class="k">this</span><span class="p">.</span><span class="nx">queries</span> <span class="o">=</span> <span class="p">{};</span>&#x000A;<span class="p">};</span>&#x000A;&#x000A;<span class="nx">LSD</span><span class="p">.</span><span class="nx">Type</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>&#x000A;  <span class="nx">each</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="nx">bind</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">name</span> <span class="k">in</span> <span class="k">this</span><span class="p">.</span><span class="nx">storage</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">storage</span><span class="p">[</span><span class="nx">name</span><span class="p">];</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="nx">value</span> <span class="o">&amp;&amp;</span> <span class="nx">value</span><span class="p">.</span><span class="nx">$family</span> <span class="o">&amp;&amp;</span> <span class="nx">value</span><span class="p">.</span><span class="nx">$family</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;class&#39;</span><span class="p">)</span> <span class="nx">callback</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">bind</span> <span class="o">||</span> <span class="k">this</span><span class="p">,</span> <span class="nx">value</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">},</span>&#x000A;  <span class="nx">find</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">queries</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">queries</span> <span class="o">=</span> <span class="p">{};</span>&#x000A;    <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">queries</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">!=</span> <span class="kc">null</span><span class="p">)</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">queries</span><span class="p">[</span><span class="nx">name</span><span class="p">];</span>&#x000A;    <span class="nx">name</span> <span class="o">=</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">toClassName</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">storage</span><span class="p">;</span> <span class="nx">storage</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">pool</span><span class="p">[</span><span class="nx">i</span><span class="o">++</span><span class="p">];)</span> <span class="p">{</span>&#x000A;      <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">getFromPath</span><span class="p">(</span><span class="nx">storage</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">queries</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="nx">result</span><span class="p">);</span>&#x000A;    <span class="p">}</span>&#x000A;    <span class="k">return</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">queries</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="kc">false</span><span class="p">);</span>&#x000A;  <span class="p">},</span>&#x000A;  <span class="nx">create</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="kd">var</span> <span class="nx">widget</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">widget</span><span class="p">)</span> <span class="k">throw</span> <span class="s1">&#39;Class named LSD.&#39;</span> <span class="o">+</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">toClassName</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">toClassName</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; was not found&#39;</span><span class="p">;</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">count</span><span class="o">++</span><span class="p">;</span>&#x000A;    <span class="k">return</span> <span class="k">new</span> <span class="nx">widget</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">,</span> <span class="nx">d</span><span class="p">);</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">}</span></code>
+    </figure>
+    <section>
+      <p>must-have stuff for all widgets</p>
+    </section>
+    <figure>
+      <ol>
+        <li>65</li>
+      </ol>
+      <code><span class="k">new</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Type</span><span class="p">(</span><span class="s1">&#39;Module&#39;</span><span class="p">);</span></code>
+    </figure>
+    <section>
+      <p>some widgets may use those</p>
+    </section>
+    <figure>
+      <ol>
+        <li>67</li>
+      </ol>
+      <code><span class="k">new</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Type</span><span class="p">(</span><span class="s1">&#39;Trait&#39;</span><span class="p">);</span></code>
+    </figure>
+    <section>
+      <p>these may be applied in runtime</p>
+    </section>
+    <figure>
+      <ol>
+        <li>69</li>
+      </ol>
+      <code><span class="k">new</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Type</span><span class="p">(</span><span class="s1">&#39;Mixin&#39;</span><span class="p">);</span></code>
+    </figure>
+    <section>
+      <p>these may be applied in runtime</p>
+    </section>
+    <figure>
+      <ol>
+        <li>71</li>
+      </ol>
+      <code><span class="k">new</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Type</span><span class="p">(</span><span class="s1">&#39;Element&#39;</span><span class="p">);</span></code>
+    </figure>
+  </body>
+</html>

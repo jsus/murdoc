@@ -8,37 +8,36 @@
     <figure id='relations'>
       <h2>Requires</h2>
       <ul>
-        <li>Core/Class</li>
-        <li>Core/Events</li>
-        <li>Core/Options</li>
-        <li>Core/Browser</li>
-        <li>Ext/Macro</li>
-        <li>Ext/Class.Stateful</li>
-        <li>ART/ART</li>
         <li>ART/ART.Path</li>
         <li>ART/ART.SVG</li>
         <li>ART/ART.VML</li>
         <li>ART/ART.Base</li>
+        <li>Core/Browser</li>
       </ul>
       <h2>Provides</h2>
       <ul>
-        <li>Exception</li>
-        <li>$equals</li>
         <li>ART</li>
+        <li>ART.Features</li>
       </ul>
     </figure>
     <header>
       <h1>ART.js</h1>
-      <p>ART namespace definition</p>
+      <p>ART extensions</p>
       <dl>
         <dt>License:</dt>
-        <dd>MIT-style license.</dd>
+        <dd>Public domain (http://unlicense.org).</dd>
         <dt>Authors:</dt>
         <dd>Yaroslaff Fedin</dd>
       </dl>
     </header>
     <figure>
       <ol>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
         <li>31</li>
         <li>32</li>
         <li>33</li>
@@ -51,96 +50,8 @@
         <li>40</li>
         <li>41</li>
         <li>42</li>
-        <li>43</li>
-        <li>44</li>
-        <li>45</li>
-        <li>46</li>
-        <li>47</li>
-        <li>48</li>
-        <li>49</li>
-        <li>50</li>
-        <li>51</li>
-        <li>52</li>
-        <li>53</li>
-        <li>54</li>
-        <li>55</li>
-        <li>56</li>
-        <li>57</li>
-        <li>58</li>
-        <li>59</li>
-        <li>60</li>
-        <li>61</li>
-        <li>62</li>
-        <li>63</li>
-        <li>64</li>
-        <li>65</li>
-        <li>66</li>
-        <li>67</li>
-        <li>68</li>
-        <li>69</li>
-        <li>70</li>
-        <li>71</li>
-        <li>72</li>
-        <li>73</li>
-        <li>74</li>
-        <li>75</li>
-        <li>76</li>
-        <li>77</li>
-        <li>78</li>
-        <li>79</li>
-        <li>80</li>
-        <li>81</li>
-        <li>82</li>
-        <li>83</li>
-        <li>84</li>
-        <li>85</li>
-        <li>86</li>
-        <li>87</li>
-        <li>88</li>
-        <li>89</li>
-        <li>90</li>
-        <li>91</li>
-        <li>92</li>
-        <li>93</li>
-        <li>94</li>
-        <li>95</li>
-        <li>96</li>
-        <li>97</li>
-        <li>98</li>
-        <li>99</li>
-        <li>100</li>
-        <li>101</li>
-        <li>102</li>
-        <li>103</li>
-        <li>104</li>
-        <li>105</li>
-        <li>106</li>
-        <li>107</li>
-        <li>108</li>
-        <li>109</li>
-        <li>110</li>
-        <li>111</li>
-        <li>112</li>
-        <li>113</li>
-        <li>114</li>
-        <li>115</li>
-        <li>116</li>
-        <li>117</li>
-        <li>118</li>
-        <li>119</li>
-        <li>120</li>
-        <li>121</li>
-        <li>122</li>
-        <li>123</li>
-        <li>124</li>
-        <li>125</li>
-        <li>126</li>
-        <li>127</li>
-        <li>128</li>
-        <li>129</li>
-        <li>130</li>
       </ol>
-      <code><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;  &#x000A;  <span class="kd">var</span> <span class="nx">toArgs</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">args</span><span class="p">,</span> <span class="nx">strings</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="kd">var</span> <span class="nx">results</span> <span class="o">=</span> <span class="p">[];</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">arg</span><span class="p">;</span> <span class="nx">arg</span> <span class="o">=</span> <span class="nx">args</span><span class="p">[</span><span class="nx">i</span><span class="o">++</span><span class="p">];)</span> <span class="p">{</span>&#x000A;      <span class="k">switch</span><span class="p">(</span><span class="nx">$type</span><span class="p">(</span><span class="nx">arg</span><span class="p">))</span> <span class="p">{</span>&#x000A;        <span class="k">case</span> <span class="s2">&quot;hash&quot;</span><span class="o">:</span>&#x000A;          <span class="k">if</span> <span class="p">(</span><span class="nx">strings</span><span class="p">)</span> <span class="nx">arg</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">encode</span><span class="p">(</span><span class="nx">arg</span><span class="p">);</span>&#x000A;          <span class="k">break</span><span class="p">;</span>&#x000A;        <span class="k">case</span> <span class="s2">&quot;element&quot;</span><span class="o">:</span>&#x000A;          <span class="k">if</span> <span class="p">(</span><span class="nx">strings</span><span class="p">)</span> <span class="p">{</span>&#x000A;            <span class="kd">var</span> <span class="nx">el</span> <span class="o">=</span> <span class="nx">arg</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;tag&#39;</span><span class="p">);</span>&#x000A;            <span class="k">if</span> <span class="p">(</span><span class="nx">arg</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">))</span> <span class="nx">el</span> <span class="o">+=</span> <span class="s2">&quot;#&quot;</span> <span class="o">+</span> <span class="nx">arg</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>&#x000A;            <span class="k">if</span> <span class="p">(</span><span class="nx">arg</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;class&#39;</span><span class="p">).</span><span class="nx">length</span><span class="p">)</span> <span class="nx">el</span> <span class="o">+=</span> <span class="s2">&quot;.&quot;</span> <span class="o">+</span> <span class="nx">arg</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;class&#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/\s+/g</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">);</span>&#x000A;            <span class="nx">arg</span> <span class="o">=</span> <span class="nx">el</span><span class="p">;</span>&#x000A;          <span class="p">}</span>&#x000A;          <span class="k">break</span><span class="p">;</span>&#x000A;        <span class="k">default</span><span class="o">:</span> &#x000A;          <span class="k">if</span> <span class="p">(</span><span class="nx">strings</span><span class="p">)</span> <span class="p">{</span>&#x000A;            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">$defined</span><span class="p">(</span><span class="nx">arg</span><span class="p">))</span> <span class="nx">arg</span> <span class="o">=</span> <span class="s1">&#39;undefined&#39;</span><span class="p">;</span>&#x000A;            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">arg</span><span class="p">)</span> <span class="nx">arg</span> <span class="o">=</span> <span class="s1">&#39;false&#39;</span><span class="p">;</span>&#x000A;            <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">arg</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="nx">arg</span> <span class="o">=</span> <span class="nx">arg</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>&#x000A;        &#x000A;            <span class="k">if</span> <span class="p">(</span><span class="nx">$type</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span> <span class="o">!=</span> <span class="s2">&quot;string&quot;</span><span class="p">)</span> <span class="p">{</span>&#x000A;              <span class="k">if</span> <span class="p">(</span><span class="nx">arg</span><span class="p">.</span><span class="nx">toString</span><span class="p">)</span> <span class="nx">arg</span> <span class="o">=</span> <span class="nx">arg</span><span class="p">.</span><span class="nx">toString</span><span class="p">();</span>&#x000A;              <span class="k">if</span> <span class="p">(</span><span class="nx">$type</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span> <span class="o">!=</span> <span class="s2">&quot;string&quot;</span><span class="p">)</span> <span class="nx">arg</span> <span class="o">=</span> <span class="s1">&#39;[Object]&#39;</span>&#x000A;            <span class="p">}</span>&#x000A;          <span class="p">}</span>&#x000A;      <span class="p">}</span>&#x000A;      &#x000A;      <span class="nx">results</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span>&#x000A;    <span class="p">}</span>&#x000A;    &#x000A;    <span class="k">return</span> <span class="nx">results</span><span class="p">;</span>&#x000A;  <span class="p">};</span>&#x000A;  &#x000A;  <span class="kd">var</span> <span class="nx">toString</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">return</span> <span class="nx">toArgs</span><span class="p">(</span><span class="nx">args</span><span class="p">,</span> <span class="kc">true</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>&#x000A;  <span class="p">}</span>&#x000A;&#x000A;  <span class="nx">Exception</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;    <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Exception&quot;</span><span class="p">,</span>&#x000A;&#x000A;    <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">object</span><span class="p">,</span> <span class="nx">message</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="k">this</span><span class="p">.</span><span class="nx">object</span> <span class="o">=</span> <span class="nx">object</span><span class="p">;</span>&#x000A;      <span class="k">this</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="nx">message</span><span class="p">;</span>&#x000A;      <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">object</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">message</span><span class="p">)</span>&#x000A;    <span class="p">},</span>&#x000A;    &#x000A;    <span class="nx">toArgs</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;      <span class="k">return</span> <span class="nx">toArgs</span><span class="p">([</span><span class="k">this</span><span class="p">.</span><span class="nx">object</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">message</span><span class="p">])</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">});</span>&#x000A;&#x000A;  <span class="nx">Exception</span><span class="p">.</span><span class="nx">Misconfiguration</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;    <span class="nx">Extends</span><span class="o">:</span> <span class="nx">Exception</span><span class="p">,</span>&#x000A;&#x000A;    <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;Misconfiguration&quot;</span>&#x000A;  <span class="p">});</span>&#x000A;&#x000A;<span class="p">})();</span>&#x000A;&#x000A;<span class="nx">$equals</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">one</span><span class="p">,</span> <span class="nx">another</span><span class="p">)</span> <span class="p">{</span>&#x000A;  <span class="k">if</span> <span class="p">(</span><span class="nx">one</span> <span class="o">==</span> <span class="nx">another</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>&#x000A;  <span class="k">if</span> <span class="p">((</span><span class="o">!</span><span class="nx">one</span><span class="p">)</span> <span class="o">^</span> <span class="p">(</span><span class="o">!</span><span class="nx">another</span><span class="p">))</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">$defined</span><span class="p">(</span><span class="nx">one</span><span class="p">))</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;  &#x000A;  <span class="k">if</span> <span class="p">((</span><span class="nx">one</span> <span class="k">instanceof</span> <span class="nb">Array</span><span class="p">)</span> <span class="o">||</span> <span class="nx">one</span><span class="p">.</span><span class="nx">callee</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">one</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="nx">j</span> <span class="o">!=</span> <span class="nx">another</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">j</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">$equals</span><span class="p">(</span><span class="nx">one</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">another</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>&#x000A;  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">one</span> <span class="k">instanceof</span> <span class="nx">Color</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">return</span> <span class="p">(</span><span class="nx">one</span><span class="p">.</span><span class="nx">red</span> <span class="o">==</span> <span class="nx">another</span><span class="p">.</span><span class="nx">red</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">one</span><span class="p">.</span><span class="nx">green</span> <span class="o">==</span> <span class="nx">another</span><span class="p">.</span><span class="nx">green</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">one</span><span class="p">.</span><span class="nx">blue</span> <span class="o">==</span> <span class="nx">another</span><span class="p">.</span><span class="nx">blue</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">one</span><span class="p">.</span><span class="nx">alpha</span> <span class="o">==</span> <span class="nx">another</span><span class="p">.</span><span class="nx">alpha</span><span class="p">)</span>&#x000A;  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">one</span> <span class="o">==</span> <span class="s1">&#39;object&#39;</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="nx">one</span><span class="p">.</span><span class="nx">equals</span><span class="p">)</span> <span class="k">return</span> <span class="nx">one</span><span class="p">.</span><span class="nx">equals</span><span class="p">(</span><span class="nx">another</span><span class="p">)</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">one</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">$equals</span><span class="p">(</span><span class="nx">one</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span> <span class="nx">another</span><span class="p">[</span><span class="nx">i</span><span class="p">]))</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>&#x000A;  <span class="p">}</span>&#x000A;  <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;<span class="p">}</span>&#x000A;&#x000A;<span class="nx">ART</span><span class="p">.</span><span class="nx">implement</span><span class="p">({</span>&#x000A;&#x000A;  <span class="nx">setHeight</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">height</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;height&#39;</span><span class="p">,</span> <span class="nx">height</span><span class="p">);</span>&#x000A;    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>&#x000A;  <span class="p">},</span>&#x000A;&#x000A;  <span class="nx">setWidth</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">width</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">,</span> <span class="nx">width</span><span class="p">);</span>&#x000A;    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>&#x000A;  <span class="p">}</span>&#x000A;&#x000A;<span class="p">});</span>&#x000A;&#x000A;&#x000A;&#x000A;<span class="nx">ART</span><span class="p">.</span><span class="nx">Features</span> <span class="o">=</span> <span class="p">{};</span>&#x000A;<span class="nx">ART</span><span class="p">.</span><span class="nx">Features</span><span class="p">.</span><span class="nx">Blur</span> <span class="o">=</span> <span class="nx">Browser</span><span class="p">.</span><span class="nx">Engine</span><span class="p">.</span><span class="nx">gecko</span><span class="p">;</span> <span class="c1">//TODO: Figure it out</span></code>
+      <code><span class="nx">ART</span><span class="p">.</span><span class="nx">implement</span><span class="p">({</span>&#x000A;&#x000A;  <span class="nx">setHeight</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">height</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;height&#39;</span><span class="p">,</span> <span class="nx">height</span><span class="p">);</span>&#x000A;    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>&#x000A;  <span class="p">},</span>&#x000A;&#x000A;  <span class="nx">setWidth</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">width</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;width&#39;</span><span class="p">,</span> <span class="nx">width</span><span class="p">);</span>&#x000A;    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>&#x000A;  <span class="p">}</span>&#x000A;&#x000A;<span class="p">});</span>&#x000A;&#x000A;&#x000A;&#x000A;<span class="nx">ART</span><span class="p">.</span><span class="nx">Features</span> <span class="o">=</span> <span class="p">{};</span>&#x000A;<span class="nx">ART</span><span class="p">.</span><span class="nx">Features</span><span class="p">.</span><span class="nx">Blur</span> <span class="o">=</span> <span class="nx">Browser</span><span class="p">.</span><span class="nx">firefox</span><span class="p">;</span> <span class="c1">//TODO: Figure it out</span></code>
     </figure>
   </body>
 </html>

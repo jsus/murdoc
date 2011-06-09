@@ -1,0 +1,398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Events.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>LSD.Module</li>
+        <li>Core/Events</li>
+        <li>Core/Element.Event</li>
+        <li>More/Element.Delegation</li>
+        <li>More/Events.Pseudos</li>
+        <li>Ext/Element.Properties.widget</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>LSD.Module.Events</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Events.js</h1>
+      <p>A mixin that adds support for declarative events assignment</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>Public domain (http://unlicense.org).</dd>
+        <dt>Authors:</dt>
+        <dd>Yaroslaff Fedin</dd>
+      </dl>
+    </header>
+    <section>
+      <p>The module takes events object defined in options
+      and binds all functions to the widget.</p>
+      
+      <p>Ready to use event tree can be accessed via
+      <em>.events</em> accessor.</p>
+    </section>
+    <figure>
+      <ol>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+        <li>61</li>
+        <li>62</li>
+        <li>63</li>
+        <li>64</li>
+        <li>65</li>
+        <li>66</li>
+        <li>67</li>
+        <li>68</li>
+        <li>69</li>
+        <li>70</li>
+        <li>71</li>
+        <li>72</li>
+        <li>73</li>
+        <li>74</li>
+        <li>75</li>
+        <li>76</li>
+        <li>77</li>
+        <li>78</li>
+        <li>79</li>
+        <li>80</li>
+        <li>81</li>
+        <li>82</li>
+        <li>83</li>
+        <li>84</li>
+        <li>85</li>
+        <li>86</li>
+        <li>87</li>
+        <li>88</li>
+        <li>89</li>
+        <li>90</li>
+        <li>91</li>
+        <li>92</li>
+        <li>93</li>
+        <li>94</li>
+        <li>95</li>
+        <li>96</li>
+        <li>97</li>
+        <li>98</li>
+        <li>99</li>
+        <li>100</li>
+        <li>101</li>
+        <li>102</li>
+        <li>103</li>
+        <li>104</li>
+        <li>105</li>
+        <li>106</li>
+        <li>107</li>
+        <li>108</li>
+        <li>109</li>
+        <li>110</li>
+      </ol>
+      <code><span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Events</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;  <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>&#x000A;    <span class="nx">events</span><span class="o">:</span> <span class="p">{},</span>&#x000A;    <span class="nx">states</span><span class="o">:</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">fast</span><span class="p">(</span><span class="s1">&#39;attached&#39;</span><span class="p">)</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">addEvents</span><span class="p">({</span>&#x000A;      <span class="nx">destroy</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;        <span class="k">this</span><span class="p">.</span><span class="nx">detach</span><span class="p">();</span>&#x000A;      <span class="p">},</span>&#x000A;&#x000A;      <span class="nx">attach</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">events</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">events</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">events</span> <span class="o">?</span> <span class="k">this</span><span class="p">.</span><span class="nx">bindEvents</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">events</span><span class="p">)</span> <span class="o">:</span> <span class="p">{};</span>&#x000A;        <span class="k">this</span><span class="p">.</span><span class="nx">addEvents</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">events</span><span class="p">);</span>&#x000A;      <span class="p">},</span>&#x000A;&#x000A;      <span class="nx">detach</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;        <span class="k">this</span><span class="p">.</span><span class="nx">removeEvents</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">events</span><span class="p">);</span>&#x000A;      <span class="p">}</span>&#x000A;    <span class="p">},</span> <span class="kc">true</span><span class="p">);</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">attach</span><span class="p">();</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">addEvents</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">events</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">setEvents</span><span class="p">(</span><span class="nx">events</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">removeEvents</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">events</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">setEvents</span><span class="p">(</span><span class="nx">events</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">setEvents</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">events</span><span class="p">,</span> <span class="nx">state</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="kd">var</span> <span class="nx">convert</span> <span class="o">=</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Events</span><span class="p">.</span><span class="nx">target</span><span class="p">,</span> <span class="nx">method</span> <span class="o">=</span> <span class="nx">state</span> <span class="o">?</span> <span class="s1">&#39;addEvents&#39;</span> <span class="o">:</span> <span class="s1">&#39;removeEvents&#39;</span><span class="p">,</span> <span class="nx">old</span> <span class="o">=</span> <span class="nx">Events</span><span class="p">.</span><span class="nx">prototype</span><span class="p">[</span><span class="nx">method</span><span class="p">];</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">events</span><span class="p">)</span> <span class="p">{</span> &#x000A;      <span class="k">if</span> <span class="p">(</span><span class="nx">events</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">call</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//stick to old behaviour when key: function object is passed</span>&#x000A;        <span class="nx">old</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">events</span><span class="p">);</span>&#x000A;      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>&#x000A;        <span class="k">for</span> <span class="p">(</span><span class="nx">name</span> <span class="k">in</span> <span class="nx">events</span><span class="p">)</span> <span class="p">{</span>&#x000A;          <span class="kd">var</span> <span class="nx">subset</span> <span class="o">=</span> <span class="nx">events</span><span class="p">[</span><span class="nx">name</span><span class="p">];</span>&#x000A;          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">subset</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>&#x000A;          <span class="kd">var</span> <span class="nx">target</span> <span class="o">=</span> <span class="nx">convert</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span>&#x000A;          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">target</span><span class="p">)</span> <span class="k">continue</span><span class="p">;</span>&#x000A;          <span class="k">if</span> <span class="p">(</span><span class="nx">target</span> <span class="o">!=</span> <span class="k">this</span><span class="p">)</span> <span class="p">{</span>&#x000A;            <span class="k">if</span> <span class="p">(</span><span class="nx">target</span> <span class="o">==</span> <span class="kc">true</span><span class="p">)</span> <span class="nx">target</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>&#x000A;            <span class="nx">target</span><span class="p">[</span><span class="nx">method</span><span class="p">](</span><span class="nx">subset</span><span class="p">);</span>&#x000A;          <span class="p">}</span> <span class="k">else</span> <span class="nx">old</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">subset</span><span class="p">);</span>&#x000A;        <span class="p">}</span>&#x000A;      <span class="p">};</span>  &#x000A;      <span class="k">break</span><span class="p">;</span>&#x000A;    <span class="p">}</span>&#x000A;    <span class="k">return</span> <span class="nx">events</span><span class="p">;</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">bindEvents</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">tree</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">tree</span> <span class="o">||</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">call</span><span class="p">)</span> <span class="k">return</span> <span class="nx">tree</span><span class="p">;</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">$bound</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">$bound</span> <span class="o">=</span> <span class="p">{}</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="nx">tree</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="kd">var</span> <span class="nx">args</span><span class="p">,</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="nx">tree</span><span class="p">.</span><span class="nx">map</span><span class="p">)</span> <span class="p">{</span>&#x000A;        <span class="nx">args</span> <span class="o">=</span> <span class="nx">tree</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>&#x000A;        <span class="nx">tree</span> <span class="o">=</span> <span class="nx">tree</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>&#x000A;      <span class="p">}</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">$bound</span><span class="p">[</span><span class="nx">tree</span><span class="p">])</span> <span class="p">{</span>&#x000A;        <span class="k">this</span><span class="p">.</span><span class="nx">$bound</span><span class="p">[</span><span class="nx">tree</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;          <span class="k">if</span> <span class="p">(</span><span class="nx">self</span><span class="p">[</span><span class="nx">tree</span><span class="p">])</span> <span class="nx">self</span><span class="p">[</span><span class="nx">tree</span><span class="p">].</span><span class="nx">apply</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">args</span> <span class="o">||</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;        <span class="p">}</span>&#x000A;      <span class="p">}</span>&#x000A;      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">$bound</span><span class="p">[</span><span class="nx">tree</span><span class="p">];</span>&#x000A;    <span class="p">}</span>&#x000A;    <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">{}</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="k">in</span> <span class="nx">tree</span><span class="p">)</span> <span class="nx">result</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">bindEvents</span><span class="p">(</span><span class="nx">tree</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>&#x000A;    <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">});</span></code>
+    </figure>
+    <section>
+      <p>Target system re-routes event groups to various objects.</p>
+      
+      <p>Combine them for fun and profit.</p>
+      
+      <table>
+      <thead>
+      <tr>
+      <th></th>
+      <th> Keyword    </th>
+      <th>  Object that recieves events       </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      <td></td>
+      <td> <em>self</em>     </td>
+      <td> widget itself (no routing)         |</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td> <em>element</em>  </td>
+      <td> widget element (when built)        |</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td> <em>parent</em>   </td>
+      <td> parent widget                      |</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td> <em>document</em> </td>
+      <td> LSD document                       |</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td> <em>window</em>   </td>
+      <td> window element                     |</td>
+      </tr>
+      </tbody>
+      </table>
+      
+      
+      <table>
+      <thead>
+      <tr>
+      <th></th>
+      <th> State      </th>
+      <th> Condition                          </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      <td></td>
+      <td> <em>enabled</em>  </td>
+      <td> widget is enabled                  |</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td> <em>disabled</em> </td>
+      <td> widget is disabled                 |</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td> <em>focused</em>  </td>
+      <td> widget is focused                  |</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td> <em>blured</em>   </td>
+      <td> widget is blured                   |</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td> <em>target</em>   </td>
+      <td> first focusable parent is focused  |</td>
+      </tr>
+      </tbody>
+      </table>
+      
+      
+      <table>
+      <thead>
+      <tr>
+      <th></th>
+      <th> Extras     </th>
+      <th> Description                        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      <td></td>
+      <td> <em>expected</em> </td>
+      <td> Routes events to widgets, selected |</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td>            </td>
+      <td> by selectors (keys of event group).|</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td>            </td>
+      <td> Provided by Expectations module    |</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td> _\w        </td>
+      <td> An event group which name starts   |</td>
+      </tr>
+      <tr>
+      <td></td>
+      <td>            </td>
+      <td> with underscore is auto-applied    |</td>
+      </tr>
+      </tbody>
+      </table>
+      
+      
+      <p>Advanced example:</p>
+      
+      <p>events: {
+      self: {
+      focus: &lsquo;onFocus&rsquo;
+      },
+      window: {
+      resize: &lsquo;onWindowResize&rsquo;
+      },
+      parent: {
+      element: { //event delegation
+      &lsquo;click:relay(.button)&rsquo;: &lsquo;onButtonClick&rsquo;
+      }
+      },
+      expected: {
+      &lsquo;button:first-child&rsquo;: { //waits for widgets
+      parent: {}
+      }
+      }
+      }</p>
+    </section>
+    <figure>
+      <ol>
+        <li>167</li>
+        <li>168</li>
+        <li>169</li>
+        <li>170</li>
+        <li>171</li>
+        <li>172</li>
+        <li>173</li>
+        <li>174</li>
+        <li>175</li>
+        <li>176</li>
+        <li>177</li>
+        <li>178</li>
+        <li>179</li>
+        <li>180</li>
+        <li>181</li>
+        <li>182</li>
+        <li>183</li>
+        <li>184</li>
+        <li>185</li>
+        <li>186</li>
+        <li>187</li>
+        <li>188</li>
+        <li>189</li>
+        <li>190</li>
+        <li>191</li>
+        <li>192</li>
+        <li>193</li>
+        <li>194</li>
+        <li>195</li>
+        <li>196</li>
+        <li>197</li>
+        <li>198</li>
+        <li>199</li>
+        <li>200</li>
+        <li>201</li>
+        <li>202</li>
+        <li>203</li>
+        <li>204</li>
+        <li>205</li>
+        <li>206</li>
+        <li>207</li>
+        <li>208</li>
+        <li>209</li>
+        <li>210</li>
+        <li>211</li>
+        <li>212</li>
+        <li>213</li>
+        <li>214</li>
+        <li>215</li>
+        <li>216</li>
+        <li>217</li>
+        <li>218</li>
+        <li>219</li>
+        <li>220</li>
+        <li>221</li>
+        <li>222</li>
+        <li>223</li>
+        <li>224</li>
+        <li>225</li>
+        <li>226</li>
+        <li>227</li>
+        <li>228</li>
+        <li>229</li>
+        <li>230</li>
+        <li>231</li>
+        <li>232</li>
+        <li>233</li>
+        <li>234</li>
+        <li>235</li>
+        <li>236</li>
+        <li>237</li>
+        <li>238</li>
+        <li>239</li>
+        <li>240</li>
+        <li>241</li>
+        <li>242</li>
+        <li>243</li>
+        <li>244</li>
+        <li>245</li>
+        <li>246</li>
+        <li>247</li>
+        <li>248</li>
+        <li>249</li>
+        <li>250</li>
+        <li>251</li>
+        <li>252</li>
+        <li>253</li>
+        <li>254</li>
+        <li>255</li>
+        <li>256</li>
+        <li>257</li>
+        <li>258</li>
+        <li>259</li>
+        <li>260</li>
+        <li>261</li>
+        <li>262</li>
+        <li>263</li>
+        <li>264</li>
+      </ol>
+      <code><span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Events</span><span class="p">.</span><span class="nx">Promise</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;  <span class="k">this</span><span class="p">.</span><span class="nx">events</span> <span class="o">=</span> <span class="p">{}</span>&#x000A;<span class="p">}</span>&#x000A;<span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Events</span><span class="p">.</span><span class="nx">Promise</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>&#x000A;  <span class="nx">addEvents</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">events</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">name</span> <span class="k">in</span> <span class="nx">events</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="kd">var</span> <span class="nx">group</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">events</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">group</span><span class="p">)</span> <span class="nx">group</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">events</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">[];</span>&#x000A;      <span class="nx">group</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">events</span><span class="p">[</span><span class="nx">name</span><span class="p">]);</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">removeEvents</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">events</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">name</span> <span class="k">in</span> <span class="nx">events</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="kd">var</span> <span class="nx">group</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">events</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="nx">group</span><span class="p">)</span> <span class="nx">group</span><span class="p">.</span><span class="nx">erase</span><span class="p">(</span><span class="nx">events</span><span class="p">[</span><span class="nx">name</span><span class="p">]);</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">realize</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">object</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">name</span> <span class="k">in</span> <span class="k">this</span><span class="p">.</span><span class="nx">events</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">fn</span><span class="p">;</span> <span class="nx">fn</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">events</span><span class="p">[</span><span class="nx">name</span><span class="p">][</span><span class="nx">i</span><span class="o">++</span><span class="p">];)</span> <span class="nx">object</span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">fn</span><span class="p">);</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">}</span>&#x000A;&#x000A;<span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Events</span><span class="p">.</span><span class="nx">Targets</span> <span class="o">=</span> <span class="p">{</span>&#x000A;  <span class="nx">self</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> &#x000A;    <span class="k">return</span> <span class="k">this</span>&#x000A;  <span class="p">},</span>&#x000A;  <span class="nx">element</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> &#x000A;    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">)</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">;</span>&#x000A;    <span class="kd">var</span> <span class="nx">promise</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$events</span><span class="p">.</span><span class="nx">$element</span><span class="p">;</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">promise</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="nx">promise</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">$events</span><span class="p">.</span><span class="nx">$element</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Events</span><span class="p">.</span><span class="nx">Promise</span>&#x000A;      <span class="k">this</span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="s1">&#39;build&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;        <span class="nx">promise</span><span class="p">.</span><span class="nx">realize</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">)</span>&#x000A;      <span class="p">});</span>&#x000A;    <span class="p">}</span>&#x000A;    <span class="k">return</span> <span class="nx">promise</span><span class="p">;</span>&#x000A;  <span class="p">},</span>&#x000A;  <span class="nb">window</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">return</span> <span class="nb">window</span><span class="p">;</span>&#x000A;  <span class="p">},</span>&#x000A;  <span class="nb">document</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nb">document</span><span class="p">;</span>&#x000A;  <span class="p">},</span>&#x000A;  <span class="nx">parent</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">,</span> <span class="nx">watchers</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">watchers</span><span class="p">,</span> <span class="nx">group</span><span class="p">;</span>&#x000A;    <span class="kd">var</span> <span class="nx">listeners</span> <span class="o">=</span> <span class="p">{</span>&#x000A;      <span class="nx">inject</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">widget</span><span class="p">)</span> <span class="p">{</span>&#x000A;        <span class="k">if</span> <span class="p">(</span><span class="nx">widget</span> <span class="k">instanceof</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Widget</span><span class="p">)</span> <span class="nx">widget</span><span class="p">.</span><span class="nx">addEvents</span><span class="p">(</span><span class="nx">group</span><span class="p">);</span>&#x000A;      <span class="p">},</span>    &#x000A;      <span class="nx">dispose</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">widget</span><span class="p">)</span> <span class="p">{</span>&#x000A;        <span class="k">if</span> <span class="p">(</span><span class="nx">widget</span> <span class="k">instanceof</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Widget</span><span class="p">)</span> <span class="nx">widget</span><span class="p">.</span><span class="nx">removeEvents</span><span class="p">(</span><span class="nx">group</span><span class="p">);</span>&#x000A;      <span class="p">}</span>&#x000A;    <span class="p">};</span>&#x000A;    <span class="k">return</span> <span class="p">{</span>&#x000A;      <span class="nx">addEvents</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">events</span><span class="p">)</span> <span class="p">{</span>&#x000A;        <span class="nx">group</span> <span class="o">=</span> <span class="nx">events</span><span class="p">;</span>&#x000A;        <span class="nx">self</span><span class="p">.</span><span class="nx">addEvents</span><span class="p">(</span><span class="nx">listeners</span><span class="p">);</span>&#x000A;        <span class="k">if</span> <span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">)</span> <span class="nx">listeners</span><span class="p">.</span><span class="nx">inject</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">);</span>&#x000A;      <span class="p">},</span>&#x000A;      &#x000A;      <span class="nx">removeEvents</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">events</span><span class="p">)</span> <span class="p">{</span>&#x000A;        <span class="nx">group</span> <span class="o">=</span> <span class="nx">events</span><span class="p">;</span>&#x000A;        <span class="nx">self</span><span class="p">.</span><span class="nx">removeEvents</span><span class="p">(</span><span class="nx">listeners</span><span class="p">);</span>&#x000A;        <span class="k">if</span> <span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">)</span> <span class="nx">listeners</span><span class="p">.</span><span class="nx">dispose</span><span class="p">(</span><span class="nx">self</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">);</span>&#x000A;      <span class="p">}</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">},</span>&#x000A;  <span class="nx">mobile</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">return</span> <span class="k">this</span><span class="p">;</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">};</span>&#x000A;&#x000A;<span class="o">!</span><span class="kd">function</span><span class="p">(</span><span class="nx">Events</span><span class="p">,</span> <span class="nx">Known</span><span class="p">,</span> <span class="nx">Positive</span><span class="p">,</span> <span class="nx">Negative</span><span class="p">)</span> <span class="p">{</span>&#x000A;  <span class="nb">Object</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">append</span><span class="p">({},</span> <span class="nx">Positive</span><span class="p">,</span> <span class="nx">Negative</span><span class="p">),</span> <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="kd">var</span> <span class="nx">positive</span> <span class="o">=</span> <span class="o">!!</span><span class="nx">Positive</span><span class="p">[</span><span class="nx">name</span><span class="p">];</span>&#x000A;    <span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Events</span><span class="p">.</span><span class="nx">Targets</span><span class="p">[</span><span class="nx">name</span><span class="p">]</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;      <span class="kd">var</span> <span class="nx">self</span> <span class="o">=</span> <span class="k">this</span><span class="p">,</span> <span class="nx">setting</span> <span class="o">=</span> <span class="nx">Known</span><span class="p">[</span><span class="nx">state</span><span class="p">],</span> <span class="nx">group</span><span class="p">;</span>&#x000A;      <span class="kd">var</span> <span class="nx">add</span>     <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">self</span><span class="p">.</span><span class="nx">addEvents</span><span class="p">(</span><span class="nx">group</span><span class="p">);</span>   <span class="p">}</span>&#x000A;      <span class="kd">var</span> <span class="nx">remove</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">self</span><span class="p">.</span><span class="nx">removeEvents</span><span class="p">(</span><span class="nx">group</span><span class="p">)</span> <span class="p">}</span>&#x000A;      <span class="k">return</span> <span class="p">{</span>&#x000A;        <span class="nx">addEvents</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">events</span><span class="p">)</span> <span class="p">{</span>&#x000A;          <span class="nx">group</span> <span class="o">=</span> <span class="nx">events</span><span class="p">;</span>&#x000A;          <span class="k">if</span> <span class="p">(</span><span class="nx">positive</span> <span class="o">^</span> <span class="o">!</span><span class="nx">self</span><span class="p">[</span><span class="nx">state</span><span class="p">])</span> <span class="nx">add</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>&#x000A;          <span class="nx">self</span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="nx">setting</span><span class="p">[</span><span class="nx">positive</span> <span class="o">?</span> <span class="s1">&#39;enabler&#39;</span> <span class="o">:</span> <span class="s1">&#39;disabler&#39;</span><span class="p">],</span> <span class="nx">add</span><span class="p">);</span>&#x000A;          <span class="nx">self</span><span class="p">.</span><span class="nx">addEvent</span><span class="p">(</span><span class="nx">setting</span><span class="p">[</span><span class="o">!</span><span class="nx">positive</span> <span class="o">?</span> <span class="s1">&#39;enabler&#39;</span> <span class="o">:</span> <span class="s1">&#39;disabler&#39;</span><span class="p">],</span> <span class="nx">remove</span><span class="p">);</span>&#x000A;        <span class="p">},</span>&#x000A;        <span class="nx">removeEvents</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">events</span><span class="p">)</span> <span class="p">{</span>&#x000A;          <span class="nx">group</span> <span class="o">=</span> <span class="nx">events</span><span class="p">;</span>&#x000A;          <span class="k">if</span> <span class="p">(</span><span class="nx">positive</span> <span class="o">^</span> <span class="nx">self</span><span class="p">[</span><span class="nx">state</span><span class="p">])</span> <span class="nx">remove</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>&#x000A;          <span class="nx">self</span><span class="p">.</span><span class="nx">removeEvent</span><span class="p">(</span><span class="nx">setting</span><span class="p">[</span><span class="o">!</span><span class="nx">positive</span> <span class="o">?</span> <span class="s1">&#39;enabler&#39;</span> <span class="o">:</span> <span class="s1">&#39;disabler&#39;</span><span class="p">],</span> <span class="nx">add</span><span class="p">);</span>&#x000A;          <span class="nx">self</span><span class="p">.</span><span class="nx">removeEvent</span><span class="p">(</span><span class="nx">setting</span><span class="p">[</span><span class="nx">positive</span> <span class="o">?</span> <span class="s1">&#39;enabler&#39;</span> <span class="o">:</span> <span class="s1">&#39;disabler&#39;</span><span class="p">],</span> <span class="nx">remove</span><span class="p">);</span>&#x000A;        <span class="p">}</span>&#x000A;      <span class="p">}</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">});</span>&#x000A;<span class="p">}(</span><span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Events</span><span class="p">,</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">States</span><span class="p">.</span><span class="nx">Known</span><span class="p">,</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">States</span><span class="p">.</span><span class="nx">Positive</span><span class="p">,</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">States</span><span class="p">.</span><span class="nx">Negative</span><span class="p">)</span></code>
+    </figure>
+    <figure>
+      <ol>
+        <li>270</li>
+        <li>271</li>
+        <li>272</li>
+        <li>273</li>
+        <li>274</li>
+        <li>275</li>
+      </ol>
+      <code><span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Events</span><span class="p">.</span><span class="nx">target</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">self</span><span class="p">,</span> <span class="nx">name</span><span class="p">)</span> <span class="p">{</span>&#x000A;  <span class="k">if</span> <span class="p">(</span><span class="nx">name</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>&#x000A;  <span class="kd">var</span> <span class="nx">target</span> <span class="o">=</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Events</span><span class="p">.</span><span class="nx">Targets</span><span class="p">[</span><span class="nx">name</span><span class="p">];</span>&#x000A;  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">target</span><span class="p">)</span> <span class="k">return</span><span class="p">;</span>&#x000A;  <span class="k">return</span> <span class="nx">target</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">self</span><span class="p">)</span>&#x000A;<span class="p">}</span></code>
+    </figure>
+    <section>
+      <p>Defines special <em>on</em> pseudo class for events used for
+      event delegation. The difference between usual event
+      delegation (which is :relay in mootools) and this, is
+      that with :on you can use LSD selectors and it fires
+      callbacks in context of widgets.</p>
+      
+      <p>element.addEvent(&lsquo;mouseover:on(button)&rsquo;, callback)</p>
+    </section>
+    <figure>
+      <ol>
+        <li>287</li>
+        <li>288</li>
+        <li>289</li>
+        <li>290</li>
+        <li>291</li>
+        <li>292</li>
+        <li>293</li>
+        <li>294</li>
+      </ol>
+      <code><span class="nx">Event</span><span class="p">.</span><span class="nx">definePseudo</span><span class="p">(</span><span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">split</span><span class="p">,</span> <span class="nx">fn</span><span class="p">,</span> <span class="nx">args</span><span class="p">){</span>&#x000A;  <span class="kd">var</span> <span class="nx">event</span> <span class="o">=</span> <span class="nx">args</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>&#x000A;  <span class="kd">var</span> <span class="nx">widget</span> <span class="o">=</span> <span class="nx">Element</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">,</span> <span class="s1">&#39;widget&#39;</span><span class="p">);</span>&#x000A;  <span class="k">if</span> <span class="p">(</span><span class="nx">widget</span> <span class="o">&amp;&amp;</span> <span class="nx">widget</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="nx">split</span><span class="p">.</span><span class="nx">value</span><span class="p">))</span> <span class="p">{</span>&#x000A;    <span class="nx">fn</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">widget</span><span class="p">,</span> <span class="nx">event</span><span class="p">,</span> <span class="nx">widget</span><span class="p">,</span> <span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">);</span>&#x000A;    <span class="k">return</span><span class="p">;</span>        &#x000A;  <span class="p">}</span>&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

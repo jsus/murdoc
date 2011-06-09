@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>SheetParser.CSS</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>SheetParser.Property</li>
+      </ul>
+    </figure>
+    <header>
+      <p></p>
+      <dl>
+        <dt>License:</dt>
+        <dd>MIT</dd>
+        <dt>Authors:</dt>
+        <dd>Yaroslaff Fedin</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>17</li>
+      </ol>
+      <code><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">exports</span><span class="p">)</span> <span class="p">{</span></code>
+    </figure>
+    <section>
+      <p><CommonJS></p>
+    </section>
+    <figure>
+      <ol>
+        <li>19</li>
+        <li>20</li>
+        <li>21</li>
+        <li>22</li>
+      </ol>
+      <code><span class="kd">var</span> <span class="nx">combineRegExp</span> <span class="o">=</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">require</span> <span class="o">==</span> <span class="s1">&#39;undefined&#39;</span><span class="p">)</span>&#x000A;    <span class="o">?</span>  <span class="nx">exports</span><span class="p">.</span><span class="nx">combineRegExp</span>&#x000A;    <span class="o">:</span>  <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;./sg-regex-tools&#39;</span><span class="p">).</span><span class="nx">combineRegExp</span>&#x000A;  <span class="kd">var</span> <span class="nx">SheetParser</span> <span class="o">=</span> <span class="nx">exports</span><span class="p">.</span><span class="nx">SheetParser</span></code>
+    </figure>
+    <section>
+      <p></CommonJS></p>
+    </section>
+    <figure>
+      <ol>
+        <li>25</li>
+      </ol>
+      <code><span class="kd">var</span> <span class="nx">Property</span> <span class="o">=</span> <span class="nx">SheetParser</span><span class="p">.</span><span class="nx">Property</span> <span class="o">=</span> <span class="p">{</span><span class="nx">version</span><span class="o">:</span> <span class="s1">&#39;0.2 dev&#39;</span><span class="p">};</span></code>
+    </figure>
+    <section>
+      <p>Finds optional groups in expressions and builds keyword
+      indecies for them. Keyword index is an object that has
+      keywords as keys and values as property names.</p>
+      
+      <p>Index only holds keywords that can be uniquely identified
+      as one of the properties in group.</p>
+    </section>
+    <figure>
+      <ol>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+      </ol>
+      <code><span class="nx">Property</span><span class="p">.</span><span class="nx">index</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">properties</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="kd">var</span> <span class="nx">index</span> <span class="o">=</span> <span class="p">{};</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">property</span><span class="p">;</span> <span class="nx">property</span> <span class="o">=</span> <span class="nx">properties</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="nx">property</span><span class="p">.</span><span class="nx">push</span><span class="p">)</span> <span class="p">{</span>&#x000A;        <span class="kd">var</span> <span class="nx">group</span> <span class="o">=</span> <span class="nx">index</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">{};</span>&#x000A;        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">prop</span><span class="p">;</span> <span class="nx">prop</span> <span class="o">=</span> <span class="nx">property</span><span class="p">[</span><span class="nx">j</span><span class="p">];</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>&#x000A;          <span class="kd">var</span> <span class="nx">keys</span> <span class="o">=</span> <span class="nx">context</span><span class="p">[</span><span class="nx">prop</span><span class="p">].</span><span class="nx">keywords</span><span class="p">;</span>&#x000A;          <span class="k">if</span> <span class="p">(</span><span class="nx">keys</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">key</span> <span class="k">in</span> <span class="nx">keys</span><span class="p">)</span> <span class="p">{</span>&#x000A;            <span class="k">if</span> <span class="p">(</span><span class="nx">group</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="nx">group</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="nx">prop</span><span class="p">;</span>&#x000A;            <span class="k">else</span> <span class="nx">group</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>&#x000A;          <span class="p">}</span>&#x000A;        <span class="p">}</span>&#x000A;        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">keyword</span> <span class="k">in</span> <span class="nx">group</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">group</span><span class="p">[</span><span class="nx">keyword</span><span class="p">])</span> <span class="k">delete</span> <span class="nx">group</span><span class="p">[</span><span class="nx">keyword</span><span class="p">];</span>&#x000A;      <span class="p">}</span>&#x000A;    <span class="p">}</span>&#x000A;    <span class="k">return</span> <span class="nx">index</span><span class="p">;</span>&#x000A;  <span class="p">};</span></code>
+    </figure>
+    <section>
+      <p>Simple value</p>
+    </section>
+    <figure>
+      <ol>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+        <li>61</li>
+        <li>62</li>
+        <li>63</li>
+        <li>64</li>
+      </ol>
+      <code><span class="nx">Property</span><span class="p">.</span><span class="nx">simple</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">types</span><span class="p">,</span> <span class="nx">keywords</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="nx">keywords</span> <span class="o">&amp;&amp;</span> <span class="nx">keywords</span><span class="p">[</span><span class="nx">value</span><span class="p">])</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="nx">types</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">type</span><span class="p">;</span> <span class="nx">type</span> <span class="o">=</span> <span class="nx">types</span><span class="p">[</span><span class="nx">i</span><span class="o">++</span><span class="p">];)</span> <span class="k">if</span> <span class="p">(</span><span class="nx">Type</span><span class="p">[</span><span class="nx">type</span><span class="p">](</span><span class="nx">value</span><span class="p">))</span> <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>&#x000A;      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">};</span></code>
+    </figure>
+    <section>
+      <p>Links list of inambigous arguments with corresponding properties keeping
+      the order.</p>
+    </section>
+    <figure>
+      <ol>
+        <li>71</li>
+        <li>72</li>
+        <li>73</li>
+        <li>74</li>
+        <li>75</li>
+        <li>76</li>
+        <li>77</li>
+        <li>78</li>
+        <li>79</li>
+        <li>80</li>
+        <li>81</li>
+        <li>82</li>
+        <li>83</li>
+        <li>84</li>
+        <li>85</li>
+        <li>86</li>
+        <li>87</li>
+        <li>88</li>
+        <li>89</li>
+        <li>90</li>
+        <li>91</li>
+        <li>92</li>
+        <li>93</li>
+        <li>94</li>
+        <li>95</li>
+        <li>96</li>
+        <li>97</li>
+        <li>98</li>
+        <li>99</li>
+        <li>100</li>
+        <li>101</li>
+        <li>102</li>
+        <li>103</li>
+        <li>104</li>
+        <li>105</li>
+        <li>106</li>
+        <li>107</li>
+        <li>108</li>
+        <li>109</li>
+        <li>110</li>
+        <li>111</li>
+        <li>112</li>
+        <li>113</li>
+        <li>114</li>
+        <li>115</li>
+        <li>116</li>
+      </ol>
+      <code><span class="nx">Property</span><span class="p">.</span><span class="nx">shorthand</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">properties</span><span class="p">,</span> <span class="nx">keywords</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="kd">var</span> <span class="nx">index</span><span class="p">,</span> <span class="nx">r</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">property</span><span class="p">;</span> <span class="nx">property</span> <span class="o">=</span> <span class="nx">properties</span><span class="p">[</span><span class="nx">i</span><span class="o">++</span><span class="p">];)</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">property</span><span class="p">.</span><span class="nx">push</span><span class="p">)</span> <span class="nx">r</span><span class="o">++</span><span class="p">;</span>&#x000A;    <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;      <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">[],</span> <span class="nx">used</span> <span class="o">=</span> <span class="p">{},</span> <span class="nx">start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">group</span><span class="p">,</span> <span class="nx">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">l</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>&#x000A;      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">argument</span><span class="p">;</span> <span class="nx">argument</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>&#x000A;        <span class="kd">var</span> <span class="nx">property</span> <span class="o">=</span> <span class="nx">properties</span><span class="p">[</span><span class="nx">k</span><span class="p">];</span>&#x000A;        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">property</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;        <span class="k">if</span> <span class="p">((</span><span class="nx">group</span> <span class="o">=</span> <span class="p">(</span><span class="nx">property</span><span class="p">.</span><span class="nx">push</span> <span class="o">&amp;&amp;</span> <span class="nx">property</span><span class="p">)))</span> <span class="nx">property</span> <span class="o">=</span> <span class="nx">properties</span><span class="p">[</span><span class="nx">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>&#x000A;        <span class="k">if</span> <span class="p">(</span><span class="nx">property</span><span class="p">)</span> <span class="p">{</span>&#x000A;          <span class="k">if</span> <span class="p">(</span><span class="nx">context</span><span class="p">[</span><span class="nx">property</span><span class="p">](</span><span class="nx">argument</span><span class="p">))</span> <span class="nx">k</span><span class="o">++</span>&#x000A;          <span class="k">else</span> <span class="nx">property</span> <span class="o">=</span> <span class="kc">false</span>&#x000A;        <span class="p">}</span>&#x000A;        <span class="k">if</span> <span class="p">(</span><span class="nx">group</span><span class="p">)</span> <span class="p">{</span>&#x000A;          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">property</span><span class="p">)</span> <span class="p">{</span>&#x000A;            <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">index</span><span class="p">)</span> <span class="nx">index</span> <span class="o">=</span> <span class="nx">Property</span><span class="p">.</span><span class="nx">index</span><span class="p">(</span><span class="nx">properties</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span>&#x000A;            <span class="k">if</span> <span class="p">(</span><span class="nx">property</span> <span class="o">=</span> <span class="nx">index</span><span class="p">[</span><span class="nx">k</span><span class="p">][</span><span class="nx">argument</span><span class="p">])</span>&#x000A;              <span class="k">if</span> <span class="p">(</span><span class="nx">used</span><span class="p">[</span><span class="nx">property</span><span class="p">])</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;              <span class="k">else</span> <span class="nx">used</span><span class="p">[</span><span class="nx">property</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>&#x000A;          <span class="p">}</span>&#x000A;          <span class="k">if</span> <span class="p">((</span><span class="nx">property</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="nx">used</span><span class="p">[</span><span class="nx">property</span><span class="p">])</span> <span class="o">||</span> <span class="p">(</span><span class="nx">i</span> <span class="o">==</span> <span class="nx">l</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="p">{</span>&#x000A;            <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">-</span> <span class="nx">start</span> <span class="o">&gt;</span> <span class="nx">group</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;            <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">start</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="p">(</span><span class="nx">i</span> <span class="o">+</span> <span class="o">+!</span><span class="nx">property</span><span class="p">);</span> <span class="nx">j</span><span class="o">++</span><span class="p">)</span> &#x000A;              <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">[</span><span class="nx">j</span><span class="p">])</span>&#x000A;                <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">m</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">optional</span><span class="p">;</span> <span class="nx">optional</span> <span class="o">=</span> <span class="nx">group</span><span class="p">[</span><span class="nx">m</span><span class="o">++</span><span class="p">];)</span> <span class="p">{</span>&#x000A;                  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">used</span><span class="p">[</span><span class="nx">optional</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="nx">context</span><span class="p">[</span><span class="nx">optional</span><span class="p">](</span><span class="nx">arguments</span><span class="p">[</span><span class="nx">j</span><span class="p">]))</span> <span class="p">{</span>&#x000A;                    <span class="nx">result</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span> <span class="o">=</span> <span class="nx">optional</span><span class="p">;</span>&#x000A;                    <span class="nx">used</span><span class="p">[</span><span class="nx">optional</span><span class="p">]</span> <span class="o">=</span> <span class="kc">true</span>&#x000A;                    <span class="k">break</span><span class="p">;</span>&#x000A;                  <span class="p">}</span>&#x000A;                <span class="p">}</span>&#x000A;            <span class="nx">start</span> <span class="o">=</span> <span class="nx">i</span><span class="p">;</span>&#x000A;            <span class="nx">k</span><span class="o">++</span><span class="p">;</span>&#x000A;          <span class="p">}</span>&#x000A;        <span class="p">}</span>&#x000A;        <span class="k">if</span> <span class="p">(</span><span class="nx">result</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span> <span class="nx">result</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="nx">property</span><span class="p">;</span>&#x000A;      <span class="p">}</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">r</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span>&#x000A;      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">j</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span> <span class="nx">object</span> <span class="o">=</span> <span class="p">{};</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">j</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>&#x000A;        <span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">result</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>&#x000A;        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">value</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;        <span class="nx">object</span><span class="p">[</span><span class="nx">value</span><span class="p">]</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>&#x000A;      <span class="p">}</span>&#x000A;      <span class="k">return</span> <span class="nx">object</span><span class="p">;</span>&#x000A;    <span class="p">};</span>&#x000A;  <span class="p">}</span></code>
+    </figure>
+    <section>
+      <p>A shorthand that operates on collection of properties. When given values
+      are not enough (less than properties in collection), the value sequence
+      is repeated until all properties are filled.</p>
+    </section>
+    <figure>
+      <ol>
+        <li>124</li>
+        <li>125</li>
+        <li>126</li>
+        <li>127</li>
+        <li>128</li>
+        <li>129</li>
+        <li>130</li>
+        <li>131</li>
+        <li>132</li>
+        <li>133</li>
+        <li>134</li>
+        <li>135</li>
+        <li>136</li>
+        <li>137</li>
+        <li>138</li>
+        <li>139</li>
+        <li>140</li>
+        <li>141</li>
+        <li>142</li>
+        <li>143</li>
+        <li>144</li>
+        <li>145</li>
+        <li>146</li>
+        <li>147</li>
+        <li>148</li>
+        <li>149</li>
+      </ol>
+      <code><span class="nx">Property</span><span class="p">.</span><span class="nx">collection</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">properties</span><span class="p">,</span> <span class="nx">keywords</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="kd">var</span> <span class="nx">first</span> <span class="o">=</span> <span class="nx">context</span><span class="p">[</span><span class="nx">properties</span><span class="p">[</span><span class="mi">0</span><span class="p">]];</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="nx">first</span><span class="p">.</span><span class="nx">type</span> <span class="o">!=</span> <span class="s1">&#39;simple&#39;</span><span class="p">)</span> &#x000A;      <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span> <span class="p">{</span>&#x000A;        <span class="kd">var</span> <span class="nx">args</span> <span class="o">=</span> <span class="p">(</span><span class="o">!</span><span class="nx">arg</span> <span class="o">||</span> <span class="o">!</span><span class="nx">arg</span><span class="p">.</span><span class="nx">push</span><span class="p">)</span> <span class="o">?</span> <span class="p">[</span><span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">slice</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">arguments</span><span class="p">)]</span> <span class="o">:</span> <span class="nx">arguments</span><span class="p">;</span>&#x000A;        <span class="kd">var</span> <span class="nx">length</span> <span class="o">=</span> <span class="nx">args</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>&#x000A;        <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">{};</span>&#x000A;        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">property</span><span class="p">;</span> <span class="nx">property</span> <span class="o">=</span> <span class="nx">properties</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>&#x000A;          <span class="kd">var</span> <span class="nx">values</span> <span class="o">=</span> <span class="nx">context</span><span class="p">[</span><span class="nx">property</span><span class="p">].</span><span class="nx">apply</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">args</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">||</span> <span class="nx">args</span><span class="p">[</span><span class="nx">i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">]</span> <span class="o">||</span> <span class="nx">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>&#x000A;          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">values</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;          <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">prop</span> <span class="k">in</span> <span class="nx">values</span><span class="p">)</span> <span class="nx">result</span><span class="p">[</span><span class="nx">prop</span><span class="p">]</span> <span class="o">=</span> <span class="nx">values</span><span class="p">[</span><span class="nx">prop</span><span class="p">];</span>&#x000A;        <span class="p">}</span>&#x000A;        <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>&#x000A;      <span class="p">}</span>&#x000A;    <span class="k">else</span>&#x000A;      <span class="k">return</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;        <span class="kd">var</span> <span class="nx">length</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>&#x000A;        <span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span> <span class="p">{};</span>&#x000A;        <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">property</span><span class="p">;</span> <span class="nx">property</span> <span class="o">=</span> <span class="nx">properties</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>&#x000A;          <span class="kd">var</span> <span class="nx">values</span> <span class="o">=</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">||</span> <span class="nx">arguments</span><span class="p">[</span><span class="nx">i</span> <span class="o">%</span> <span class="mi">2</span><span class="p">]</span> <span class="o">||</span> <span class="nx">arguments</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>&#x000A;          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">context</span><span class="p">[</span><span class="nx">property</span><span class="p">].</span><span class="nx">call</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nx">values</span><span class="p">))</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;          <span class="nx">result</span><span class="p">[</span><span class="nx">property</span><span class="p">]</span> <span class="o">=</span> <span class="nx">values</span><span class="p">;</span>&#x000A;        <span class="p">}</span>&#x000A;        <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>&#x000A;      <span class="p">}</span>&#x000A;  <span class="p">};</span></code>
+    </figure>
+    <section>
+      <p>Multiple value property accepts arrays as arguments
+      as well as regular stuff</p>
+    </section>
+    <figure>
+      <ol>
+        <li>156</li>
+      </ol>
+      <code><span class="nx">Property</span><span class="p">.</span><span class="nx">multiple</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">arg</span><span class="p">)</span> <span class="p">{</span></code>
+    </figure>
+    <section>
+      <p>if (arg.push)</p>
+    </section>
+    <figure>
+      <ol>
+        <li>158</li>
+        <li>159</li>
+        <li>160</li>
+        <li>161</li>
+        <li>162</li>
+        <li>163</li>
+        <li>164</li>
+        <li>165</li>
+        <li>166</li>
+        <li>167</li>
+        <li>168</li>
+        <li>169</li>
+        <li>170</li>
+        <li>171</li>
+        <li>172</li>
+        <li>173</li>
+        <li>174</li>
+        <li>175</li>
+        <li>176</li>
+        <li>177</li>
+        <li>178</li>
+        <li>179</li>
+        <li>180</li>
+        <li>181</li>
+        <li>182</li>
+        <li>183</li>
+        <li>184</li>
+        <li>185</li>
+        <li>186</li>
+        <li>187</li>
+        <li>188</li>
+        <li>189</li>
+        <li>190</li>
+        <li>191</li>
+        <li>192</li>
+        <li>193</li>
+        <li>194</li>
+        <li>195</li>
+        <li>196</li>
+        <li>197</li>
+        <li>198</li>
+        <li>199</li>
+        <li>200</li>
+        <li>201</li>
+        <li>202</li>
+        <li>203</li>
+        <li>204</li>
+        <li>205</li>
+        <li>206</li>
+        <li>207</li>
+        <li>208</li>
+        <li>209</li>
+        <li>210</li>
+        <li>211</li>
+        <li>212</li>
+        <li>213</li>
+        <li>214</li>
+        <li>215</li>
+        <li>216</li>
+        <li>217</li>
+        <li>218</li>
+        <li>219</li>
+        <li>220</li>
+        <li>221</li>
+        <li>222</li>
+        <li>223</li>
+        <li>224</li>
+        <li>225</li>
+        <li>226</li>
+        <li>227</li>
+        <li>228</li>
+      </ol>
+      <code><span class="p">}</span>&#x000A;  &#x000A;  <span class="nx">Property</span><span class="p">.</span><span class="nx">compile</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">definition</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="kd">var</span> <span class="nx">properties</span><span class="p">,</span> <span class="nx">keywords</span><span class="p">,</span> <span class="nx">types</span><span class="p">;</span>&#x000A;    <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">bit</span><span class="p">;</span> <span class="nx">bit</span> <span class="o">=</span> <span class="nx">definition</span><span class="p">[</span><span class="nx">i</span><span class="o">++</span><span class="p">];)</span> <span class="p">{</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="nx">bit</span><span class="p">.</span><span class="nx">push</span><span class="p">)</span> <span class="nx">properties</span> <span class="o">=</span> <span class="nx">bit</span><span class="p">;</span>&#x000A;      <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">bit</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">)</span> <span class="p">{</span>&#x000A;        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">Type</span><span class="p">[</span><span class="nx">bit</span><span class="p">])</span> <span class="p">{</span>&#x000A;          <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">keywords</span><span class="p">)</span> <span class="nx">keywords</span> <span class="o">=</span> <span class="p">{};</span>&#x000A;          <span class="nx">keywords</span><span class="p">[</span><span class="nx">bit</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>&#x000A;        <span class="p">}</span> <span class="k">else</span> <span class="nx">types</span> <span class="o">?</span> <span class="nx">types</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">bit</span><span class="p">)</span> <span class="o">:</span> <span class="p">(</span><span class="nx">types</span> <span class="o">=</span> <span class="p">[</span><span class="nx">bit</span><span class="p">]);</span>&#x000A;      <span class="p">}</span> <span class="k">else</span> <span class="nx">options</span> <span class="o">=</span> <span class="nx">bit</span><span class="p">;</span>&#x000A;    <span class="p">}</span>&#x000A;    <span class="kd">var</span> <span class="nx">type</span> <span class="o">=</span> <span class="nx">properties</span> <span class="o">?</span> <span class="p">(</span><span class="nx">keywords</span> <span class="o">&amp;&amp;</span> <span class="nx">keywords</span><span class="p">.</span><span class="nx">collection</span> <span class="o">?</span> <span class="s2">&quot;collection&quot;</span> <span class="o">:</span> <span class="s2">&quot;shorthand&quot;</span><span class="p">)</span> <span class="o">:</span> <span class="s1">&#39;simple&#39;</span>&#x000A;    <span class="kd">var</span> <span class="nx">property</span> <span class="o">=</span> <span class="nx">Property</span><span class="p">[</span><span class="nx">type</span><span class="p">](</span><span class="nx">properties</span> <span class="o">||</span> <span class="nx">types</span><span class="p">,</span> <span class="nx">keywords</span><span class="p">,</span> <span class="nx">context</span><span class="p">);</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="nx">keywords</span><span class="p">)</span> <span class="nx">property</span><span class="p">.</span><span class="nx">keywords</span> <span class="o">=</span> <span class="nx">keywords</span><span class="p">;</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="nx">properties</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="kd">var</span> <span class="nx">props</span> <span class="o">=</span> <span class="p">[];</span>&#x000A;      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">prop</span><span class="p">;</span> <span class="nx">prop</span> <span class="o">=</span> <span class="nx">properties</span><span class="p">[</span><span class="nx">i</span><span class="o">++</span><span class="p">];)</span> <span class="nx">prop</span><span class="p">.</span><span class="nx">push</span> <span class="o">?</span> <span class="nx">props</span><span class="p">.</span><span class="nx">push</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">props</span><span class="p">,</span> <span class="nx">prop</span><span class="p">)</span> <span class="o">:</span> <span class="nx">props</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">prop</span><span class="p">);</span>&#x000A;      <span class="nx">property</span><span class="p">.</span><span class="nx">properties</span> <span class="o">=</span> <span class="nx">props</span><span class="p">;</span>&#x000A;    <span class="p">}</span>&#x000A;    <span class="nx">property</span><span class="p">.</span><span class="nx">type</span> <span class="o">=</span> <span class="nx">type</span><span class="p">;</span>&#x000A;    <span class="k">return</span> <span class="nx">property</span><span class="p">;</span>&#x000A;  <span class="p">};</span>&#x000A;  &#x000A;  &#x000A;  <span class="kd">var</span> <span class="nx">Type</span> <span class="o">=</span> <span class="nx">Property</span><span class="p">.</span><span class="nx">Type</span> <span class="o">=</span> <span class="p">{</span>&#x000A;    <span class="nx">length</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="k">return</span> <span class="k">typeof</span> <span class="nx">obj</span> <span class="o">==</span> <span class="s1">&#39;number&#39;</span> <span class="o">||</span> <span class="p">(</span><span class="o">!</span><span class="nx">obj</span><span class="p">.</span><span class="nx">indexOf</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="s1">&#39;number&#39;</span> <span class="k">in</span> <span class="nx">obj</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">unit</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">unit</span> <span class="o">!=</span> <span class="s1">&#39;%&#39;</span><span class="p">))</span>&#x000A;    <span class="p">},</span>&#x000A;  &#x000A;    <span class="nx">color</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="k">return</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">indexOf</span> <span class="o">?</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^#[0-9a-f]{3}(?:[0-9a-f]{3})?$/</span><span class="p">)</span> <span class="o">:</span> <span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">isColor</span> <span class="o">||</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">rgba</span> <span class="o">||</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">rgb</span> <span class="o">||</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">hsb</span><span class="p">)</span>&#x000A;    <span class="p">},</span>&#x000A;    &#x000A;    <span class="nx">number</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="k">return</span> <span class="k">typeof</span> <span class="nx">obj</span> <span class="o">==</span> <span class="s1">&#39;number&#39;</span>&#x000A;    <span class="p">},</span>&#x000A;    &#x000A;    <span class="nx">integer</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="k">return</span> <span class="nx">obj</span> <span class="o">%</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="p">((</span><span class="mi">0</span> <span class="o">+</span> <span class="nx">obj</span><span class="p">).</span><span class="nx">toString</span><span class="p">()</span> <span class="o">==</span> <span class="nx">obj</span><span class="p">)</span>&#x000A;    <span class="p">},</span>&#x000A;  &#x000A;    <span class="nx">keyword</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">keywords</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="kd">var</span> <span class="nx">storage</span><span class="p">;</span>&#x000A;      <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">keyword</span><span class="p">;</span> <span class="nx">keyword</span> <span class="o">=</span> <span class="nx">keywords</span><span class="p">[</span><span class="nx">i</span><span class="o">++</span><span class="p">];)</span> <span class="nx">storage</span><span class="p">[</span><span class="nx">keyword</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>&#x000A;      <span class="k">return</span> <span class="kd">function</span><span class="p">(</span><span class="nx">keyword</span><span class="p">)</span> <span class="p">{</span>&#x000A;        <span class="k">return</span> <span class="o">!!</span><span class="nx">storage</span><span class="p">[</span><span class="nx">keyword</span><span class="p">]</span>&#x000A;      <span class="p">}</span>&#x000A;    <span class="p">},</span>&#x000A;    &#x000A;    <span class="nx">strings</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="k">return</span> <span class="o">!!</span><span class="nx">obj</span><span class="p">.</span><span class="nx">indexOf</span>&#x000A;    <span class="p">},</span>&#x000A;    &#x000A;    <span class="nx">url</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="k">return</span> <span class="o">!</span><span class="nx">obj</span><span class="p">.</span><span class="nx">indexOf</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="s2">&quot;url&quot;</span> <span class="k">in</span> <span class="nx">obj</span><span class="p">);</span>&#x000A;    <span class="p">},</span>&#x000A;    &#x000A;    <span class="nx">position</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>        &#x000A;      <span class="kd">var</span> <span class="nx">positions</span> <span class="o">=</span> <span class="nx">Type</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">positions</span><span class="p">;</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">positions</span><span class="p">)</span> <span class="nx">positions</span> <span class="o">=</span> <span class="nx">Type</span><span class="p">.</span><span class="nx">position</span><span class="p">.</span><span class="nx">positions</span> <span class="o">=</span> <span class="p">{</span><span class="nx">left</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">top</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">bottom</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">right</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">center</span><span class="o">:</span> <span class="mi">1</span><span class="p">}</span>&#x000A;      <span class="k">return</span> <span class="nx">positions</span><span class="p">[</span><span class="nx">obj</span><span class="p">]</span>&#x000A;    <span class="p">},</span>&#x000A;    &#x000A;    <span class="nx">percentage</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="k">return</span> <span class="nx">obj</span><span class="p">.</span><span class="nx">unit</span> <span class="o">==</span> <span class="s1">&#39;%&#39;</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">};</span>&#x000A;  &#x000A;<span class="p">})(</span><span class="k">typeof</span> <span class="nx">exports</span> <span class="o">!=</span> <span class="s1">&#39;undefined&#39;</span> <span class="o">?</span> <span class="nx">exports</span> <span class="o">:</span> <span class="k">this</span><span class="p">);</span></code>
+    </figure>
+  </body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Render.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>LSD.Module</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>LSD.Module.Render</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Render.js</h1>
+      <p>A module that provides rendering workflow</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>Public domain (http://unlicense.org).</dd>
+        <dt>Authors:</dt>
+        <dd>Yaroslaff Fedin</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+      </ol>
+      <code><span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Render</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;  &#x000A;  <span class="nx">build</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">redraws</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">)</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">stateChange</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">redraws</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">refresh</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">render</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">built</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">build</span><span class="p">();</span>&#x000A;    <span class="k">delete</span> <span class="k">this</span><span class="p">.</span><span class="nx">halted</span><span class="p">;</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">redraws</span><span class="o">++</span><span class="p">;</span>&#x000A;    &#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">childNodes</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">child</span><span class="p">){</span>&#x000A;      <span class="k">if</span> <span class="p">(</span><span class="nx">child</span><span class="p">.</span><span class="nx">render</span><span class="p">)</span> <span class="nx">child</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>&#x000A;    <span class="p">});</span>&#x000A;  <span class="p">},</span></code>
+    </figure>
+    <section>
+      <p>setDocument: function(document) {
+        //var halted = [];
+        //this.render();
+        this.walk(function(child) {</p>
+      
+      <pre><code>//if (child.halted) halted.push(child);
+      child.ownerDocument = child.document = document;
+      child.fireEvent('dominject', [child.element.parentNode, document]);
+      child.dominjected = true;
+      </code></pre>
+      
+      <p>  });
+        //halted.each(function(child) {
+        //  child.refresh();
+        //})
+      },</p>
+    </section>
+    <section>
+      <p>Halt marks widget as failed to render.</p>
+      
+      <p>Possible use cases:</p>
+      
+      <ul>
+      <li>Dimensions depend on child widgets that are not
+      rendered yet</li>
+      <li>Dont let the widget render when it is not in DOM</li>
+      </ul>
+    </section>
+    <figure>
+      <ol>
+        <li>68</li>
+        <li>69</li>
+        <li>70</li>
+        <li>71</li>
+        <li>72</li>
+      </ol>
+      <code><span class="nx">halt</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">halted</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">halted</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>&#x000A;    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>&#x000A;  <span class="p">},</span></code>
+    </figure>
+    <section>
+      <p>Update marks widget as willing to render. That
+      can be followed by a call to <em>render</em> to trigger
+      redrawing mechanism. Otherwise, the widget stay
+      marked and can be rendered together with ascendant
+      widget.</p>
+    </section>
+    <figure>
+      <ol>
+        <li>82</li>
+        <li>83</li>
+        <li>84</li>
+        <li>85</li>
+        <li>86</li>
+      </ol>
+      <code><span class="nx">update</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">recursive</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="nx">recursive</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">walk</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">widget</span><span class="p">)</span> <span class="p">{</span>&#x000A;      <span class="nx">widget</span><span class="p">.</span><span class="nx">update</span><span class="p">();</span>&#x000A;    <span class="p">});</span>&#x000A;  <span class="p">},</span></code>
+    </figure>
+    <section>
+      <p>Refresh updates and renders widget (or a widget tree
+      if optional argument is true). It is a reliable way
+      to have all elements redrawn, but a costly too.</p>
+      
+      <p>Should be avoided when possible to let internals
+      handle the rendering and avoid some unnecessary
+      calculations.</p>
+    </section>
+    <figure>
+      <ol>
+        <li>98</li>
+        <li>99</li>
+        <li>100</li>
+        <li>101</li>
+        <li>102</li>
+      </ol>
+      <code><span class="nx">refresh</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">recursive</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">recursive</span><span class="p">);</span>&#x000A;    <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>

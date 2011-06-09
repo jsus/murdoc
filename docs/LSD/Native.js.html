@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Native.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>LSD.Node</li>
+        <li>LSD.Type</li>
+        <li>LSD.Module.Attributes</li>
+        <li>LSD.Module.Events</li>
+        <li>LSD.Module.Expectations</li>
+        <li>LSD.Module.Layout</li>
+        <li>LSD.Module.DOM</li>
+        <li>LSD.Module.Actions</li>
+        <li>LSD.Module.Command</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>LSD.Native</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Native.js</h1>
+      <p>Wrapper for native browser controls</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>Public domain (http://unlicense.org).</dd>
+        <dt>Authors:</dt>
+        <dd>Yaroslaff Fedin</dd>
+      </dl>
+    </header>
+    <section>
+      <p>LSD.Widget autoloads all of the modules that are defined in Old.Module namespace
+      unless LSD.modules array is provided.</p>
+      
+      <p>So if a new module needs to be included into the base class, then it only needs
+      to be <em>require</em>d.</p>
+    </section>
+    <figure>
+      <ol>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+        <li>58</li>
+        <li>59</li>
+        <li>60</li>
+        <li>61</li>
+        <li>62</li>
+        <li>63</li>
+        <li>64</li>
+        <li>65</li>
+        <li>66</li>
+        <li>67</li>
+        <li>68</li>
+        <li>69</li>
+        <li>70</li>
+        <li>71</li>
+        <li>72</li>
+        <li>73</li>
+        <li>74</li>
+        <li>75</li>
+        <li>76</li>
+        <li>77</li>
+        <li>78</li>
+        <li>79</li>
+      </ol>
+      <code><span class="nx">LSD</span><span class="p">.</span><span class="nx">Native</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;  &#x000A;  <span class="nx">Includes</span><span class="o">:</span> <span class="p">[</span>&#x000A;    <span class="nx">LSD</span><span class="p">.</span><span class="nx">Node</span><span class="p">,</span>&#x000A;    <span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Attributes</span><span class="p">,</span>&#x000A;    <span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Events</span><span class="p">,</span>&#x000A;    <span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Expectations</span><span class="p">,</span>&#x000A;    <span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Layout</span><span class="p">,</span>&#x000A;    <span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">DOM</span><span class="p">,</span>&#x000A;    <span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Actions</span><span class="p">,</span>&#x000A;    <span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Command</span><span class="p">,</span>&#x000A;    <span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Target</span>&#x000A;  <span class="p">],</span>&#x000A;  &#x000A;  <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>&#x000A;    <span class="nx">writable</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>&#x000A;    <span class="nx">events</span><span class="o">:</span> <span class="p">{</span>&#x000A;      <span class="nx">_native</span><span class="o">:</span> <span class="p">{</span>&#x000A;        <span class="nx">enable</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;          <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">erase</span><span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">);</span>&#x000A;        <span class="p">},</span>&#x000A;        <span class="nx">disable</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;          <span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">.</span><span class="nx">setProperty</span><span class="p">(</span><span class="s1">&#39;disabled&#39;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>&#x000A;        <span class="p">}</span>&#x000A;      <span class="p">}</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">initialize</span><span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">writable</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">attributes</span><span class="p">.</span><span class="nx">tabindex</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">focusable</span> <span class="o">!==</span> <span class="kc">false</span><span class="p">))</span> <span class="k">this</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s1">&#39;tabindex&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> &#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">addPseudo</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">options</span><span class="p">.</span><span class="nx">writable</span> <span class="o">?</span> <span class="s1">&#39;read-write&#39;</span> <span class="o">:</span> <span class="s1">&#39;read-only&#39;</span><span class="p">);</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">element</span><span class="p">)</span> <span class="k">this</span><span class="p">.</span><span class="nx">build</span><span class="p">()</span>&#x000A;  <span class="p">},</span>&#x000A;  &#x000A;  <span class="nx">setContent</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">content</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">this</span><span class="p">.</span><span class="nx">toElement</span><span class="p">().</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">content</span><span class="p">;</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">});</span>&#x000A;&#x000A;<span class="nx">LSD</span><span class="p">.</span><span class="nx">Native</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">addStates</span><span class="p">(</span><span class="s1">&#39;built&#39;</span><span class="p">,</span> <span class="s1">&#39;attached&#39;</span><span class="p">);</span>&#x000A;&#x000A;<span class="k">new</span> <span class="nx">LSD</span><span class="p">.</span><span class="nx">Type</span><span class="p">(</span><span class="s1">&#39;Native&#39;</span><span class="p">);</span></code>
+    </figure>
+    <section>
+      <p>Inject native widgets into default widget pool as a fallback</p>
+    </section>
+    <figure>
+      <ol>
+        <li>82</li>
+      </ol>
+      <code><span class="nx">LSD</span><span class="p">.</span><span class="nx">Element</span><span class="p">.</span><span class="nx">pool</span><span class="p">[</span><span class="nx">LSD</span><span class="p">.</span><span class="nx">useNative</span> <span class="o">?</span> <span class="s1">&#39;unshift&#39;</span> <span class="o">:</span> <span class="s1">&#39;push&#39;</span><span class="p">](</span><span class="nx">LSD</span><span class="p">.</span><span class="nx">Native</span><span class="p">);</span></code>
+    </figure>
+  </body>
+</html>

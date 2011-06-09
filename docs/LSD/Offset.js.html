@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Offset.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>LSD.Layer</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>LSD.Layer.Offset</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Offset.js</h1>
+      <p>Positions layer around the canvas</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>Public domain (http://unlicense.org).</dd>
+        <dt>Authors:</dt>
+        <dd>Yaroslaff Fedin</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>21</li>
+        <li>22</li>
+        <li>23</li>
+        <li>24</li>
+        <li>25</li>
+        <li>26</li>
+        <li>27</li>
+        <li>28</li>
+        <li>29</li>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+      </ol>
+      <code><span class="nx">LSD</span><span class="p">.</span><span class="nx">Layer</span><span class="p">.</span><span class="nx">Offset</span> <span class="o">=</span> <span class="p">{</span>&#x000A;  <span class="nx">properties</span><span class="o">:</span> <span class="p">{</span>  &#x000A;    <span class="nx">offset</span><span class="o">:</span>    <span class="p">[[</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">]],</span>&#x000A;    <span class="nx">top</span><span class="o">:</span>       <span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">,</span> <span class="s1">&#39;percentage&#39;</span><span class="p">],</span>&#x000A;    <span class="nx">left</span><span class="o">:</span>      <span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">,</span> <span class="s1">&#39;percentage&#39;</span><span class="p">],</span>&#x000A;    <span class="nx">bottom</span><span class="o">:</span>    <span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">,</span> <span class="s1">&#39;percentage&#39;</span><span class="p">],</span>&#x000A;    <span class="nx">right</span><span class="o">:</span>     <span class="p">[</span><span class="s1">&#39;length&#39;</span><span class="p">,</span> <span class="s1">&#39;percentage&#39;</span><span class="p">],</span>&#x000A;  <span class="p">},</span>&#x000A;&#x000A;  <span class="nx">paint</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">top</span><span class="p">,</span> <span class="nx">right</span><span class="p">,</span> <span class="nx">bottom</span><span class="p">,</span> <span class="nx">left</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">return</span> <span class="p">{</span>&#x000A;      <span class="nx">move</span><span class="o">:</span> <span class="p">{</span>&#x000A;        <span class="nx">x</span><span class="o">:</span> <span class="nx">left</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="nx">right</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">size</span><span class="p">.</span><span class="nx">width</span> <span class="o">-</span> <span class="p">(</span><span class="nx">right</span> <span class="o">||</span> <span class="mi">0</span><span class="p">))</span> <span class="o">:</span> <span class="p">(</span><span class="nx">left</span> <span class="o">||</span> <span class="mi">0</span><span class="p">),</span> &#x000A;        <span class="nx">y</span><span class="o">:</span> <span class="nx">top</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="nx">bottom</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">?</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">size</span><span class="p">.</span><span class="nx">height</span> <span class="o">-</span> <span class="p">(</span><span class="nx">bottom</span> <span class="o">||</span> <span class="mi">0</span><span class="p">))</span> <span class="o">:</span> <span class="p">(</span><span class="nx">top</span> <span class="o">||</span> <span class="mi">0</span><span class="p">)</span>&#x000A;      <span class="p">}</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">};</span></code>
+    </figure>
+  </body>
+</html>

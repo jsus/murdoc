@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <title>Documentaiton for Link.js</title>
+    <link href='stylesheet.css' rel='stylesheet' />
+  </head>
+  <body>
+    <figure id='relations'>
+      <h2>Requires</h2>
+      <ul>
+        <li>LSD.Node</li>
+        <li>LSD.Module.Attributes</li>
+        <li>LSD.Module.Events</li>
+        <li>LSD.Module.Layout</li>
+        <li>LSD.Module.Target</li>
+        <li>LSD.Module.Command</li>
+        <li>LSD.Module.Actions</li>
+        <li>LSD.Mixin.Request</li>
+        <li>LSD.Mixin.Dialog</li>
+      </ul>
+      <h2>Provides</h2>
+      <ul>
+        <li>LSD.Node.Link</li>
+      </ul>
+    </figure>
+    <header>
+      <h1>Link.js</h1>
+      <p>A link that does requests and actions</p>
+      <dl>
+        <dt>License:</dt>
+        <dd>Public domain (http://unlicense.org).</dd>
+        <dt>Authors:</dt>
+        <dd>Yaroslaff Fedin</dd>
+      </dl>
+    </header>
+    <figure>
+      <ol>
+        <li>30</li>
+        <li>31</li>
+        <li>32</li>
+        <li>33</li>
+        <li>34</li>
+        <li>35</li>
+        <li>36</li>
+        <li>37</li>
+        <li>38</li>
+        <li>39</li>
+        <li>40</li>
+        <li>41</li>
+        <li>42</li>
+        <li>43</li>
+        <li>44</li>
+        <li>45</li>
+        <li>46</li>
+        <li>47</li>
+        <li>48</li>
+        <li>49</li>
+        <li>50</li>
+        <li>51</li>
+        <li>52</li>
+        <li>53</li>
+        <li>54</li>
+        <li>55</li>
+        <li>56</li>
+        <li>57</li>
+      </ol>
+      <code><span class="nx">LSD</span><span class="p">.</span><span class="nx">Node</span><span class="p">.</span><span class="nx">Link</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Class</span><span class="p">({</span>&#x000A;  <span class="nx">Includes</span><span class="o">:</span> <span class="p">[</span>&#x000A;    <span class="nx">LSD</span><span class="p">.</span><span class="nx">Node</span><span class="p">,</span>&#x000A;    <span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Attributes</span><span class="p">,</span>&#x000A;    <span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Events</span><span class="p">,</span>&#x000A;    <span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Layout</span><span class="p">,</span>&#x000A;    <span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Command</span><span class="p">,</span>&#x000A;    <span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Actions</span><span class="p">,</span>&#x000A;    <span class="nx">LSD</span><span class="p">.</span><span class="nx">Module</span><span class="p">.</span><span class="nx">Target</span><span class="p">,</span>&#x000A;    <span class="nx">LSD</span><span class="p">.</span><span class="nx">Mixin</span><span class="p">.</span><span class="nx">Request</span><span class="p">,</span>&#x000A;    <span class="nx">LSD</span><span class="p">.</span><span class="nx">Mixin</span><span class="p">.</span><span class="nx">Dialog</span>&#x000A;  <span class="p">],</span>&#x000A;  &#x000A;  <span class="nx">options</span><span class="o">:</span> <span class="p">{</span>&#x000A;    <span class="nx">request</span><span class="o">:</span> <span class="p">{</span>&#x000A;      <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;form&#39;</span>&#x000A;    <span class="p">},</span>&#x000A;    <span class="nx">layout</span><span class="o">:</span> <span class="p">{</span>&#x000A;      <span class="nx">instance</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>&#x000A;      <span class="nx">extract</span><span class="o">:</span> <span class="kc">true</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="p">},</span>&#x000A;&#x000A;  <span class="nx">click</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="nx">event</span> <span class="o">&amp;&amp;</span> <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">)</span> <span class="nx">event</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">();</span>&#x000A;    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">disabled</span><span class="p">)</span> <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">parent</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">arguments</span><span class="p">);</span>&#x000A;  <span class="p">}</span>&#x000A;<span class="p">});</span></code>
+    </figure>
+  </body>
+</html>
