@@ -119,8 +119,12 @@ h1, h2, h3 {
 ol, li {
   margin-left: 1em; }
 
-body > p, body > h1, body > h2 {
+body > p, body > h1 {
   clear: left; }
+
+body > h2 {
+  clear: both;
+}
 
 header {
   padding-bottom: 1em;
