@@ -17,9 +17,12 @@ Dependencies
 Example
 =======
 
-See example at [GH.pages](http://markiz.github.com/murdoc).
+See example at [GH.pages](http://jsus.github.com/murdoc).
 
-Bonus: [example](http://markiz.github.com/murdoc/docs) of integration with [jsus](http://github.com/markiz/jsus).
+See also:
+* [example](http://markiz.github.com/murdoc/docs) of integration with [jsus](http://github.com/jsus/jsus).
+* [LSD documentation guides](http://lovelyscalabledrawings.github.com/lsd-guides/grid/1_layout.html) used murdoc
+  plus some homebrew tools. See [source](https://github.com/lovelyscalabledrawings/lsd-guides/tree/gh-pages/grid).
 
 License and authorship
 ======================
