@@ -27,4 +27,4 @@ See also:
 License and authorship
 ======================
 
-Murdoc is originally authored by Mark Abramov and belongs to public domain (see UNLICENSE for details).
+Public domain, see UNLICENSE file.
