@@ -12,8 +12,8 @@
 module Murdoc
   AnnotatedFile = Struct.new(:filename, :source, :source_type, :paragraphs, :formatted_paragraphs)
 
-  def self.annotate(filename, highlight = true)
-    annotator = Annotator.from_file(filename, nil)
+  def self.annotate(filename, highlight = true, do_not_count_comment_lines = false)
+    annotator = Annotator.from_file(filename, nil, do_not_count_comment_lines)
     AnnotatedFile.new(filename,
         annotator.source,
         annotator.source_type,
@@ -25,7 +25,7 @@ module Murdoc
     options = default_options.merge(options)
     annotator = Annotator.from_file(input, nil)
     File.open(output, "w+") do |f|
-      annotated_file = annotate(input, options[:highlight])
+      annotated_file = annotate(input, options[:highlight], options[:do_not_count_comment_lines])
       f.puts Renderer.new(options[:template]).render(:annotated_file => annotated_file,
                                                      :stylesheet => File.read(options[:stylesheet]))
     end
@@ -33,7 +33,7 @@ module Murdoc
 
   def self.generate_from_multiple_files(input_files, output, options = {})
     options = default_options_for_multiple_files.merge(options)
-    annotated_files = input_files.map {|fn| annotate(fn, options[:highlight]) }
+    annotated_files = input_files.map {|fn| annotate(fn, options[:highlight], options[:do_not_count_comment_lines]) }
     File.open(output, "w+") do |f|
       f.puts Renderer.new(options[:template]).render(:annotated_files => annotated_files,
                                                      :stylesheet => File.read(options[:stylesheet]))

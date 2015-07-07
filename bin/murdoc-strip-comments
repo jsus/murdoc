@@ -2,9 +2,11 @@
 require "optparse"
 $: << "./lib/"
 require "murdoc"
+require 'pp'
 
 options = {}
 source_type = nil
+do_not_count_comment_lines = false
 
 option_parser = OptionParser.new do |opts|
   opts.banner = "murdoc-strip-comments [input file]\n\nWhen no input file is provided, murdoc-strip-comments uses standard input stream."
@@ -13,16 +15,28 @@ option_parser = OptionParser.new do |opts|
     source_type = st
   end
 
+  opts.on("--do-not-count-comment-lines") do |dncl|
+    do_not_count_comment_lines = dncl
+  end
+
   opts.on_tail("-h", "--help", "Show this message") do
     puts opts
     exit
   end
-
 end
 
 option_parser.parse!
 
-annotator = Murdoc::Annotator.from_file(ARGV[0] || "/dev/stdin", source_type, {})
+annotator = Murdoc::Annotator.from_file(ARGV[0] || "/dev/stdin", source_type, do_not_count_comment_lines)
+pp annotator.paragraphs.map {|p| [p.source[0..10], p.starting_line] }
+prev_paragraph = nil
 annotator.paragraphs.each do |paragraph|
-  puts paragraph.source
+  if prev_paragraph
+    print "\n" * [(paragraph.starting_line - prev_paragraph.starting_line - prev_paragraph.source.lines.count), 0].max
+  end
+
+  if !(paragraph.source =~ /\A\s*\z/m)
+    puts paragraph.source
+  end
+  prev_paragraph = paragraph
 end

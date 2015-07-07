@@ -60,4 +60,42 @@ describe Murdoc::Scanner do
     paragraphs = subject.call("=begin\n    foo\n    bar\n        baz\n=end")
     paragraphs[0].annotation.should == "foo\nbar\n    baz"
   end
+
+  context 'line numbers' do
+    context 'when counting normally' do
+      it "counts every line for paragraph numbering" do
+        rs = subject.call("# l1\n# l2\nl3")
+        rs[0].starting_line.should == 2
+      end
+
+      it "keeps counting empty lines" do
+        rs = subject.call("# l1\n\n\n\nl5")
+        rs[0].starting_line.should == 4
+      end
+
+      it "works with multiple paragraphs" do
+        rs = subject.call("# l1\nl2\n\n\n\n# l6\nl7")
+        rs[0].starting_line.should == 1
+        rs[1].starting_line.should == 6
+      end
+    end
+
+    context 'when ignoring comment lines' do
+      it "ignores comment lines" do
+        rs = subject.call("# l1\n# l2\nl3", true)
+        rs[0].starting_line.should == 0
+      end
+
+      it "keeps counting empty lines" do
+        rs = subject.call("# l1\n\n\n\nl5", true)
+        rs[0].starting_line.should == 3
+      end
+
+      it "works with multiple paragraphs" do
+        rs = subject.call("# l1\nl2\n\n\n\n# l6\nl7", true)
+        rs[0].starting_line.should == 0
+        rs[1].starting_line.should == 4
+      end
+    end
+  end
 end

@@ -8,16 +8,15 @@ module Murdoc
       @language = language
     end
 
-    def call(source)
+    def call(source, do_not_count_comment_lines = false)
       paragraphs = []
       ss = StringScanner.new(source)
-      line = i = 0
+      line = i = src_line = 0
 
       loop do
         comment_lines = []
         code_lines = []
 
-        i += skip_empty_lines(ss)
         # Multi line comments
         if has_mlc?
           while (ss.scan(mlcb_regex))
@@ -33,11 +32,11 @@ module Murdoc
               comment << fragment.sub(mlce_regex, '')
             end
 
+            ss.scan(/[ \t]*\n/) # skip trailing whitespace and a newline
             comment_lines << remove_common_space_prefix(comment)
           end
         end
 
-        i += skip_empty_lines(ss)
         # Single line comments
         if has_slc?
           while (ss.scan(slc_regex))
@@ -50,14 +49,18 @@ module Murdoc
         end
 
 
-        i += skip_empty_lines(ss)
         # Code
-        line = i
+        empty_leading_lines_count = skip_empty_lines(ss)
+        i += empty_leading_lines_count
+        src_line += empty_leading_lines_count
+
+        line = do_not_count_comment_lines ? src_line : i
         while (!comment_start?(ss) && !ss.eos?)
-          code = ss.scan(/^.*$/)
+          code = ss.scan(/^.*?$/)
           code << ss.getch.to_s
           code_lines << code
           i += 1
+          src_line += 1
         end
 
         code = post_process_code(code_lines.join(''))
@@ -77,7 +80,7 @@ module Murdoc
     protected
 
     def post_process_code(code)
-      code.strip
+      code.rstrip
     end
 
     def post_process_comments(comments)
