@@ -2,10 +2,11 @@
 
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'murdoc/version'
 
 Gem::Specification.new do |spec|
   spec.name = "murdoc"
-  spec.version = "0.1.13"
+  spec.version = Murdoc::VERSION
 
   spec.required_rubygems_version = Gem::Requirement.new(">= 0") if spec.respond_to? :required_rubygems_version=
   spec.require_paths = ["lib"]
