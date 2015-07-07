@@ -28,7 +28,6 @@ end
 option_parser.parse!
 
 annotator = Murdoc::Annotator.from_file(ARGV[0] || "/dev/stdin", source_type, do_not_count_comment_lines)
-pp annotator.paragraphs.map {|p| [p.source[0..10], p.starting_line] }
 prev_paragraph = nil
 annotator.paragraphs.each do |paragraph|
   if prev_paragraph
