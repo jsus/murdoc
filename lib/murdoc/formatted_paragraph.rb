@@ -22,7 +22,7 @@ module Murdoc
     end
 
     def formatted_source
-      @formatted_source ||= if pygments_installed? && highlight
+      @formatted_source ||= if pygments_installed? && highlight && source_type != :base
         IO.popen("pygmentize -l #{source_type} -O encoding=UTF8 -f html -O nowrap", "w+") do |pipe|
           pipe.puts source
           pipe.close_write
