@@ -14,6 +14,14 @@ p, h1, h2, h3, ol, li, ul, dt, dd, dl, .document, body {
   padding-top: 3em;
   background: #eaeaea;
   font-family: Helvetica; }
+  .document + .document {
+    padding-top: 3em;
+    margin-top: 2em;
+    border-top: 1.5em solid #ddd;
+    -moz-border-radius: 0 2px 2px 0;
+    -webkit-border-radius: 0 2px 2px 0;
+    border-radius:  0 2px 2px 0;
+  }
   .document:after {
     content: ".";
     font-size: 0.01em;
@@ -95,19 +103,21 @@ p:last-child {
 }
 
 label {
-  opacity: 0.8;
   font-size: 1em;
   float: right;
   position: relative;
   z-index: 20;
   margin-right: -18%;
   padding: 0 1.5%;
-  background: #333;
+  background: rgba(0,0,0, 0.6);
   -moz-border-radius: 2px 0 0 2px;
   -webkit-border-radius: 2px 0 0 2px;
   border-radius: 2px 0 0 2px;
   color: #fff;
   font-weight: normal;
+  font-family: "monaco", "Courier New", Courier, monospace, serif;
+  font-size:0.9em;
+  line-height: 1.5rem;
 }
 
 h1 {
@@ -183,12 +193,11 @@ figure {
     -webkit-border-radius: 0.2em;
     border-radius: 0.2em;
     list-style: none;
-    margin-left: -9.25%;}
+    margin-left: -10.75%;}
     figure > ol li {
-      opacity: 0.3;
-      background: #eaeaea;
+      background: rgba(230,230,230,0.7);
       padding: 0 3px 0 0;
-      color: #999;
+      color: #666;
       margin: 0;
       line-height: 1.5rem; }
     figure > ol li:first-child {
@@ -198,11 +207,9 @@ figure {
       border-bottom-left-radius: 0.2em;
       border-bottom-right-radius: 0.2em; }
     figure > ol li.new {
-      background: #98B72E;
-      opacity: 0.8; }
+      background: #98B72E;}
     figure > ol li.changed {
-      background: #FFBD40;
-      opacity: 0.8; }
+      background: #FFBD40; }
   figure > code {
     font-size: 1em;
     line-height: 1.5rem;
