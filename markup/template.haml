@@ -4,12 +4,13 @@
     %title Murdoc
     %style=stylesheet
   %body
-    - paragraphs.each do |p|
-      - unless p.annotation.empty?
-        %section= p.formatted_annotation
-      - unless p.source.empty?
-        %figure
-          %ol
-            - 1.upto(p.source.split("\n").size) do |i|
-              %li= i + p.starting_line
-          <code>#{p.formatted_source.gsub("\n", '&#x000A;')}</code>
+    .document{:class => annotated_file.source_type}
+      - annotated_file.formatted_paragraphs.each do |p|
+        - unless p.annotation.empty?
+          %section= p.formatted_annotation
+        - unless p.source.empty?
+          %figure
+            %ol
+              - 1.upto(p.source.split("\n").size) do |i|
+                %li= i + p.starting_line
+            <code>#{p.formatted_source.gsub("\n", '&#x000A;')}</code>

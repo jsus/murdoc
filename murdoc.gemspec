@@ -26,6 +26,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'kramdown', '~> 0.13'
   spec.add_dependency 'haml', '~> 3.0'
+  spec.add_development_dependency 'pry'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rdiscount', '~> 1.6.5' unless RUBY_PLATFORM =~ /java/

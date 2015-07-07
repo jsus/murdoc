@@ -9,7 +9,7 @@ option_parser = OptionParser.new do |opts|
   opts.banner = "murdoc <input file> <output html>"
 
   opts.on("--[no-]syntax-highlight", "Highlight syntax using pygments") do |h|
-    options[:highlight_source] = h
+    options[:highlight] = h
   end
 
   opts.on("-t", "--template [FILENAME]", "Use custom haml template for output") do |t|
