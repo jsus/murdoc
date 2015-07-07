@@ -18,19 +18,6 @@ module Murdoc
         code_lines = []
 
         i += skip_empty_lines(ss)
-
-        # Single line comments
-        if has_slc?
-          while (ss.scan(slc_regex))
-            comment = ''
-            comment << ss.scan(/.*?$/)
-            comment << ss.getch.to_s
-            comment_lines << comment
-            i += 1
-          end
-        end
-
-        i += skip_empty_lines(ss)
         # Multi line comments
         if has_mlc?
           while (ss.scan(mlcb_regex))
@@ -51,7 +38,19 @@ module Murdoc
         end
 
         i += skip_empty_lines(ss)
+        # Single line comments
+        if has_slc?
+          while (ss.scan(slc_regex))
+            comment = ''
+            comment << ss.scan(/.*?$/)
+            comment << ss.getch.to_s
+            comment_lines << comment
+            i += 1
+          end
+        end
 
+
+        i += skip_empty_lines(ss)
         # Code
         line = i
         while (!comment_start?(ss) && !ss.eos?)
