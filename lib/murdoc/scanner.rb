@@ -38,7 +38,7 @@ module Murdoc
 
             while (!ss.eos? && !ss.match?(/.*#{mlce_regex}/))
               i += 1
-              comment << ss.scan(/^.*$/)
+              comment << ss.scan(/.*?$/)
               comment << ss.getch.to_s
             end
 
