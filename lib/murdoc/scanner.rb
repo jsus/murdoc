@@ -14,10 +14,8 @@ module Murdoc
       line = i = 0
 
       loop do
-        line = i
         comment_lines = []
         code_lines = []
-
 
         i += skip_empty_lines(ss)
 
@@ -25,8 +23,7 @@ module Murdoc
         if has_slc?
           while (ss.scan(slc_regex))
             comment = ''
-            comment << ss.scan(/.*$/)
-            p ss.peek(5);
+            comment << ss.scan(/.*?$/)
             comment << ss.getch.to_s
             comment_lines << comment
             i += 1
@@ -105,8 +102,8 @@ module Murdoc
     def remove_common_space_prefix(str)
       lines = str.split("\n")
       # delete empty leading and trailing lines
-      lines.delete_at(0) while lines[0].empty?
-      lines.delete_at(-1) while lines[-1].empty?
+      lines.delete_at(0) while lines[0] && lines[0].empty?
+      lines.delete_at(-1) while lines[-1] && lines[-1].empty?
 
       prefix_lengths =  lines.map {|l| l.match(/^( *)/)[1].length }.reject(&:zero?)
       prefix = ' ' * (prefix_lengths.min || 0)
@@ -119,7 +116,7 @@ module Murdoc
 
     def slc_regex
       return @slc_regex unless @slc_regex.nil?
-      @slc_regex = has_slc? && /^\s*#{Regexp.escape(language.comment_symbols[:single_line])}/
+      @slc_regex = has_slc? && /^[ \t]*#{Regexp.escape(language.comment_symbols[:single_line])}/
     end
 
     def has_mlc?
@@ -129,7 +126,7 @@ module Murdoc
     end
 
     def mlcb_regex
-      has_mlc? && /^\s*#{Regexp.escape(language.comment_symbols[:multiline][:begin])}/
+      has_mlc? && /^[ \t]*#{Regexp.escape(language.comment_symbols[:multiline][:begin])}/
     end
 
     def mlce_regex

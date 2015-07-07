@@ -1,7 +1,7 @@
 require "haml"
 
 module Murdoc
-  class Formatter
+  class Renderer
     attr_accessor :template
 
     def initialize(template_or_filename)

@@ -11,10 +11,6 @@ describe Murdoc::Annotator do
       Murdoc::Annotator.new("# Hello", "ruby").source_type.should == :ruby
       Murdoc::Annotator.new("# Hello", :ruby).source_type.should == :ruby
     end
-
-    it "should set options from hash" do
-      Murdoc::Annotator.new("", "", :foo => :bar).options[:foo].should == :bar
-    end
   end
 
   describe ".from_file" do
@@ -73,12 +69,6 @@ describe Murdoc::Annotator do
         subject.paragraphs.count.should == 1
         subject.paragraphs[0].annotation.should == "Hello"
       end
-
-      it "should not remove more than one space" do
-        subject = described_class.new("#    Hello", :ruby)
-        subject.paragraphs.count.should == 1
-        subject.paragraphs[0].annotation.should == "    Hello"
-      end
     end
 
     context "for source with multi-line comments" do
@@ -103,6 +93,7 @@ describe Murdoc::Annotator do
     context "for comment without code" do
       let(:source) { "# Header\n\n\n# Comment\ndef body\nend" }
       it "should create a separate paragraph" do
+        p subject.paragraphs
         subject.paragraphs.count.should == 2
         subject.paragraphs[0].source.should == ""
         subject.paragraphs[0].annotation.should == "Header"
@@ -150,11 +141,5 @@ describe Murdoc::Annotator do
       subject = described_class.new("def hi\n\nend", :ruby)
       subject.paragraphs[0].source.should == "def hi\n\nend"
     end
-  end
-
-
-  describe "#annotated" do
-    let(:source) { "# this" }
-    subject { described_class.new(source, :ruby) }
   end
 end

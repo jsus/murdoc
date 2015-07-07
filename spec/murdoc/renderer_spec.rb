@@ -1,6 +1,6 @@
 require "spec_helper"
 require "tempfile"
-describe Murdoc::Formatter do
+describe Murdoc::Renderer do
   describe "#initialize" do
     it "should set template from given string" do
       described_class.new("%p Hello").template.should == "%p Hello"
@@ -19,7 +19,7 @@ describe Murdoc::Formatter do
     it "should render with haml" do
       described_class.new("%p Hello").render.should =~ %r{<p>Hello</p>}
     end
-    
+
     it "should send locals to haml" do
       described_class.new("%p= foo").render(:foo => 123).should =~ %r{<p>123</p>}
     end
