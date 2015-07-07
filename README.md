@@ -9,13 +9,13 @@ You may also want to see:
 * [Rocco](http://rtomayko.github.com/rocco/)
 
 Dependencies
-============
+------------
 
 * Haml
 * Either RDiscount (for MRI rubies) or Kramdown (for non-mri rubies)
 
 Example
-=======
+-------
 
 See example at [GH.pages](http://jsus.github.com/murdoc).
 
@@ -23,7 +23,7 @@ See also:
 * [example](http://jsus.github.com/murdoc/docs) of integration with [jsus](http://github.com/jsus/jsus)
 * [LSD documentation guides](https://github.com/lovelyscalabledrawings/lsd-guides/tree/gh-pages/grid)
 
-License and authorship
-======================
+License
+-------
 
 Public domain, see UNLICENSE file.

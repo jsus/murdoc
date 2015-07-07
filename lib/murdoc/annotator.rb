@@ -14,7 +14,11 @@ module Murdoc
       self.source_type = source_type
       self.language    = Languages.get(source_type)
       self.source      = source
-      self.paragraphs  = Scanner.new(language).call(source, do_not_count_comment_lines)
+      self.paragraphs  = if !language.annotation_only?
+        Scanner.new(language).call(source, do_not_count_comment_lines)
+      else
+        [Paragraph.new('', source, 0, nil)]
+      end
     end
 
 

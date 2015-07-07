@@ -122,28 +122,13 @@ label {
 
 h1 {
   font-size: 2em;
-}
-h1 + ul {
-  float: right;
-  width: 140%;
-  margin-right: -160%;
-  margin-top: -1.15rem;
-  height: 2rem;
-  line-height: 1.5rem;
+  margin: 1.5em 0 0.75em 0;
 }
 
-h1 + ul li {
-  display: inline;
-}
 
-h1 + ul li + li{
-  margin-left: 1em;
-}
-
-h2 {
-  font-size: 1em; }
 h2 {
   font-size: 1.5em;
+  margin: 1.5em 0 0.25em 0;
   font-weight: normal;}
 
 h1, h2, h3 {

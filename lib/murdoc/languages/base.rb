@@ -14,6 +14,10 @@ module Murdoc
         end
       end
 
+      def self.annotation_only?
+        false
+      end
+
       def self.extensions
         []
       end
