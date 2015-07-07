@@ -49,7 +49,10 @@ module Murdoc
 end
 
 require "murdoc/annotator"
+require "murdoc/scanner"
 require "murdoc/paragraph"
 require "murdoc/formatter"
-
-Dir["#{File.dirname(File.expand_path(__FILE__))}/murdoc/languages/*.rb"].each {|lang| require lang }
+require "murdoc/languages/base"
+require "murdoc/languages/html"
+require "murdoc/languages/javascript"
+require "murdoc/languages/ruby"
