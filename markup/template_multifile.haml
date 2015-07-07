@@ -7,11 +7,10 @@
     - annotated_files.each do |af|
       .document{:class => af.source_type}
         - af.formatted_paragraphs.each_with_index do |p, j|
-          - unless p.annotation.empty?
-            %section
-              - if j == 0
-                %label= af.filename
-              = p.formatted_annotation
+          %section
+            - if j == 0
+              %label= af.filename
+            = p.formatted_annotation
           - unless p.source.empty?
             %figure
               %ol
