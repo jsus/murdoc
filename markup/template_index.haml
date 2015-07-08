@@ -1,0 +1,20 @@
+!!!
+- reldir = current_directory == base_dir ? base_dir.basename : current_directory.relative_path_from(base_dir)
+%html
+  %head
+    %title Murdoc /  #{reldir}
+    %style= stylesheet
+  %body
+    .document.index
+      %section
+        %h2 #{reldir}
+        %ul
+          - if has_parent
+            %li
+              %a{:href => "../index.html"} ..
+          - directories.each do |dir|
+            %li
+              %a{:href => "#{dir.basename}/index.html"}= dir.basename
+          - files.each do |file|
+            %li
+              %a{:href => "#{file.basename}.html"}= file.basename
