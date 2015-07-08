@@ -6,6 +6,9 @@
   %body
     - annotated_files.each do |af|
       .document{:class => af.source_type}
+        /
+          metadata:
+          = af.metadata.inspect
         - af.formatted_paragraphs.each_with_index do |p, j|
           %section
             - if j == 0

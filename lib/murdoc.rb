@@ -10,12 +10,13 @@
 
 
 module Murdoc
-  AnnotatedFile = Struct.new(:filename, :source, :source_type, :paragraphs, :formatted_paragraphs)
+  AnnotatedFile = Struct.new(:filename, :metadata, :source, :source_type, :paragraphs, :formatted_paragraphs)
 
   def self.annotate(filename, highlight = true, do_not_count_comment_lines = false)
     filename = File.expand_path(filename)
     annotator = Annotator.from_file(filename, nil, do_not_count_comment_lines)
     AnnotatedFile.new(filename,
+        annotator.metadata,
         annotator.source,
         annotator.source_type,
         annotator.paragraphs,

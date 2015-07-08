@@ -1,7 +1,9 @@
+require 'yaml'
+
 module Murdoc
   class Annotator
     attr_accessor :source
-
+    attr_accessor :metadata
     # Attribute accessor containing the resulting paragraphs
     attr_accessor :paragraphs
 
@@ -11,13 +13,13 @@ module Murdoc
     # `source` string contains annotated source code
     # `source_type` is one of supported source types (currently `[:ruby, :javascript]`)
     def initialize(source, source_type, do_not_count_comment_lines = false)
+      self.source, self.metadata = extract_metadata(source)
       self.source_type = source_type
-      self.language    = Languages.get(source_type)
-      self.source      = source
-      self.paragraphs  = if !language.annotation_only?
-        Scanner.new(language).call(source, do_not_count_comment_lines)
+      self.language = Languages.get(source_type)
+      self.paragraphs = if !language.annotation_only?
+        Scanner.new(language).call(self.source, do_not_count_comment_lines)
       else
-        [Paragraph.new('', source, 0, nil)]
+        [Paragraph.new('', self.source, 0, nil)]
       end
     end
 
@@ -28,6 +30,14 @@ module Murdoc
       self.new(File.read(filename),
                source_type || Languages.detect(filename),
                do_not_count_comment_lines)
+    end
+
+    def extract_metadata(source)
+      if source =~ /\A---\n(.*?)\n---\n(.*)\z/m
+        [$2, YAML.load($1)]
+      else
+        [source, {}]
+      end
     end
 
     def source_type

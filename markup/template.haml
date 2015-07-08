@@ -5,6 +5,9 @@
     %style=stylesheet
   %body
     .document{:class => annotated_file.source_type}
+      /
+        metadata:
+        = annotated_file.metadata.inspect
       - annotated_file.formatted_paragraphs.each do |p|
         - unless p.annotation.empty?
           %section= p.formatted_annotation

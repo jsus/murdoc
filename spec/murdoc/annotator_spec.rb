@@ -124,4 +124,20 @@ describe Murdoc::Annotator do
       subject.paragraphs[0].source.should == "def hi\n\nend"
     end
   end
+
+  describe "metadata extraction" do
+    subject { described_class.new("---\nfoo: 'bar'\nbaz: 'foobar'\n---\nhello, world!", nil) }
+    it "extracts and parses yaml blocks in the beginning of the file" do
+      subject.metadata.should == {
+        'foo' => 'bar',
+        'baz' => 'foobar'
+      }
+    end
+
+    it "doesn't count metadata block in line numbering" do
+      paragraph = subject.paragraphs[0]
+      paragraph.starting_line.should == 0
+      paragraph.source.should == 'hello, world!'
+    end
+  end
 end
