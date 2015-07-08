@@ -10,8 +10,13 @@
 
 
 module Murdoc
+  # `AnnotatedFile` is a struct we pass into our templates
   AnnotatedFile = Struct.new(:filename, :metadata, :source, :source_type, :paragraphs, :formatted_paragraphs)
 
+  # `Murdoc.annotate` arguments are gathered from CLI utility
+  #
+  # `highlight` regulates syntax highlighting and `do_not_count_comment_lines` flag
+  # toggles counting comment lines towards line numbering in the output.
   def self.annotate(filename, highlight = true, do_not_count_comment_lines = false)
     filename = File.expand_path(filename)
     annotator = Annotator.from_file(filename, nil, do_not_count_comment_lines)
@@ -23,6 +28,7 @@ module Murdoc
         annotator.paragraphs.map {|p| FormattedParagraph.new(p, highlight) })
   end
 
+  # Generate a single file story
   def self.generate_from_file(input, output, options = {})
     options = default_options.merge(options)
     annotator = Annotator.from_file(input, nil)
@@ -33,6 +39,7 @@ module Murdoc
     end
   end
 
+  # ... or use multiple files
   def self.generate_from_multiple_files(input_files, output, options = {})
     options = default_options_for_multiple_files.merge(options)
     annotated_files = input_files.map {|fn| annotate(fn, options[:highlight], options[:do_not_count_comment_lines]) }
@@ -42,6 +49,8 @@ module Murdoc
     end
   end
 
+
+  # Rest is self-explanatory
   def self.default_options
     @options ||= {
       template:   "#{markup_dir}/template.haml",

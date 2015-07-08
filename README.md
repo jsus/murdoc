@@ -14,13 +14,15 @@ Example
 Demo at [GH.pages](http://jsus.github.io/murdoc).
 
 See also:
+
 * [example](http://jsus.github.io/murdoc/docs) of integration with [jsus](http://github.com/jsus/jsus)
 
 Usage
 -----
 
 * `gem install murdoc`
-* `murdoc <input file> <output html file>`
+* `murdoc <input file> <output html file>` **or**
+* `murdoc <input file 1> <input file 2> ... <output html file>`
 
 
 Dependencies
