@@ -33,8 +33,8 @@ module Murdoc
     end
 
     def extract_metadata(source)
-      if source =~ /\A---\n(.*?)\n---\n(.*)\z/m
-        [$2, YAML.load($1)]
+      if source =~ /\A---\n(.*?)\n---\n(.*)\z/m && (metadata = try_load_yaml($1))
+        [$2, metadata]
       else
         [source, {}]
       end
@@ -46,6 +46,12 @@ module Murdoc
 
     def source_type=(source_type)
       @source_type = (source_type || :base).to_sym
+    end
+
+    def try_load_yaml(yaml)
+      YAML.load(yaml)
+    rescue => e
+      nil
     end
   end
 end

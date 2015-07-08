@@ -139,5 +139,10 @@ describe Murdoc::Annotator do
       paragraph.starting_line.should == 0
       paragraph.source.should == 'hello, world!'
     end
+
+    it "doesn't raise on invalid yaml" do
+      subject = described_class.new("---\n{\n---\nfoo bar", :ruby)
+      subject.metadata.should == {}
+    end
   end
 end
