@@ -1,0 +1,48 @@
+#!/usr/bin/env ruby
+require "optparse"
+$: << File.expand_path("../../lib/", __FILE__)
+require "murdoc"
+
+options = {}
+
+option_parser = OptionParser.new do |opts|
+  opts.banner = "#{$0} <input dir> <output dir>"
+
+  opts.on('--index-template [FILENAME]', 'template to use for index files') do |template|
+    options[:index_template] = template
+  end
+
+  opts.on('--index-stylesheet [FILENAME]', 'stylesheet to use for index files') do |stylesheet|
+    options[:index_stylesheet] = stylesheet
+  end
+
+  opts.on('--template [FILENAME]', 'template to use for other files') do |template|
+    options[:template] = template
+  end
+
+  opts.on('--stylesheet [FILENAME]', 'stylesheet to use for other files') do |stylesheet|
+    options[:stylesheet] = stylesheet
+  end
+
+  opts.on("--[no-]syntax-highlight", "Highlight syntax using pygments") do |h|
+    options[:highlight] = h
+  end
+
+  opts.on("--do-not-count-comment-lines") do |dncl|
+    options[:do_not_count_comment_lines] = dncl
+  end
+
+  opts.on_tail("-h", "--help", "Show this message") do
+    puts opts
+    exit
+  end
+end
+
+option_parser.parse!
+
+if ARGV.size != 2
+  puts option_parser
+  exit(1)
+else
+  Murdoc.generate_tree(ARGV[0], ARGV[1], false, nil, options)
+end
