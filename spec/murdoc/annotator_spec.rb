@@ -99,23 +99,6 @@ describe Murdoc::Annotator do
       end
     end
 
-    context "for commented code" do
-      let(:source) { "# :code:\n# def hello\n# end\n\n\# Comment\ndef hi\nend" }
-      it "should not create paragraphs" do
-        subject.paragraphs.count.should == 1
-        subject.paragraphs[0].source.should == "def hi\nend"
-        subject.paragraphs[0].annotation.should == "Comment"
-      end
-
-      it "should not ignore code blocks" do
-        source = "# :code:\n# def hi\n# end\n\ndef hallo\nend"
-        subject = described_class.new(source, :ruby)
-        subject.paragraphs.count.should == 1
-        subject.paragraphs[0].annotation.to_s.should == ""
-        subject.paragraphs[0].source.should == "def hallo\nend"
-      end
-    end
-
     it "should not choke on edge cases" do
       expect {
         described_class.new("", :ruby)
