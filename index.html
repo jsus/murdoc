@@ -2,626 +2,456 @@
 <html>
   <head>
     <title>Murdoc</title>
-    <style>
-      html, body {
-        min-height: 100%;
-        line-height: 1.5; }
-      
-      p, h1, h2, h3, ol, li, ul, dt, dd, dl, body, html {
-        padding: 0;
-        margin: 0; }
-      
-      p + br {
-        display: none;
-      }
-      
-      body {
-        width: 40%;
-        padding-left: 2.5%;
-        padding-right: 2.5%;
-        background: #BFA730;
-        font-family: Helvetica; }
-        body:after {
-          content: ".";
-          font-size: 0.01em;
-          line-height: 0.01em;
-          display: block;
-          clear: both; }
-      
-      figure#relations h2 ~ h2 {
-        margin-top: 1.5em; }
-      
-      body > * {
-        padding-left: 6%;
-        padding-right: 6%; }
-      
-      html {
-        background: #FFC873; }
-      
-      header {
-        background: rgba(255, 255, 255, 0.1);
-        display: block; }
-        header dl {
-          margin-top: 2em;
-          font-size: 0.75em;
-          line-height: 2em;
-          overflow: hidden; }
-          header dl dt {
-            width: 5em;
-            font-weight: bold; }
-      
-      section {
-        float: left;
-        clear: both;
-        width: 85%; }
-      
-      section iframe {
-        width: 260%;
-        height: 250px;
-        border: 1px solid #333;
-        margin-bottom: 1em;
-        margin-top: 1.5em;
-      }
-      
-      section iframe.high {
-        height: 300px;
-      }
-      
-      
-      p, dl, li {
-        color: #665504;
-        font-weight: normal; }
-      
-      a {
-        color: #BF7330; }
-        a:hover {
-          color: #FF7800; }
-        a:visited {
-          color: #A64E00; }
-      
-      p + p, h2 + p, h1 + p, ul + p, ol + p{
-        margin-top: 1.5em; }
-      
-      p code {
-        background-color: rgba(200, 220, 200, 0.2);
-        display: inline-block;
-        -moz-border-radius: 4px;
-        -webkit-border-radius: 4px;
-        border-radius: 4px;
-        padding: 0 0.2em;
-        font-family: "monaco", "Courier New", Courier, monospace, serif;
-        font-size:0.8em;
-        line-height:1.5em;
-      }
-      p:last-child {
-        margin-bottom: 1.5em;
-      }
-      
-      h1 {
-        font-size: 2em; }
-      
-      h1 + ul {
-        float: right;
-        width: 140%;
-        margin-right: -160%;
-        margin-top: -2em;
-      }
-      
-      h1 + ul li {
-        display: inline;
-      }
-      
-      h1 + ul li + li{
-        margin-left: 1em;
-      }
-      
-      h2 {
-        font-size: 1em; }
-      
-      h1, h2, h3 {
-        color: #A41717; }
-      
-      ol, li {
-        margin-left: 1em; }
-      
-      body > p, body > h1 {
-        clear: left; }
-      
-      body > h2 {
-        clear: both;
-      }
-      
-      header {
-        padding-bottom: 1em;
-        overflow: hidden; }
-      
-      
-      dl {
-        clear: left; }
-        dl dt, dl dd {
-          float: left; }
-        dl dt {
-          clear: left; }
-        dl dd {
-          margin-left: 1em; }
-      
-      figure {
-        display: block;
-        float: right;
-        margin-right: -135%;
-        width: 122.75%;
-        clear: right;
-        margin-top: -0.1em;
-        padding: 0 0 3em; }
-        figure > ol {
-          font-family: 0.75em/2.25em Arial;
-          text-shadow: 0 1px 0 #eee;
-          -moz-text-shadow: 0 1px 0 #eee;
-          -webkit-text-shadow: 0 1px 0 #eee;
-          box-shadow: 0 1px 2px #333;
-          -moz-box-shadow: 0 1px 2px #333;
-          -webkit-box-shadow: 0 1px 2px #333;
-          width: 7.5%;
-          text-align: right;
-          float: left;
-          -moz-border-radius: 0.2em;
-          -webkit-border-radius: 0.2em;
-          border-radius: 0.2em;
-          border: 1px solid rgba(0, 0, 0, 0.5);
-          list-style: none;
-          margin-left: -9.25%; }
-          figure > ol li {
-            background: rgba(125, 125, 125, 0.4);
-            margin: 0; }
-          figure > ol li:first-child {
-            border-top-left-radius: 0.2em;
-            border-top-right-radius: 0.2em; }
-          figure > ol li:last-child {
-            border-bottom-left-radius: 0.2em;
-            border-bottom-right-radius: 0.2em; }
-          figure > ol li.new {
-            background: #98B72E; }
-          figure > ol li.changed {
-            background: #FFBD40; }
-        figure > code {
-          font-size: 1em;
-          line-height: 1.5em;
-          font-family: "monaco", "Courier New", Courier, monospace, serif;
-          white-space: pre; }
-      
-      body .hll {
-        background-color: #ffffcc; }
-      body .c {
-        color: #408080;
-        font-style: italic; }
-      body .err {
-        border: 1px solid #FF0000; }
-      body .k {
-        color: #954121; }
-      body .o {
-        color: #666666; }
-      body .cm {
-        color: #408080;
-        font-style: italic; }
-      body .cp {
-        color: #BC7A00; }
-      body .c1, body .cs {
-        color: #408080;
-        font-style: italic; }
-      body .gd {
-        color: #A00000; }
-      body .ge {
-        font-style: italic; }
-      body .gr {
-        color: #FF0000; }
-      body .gh {
-        color: #000080;
-        font-weight: bold; }
-      body .gi {
-        color: #00A000; }
-      body .go {
-        color: #808080; }
-      body .gp {
-        color: #000080;
-        font-weight: bold; }
-      body .gs {
-        font-weight: bold; }
-      body .gu {
-        color: #800080;
-        font-weight: bold; }
-      body .gt {
-        color: #0040D0; }
-      body .kc {
-        color: #954121; }
-      body .kd, body .kn {
-        color: #954121;
-        font-weight: bold; }
-      body .kp {
-        color: #954121; }
-      body .kr {
-        color: #954121;
-        font-weight: bold; }
-      body .kt {
-        color: #B00040; }
-      body .m {
-        color: #666666; }
-      body .s {
-        color: #219161; }
-      body .na {
-        color: #7D9029; }
-      body .nb {
-        color: #954121; }
-      body .nc {
-        color: #0000FF;
-        font-weight: bold; }
-      body .no {
-        color: #880000; }
-      body .nd {
-        color: #AA22FF; }
-      body .ni {
-        color: #999999;
-        font-weight: bold; }
-      body .ne {
-        color: #D2413A;
-        font-weight: bold; }
-      body .nf {
-        color: #0000FF; }
-      body .nl {
-        color: #A0A000; }
-      body .nn {
-        color: #0000FF;
-        font-weight: bold; }
-      body .nt {
-        color: #954121;
-        font-weight: bold; }
-      body .nv {
-        color: #19469D; }
-      body .ow {
-        color: #AA22FF;
-        font-weight: bold; }
-      body .w {
-        color: #bbbbbb; }
-      body .mf, body .mh, body .mi, body .mo {
-        color: #666666; }
-      body .sb, body .sc {
-        color: #219161; }
-      body .sd {
-        color: #219161;
-        font-style: italic; }
-      body .s2 {
-        color: #219161; }
-      body .se {
-        color: #BB6622;
-        font-weight: bold; }
-      body .sh {
-        color: #219161; }
-      body .si {
-        color: #BB6688;
-        font-weight: bold; }
-      body .sx {
-        color: #954121; }
-      body .sr {
-        color: #BB6688; }
-      body .s1 {
-        color: #219161; }
-      body .ss {
-        color: #19469D; }
-      body .bp {
-        color: #954121; }
-      body .vc, body .vg, body .vi {
-        color: #19469D; }
-      body .il {
-        color: #666666; }
-    </style>
+    <style>body, .document, html {
+  min-height: 100%;
+  line-height: 1.5; }
+
+p, h1, h2, h3, ol, li, ul, dt, dd, dl, .document, body {
+  padding: 0;
+  margin: 0; }
+
+
+.document {
+  width: 40%;
+  padding-left: 2.5%;
+  padding-right: 2.5%;
+  padding-top: 3em;
+  background: #eaeaea;
+  font-family: Helvetica; }
+  .document + .document {
+    padding-top: 3em;
+    margin-top: 2em;
+    border-top: 1.5em solid #ddd;
+    -moz-border-radius: 0 2px 2px 0;
+    -webkit-border-radius: 0 2px 2px 0;
+    border-radius:  0 2px 2px 0;
+  }
+  .document:after {
+    content: ".";
+    font-size: 0.01em;
+    line-height: 0.01em;
+    display: block;
+    clear: both; }
+
+figure#relations h2 ~ h2 {
+  margin-top: 1.5em; }
+
+h2,h3,h1,p {
+  line-height: 1.5rem;
+}
+
+.document > * {
+  padding-left: 6%;
+  padding-right: 6%; }
+
+body {
+  background: #333; }
+
+header {
+  background: rgba(255, 255, 255, 0.1);
+  display: block; }
+  header dl {
+    margin-top: 2em;
+    font-size: 0.75em;
+    line-height: 2em;
+    overflow: hidden; }
+    header dl dt {
+      width: 5em;
+      font-weight: bold; }
+
+section {
+  float: left;
+  clear: both;
+  width: 85%; }
+
+section iframe {
+  width: 260%;
+  height: 250px;
+  border: 1px solid #333;
+  margin-bottom: 1em;
+  margin-top: 1.5em;
+}
+
+section iframe.high {
+  height: 300px;
+}
+
+
+p, dl, li {
+  color: #665504;
+  font-weight: normal; }
+
+a {
+  color: #BF7330; }
+  a:hover {
+    color: #FF7800; }
+  a:visited {
+    color: #A64E00; }
+
+p + p, h2 + p, h1 + p, ul + p, ol + p, h1 + ul, h2 + ul, ul + h1, ul + h2, p + h1, p + h2 {
+  margin-top: 1.5em; }
+
+p code {
+  background-color: rgba(200, 220, 200, 0.2);
+  display: inline-block;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  padding: 0 0.2em;
+  font-family: "monaco", "Courier New", Courier, monospace, serif;
+  font-size:0.8em;
+  line-height:1.5em;
+}
+p:last-child {
+  margin-bottom: 1.5em;
+}
+
+label {
+  font-size: 1em;
+  float: right;
+  position: relative;
+  z-index: 20;
+  margin-right: -18%;
+  padding: 0 1.5%;
+  background: rgba(0,0,0, 0.6);
+  -moz-border-radius: 2px 0 0 2px;
+  -webkit-border-radius: 2px 0 0 2px;
+  border-radius: 2px 0 0 2px;
+  color: #fff;
+  font-weight: normal;
+  font-family: "monaco", "Courier New", Courier, monospace, serif;
+  font-size:0.9em;
+  line-height: 1.5rem;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+
+h2 {
+  font-size: 1.5em;
+  font-weight: normal;}
+
+h1, h2, h3 {
+  color: #444; }
+
+h3 {
+  font-family: Times, serif;
+  text-transform: uppercase;
+  font-weight: normal;
+
+}
+
+ol, li {
+  margin-left: 1em; }
+
+.document > p, .document > h1, .document > h2 {
+  clear: left; }
+
+header {
+  padding-bottom: 1em;
+  overflow: hidden; }
+
+
+dl {
+  clear: left; }
+  dl dt, dl dd {
+    float: left; }
+  dl dt {
+    clear: left; }
+  dl dd {
+    margin-left: 1em; }
+
+figure {
+  display: block;
+  float: right;
+  margin: 0;
+  margin-right: -135%;
+  width: 114.75%;
+  clear: right;
+  padding: 0 0 3em;}
+  figure > ol {
+    font-family: 0.75em/2.25em Arial;
+    width: 7.5%;
+    text-align: right;
+    float: left;
+    -moz-border-radius: 0.2em;
+    -webkit-border-radius: 0.2em;
+    border-radius: 0.2em;
+    list-style: none;
+    margin-left: -10.75%;}
+    figure > ol li {
+      background: rgba(230,230,230,0.7);
+      padding: 0 3px 0 0;
+      color: #666;
+      margin: 0;
+      line-height: 1.5rem; }
+    figure > ol li:first-child {
+      border-top-left-radius: 0.2em;
+      border-top-right-radius: 0.2em; }
+    figure > ol li:last-child {
+      border-bottom-left-radius: 0.2em;
+      border-bottom-right-radius: 0.2em; }
+    figure > ol li.new {
+      background: #98B72E;}
+    figure > ol li.changed {
+      background: #FFBD40; }
+  figure > code {
+    font-size: 1em;
+    line-height: 1.5rem;
+    font-family: "monaco", "Courier New", Courier, monospace, serif;
+    white-space: pre;
+    color: #fff;}
+
+.codehilite code, .codehilite pre{color:#fdce93;background-color:#3f3f3f}
+.hll{background-color:#222}
+.c{color:#7f9f7f}
+.err{color:#e37170;background-color:#3d3535}
+.g{color:#7f9f7f}
+.k{color:#f0dfaf}
+.l{color:#ccc}
+.n{color:#dcdccc}
+.o{color:#f0efd0}
+.x{color:#ccc}
+.p{color:#41706f}
+.cm{color:#7f9f7f}
+.cp{color:#7f9f7f}
+.c1{color:#7f9f7f}
+.cs{color:#cd0000;font-weight:bold}
+.gd{color:#cd0000}
+.ge{color:#ccc;font-style:italic}
+.gr{color:red}
+.gh{color:#dcdccc;font-weight:bold}
+.gi{color:#00cd00}
+.go{color:gray}
+.gp{color:#dcdccc;font-weight:bold}
+.gs{color:#ccc;font-weight:bold}
+.gu{color:purple;font-weight:bold}
+.gt{color:#0040D0}
+.kc{color:#dca3a3}
+.kd{color:#ffff86}
+.kn{color:#dfaf8f;font-weight:bold}
+.kp{color:#cdcf99}
+.kr{color:#cdcd00}
+.kt{color:#00cd00}
+.ld{color:#cc9393}
+.m{color:#8cd0d3}
+.s{color:#cc9393}
+.na{color:#9ac39f}
+.nb{color:#efef8f}
+.nc{color:#efef8f}
+.no{color:#ccc}
+.nd{color:#ccc}
+.ni{color:#c28182}
+.ne{color:#c3bf9f;font-weight:bold}
+.nf{color:#efef8f}
+.nl{color:#ccc}
+.nn{color:#8fbede}
+.nx{color:#ccc}
+.py{color:#ccc}
+.nt{color:#9ac39f}
+.nv{color:#dcdccc}
+.ow{color:#f0efd0}
+.w{color:#ccc}
+.mf{color:#8cd0d3}
+.mh{color:#8cd0d3}
+.mi{color:#8cd0d3}
+.mo{color:#8cd0d3}
+.sb{color:#cc9393}
+.sc{color:#cc9393}
+.sd{color:#cc9393}
+.s2{color:#cc9393}
+.se{color:#cc9393}
+.sh{color:#cc9393}
+.si{color:#cc9393}
+.sx{color:#cc9393}
+.sr{color:#cc9393}
+.s1{color:#cc9393}
+.ss{color:#cc9393}
+.bp{color:#efef8f}
+.vc{color:#efef8f}
+.vg{color:#dcdccc}
+.vi{color:#ffffc7}
+.il{color:#8cd0d3}</style>
   </head>
   <body>
-    <h2>lib/murdoc.rb</h2>
-    <section>
-      <p>Murdoc is <em>yet another</em> Doccu-like documentation generator.
-      Murdoc reads ruby source files and produces annotated html documentation.</p>
-      
-      <p>See also: <a href="%22http://jashkenas.github.com/docco/%22">Docco</a>, <a href="%22http://rtomayko.github.com/rocco%22">Rocco</a></p>
-    </section>
-    <figure>
-      <ol>
-        <li>12</li>
-        <li>13</li>
-        <li>14</li>
-        <li>15</li>
-        <li>16</li>
-        <li>17</li>
-        <li>18</li>
-        <li>19</li>
-        <li>20</li>
-        <li>21</li>
-        <li>22</li>
-        <li>23</li>
-        <li>24</li>
-        <li>25</li>
-        <li>26</li>
-        <li>27</li>
-        <li>28</li>
-        <li>29</li>
-        <li>30</li>
-        <li>31</li>
-        <li>32</li>
-        <li>33</li>
-        <li>34</li>
-        <li>35</li>
-        <li>36</li>
-        <li>37</li>
-        <li>38</li>
-        <li>39</li>
-        <li>40</li>
-        <li>41</li>
-        <li>42</li>
-        <li>43</li>
-        <li>44</li>
-        <li>45</li>
-        <li>46</li>
-        <li>47</li>
-        <li>48</li>
-        <li>49</li>
-        <li>50</li>
-        <li>51</li>
-        <li>52</li>
-        <li>53</li>
-        <li>54</li>
-        <li>55</li>
-      </ol>
-      <code><span class="k">module</span> <span class="nn">Murdoc</span>&#x000A;  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">generate_from_file</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{})</span>&#x000A;    <span class="n">options</span> <span class="o">=</span> <span class="n">default_options</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>&#x000A;    <span class="n">annotator</span> <span class="o">=</span> <span class="no">Annotator</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>&#x000A;    <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="s2">&quot;w+&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span>&#x000A;      <span class="n">f</span><span class="o">.</span><span class="n">puts</span> <span class="no">Formatter</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">options</span><span class="o">[</span><span class="ss">:template</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="ss">:paragraphs</span> <span class="o">=&gt;</span> <span class="n">annotator</span><span class="o">.</span><span class="n">paragraphs</span><span class="p">,</span>&#x000A;                                                      <span class="ss">:stylesheet</span> <span class="o">=&gt;</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">options</span><span class="o">[</span><span class="ss">:stylesheet</span><span class="o">]</span><span class="p">))</span>&#x000A;    <span class="k">end</span>&#x000A;  <span class="k">end</span>&#x000A;&#x000A;  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">generate_from_multiple_files</span><span class="p">(</span><span class="n">input_files</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{})</span>&#x000A;    <span class="n">options</span> <span class="o">=</span> <span class="n">default_options_for_multiple_files</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>&#x000A;    <span class="n">annotators</span> <span class="o">=</span> <span class="n">input_files</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span><span class="o">|</span><span class="n">fn</span><span class="o">|</span> <span class="no">Annotator</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span> <span class="p">}</span>&#x000A;    <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="s2">&quot;w+&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span>&#x000A;      <span class="n">f</span><span class="o">.</span><span class="n">puts</span> <span class="no">Formatter</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">options</span><span class="o">[</span><span class="ss">:template</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="ss">:annotators</span> <span class="o">=&gt;</span> <span class="n">annotators</span><span class="p">,</span>&#x000A;                                                      <span class="ss">:filenames</span> <span class="o">=&gt;</span> <span class="n">input_files</span><span class="p">,</span>&#x000A;                                                      <span class="ss">:stylesheet</span> <span class="o">=&gt;</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">options</span><span class="o">[</span><span class="ss">:stylesheet</span><span class="o">]</span><span class="p">))</span>&#x000A;    <span class="k">end</span>&#x000A;  <span class="k">end</span>&#x000A;&#x000A;  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">default_options</span>&#x000A;    <span class="vc">@@options</span> <span class="o">||=</span> <span class="p">{</span>&#x000A;        <span class="ss">:template</span> <span class="o">=&gt;</span>   <span class="s2">&quot;</span><span class="si">#{</span><span class="n">markup_dir</span><span class="si">}</span><span class="s2">/template.haml&quot;</span><span class="p">,</span>&#x000A;        <span class="ss">:stylesheet</span> <span class="o">=&gt;</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">markup_dir</span><span class="si">}</span><span class="s2">/stylesheet.css&quot;</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="k">end</span>&#x000A;&#x000A;  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">default_options_for_multiple_files</span>&#x000A;    <span class="vc">@@options</span> <span class="o">||=</span> <span class="p">{</span>&#x000A;        <span class="ss">:template</span> <span class="o">=&gt;</span>   <span class="s2">&quot;</span><span class="si">#{</span><span class="n">markup_dir</span><span class="si">}</span><span class="s2">/template_multifile.haml&quot;</span><span class="p">,</span>&#x000A;        <span class="ss">:stylesheet</span> <span class="o">=&gt;</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">markup_dir</span><span class="si">}</span><span class="s2">/stylesheet.css&quot;</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="k">end</span>&#x000A;&#x000A;  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">markup_dir</span>&#x000A;    <span class="no">File</span><span class="o">.</span><span class="n">expand_path</span><span class="p">(</span><span class="s2">&quot;../..&quot;</span><span class="p">,</span> <span class="bp">__FILE__</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot;/markup&quot;</span>&#x000A;  <span class="k">end</span>&#x000A;<span class="k">end</span>&#x000A;&#x000A;<span class="nb">require</span> <span class="s2">&quot;murdoc/annotator&quot;</span>&#x000A;<span class="nb">require</span> <span class="s2">&quot;murdoc/paragraph&quot;</span>&#x000A;<span class="nb">require</span> <span class="s2">&quot;murdoc/formatter&quot;</span>&#x000A;&#x000A;<span class="no">Dir</span><span class="o">[</span><span class="s2">&quot;</span><span class="si">#{</span><span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">expand_path</span><span class="p">(</span><span class="bp">__FILE__</span><span class="p">))</span><span class="si">}</span><span class="s2">/murdoc/languages/*.rb&quot;</span><span class="o">].</span><span class="n">each</span> <span class="p">{</span><span class="o">|</span><span class="n">lang</span><span class="o">|</span> <span class="nb">require</span> <span class="n">lang</span> <span class="p">}</span>&#x000A;</code>
-    </figure>
-    <h2>lib/murdoc/annotator.rb</h2>
-    <section>
-      <p>Annotator class does all the main job: parses out comments
-      and returns annotated code</p>
-    </section>
-    <section><p>Main module</p></section>
-    <figure>
-      <ol>
-        <li>6</li>
-        <li>7</li>
-      </ol>
-      <code><span class="k">module</span> <span class="nn">Murdoc</span>&#x000A;  <span class="k">class</span> <span class="nc">Annotator</span>&#x000A;</code>
-    </figure>
-    <section><p>Attribute accessor containing the resulting paragraphs</p></section>
-    <figure>
-      <ol>
-        <li>9</li>
-      </ol>
-      <code>    <span class="kp">attr_accessor</span> <span class="ss">:paragraphs</span>&#x000A;</code>
-    </figure>
-    <section>
-      <p>Options
-      Available options:
-         <code>:highlight_source</code> &mdash; highlights source syntax using pygments (default: true)</p>
-    </section>
-    <figure>
-      <ol>
-        <li>14</li>
-        <li>15</li>
-        <li>16</li>
-        <li>17</li>
-        <li>18</li>
-        <li>19</li>
-        <li>20</li>
-      </ol>
-      <code>    <span class="kp">attr_accessor</span> <span class="ss">:options</span>&#x000A;&#x000A;    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">default_options</span>&#x000A;      <span class="p">{</span>&#x000A;          <span class="ss">:highlight_source</span> <span class="o">=&gt;</span> <span class="kp">true</span>&#x000A;      <span class="p">}</span>&#x000A;    <span class="k">end</span>&#x000A;</code>
-    </figure>
-    <section>
-      <p><code>source</code> string contains annotated source code
-      <code>source_type</code> is one of supported source types (currently <code>[:ruby, :javascript]</code>)</p>
-    </section>
-    <figure>
-      <ol>
-        <li>25</li>
-        <li>26</li>
-        <li>27</li>
-        <li>28</li>
-        <li>29</li>
-      </ol>
-      <code>    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">source_type</span><span class="p">,</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{})</span>&#x000A;      <span class="nb">self</span><span class="o">.</span><span class="n">source_type</span> <span class="o">=</span> <span class="n">source_type</span>&#x000A;      <span class="nb">self</span><span class="o">.</span><span class="n">options</span>     <span class="o">=</span> <span class="nb">self</span><span class="o">.</span><span class="n">class</span><span class="o">.</span><span class="n">default_options</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>&#x000A;      <span class="nb">self</span><span class="o">.</span><span class="n">source</span>      <span class="o">=</span> <span class="n">source</span>&#x000A;    <span class="k">end</span>&#x000A;</code>
-    </figure>
-    <section>
-      <p>You may also initialize annotator from file, it will even try to detect the
-      source type from extension.</p>
-    </section>
-    <figure>
-      <ol>
-        <li>34</li>
-        <li>35</li>
-        <li>36</li>
-        <li>37</li>
-        <li>38</li>
-        <li>39</li>
-        <li>40</li>
-        <li>41</li>
-        <li>42</li>
-        <li>43</li>
-        <li>44</li>
-        <li>45</li>
-        <li>46</li>
-      </ol>
-      <code>    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">from_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">source_type</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">,</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{})</span>&#x000A;      <span class="nb">self</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">),</span>&#x000A;               <span class="n">source_type</span> <span class="o">||</span> <span class="n">detect_source_type_from_filename</span><span class="p">(</span><span class="n">filename</span><span class="p">),</span>&#x000A;               <span class="n">options</span><span class="p">)</span>&#x000A;    <span class="k">end</span>&#x000A;&#x000A;    <span class="k">def</span> <span class="nf">source_type</span>&#x000A;      <span class="vi">@source_type</span>&#x000A;    <span class="k">end</span>&#x000A;&#x000A;    <span class="k">def</span> <span class="nf">source_type</span><span class="o">=</span><span class="p">(</span><span class="n">source_type</span><span class="p">)</span>&#x000A;      <span class="vi">@source_type</span> <span class="o">=</span> <span class="n">source_type</span><span class="o">.</span><span class="n">to_s</span>&#x000A;    <span class="k">end</span>&#x000A;</code>
-    </figure>
-    <section><p>Big and hairy code parser</p></section>
-    <figure>
-      <ol>
-        <li>49</li>
-        <li>50</li>
-        <li>51</li>
-        <li>52</li>
-      </ol>
-      <code>    <span class="k">def</span> <span class="nf">source</span><span class="o">=</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>&#x000A;      <span class="vi">@source</span> <span class="o">=</span> <span class="n">src</span>&#x000A;      <span class="vi">@paragraphs</span> <span class="o">=</span> <span class="o">[]</span>&#x000A;      <span class="n">lines</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>&#x000A;</code>
-    </figure>
-    <section><p>splitting stuff into lines and setting cursor into initial position</p></section>
-    <figure>
-      <ol>
-        <li>55</li>
-        <li>56</li>
-        <li>57</li>
-        <li>58</li>
-      </ol>
-      <code>      <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>&#x000A;      <span class="n">source_lines_counter</span> <span class="o">=</span> <span class="mi">0</span>&#x000A;      <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">lines</span><span class="o">.</span><span class="n">size</span>&#x000A;        <span class="n">comment_lines</span> <span class="o">=</span> <span class="o">[]</span>&#x000A;</code>
-    </figure>
-    <section><p>get single line comments</p></section>
-    <figure>
-      <ol>
-        <li>60</li>
-        <li>61</li>
-        <li>62</li>
-        <li>63</li>
-        <li>64</li>
-        <li>65</li>
-      </ol>
-      <code>        <span class="k">if</span> <span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:single_line</span><span class="o">]</span>&#x000A;          <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&amp;&amp;</span> <span class="n">lines</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=~</span> <span class="sr">/^\s*</span><span class="si">#{</span><span class="no">Regexp</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:single_line</span><span class="o">]</span><span class="p">)</span><span class="si">}</span><span class="sr">(.*)/</span>&#x000A;            <span class="n">comment_lines</span> <span class="o">&lt;&lt;</span> <span class="vg">$1</span>&#x000A;            <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>&#x000A;          <span class="k">end</span>&#x000A;        <span class="k">end</span>&#x000A;</code>
-    </figure>
-    <section><p>getting multiline comments</p></section>
-    <figure>
-      <ol>
-        <li>68</li>
-        <li>69</li>
-        <li>70</li>
-        <li>71</li>
-        <li>72</li>
-        <li>73</li>
-        <li>74</li>
-        <li>75</li>
-        <li>76</li>
-        <li>77</li>
-        <li>78</li>
-      </ol>
-      <code>        <span class="k">if</span> <span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:multiline</span><span class="o">]</span>&#x000A;          <span class="n">begin_symbol</span> <span class="o">=</span> <span class="no">Regexp</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:multiline</span><span class="o">][</span><span class="ss">:begin</span><span class="o">]</span><span class="p">)</span>&#x000A;          <span class="n">end_symbol</span> <span class="o">=</span> <span class="no">Regexp</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:multiline</span><span class="o">][</span><span class="ss">:end</span><span class="o">]</span><span class="p">)</span>&#x000A;          <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&amp;&amp;</span> <span class="n">lines</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=~</span> <span class="sr">/\s*</span><span class="si">#{</span><span class="n">begin_symbol</span><span class="si">}</span><span class="sr">/</span>&#x000A;            <span class="k">begin</span>&#x000A;              <span class="n">match</span> <span class="o">=</span> <span class="n">lines</span><span class="o">[</span><span class="n">i</span><span class="o">].</span><span class="n">match</span><span class="sr"> /\s*(</span><span class="si">#{</span><span class="n">begin_symbol</span><span class="si">}</span><span class="sr">)?\s?(.*?)(</span><span class="si">#{</span><span class="n">end_symbol</span><span class="si">}</span><span class="sr">|$)/</span>&#x000A;              <span class="n">comment_lines</span> <span class="o">&lt;&lt;</span> <span class="n">match</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>&#x000A;              <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>&#x000A;            <span class="k">end</span> <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="p">(</span><span class="n">lines</span><span class="o">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="o">]</span> <span class="o">=~</span> <span class="sr">/\s*</span><span class="si">#{</span><span class="n">end_symbol</span><span class="si">}</span><span class="sr">/</span><span class="p">)</span>&#x000A;          <span class="k">end</span>&#x000A;        <span class="k">end</span>&#x000A;</code>
-    </figure>
-    <section><p>getting source lines</p></section>
-    <figure>
-      <ol>
-        <li>81</li>
-        <li>82</li>
-        <li>83</li>
-        <li>84</li>
-        <li>85</li>
-        <li>86</li>
-        <li>87</li>
-        <li>88</li>
-        <li>89</li>
-        <li>90</li>
-        <li>91</li>
-        <li>92</li>
-      </ol>
-      <code>        <span class="n">source_lines</span> <span class="o">=</span> <span class="o">[]</span>&#x000A;        <span class="n">starting_line</span> <span class="o">=</span> <span class="k">if</span> <span class="n">options</span><span class="o">[</span><span class="ss">:do_not_count_comment_lines</span><span class="o">]</span>&#x000A;          <span class="n">source_lines_counter</span>&#x000A;        <span class="k">else</span>&#x000A;          <span class="n">i</span>&#x000A;        <span class="k">end</span>&#x000A;&#x000A;        <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">is_comment</span><span class="p">(</span><span class="n">lines</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span>&#x000A;          <span class="n">source_lines</span> <span class="o">&lt;&lt;</span> <span class="n">lines</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>&#x000A;          <span class="n">source_lines_counter</span> <span class="o">+=</span> <span class="mi">1</span>&#x000A;          <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>&#x000A;        <span class="k">end</span>&#x000A;</code>
-    </figure>
-    <section><p>post-processing: stripping comments and removing empty strings from beginnings and ends</p></section>
-    <figure>
-      <ol>
-        <li>95</li>
-        <li>96</li>
-      </ol>
-      <code>        <span class="n">starting_line</span> <span class="o">+=</span> <span class="n">postprocess_source</span><span class="p">(</span><span class="n">source_lines</span><span class="p">)</span>&#x000A;        <span class="n">postprocess_comments</span><span class="p">(</span><span class="n">comment_lines</span><span class="p">)</span>&#x000A;</code>
-    </figure>
-    <section><p>clear comment lines if that&rsquo;s commented out code</p></section>
-    <figure>
-      <ol>
-        <li>98</li>
-      </ol>
-      <code>        <span class="n">comment_lines</span><span class="o">.</span><span class="n">clear</span> <span class="k">if</span> <span class="n">comment_lines</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=~</span> <span class="sr">/^:code:$/</span>&#x000A;</code>
-    </figure>
-    <section><p>if we have comments or source</p></section>
-    <figure>
-      <ol>
-        <li>101</li>
-        <li>102</li>
-        <li>103</li>
-        <li>104</li>
-        <li>105</li>
-        <li>106</li>
-        <li>107</li>
-        <li>108</li>
-        <li>109</li>
-      </ol>
-      <code>        <span class="k">if</span> <span class="n">comment_lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">source_lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span>&#x000A;          <span class="vi">@paragraphs</span> <span class="o">&lt;&lt;</span> <span class="no">Paragraph</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">source_lines</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">),</span>&#x000A;                                       <span class="n">comment_lines</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">),</span>&#x000A;                                       <span class="n">starting_line</span><span class="p">,</span>&#x000A;                                       <span class="n">source_type</span><span class="p">,</span>&#x000A;                                       <span class="n">options</span><span class="p">)</span>&#x000A;        <span class="k">end</span>&#x000A;      <span class="k">end</span>&#x000A;    <span class="k">end</span>&#x000A;</code>
-    </figure>
-    <section><p>Rest of the file quite less self-explanatory</p></section>
-    <figure>
-      <ol>
-        <li>112</li>
-        <li>113</li>
-        <li>114</li>
-        <li>115</li>
-        <li>116</li>
-        <li>117</li>
-        <li>118</li>
-        <li>119</li>
-      </ol>
-      <code>    <span class="k">def</span> <span class="nf">source</span>&#x000A;      <span class="vi">@source</span>&#x000A;    <span class="k">end</span>&#x000A;&#x000A;  <span class="kp">protected</span>&#x000A;    <span class="k">def</span> <span class="nf">comment_symbols</span>&#x000A;      <span class="k">super</span> <span class="o">||</span> <span class="p">{}</span>&#x000A;    <span class="k">end</span>&#x000A;</code>
-    </figure>
-    <section>
-      <p>Method for checking source for comments. Used for getting consequent non-comments
-      into resulting stream</p>
-    </section>
-    <figure>
-      <ol>
-        <li>123</li>
-        <li>124</li>
-      </ol>
-      <code>    <span class="k">def</span> <span class="nf">is_comment</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>&#x000A;      <span class="n">result</span> <span class="o">=</span> <span class="kp">false</span>&#x000A;</code>
-    </figure>
-    <section><p>If source supports single line comments</p></section>
-    <figure>
-      <ol>
-        <li>126</li>
-        <li>127</li>
-        <li>128</li>
-      </ol>
-      <code>      <span class="k">if</span> <span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:single_line</span><span class="o">]</span>&#x000A;        <span class="n">result</span> <span class="o">||=</span> <span class="n">line</span> <span class="o">=~</span> <span class="sr">/^\s*</span><span class="si">#{</span><span class="no">Regexp</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:single_line</span><span class="o">]</span><span class="p">)</span><span class="si">}</span><span class="sr">/</span>&#x000A;      <span class="k">end</span>&#x000A;</code>
-    </figure>
-    <section><p>If source supports multi-line comments</p></section>
-    <figure>
-      <ol>
-        <li>131</li>
-        <li>132</li>
-        <li>133</li>
-        <li>134</li>
-        <li>135</li>
-      </ol>
-      <code>      <span class="k">if</span> <span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:multiline</span><span class="o">]</span>&#x000A;        <span class="n">result</span> <span class="o">||=</span> <span class="n">line</span> <span class="o">=~</span> <span class="sr">/^\s*</span><span class="si">#{</span><span class="no">Regexp</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">comment_symbols</span><span class="o">[</span><span class="ss">:multiline</span><span class="o">][</span><span class="ss">:begin</span><span class="o">]</span><span class="p">)</span><span class="si">}</span><span class="sr">/</span>&#x000A;      <span class="k">end</span>&#x000A;      <span class="n">result</span>&#x000A;    <span class="k">end</span>&#x000A;</code>
-    </figure>
-    <section>
-      <p>Removes trailing spaces from comments, also removes first space from comments,
-      but only if there&rsquo;s only one space there (not to mess with markdown)</p>
-    </section>
-    <figure>
-      <ol>
-        <li>141</li>
-        <li>142</li>
-        <li>143</li>
-        <li>144</li>
-        <li>145</li>
-      </ol>
-      <code>    <span class="k">def</span> <span class="nf">postprocess_comments</span><span class="p">(</span><span class="n">comment_lines</span><span class="p">)</span>&#x000A;      <span class="n">comment_lines</span><span class="o">.</span><span class="n">map!</span> <span class="p">{</span><span class="o">|</span><span class="n">l</span><span class="o">|</span> <span class="n">l</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sr">/^\s([^\s])/</span><span class="p">,</span> <span class="s1">&#39;\\1&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rstrip</span> <span class="p">}</span>&#x000A;      <span class="n">comment_lines</span><span class="o">.</span><span class="n">delete_at</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">while</span> <span class="n">comment_lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">comment_lines</span><span class="o">[</span><span class="mi">0</span><span class="o">].</span><span class="n">empty?</span>&#x000A;      <span class="n">comment_lines</span><span class="o">.</span><span class="n">delete_at</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">while</span> <span class="n">comment_lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">comment_lines</span><span class="o">[-</span><span class="mi">1</span><span class="o">].</span><span class="n">empty?</span>&#x000A;    <span class="k">end</span>&#x000A;</code>
-    </figure>
-    <section>
-      <p>Removes blank lines from beginning and end of source lines
-      returns starting offset for source (number of lines deleted from beginning)</p>
-    </section>
-    <figure>
-      <ol>
-        <li>150</li>
-        <li>151</li>
-        <li>152</li>
-        <li>153</li>
-        <li>154</li>
-        <li>155</li>
-        <li>156</li>
-        <li>157</li>
-        <li>158</li>
-        <li>159</li>
-        <li>160</li>
-        <li>161</li>
-        <li>162</li>
-        <li>163</li>
-      </ol>
-      <code>    <span class="k">def</span> <span class="nf">postprocess_source</span><span class="p">(</span><span class="n">source_lines</span><span class="p">)</span>&#x000A;      <span class="n">starting_offset</span> <span class="o">=</span> <span class="mi">0</span>&#x000A;      <span class="k">while</span> <span class="n">source_lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">source_lines</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=~</span> <span class="sr">/^\s*$/</span>&#x000A;        <span class="n">starting_offset</span> <span class="o">+=</span> <span class="mi">1</span>&#x000A;        <span class="n">source_lines</span><span class="o">.</span><span class="n">delete_at</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>&#x000A;      <span class="k">end</span>&#x000A;&#x000A;      <span class="k">while</span> <span class="n">source_lines</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">source_lines</span><span class="o">[-</span><span class="mi">1</span><span class="o">]</span> <span class="o">=~</span> <span class="sr">/^\s*$/</span>&#x000A;        <span class="n">source_lines</span><span class="o">.</span><span class="n">delete_at</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>&#x000A;      <span class="k">end</span>&#x000A;      <span class="n">starting_offset</span>&#x000A;    <span class="k">end</span>&#x000A;  <span class="k">end</span>&#x000A;<span class="k">end</span>&#x000A;</code>
-    </figure>
+    <div class='document md'>
+      <!--
+        metadata:
+        {}
+      -->
+      <section>
+        <label>README.md</label>
+        <h1>Murdoc — a ruby documenter</h1>
+
+<p>Murdoc is a doccu-style annotated documentation generator.</p>
+
+<h2>Rationale</h2>
+
+<p>Sometimes it makes sense to create a guide, a story told by code and comments side by side. Murdoc generates a pretty html for such a story.</p>
+
+<h2>Example</h2>
+
+<p>Demo at <a href="http://jsus.github.io/murdoc">GH.pages</a>.</p>
+
+<p>See also:</p>
+
+<ul>
+<li><a href="http://jsus.github.io/murdoc/docs">example</a> of integration with <a href="http://github.com/jsus/jsus">jsus</a></li>
+</ul>
+
+
+<h2>Usage</h2>
+
+<ul>
+<li><code>gem install murdoc</code></li>
+<li><code>murdoc &lt;input file&gt; &lt;output html file&gt;</code> <strong>or</strong></li>
+<li><code>murdoc &lt;input file 1&gt; &lt;input file 2&gt; ... &lt;output html file&gt;</code></li>
+</ul>
+
+
+<h2>Dependencies</h2>
+
+<ul>
+<li>Haml</li>
+<li>Either RDiscount (for MRI rubies) or Kramdown (for non-mri rubies)</li>
+</ul>
+
+
+<h2>License</h2>
+
+<p>Public domain, see UNLICENSE file.</p>
+
+<h2>See also</h2>
+
+<ul>
+<li><a href="http://jashkenas.github.io/docco/">docco.coffee</a></li>
+<li><a href="http://rtomayko.github.io/rocco/">Rocco</a></li>
+</ul>
+      </section>
+    </div>
+    <div class='document ruby'>
+      <!--
+        metadata:
+        {}
+      -->
+      <section>
+        <label>murdoc.rb</label>
+        <p>Murdoc is <em>yet another</em> Doccu-like documentation generator.
+          Murdoc reads ruby source files and produces annotated html documentation.</p>
+          
+          <p>See also: <a href="%22http://jashkenas.github.com/docco/%22">Docco</a>, <a href="%22http://rtomayko.github.com/rocco%22">Rocco</a></p>
+      </section>
+      <figure>
+        <ol>
+          <li>12</li>
+        </ol>
+        <code><span class="k">module</span> <span class="nn">Murdoc</span>&#x000A;</code>
+      </figure>
+      <section>
+        <p><code>AnnotatedFile</code> is a struct we pass into our templates</p>
+      </section>
+      <figure>
+        <ol>
+          <li>14</li>
+        </ol>
+        <code>  <span class="no">AnnotatedFile</span> <span class="o">=</span> <span class="no">Struct</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:filename</span><span class="p">,</span> <span class="ss">:metadata</span><span class="p">,</span> <span class="ss">:source</span><span class="p">,</span> <span class="ss">:source_type</span><span class="p">,</span> <span class="ss">:paragraphs</span><span class="p">,</span> <span class="ss">:formatted_paragraphs</span><span class="p">)</span>&#x000A;</code>
+      </figure>
+      <section>
+        <p><code>Murdoc.annotate</code> arguments are gathered from CLI utility</p>
+
+<p><code>highlight</code> regulates syntax highlighting and <code>do_not_count_comment_lines</code> flag
+toggles counting comment lines towards line numbering in the output.</p>
+      </section>
+      <figure>
+        <ol>
+          <li>20</li>
+          <li>21</li>
+          <li>22</li>
+          <li>23</li>
+          <li>24</li>
+          <li>25</li>
+          <li>26</li>
+          <li>27</li>
+          <li>28</li>
+          <li>29</li>
+        </ol>
+        <code>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">annotate</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">highlight</span> <span class="o">=</span> <span class="kp">true</span><span class="p">,</span> <span class="n">do_not_count_comment_lines</span> <span class="o">=</span> <span class="kp">false</span><span class="p">)</span>&#x000A;    <span class="n">filename</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">expand_path</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>&#x000A;    <span class="n">annotator</span> <span class="o">=</span> <span class="no">Annotator</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="kp">nil</span><span class="p">,</span> <span class="n">do_not_count_comment_lines</span><span class="p">)</span>&#x000A;    <span class="no">AnnotatedFile</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span>&#x000A;        <span class="n">annotator</span><span class="o">.</span><span class="n">metadata</span><span class="p">,</span>&#x000A;        <span class="n">annotator</span><span class="o">.</span><span class="n">source</span><span class="p">,</span>&#x000A;        <span class="n">annotator</span><span class="o">.</span><span class="n">source_type</span><span class="p">,</span>&#x000A;        <span class="n">annotator</span><span class="o">.</span><span class="n">paragraphs</span><span class="p">,</span>&#x000A;        <span class="n">annotator</span><span class="o">.</span><span class="n">paragraphs</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span><span class="o">|</span><span class="nb">p</span><span class="o">|</span> <span class="no">FormattedParagraph</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="nb">p</span><span class="p">,</span> <span class="n">highlight</span><span class="p">)</span> <span class="p">})</span>&#x000A;  <span class="k">end</span>&#x000A;</code>
+      </figure>
+      <section>
+        <p>Generate a single file story</p>
+      </section>
+      <figure>
+        <ol>
+          <li>32</li>
+          <li>33</li>
+          <li>34</li>
+          <li>35</li>
+          <li>36</li>
+          <li>37</li>
+          <li>38</li>
+          <li>39</li>
+          <li>40</li>
+        </ol>
+        <code>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">generate_from_file</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{})</span>&#x000A;    <span class="n">options</span> <span class="o">=</span> <span class="n">default_options</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>&#x000A;    <span class="n">annotator</span> <span class="o">=</span> <span class="no">Annotator</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="kp">nil</span><span class="p">)</span>&#x000A;    <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="s2">&quot;w+&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span>&#x000A;      <span class="n">annotated_file</span> <span class="o">=</span> <span class="n">annotate</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">options</span><span class="o">[</span><span class="ss">:highlight</span><span class="o">]</span><span class="p">,</span> <span class="n">options</span><span class="o">[</span><span class="ss">:do_not_count_comment_lines</span><span class="o">]</span><span class="p">)</span>&#x000A;      <span class="n">f</span><span class="o">.</span><span class="n">puts</span> <span class="no">Renderer</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">options</span><span class="o">[</span><span class="ss">:template</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="ss">:annotated_file</span> <span class="o">=&gt;</span> <span class="n">annotated_file</span><span class="p">,</span>&#x000A;                                                     <span class="ss">:stylesheet</span> <span class="o">=&gt;</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">options</span><span class="o">[</span><span class="ss">:stylesheet</span><span class="o">]</span><span class="p">))</span>&#x000A;    <span class="k">end</span>&#x000A;  <span class="k">end</span>&#x000A;</code>
+      </figure>
+      <section>
+        <p>&hellip; or use multiple files</p>
+      </section>
+      <figure>
+        <ol>
+          <li>43</li>
+          <li>44</li>
+          <li>45</li>
+          <li>46</li>
+          <li>47</li>
+          <li>48</li>
+          <li>49</li>
+          <li>50</li>
+        </ol>
+        <code>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">generate_from_multiple_files</span><span class="p">(</span><span class="n">input_files</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{})</span>&#x000A;    <span class="n">options</span> <span class="o">=</span> <span class="n">default_options_for_multiple_files</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>&#x000A;    <span class="n">annotated_files</span> <span class="o">=</span> <span class="n">input_files</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span><span class="o">|</span><span class="n">fn</span><span class="o">|</span> <span class="n">annotate</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">options</span><span class="o">[</span><span class="ss">:highlight</span><span class="o">]</span><span class="p">,</span> <span class="n">options</span><span class="o">[</span><span class="ss">:do_not_count_comment_lines</span><span class="o">]</span><span class="p">)</span> <span class="p">}</span>&#x000A;    <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="s2">&quot;w+&quot;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span>&#x000A;      <span class="n">f</span><span class="o">.</span><span class="n">puts</span> <span class="no">Renderer</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">options</span><span class="o">[</span><span class="ss">:template</span><span class="o">]</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="ss">:annotated_files</span> <span class="o">=&gt;</span> <span class="n">annotated_files</span><span class="p">,</span>&#x000A;                                                     <span class="ss">:stylesheet</span> <span class="o">=&gt;</span> <span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">options</span><span class="o">[</span><span class="ss">:stylesheet</span><span class="o">]</span><span class="p">))</span>&#x000A;    <span class="k">end</span>&#x000A;  <span class="k">end</span>&#x000A;</code>
+      </figure>
+      <section>
+        <p>Rest is self-explanatory</p>
+      </section>
+      <figure>
+        <ol>
+          <li>54</li>
+          <li>55</li>
+          <li>56</li>
+          <li>57</li>
+          <li>58</li>
+          <li>59</li>
+          <li>60</li>
+          <li>61</li>
+          <li>62</li>
+          <li>63</li>
+          <li>64</li>
+          <li>65</li>
+          <li>66</li>
+          <li>67</li>
+          <li>68</li>
+          <li>69</li>
+          <li>70</li>
+          <li>71</li>
+          <li>72</li>
+          <li>73</li>
+          <li>74</li>
+          <li>75</li>
+          <li>76</li>
+          <li>77</li>
+          <li>78</li>
+          <li>79</li>
+          <li>80</li>
+          <li>81</li>
+          <li>82</li>
+          <li>83</li>
+          <li>84</li>
+          <li>85</li>
+        </ol>
+        <code>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">default_options</span>&#x000A;    <span class="vi">@options</span> <span class="o">||=</span> <span class="p">{</span>&#x000A;      <span class="ss">template</span><span class="p">:</span>   <span class="s2">&quot;</span><span class="si">#{</span><span class="n">markup_dir</span><span class="si">}</span><span class="s2">/template.haml&quot;</span><span class="p">,</span>&#x000A;      <span class="ss">stylesheet</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">markup_dir</span><span class="si">}</span><span class="s2">/stylesheet.css&quot;</span><span class="p">,</span>&#x000A;      <span class="ss">highlight</span><span class="p">:</span> <span class="kp">true</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="k">end</span>&#x000A;&#x000A;  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">default_options_for_multiple_files</span>&#x000A;    <span class="vi">@options</span> <span class="o">||=</span> <span class="p">{</span>&#x000A;      <span class="ss">template</span><span class="p">:</span>   <span class="s2">&quot;</span><span class="si">#{</span><span class="n">markup_dir</span><span class="si">}</span><span class="s2">/template_multifile.haml&quot;</span><span class="p">,</span>&#x000A;      <span class="ss">stylesheet</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">markup_dir</span><span class="si">}</span><span class="s2">/stylesheet.css&quot;</span><span class="p">,</span>&#x000A;      <span class="ss">highlight</span><span class="p">:</span> <span class="kp">true</span>&#x000A;    <span class="p">}</span>&#x000A;  <span class="k">end</span>&#x000A;&#x000A;  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">markup_dir</span>&#x000A;    <span class="no">File</span><span class="o">.</span><span class="n">expand_path</span><span class="p">(</span><span class="s2">&quot;../..&quot;</span><span class="p">,</span> <span class="bp">__FILE__</span><span class="p">)</span><span class="o">+</span> <span class="s2">&quot;/markup&quot;</span>&#x000A;  <span class="k">end</span>&#x000A;<span class="k">end</span>&#x000A;&#x000A;<span class="nb">require</span> <span class="s2">&quot;murdoc/annotator&quot;</span>&#x000A;<span class="nb">require</span> <span class="s2">&quot;murdoc/scanner&quot;</span>&#x000A;<span class="nb">require</span> <span class="s2">&quot;murdoc/paragraph&quot;</span>&#x000A;<span class="nb">require</span> <span class="s2">&quot;murdoc/formatted_paragraph&quot;</span>&#x000A;<span class="nb">require</span> <span class="s2">&quot;murdoc/renderer&quot;</span>&#x000A;<span class="nb">require</span> <span class="s2">&quot;murdoc/languages/base&quot;</span>&#x000A;<span class="nb">require</span> <span class="s2">&quot;murdoc/languages/html&quot;</span>&#x000A;<span class="nb">require</span> <span class="s2">&quot;murdoc/languages/coffeescript&quot;</span>&#x000A;<span class="nb">require</span> <span class="s2">&quot;murdoc/languages/javascript&quot;</span>&#x000A;<span class="nb">require</span> <span class="s2">&quot;murdoc/languages/ruby&quot;</span>&#x000A;<span class="nb">require</span> <span class="s2">&quot;murdoc/languages/markdown&quot;</span>&#x000A;</code>
+      </figure>
+    </div>
   </body>
 </html>
