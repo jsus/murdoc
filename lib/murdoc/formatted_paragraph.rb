@@ -3,7 +3,7 @@ module Murdoc
   class FormattedParagraph
     extend Forwardable
 
-    def_delegators :paragraph, :annotation, :source, :starting_line, :source_type
+    def_delegators :paragraph, :annotation, :source, :starting_line, :source_type, :metadata
 
     attr_reader :paragraph
     attr_reader :highlight

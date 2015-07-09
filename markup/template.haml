@@ -9,6 +9,9 @@
         metadata:
         = annotated_file.metadata.inspect
       - annotated_file.formatted_paragraphs.each do |p|
+        /
+          paragraph metadata:
+          = p.metadata.inspect
         - unless p.annotation.empty?
           %section= p.formatted_annotation
         - unless p.source.empty?

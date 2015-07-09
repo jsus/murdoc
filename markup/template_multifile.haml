@@ -10,6 +10,9 @@
           metadata:
           = af.metadata.inspect
         - af.formatted_paragraphs.each_with_index do |p, j|
+          /
+            paragraph metadata:
+            = p.metadata.inspect
           %section
             - if j == 0
               %label= File.basename(af.filename)

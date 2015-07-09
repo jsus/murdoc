@@ -34,9 +34,9 @@ module Murdoc
     end
 
     def extract_metadata!
-      if paragraphs.count > 0 && paragraphs[0].annotation =~ /\A\s*---\n(.*?)\n\s*---\n?(.*)/m
+      if paragraphs.count > 0 && paragraphs[0].annotation =~ /\A\s*---\n(.*?)\n\s*---\n?(.*)\z/m
         paragraphs[0].annotation = $2
-        self.metadata = try_load_yaml($1)
+        self.metadata = Murdoc.try_load_yaml($1)
       else
         self.metadata = {}
       end
@@ -48,12 +48,6 @@ module Murdoc
 
     def source_type=(source_type)
       @source_type = (source_type || :base).to_sym
-    end
-
-    def try_load_yaml(yaml)
-      YAML.load(yaml)
-    rescue => e
-      nil
     end
   end
 end

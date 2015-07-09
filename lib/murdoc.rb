@@ -151,6 +151,13 @@ module Murdoc
   def self.markup_dir
     File.expand_path("../..", __FILE__)+ "/markup"
   end
+
+
+  def self.try_load_yaml(yaml)
+    YAML.load(yaml)
+  rescue => e
+    nil
+  end
 end
 
 require "murdoc/annotator"
