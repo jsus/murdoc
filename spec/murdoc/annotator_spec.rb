@@ -126,7 +126,7 @@ describe Murdoc::Annotator do
   end
 
   describe "metadata extraction" do
-    subject { described_class.new("---\nfoo: 'bar'\nbaz: 'foobar'\n---\nhello, world!", nil) }
+    subject { described_class.new("# ---\n# foo: 'bar'\n# baz: 'foobar'\n# ---\nhello, world!", :ruby) }
     it "extracts and parses yaml blocks in the beginning of the file" do
       subject.metadata.should == {
         'foo' => 'bar',
@@ -134,10 +134,8 @@ describe Murdoc::Annotator do
       }
     end
 
-    it "doesn't count metadata block in line numbering" do
-      paragraph = subject.paragraphs[0]
-      paragraph.starting_line.should == 0
-      paragraph.source.should == 'hello, world!'
+    it "cuts metadata from the paragraph annotation text" do
+      subject.paragraphs[0].annotation.should_not include('---')
     end
 
     it "doesn't raise on invalid yaml" do

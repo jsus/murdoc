@@ -13,7 +13,7 @@ module Murdoc
     # `source` string contains annotated source code
     # `source_type` is one of supported source types (currently `[:ruby, :javascript]`)
     def initialize(source, source_type, do_not_count_comment_lines = false)
-      self.source, self.metadata = extract_metadata(source)
+      self.source = source
       self.source_type = source_type
       self.language = Languages.get(source_type)
       self.paragraphs = if !language.annotation_only?
@@ -21,6 +21,7 @@ module Murdoc
       else
         [Paragraph.new('', self.source, 0, nil)]
       end
+      extract_metadata!
     end
 
 
@@ -32,11 +33,12 @@ module Murdoc
                do_not_count_comment_lines)
     end
 
-    def extract_metadata(source)
-      if source =~ /\A---\n(.*?)\n---\n(.*)\z/m && (metadata = try_load_yaml($1))
-        [$2, metadata]
+    def extract_metadata!
+      if paragraphs.count > 0 && paragraphs[0].annotation =~ /\A\s*---\n(.*?)\n\s*---\n?(.*)/m
+        paragraphs[0].annotation = $2
+        self.metadata = try_load_yaml($1)
       else
-        [source, {}]
+        self.metadata = {}
       end
     end
 
